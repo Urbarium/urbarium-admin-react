@@ -14,3 +14,5 @@ npm-debug.log
 
 # OS files
 *.DS_Store
+.firebase/
+firebase-debug.log
