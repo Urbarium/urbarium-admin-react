@@ -8,6 +8,15 @@
   dependencies:
     prop-types "^15.5.10"
 
+"@atlaskit/analytics-next@^3.1.2":
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/analytics-next/-/analytics-next-3.2.1.tgz#c6c3bafc6d5a4160dd8d7fe4be5b50e2c079819d"
+  integrity sha512-NHhis0wkzBHPnZKewAfBS5p8khiXoVnOA+00iKh1Mo4EIiVdgc4VXeFp97nb4hhyFcBguCoY3Zs6V1kta48nnw==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    babel-runtime "^6.26.0"
+    prop-types "^15.5.10"
+
 "@atlaskit/analytics@^4.0.5":
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/@atlaskit/analytics/-/analytics-4.0.5.tgz#8c763919c82c70632a7e4880a314b59eee15148e"
@@ -106,11 +115,36 @@
     react-transition-group "^2.2.1"
     uuid "^3.1.0"
 
+"@atlaskit/form@^5.1.3":
+  version "5.1.3"
+  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-5.1.3.tgz#7c7c25df257300e8074ac6c7ee0668dfd0db2475"
+  integrity sha512-CCXgyAMGT7QsXW7sCzCx9zo3giwDvq1Wgpi2V2gCBa6fncTldXkMM4F977TpUjl2TTXABz4JC/NIkoVlEYKX2w==
+  dependencies:
+    "@atlaskit/icon" "^16.0.0"
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
+    final-form "^4.10.0"
+    final-form-focus "^1.1.0"
+    memoize-one "^3.0.1"
+    shallow-equal "^1.0.0"
+    tiny-invariant "^0.0.3"
+    uuid "^3.1.0"
+
 "@atlaskit/icon@^13.3.1", "@atlaskit/icon@^13.4.0":
   version "13.4.0"
   resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-13.4.0.tgz#567d14179703361b7c62246068d80c5bf1f56cda"
   dependencies:
     "@atlaskit/theme" "^6.0.1"
+    babel-runtime "^6.26.0"
+    uuid "^3.1.0"
+
+"@atlaskit/icon@^16.0.0":
+  version "16.0.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-16.0.1.tgz#c8ad9cffff8f1e116dc5bfc31f98d6cf788eb6bb"
+  integrity sha512-QTgVj+Zj0zYvoH7pjFRUuAMsjylwIHu5s5MNL5Im+EkgHEI4xNTpsJTKP2aCY8+NYkByqPAXi5kiglJFNd8gEQ==
+  dependencies:
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
     babel-runtime "^6.26.0"
     uuid "^3.1.0"
 
@@ -239,10 +273,28 @@
     babel-runtime "^6.26.0"
     react-transition-group "^2.2.1"
 
+"@atlaskit/textfield@^0.1.6":
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/@atlaskit/textfield/-/textfield-0.1.6.tgz#4d606da205278fa45f75a603ce8da4195acc81b1"
+  integrity sha512-kkLuYJcahTyJXlF5BaUXFeIUV3hLE2kCcpVw2WTE+/q6RI8z1+9gpi0DkzVHx5yrRdt5Wb4OourfUxh9a+hRqA==
+  dependencies:
+    "@atlaskit/analytics-next" "^3.1.2"
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
+
 "@atlaskit/theme@^6.0.1":
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-6.0.1.tgz#1fa4e1f46aebf815535a91eb01eefee175d5edb6"
   dependencies:
+    prop-types "^15.5.10"
+
+"@atlaskit/theme@^7.0.1":
+  version "7.0.4"
+  resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-7.0.4.tgz#4f9a7568633a7e18bdcc121627e32916ee9ada66"
+  integrity sha512-Pk7x8gwVyeEc7y7hhjeKfu26ykXl1CJfFSoLuxCIrELzNnx4LFxfAFmcoHgr09c8/nsT57vtxmcnmKkZkEJtJA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    exenv "^1.2.2"
     prop-types "^15.5.10"
 
 "@atlaskit/tooltip@^12.0.10":
@@ -310,6 +362,13 @@
 "@babel/parser@7.0.0-beta.51":
   version "7.0.0-beta.51"
   resolved "https://registry.yarnpkg.com/@babel/parser/-/parser-7.0.0-beta.51.tgz#27cec2df409df60af58270ed8f6aa55409ea86f6"
+
+"@babel/runtime@^7.0.0", "@babel/runtime@^7.3.1":
+  version "7.3.1"
+  resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.3.1.tgz#574b03e8e8a9898eaf4a872a92ea20b7846f6f2a"
+  integrity sha512-7jGW8ppV0ant637pIqAcFfQDDH1orEPGJb8aXfUozuCU3QqX7rX4DA8iwrbPrR1hcH0FTTHz47yQnk+bl5xHQA==
+  dependencies:
+    regenerator-runtime "^0.12.0"
 
 "@babel/template@7.0.0-beta.51":
   version "7.0.0-beta.51"
@@ -3185,6 +3244,18 @@ fill-range@^4.0.0:
     is-number "^3.0.0"
     repeat-string "^1.6.1"
     to-regex-range "^2.1.0"
+
+final-form-focus@^1.1.0:
+  version "1.1.2"
+  resolved "https://registry.yarnpkg.com/final-form-focus/-/final-form-focus-1.1.2.tgz#8ea5c4bd802e220cebaa47a587bb0be164eb6806"
+  integrity sha512-Gd+Bd2Ll7ijo3/sd6kJ/bwLkhc2bUJPxTON6fIqee/008EJpACWhT+zoWCm9q6NcfMcWRS+Sp5ikRX8iqdXeGQ==
+
+final-form@^4.10.0:
+  version "4.11.1"
+  resolved "https://registry.yarnpkg.com/final-form/-/final-form-4.11.1.tgz#cf84a995a75140727c3676647d7cdb858869cb22"
+  integrity sha512-GuRAcbUE+vs/IFcvsRxMAaz0MQp5QaJKXU8FnNf4qlsVDuKoAyvDJGvvDsSTSgQDixavoxPmqwzJOVXrf0Hw1w==
+  dependencies:
+    "@babel/runtime" "^7.3.1"
 
 finalhandler@1.1.1:
   version "1.1.1"
@@ -6263,9 +6334,10 @@ react-popper@^1.0.0:
     typed-styles "^0.0.5"
     warning "^3.0.0"
 
-react-router-dom@^4.2.2:
+react-router-dom@^4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-router-dom/-/react-router-dom-4.3.1.tgz#4c2619fc24c4fa87c9fd18f4fb4a43fe63fbd5c6"
+  integrity sha512-c/MlywfxDdCp7EnB7YfPMOfMD3tOtIjrQlj/CKfNMBxdmpJP8xcz5P/UAFn3JbnQCNUxsHyVVqllF9LhgVyFCA==
   dependencies:
     history "^4.7.2"
     invariant "^2.2.4"
@@ -6274,9 +6346,10 @@ react-router-dom@^4.2.2:
     react-router "^4.3.1"
     warning "^4.0.1"
 
-react-router@^3.2.0:
+react-router@^3.2.1:
   version "3.2.1"
   resolved "https://registry.yarnpkg.com/react-router/-/react-router-3.2.1.tgz#b9a3279962bdfbe684c8bd0482b81ef288f0f244"
+  integrity sha512-SXkhC0nr3G0ltzVU07IN8jYl0bB6FsrDIqlLC9dK3SITXqyTJyM7yhXlUqs89w3Nqi5OkXsfRUeHX+P874HQrg==
   dependencies:
     create-react-class "^15.5.1"
     history "^3.0.0"
@@ -6488,6 +6561,11 @@ regenerate@^1.2.1:
 regenerator-runtime@^0.11.0:
   version "0.11.1"
   resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.11.1.tgz#be05ad7f9bf7d22e056f9726cee5017fbf19e2e9"
+
+regenerator-runtime@^0.12.0:
+  version "0.12.1"
+  resolved "https://registry.yarnpkg.com/regenerator-runtime/-/regenerator-runtime-0.12.1.tgz#fa1a71544764c036f8c49b13a08b2594c9f8a0de"
+  integrity sha512-odxIc1/vDlo4iZcfXqRYFj0vpXFNoGdKMAUieAlFYO6m/nl5e9KR/beGf41z4a1FI+aQgtjhuaSlDxQ0hmkrHg==
 
 regenerator-transform@^0.10.0:
   version "0.10.1"
@@ -6904,6 +6982,11 @@ sha.js@^2.4.0, sha.js@^2.4.8:
   dependencies:
     inherits "^2.0.1"
     safe-buffer "^5.0.1"
+
+shallow-equal@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/shallow-equal/-/shallow-equal-1.1.0.tgz#cc022f030dcba0d1c198abf658a3c6c744e171ca"
+  integrity sha512-0SW1nWo1hnabO62SEeHsl8nmTVVEzguVWZCj5gaQrgWAxz/BaCja4OWdJBWLVPDxdtE/WU7c98uUCCXyPHSCvw==
 
 shallowequal@^1.1.0:
   version "1.1.0"
