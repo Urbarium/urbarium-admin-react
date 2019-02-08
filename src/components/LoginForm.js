@@ -12,8 +12,8 @@ const LoginForm = () => (
         <Field name="username" defaultValue="" label="User name" isRequired>
           {({ fieldProps }) => <TextField {...fieldProps} />}
         </Field>
-        <Field name="password" defaultValue="" label="Password" isRequired>
-          {({ fieldProps }) => <TextField {...fieldProps} />}
+        <Field name="password" defaultValue="" label="Password"isRequired>
+          {({ fieldProps }) => <TextField type="password" {...fieldProps} />}
         </Field>
         <Button type="submit" appearance="primary">
           Submit
