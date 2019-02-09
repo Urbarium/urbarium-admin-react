@@ -33,7 +33,6 @@ const reactReduxProps = {
   dispatch: store.dispatch
 }
 
-
 const AppRoot = () => (
   <Provider store={store}>
       <ReactReduxFirebaseProvider {...reactReduxProps}>

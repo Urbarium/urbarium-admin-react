@@ -39,9 +39,9 @@ export default class MainRouter extends Component {
   render() {
     return (
       <Router history={browserHistory}>
+        <Route path="/login" component={LoginPage} />
         <Route component={this.appWithPersistentNav()}>
           <Route path="/" component={HomePage} />
-          <Route path="/login" component={LoginPage} />
           <Route path="/settings" component={SettingsPage} />
         </Route>
       </Router>

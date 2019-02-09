@@ -45,7 +45,7 @@
     "@atlaskit/analytics-next" "^3.0.6"
     "@atlaskit/theme" "^6.0.1"
 
-"@atlaskit/button@^10.1.2":
+"@atlaskit/button@^10.1.1", "@atlaskit/button@^10.1.2":
   version "10.1.2"
   resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-10.1.2.tgz#d00001843a65c9cbd4b40ddfa88dbe2f8664cc70"
   integrity sha512-hobEOPQFROEPBIZfJqBxmdTd1txR24s/zrrT+iFi8IlqAYOm1MTu6vIYc/fPrEKoSsvrzo3nuNWVopZb1DIV1Q==
@@ -113,6 +113,17 @@
     classnames "^2.2.5"
     keycode "^2.1.7"
     prop-types "^15.5.10"
+
+"@atlaskit/empty-state@^3.1.4":
+  version "3.1.4"
+  resolved "https://registry.yarnpkg.com/@atlaskit/empty-state/-/empty-state-3.1.4.tgz#d8a0394e29443b82b5659de75c5fd080d6405e42"
+  integrity sha512-9UeILpGmlGxkz1/E0q4L2HnEE2T+vyJyYq8XF1BMN1eXILdijbONQfm1ynNm6IWBYpcBRZetHTw6RS46zxmgwQ==
+  dependencies:
+    "@atlaskit/button" "^10.1.1"
+    "@atlaskit/spinner" "^9.0.13"
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
+    babel-runtime "^6.26.0"
 
 "@atlaskit/field-base@^11.0.6":
   version "11.0.6"
@@ -286,6 +297,19 @@
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+"@atlaskit/panel@^0.0.12":
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/@atlaskit/panel/-/panel-0.0.12.tgz#9c9c9895dd9a5721e2fee36617a68008b4c658f1"
+  integrity sha512-JePdsdy+vsFtzun5ChvcFUXPvQ7fm8NugacYkl2PjXtL3cDE3GTZZ4xblE4tBQbHIHcs/5CGzIf2VjLv/Y6vTw==
+  dependencies:
+    "@atlaskit/button" "^10.1.2"
+    "@atlaskit/icon" "^16.0.0"
+    "@atlaskit/size-detector" "^5.0.9"
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
+    react-animate-height "^2.0.5"
+    react-focus-within "^2.0.1"
+
 "@atlaskit/polyfills@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@atlaskit/polyfills/-/polyfills-3.0.1.tgz#0e9fbabb2aa8b2229e9b47ec8171b6eb7151ca9d"
@@ -320,7 +344,16 @@
     babel-runtime "^6.26.0"
     raf-schd "^2.1.0"
 
-"@atlaskit/spinner@9.0.13":
+"@atlaskit/size-detector@^5.0.9":
+  version "5.0.9"
+  resolved "https://registry.yarnpkg.com/@atlaskit/size-detector/-/size-detector-5.0.9.tgz#c26c27eaaad8471ae393e517db62ddd2850679b6"
+  integrity sha512-7+fZEu/7dxByUIjneBzjCucKJDtymzxV6f1f+xjBzK51C/VnMaGOMVJ4iYNmVnEUIqvt2DjkhJqeUiu2ft5D/Q==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    babel-runtime "^6.26.0"
+    raf-schd "^2.1.0"
+
+"@atlaskit/spinner@9.0.13", "@atlaskit/spinner@^9.0.13":
   version "9.0.13"
   resolved "https://registry.yarnpkg.com/@atlaskit/spinner/-/spinner-9.0.13.tgz#030005c51a8acab842ce0771e16fe8c6cc7d585a"
   integrity sha512-EA5weoo1lftixC1oxVT1ePNCWATNaWETrAwOf6uuj/fpPTXjZ5HEwbgddlyCLVZ3vcljpXFTwmM1Nj24sGnrdg==
@@ -601,6 +634,19 @@
   version "0.2.12"
   resolved "https://registry.yarnpkg.com/@firebase/webchannel-wrapper/-/webchannel-wrapper-0.2.12.tgz#cfca32cf1e976eedbe00ddb2f21e28ab01f7e223"
   integrity sha512-1QWhGGu03NjPYk45w5muLq6a43Fhvd5+LGZrPydXLs7/FgQHqW6aSKmJClTwBHP1rynLSLLA7+9E/35cur6g/g==
+
+"@types/prop-types@*":
+  version "15.5.8"
+  resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.5.8.tgz#8ae4e0ea205fe95c3901a5a1df7f66495e3a56ce"
+  integrity sha512-3AQoUxQcQtLHsK25wtTWIoIpgYjH3vSDroZOUr7PpCHw/jLY1RB9z9E8dBT/OSmwStVgkRNvdh+ZHNiomRieaw==
+
+"@types/react@^15.0.0 || ^16.0.0":
+  version "16.8.2"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-16.8.2.tgz#3b7a7f7ea89d1c7d68b00849fb5de839011c077b"
+  integrity sha512-6mcKsqlqkN9xADrwiUz2gm9Wg4iGnlVGciwBRYFQSMWG6MQjhOZ/AVnxn+6v8nslFgfYTV8fNdE6XwKu6va5PA==
+  dependencies:
+    "@types/prop-types" "*"
+    csstype "^2.2.0"
 
 "@webassemblyjs/ast@1.7.11":
   version "1.7.11"
@@ -2802,6 +2848,11 @@ cssom@0.3.x, "cssom@>= 0.3.2 < 0.4.0":
   resolved "https://registry.yarnpkg.com/cssstyle/-/cssstyle-0.2.37.tgz#541097234cb2513c83ceed3acddc27ff27987d54"
   dependencies:
     cssom "0.3.x"
+
+csstype@^2.2.0:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/csstype/-/csstype-2.6.2.tgz#3043d5e065454579afc7478a18de41909c8a2f01"
+  integrity sha512-Rl7PvTae0pflc1YtxtKbiSqq20Ts6vpIYOD5WBafl4y123DyHUeLrRdQP66sQW8/6gmX8jrYJLXwNeMqYVJcow==
 
 currently-unhandled@^0.4.1:
   version "0.4.1"
@@ -7145,6 +7196,14 @@ react-addons-text-content@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/react-addons-text-content/-/react-addons-text-content-0.0.4.tgz#d2e259fdc951d1d8906c08902002108dce8792e5"
 
+react-animate-height@^2.0.5:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/react-animate-height/-/react-animate-height-2.0.7.tgz#e73608a3b31224ef2c3f75b5b3f1351211d30140"
+  integrity sha512-NbdKlopeFDUY7oDlLV5T3XvpV/yi8sqO7b78mzObpgWr+prPJ/tipKYNGTDHetjElnmrC5dyC5vHUu86ua3G1A==
+  dependencies:
+    classnames "^2.2.5"
+    prop-types "^15.6.1"
+
 react-aux@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/react-aux/-/react-aux-1.1.0.tgz#777d036dab3a917ed27e9d3697f6f0ce090c5ab4"
@@ -7206,6 +7265,14 @@ react-focus-lock@^1.11.1:
     focus-lock "^0.3.0"
     prop-types "^15.0.0"
     react-clientside-effect "^1.0.0"
+
+react-focus-within@^2.0.1:
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/react-focus-within/-/react-focus-within-2.0.1.tgz#6bd727a96e81a9a602052396d681b5138818ba67"
+  integrity sha512-lsP9+UW/9iSoqAqZ34wARnypP2izt3BjQ14+5+VpfvTnsNet1wFn071GtJYMmUR0pT6Pa59WnW+HhSguFGXVQg==
+  dependencies:
+    "@types/react" "^15.0.0 || ^16.0.0"
+    prop-types "^15.6.1"
 
 react-is@^16.3.1:
   version "16.4.2"

@@ -6,6 +6,7 @@ import FlexView from 'react-flexview'
 import { connect } from 'react-redux'
 import { withFirebase } from 'react-redux-firebase'
 import InlineMessage from '@atlaskit/inline-message'
+import {Redirect} from 'react-router'
 
 const enhance = connect(
   ({ firebase: { auth } }) => ({ auth})
@@ -13,7 +14,7 @@ const enhance = connect(
 
 class LoginForm extends Component {
 
-  state = { message: null }
+  state = { message: { type: 'none' } }
 
   login = (credentials) => {
     this.props.firebase.login(credentials).then(
@@ -27,15 +28,16 @@ class LoginForm extends Component {
   }
 
   render () {
-    let messageBox = this.state.message === null ? '' : (
-        <InlineMessage title={this.state.message.description} type={this.state.message.type}/>
-    )
-
+    let action = ''
+    if (this.state.message.type === 'confirmation' || this.state.message.type === 'error') {
+      action = <InlineMessage title={this.state.message.description} type={this.state.message.type}/>
+    }
+  
     return (
       <Form onSubmit={(credentials) => this.login(credentials)}>
         {({ formProps }) => (
           <form {...formProps}>
-            {messageBox}
+            {action}
             <Field name="email" defaultValue="" label="User name" isRequired>
               {({ fieldProps }) => <TextField {...fieldProps} />}
             </Field>
