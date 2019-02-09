@@ -4,7 +4,7 @@ import { withFirebase } from 'react-redux-firebase'
 import { compose, withHandlers } from 'recompose'
 import MainRouter from './MainRouter';
 
-function FirebaseApp({ firebase}){
+function AppWithFirebase({ firebase}){
   return <MainRouter />
 }
 
@@ -12,4 +12,4 @@ const enhance = compose(
   withFirebase
 )
 
-export default enhance(FirebaseApp)
+export default enhance(AppWithFirebase)

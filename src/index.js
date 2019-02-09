@@ -4,13 +4,18 @@ import { createStore, combineReducers, compose } from 'redux'
 import { Provider } from 'react-redux'
 
 /* Firebase Config */
-import firebase from 'firebase/app'
-import 'firebase/auth'
+import firebase from 'firebase/app';
+import firebaseAuth from 'firebase/auth'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
-import FirebaseApp from './modules/FirebaseApp'
+import AppWithFirebase from './modules/AppWithFirebase'
 import rootReducer, { initialState } from './reducers'
 
-const fbConfig = {
+// react-redux
+const reactReduxConfig = {
+  userProfile: 'users'
+}
+
+const firebaseConfig = {
   apiKey: "AIzaSyDysVlFw_qKzvzmBxAs3jYwdWdI2qlmFS8",
   authDomain: "urbarium-org.firebaseapp.com",
   databaseURL: "https://urbarium-org.firebaseio.com",
@@ -18,28 +23,22 @@ const fbConfig = {
   storageBucket: "urbarium-org.appspot.com",
   messagingSenderId: "1043005680434"
 };
-
-// react-redux
-const rrfConfig = {
-  userProfile: 'users'
-}
-
-// Initialize firebase instance
-firebase.initializeApp(fbConfig)
+firebase.initializeApp(firebaseConfig);
 
 /* Store */
 const store = createStore(rootReducer, initialState)
 
-const rrfProps = {
+const reactReduxProps = {
   firebase,
-  config: rrfConfig,
+  config: reactReduxConfig,
   dispatch: store.dispatch
 }
 
+
 const AppRoot = () => (
   <Provider store={store}>
-      <ReactReduxFirebaseProvider {...rrfProps}>
-        <FirebaseApp />
+      <ReactReduxFirebaseProvider {...reactReduxProps}>
+        <AppWithFirebase />
       </ReactReduxFirebaseProvider>
     </Provider>
 );
