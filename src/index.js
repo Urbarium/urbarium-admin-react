@@ -5,6 +5,7 @@ import { Provider } from 'react-redux'
 
 /* Firebase Config */
 import firebase from 'firebase/app';
+import 'firebase/auth'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import MainRouter from './modules/MainRouter'
 import rootReducer, { initialState } from './reducers'
