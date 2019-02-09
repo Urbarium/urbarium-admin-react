@@ -2,6 +2,13 @@
 # yarn lockfile v1
 
 
+"@atlaskit/analytics-next-types@^3.1.2":
+  version "3.2.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/analytics-next-types/-/analytics-next-types-3.2.0.tgz#7b07367994ed16726d1d8a6fcffc0b7e1af141e9"
+  integrity sha512-RvWeorJrA4WpSoBn/pdBwSD6m705HV+P3SnVtS7o3hwFabfuwrF2AorgmkxsdaRyZRkDnF7ffJyMSXl0qtLBtQ==
+  dependencies:
+    "@atlaskit/type-helpers" "^2.1.0"
+
 "@atlaskit/analytics-next@^3.0.6":
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@atlaskit/analytics-next/-/analytics-next-3.0.6.tgz#8be37c5147513d7f6ef534e85d1949fa5e9758fe"
@@ -37,6 +44,20 @@
   dependencies:
     "@atlaskit/analytics-next" "^3.0.6"
     "@atlaskit/theme" "^6.0.1"
+
+"@atlaskit/button@^10.1.2":
+  version "10.1.2"
+  resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-10.1.2.tgz#d00001843a65c9cbd4b40ddfa88dbe2f8664cc70"
+  integrity sha512-hobEOPQFROEPBIZfJqBxmdTd1txR24s/zrrT+iFi8IlqAYOm1MTu6vIYc/fPrEKoSsvrzo3nuNWVopZb1DIV1Q==
+  dependencies:
+    "@atlaskit/analytics-next" "^3.1.2"
+    "@atlaskit/analytics-next-types" "^3.1.2"
+    "@atlaskit/spinner" "9.0.13"
+    "@atlaskit/theme" "^7.0.1"
+    "@atlaskit/type-helpers" "^2.0.0"
+    "@babel/runtime" "^7.0.0"
+    babel-runtime "^6.26.0"
+    tslib "^1.8.0"
 
 "@atlaskit/button@^9.0.7":
   version "9.0.7"
@@ -148,6 +169,17 @@
     babel-runtime "^6.26.0"
     uuid "^3.1.0"
 
+"@atlaskit/inline-dialog@^9.0.14":
+  version "9.0.14"
+  resolved "https://registry.yarnpkg.com/@atlaskit/inline-dialog/-/inline-dialog-9.0.14.tgz#b8e2b57b75fcc2c2385c62d1d4c32aa4f5de0e41"
+  integrity sha512-X8/Sga7WZEcmkXak+agGPNGkLcys2ZnwQkmWbXF1H9hs9Msl++CGXJqL9awkUrSfg92yPXYrcLJHzGk9bCjL0g==
+  dependencies:
+    "@atlaskit/analytics-next" "^3.1.2"
+    "@atlaskit/popper" "^0.3.6"
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
+    react-node-resolver "^1.0.1"
+
 "@atlaskit/inline-dialog@^9.0.3":
   version "9.0.3"
   resolved "https://registry.yarnpkg.com/@atlaskit/inline-dialog/-/inline-dialog-9.0.3.tgz#fbca776a20555fe9f9dd0de7548c83c001bb860b"
@@ -167,6 +199,17 @@
     "@atlaskit/icon" "^13.3.1"
     "@atlaskit/theme" "^6.0.1"
     classnames "^2.2.5"
+
+"@atlaskit/inline-message@^7.0.11":
+  version "7.0.11"
+  resolved "https://registry.yarnpkg.com/@atlaskit/inline-message/-/inline-message-7.0.11.tgz#83c1dd2b0a79548be0678ab3a71df6783c9ef3e9"
+  integrity sha512-IdoHscUHBvzpsdTfiWF/oL5k+tB0y8CCRFnlaKXQGYWO5QwwKI+37CgJbbxMd+u4eJd/oOmCCN7aqS6R6ui8/g==
+  dependencies:
+    "@atlaskit/button" "^10.1.2"
+    "@atlaskit/icon" "^16.0.0"
+    "@atlaskit/inline-dialog" "^9.0.14"
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
 
 "@atlaskit/item@^8.0.6":
   version "8.0.6"
@@ -254,6 +297,15 @@
     memoize-one "^3.0.1"
     react-popper "^1.0.0"
 
+"@atlaskit/popper@^0.3.6":
+  version "0.3.7"
+  resolved "https://registry.yarnpkg.com/@atlaskit/popper/-/popper-0.3.7.tgz#0dbf6528294b5907789addf9024543622bc8699a"
+  integrity sha512-/eeruFjbSNhDjBB34Ty0MSmpQSb/9uIEkjHIGx5gTvCtC/hbbTGcAGI6Uwbi408l89wroVL2oZoXW9b26DQQGg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    memoize-one "^3.0.1"
+    react-popper "1.0.2"
+
 "@atlaskit/portal@^0.0.6":
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/@atlaskit/portal/-/portal-0.0.6.tgz#354ef3b58fc0bd9062c90978821b6d1ffb6836b8"
@@ -267,6 +319,16 @@
   dependencies:
     babel-runtime "^6.26.0"
     raf-schd "^2.1.0"
+
+"@atlaskit/spinner@9.0.13":
+  version "9.0.13"
+  resolved "https://registry.yarnpkg.com/@atlaskit/spinner/-/spinner-9.0.13.tgz#030005c51a8acab842ce0771e16fe8c6cc7d585a"
+  integrity sha512-EA5weoo1lftixC1oxVT1ePNCWATNaWETrAwOf6uuj/fpPTXjZ5HEwbgddlyCLVZ3vcljpXFTwmM1Nj24sGnrdg==
+  dependencies:
+    "@atlaskit/theme" "^7.0.1"
+    "@babel/runtime" "^7.0.0"
+    babel-runtime "^6.26.0"
+    react-transition-group "^2.2.1"
 
 "@atlaskit/spinner@9.0.7", "@atlaskit/spinner@^9.0.7":
   version "9.0.7"
@@ -311,6 +373,13 @@
     flushable "^1.0.0"
     react-node-resolver "^1.0.1"
     react-transition-group "^2.2.1"
+
+"@atlaskit/type-helpers@^2.0.0", "@atlaskit/type-helpers@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/type-helpers/-/type-helpers-2.1.0.tgz#c20786b417e714f0d0116b5c4a069e278f3874a2"
+  integrity sha512-1UMF+OCAq1QcqXJOXBQfmaOO5iSsEuLlvSTd/uKn9k9xUxPAV5GdCEPYNaORnIVhVUGIZF+WukeBYR+3MDw6CQ==
+  dependencies:
+    react "^16.4.0"
 
 "@atlaskit/util-shared-styles@^2.10.3":
   version "2.10.8"
@@ -7155,7 +7224,7 @@ react-node-resolver@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/react-node-resolver/-/react-node-resolver-1.0.1.tgz#1798a729c0e218bf2f0e8ddf79c550d4af61d83a"
 
-react-popper@^1.0.0:
+react-popper@1.0.2, react-popper@^1.0.0:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/react-popper/-/react-popper-1.0.2.tgz#0e72f338b7f15ab9f9ec884e36ae0dad78a3e301"
   dependencies:
@@ -7283,6 +7352,16 @@ react-transition-group@^2.2.1:
     loose-envify "^1.3.1"
     prop-types "^15.6.2"
     react-lifecycles-compat "^3.0.4"
+
+react@^16.4.0:
+  version "16.8.1"
+  resolved "https://registry.yarnpkg.com/react/-/react-16.8.1.tgz#ae11831f6cb2a05d58603a976afc8a558e852c4a"
+  integrity sha512-wLw5CFGPdo7p/AgteFz7GblI2JPOos0+biSoxf1FPsGxWQZdN/pj6oToJs1crn61DL3Ln7mN86uZ4j74p31ELQ==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
+    prop-types "^15.6.2"
+    scheduler "^0.13.1"
 
 react@^16.4.2:
   version "16.4.2"
@@ -7755,6 +7834,14 @@ sane@~1.6.0:
 sax@^1.2.1, sax@^1.2.4, sax@~1.2.1:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
+
+scheduler@^0.13.1:
+  version "0.13.1"
+  resolved "https://registry.yarnpkg.com/scheduler/-/scheduler-0.13.1.tgz#1a217df1bfaabaf4f1b92a9127d5d732d85a9591"
+  integrity sha512-VJKOkiKIN2/6NOoexuypwSrybx13MY7NSy9RNt8wPvZDMRT1CW6qlpF5jXRToXNHz3uWzbm2elNpZfXfGPqP9A==
+  dependencies:
+    loose-envify "^1.1.0"
+    object-assign "^4.1.1"
 
 schema-utils@^0.3.0:
   version "0.3.0"
@@ -8565,7 +8652,7 @@ tslib@1.9.0:
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.0.tgz#e37a86fda8cbbaf23a057f473c9f4dc64e5fc2e8"
   integrity sha512-f/qGG2tUkrISBlQZEjEqoZ3B2+npJjIf04H1wuAv9iA8i04Icp+61KRXxFdha22670NJopsZCIjhC3SnjPRKrQ==
 
-tslib@^1.9.0:
+tslib@^1.8.0, tslib@^1.9.0:
   version "1.9.3"
   resolved "https://registry.yarnpkg.com/tslib/-/tslib-1.9.3.tgz#d7e4dd79245d85428c4d7e4822a79917954ca286"
 

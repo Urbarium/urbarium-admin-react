@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore, combineReducers, compose } from 'redux'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 /* Firebase Config */
@@ -12,7 +12,6 @@ import rootReducer, { initialState } from './reducers'
 
 // react-redux
 const reactReduxConfig = {
-  userProfile: 'users'
 }
 
 const firebaseConfig = {

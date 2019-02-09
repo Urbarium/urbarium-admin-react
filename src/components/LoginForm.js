@@ -5,22 +5,37 @@ import TextField from '@atlaskit/textfield';
 import FlexView from 'react-flexview'
 import { connect } from 'react-redux'
 import { withFirebase } from 'react-redux-firebase'
+import InlineMessage from '@atlaskit/inline-message'
 
 const enhance = connect(
-  // Map redux state to component props
-  ({ firebase: { auth, profile } }) => ({
-    auth,
-    profile
-  })
+  ({ firebase: { auth } }) => ({ auth})
 )
 
 class LoginForm extends Component {
 
+  state = { message: null }
+
+  login = (credentials) => {
+    this.props.firebase.login(credentials).then(
+      function(response){
+        this.setState({message: {type: 'confirmation', description: 'Login succeeded!'}})
+      }.bind(this), 
+      function(err){
+        this.setState({message: {type: 'error', description: err.message}})
+      }.bind(this)
+    )
+  }
+
   render () {
+    let messageBox = this.state.message === null ? '' : (
+        <InlineMessage title={this.state.message.description} type={this.state.message.type}/>
+    )
+
     return (
-    <Form onSubmit={(credentials) => this.props.firebase.login(credentials)}>
+      <Form onSubmit={(credentials) => this.login(credentials)}>
         {({ formProps }) => (
           <form {...formProps}>
+            {messageBox}
             <Field name="email" defaultValue="" label="User name" isRequired>
               {({ fieldProps }) => <TextField {...fieldProps} />}
             </Field>
