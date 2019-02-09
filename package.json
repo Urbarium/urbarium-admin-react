@@ -44,7 +44,7 @@
     "react-router-dom": "^4.3.1",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
-    "styled-components": "^3.2.6",
+    "styled-components": "4.x",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
   },
