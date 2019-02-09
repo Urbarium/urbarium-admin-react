@@ -236,9 +236,12 @@
     react-scrolllock "^3.0.1"
     react-transition-group "^2.2.1"
 
-"@atlaskit/page@^8.0.4":
-  version "8.0.4"
-  resolved "https://registry.yarnpkg.com/@atlaskit/page/-/page-8.0.4.tgz#8869d9a700e952b258ed61b6348030a76dc1a4a2"
+"@atlaskit/page@^8.0.12":
+  version "8.0.12"
+  resolved "https://registry.yarnpkg.com/@atlaskit/page/-/page-8.0.12.tgz#8c15090232d99407b58446978f6465636d875fe7"
+  integrity sha512-iWx0v0SjKa9SAQqGYl2Mo87VpGy5D1ry3Om9i3wf2XoJ6XHvFDK98xEh1E7UZIwCO9pd5no1peFcEv3AmBg91Q==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
 
 "@atlaskit/polyfills@^3.0.1":
   version "3.0.1"
