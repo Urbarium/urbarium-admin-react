@@ -6269,6 +6269,11 @@ react-addons-text-content@^0.0.4:
   version "0.0.4"
   resolved "https://registry.yarnpkg.com/react-addons-text-content/-/react-addons-text-content-0.0.4.tgz#d2e259fdc951d1d8906c08902002108dce8792e5"
 
+react-aux@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/react-aux/-/react-aux-1.1.0.tgz#777d036dab3a917ed27e9d3697f6f0ce090c5ab4"
+  integrity sha512-9NcU+xjGCbbItYS1m99kdZSbSSsnXFja6FJQDoSnabfUgWD+SkQws0Gv+xnrk6e00KrIZVRJd9WxVQyJO5DXYg==
+
 react-clientside-effect@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/react-clientside-effect/-/react-clientside-effect-1.0.0.tgz#81c4f91bd4ec0f8792ba76fe29c1d09e37fff062"
@@ -6310,6 +6315,13 @@ react-dom@^16.2.4:
 react-error-overlay@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/react-error-overlay/-/react-error-overlay-4.0.1.tgz#417addb0814a90f3a7082eacba7cee588d00da89"
+
+react-flexview@^4.0.3:
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/react-flexview/-/react-flexview-4.0.3.tgz#e2945fc7c79ebdd9d96379785193094e2823e824"
+  integrity sha512-DSmNsk7leUfkDlAEZjVk/khzAkX3Tbl4p5PJz4S13sTJdqSrs60FKjzDwtwsTO2dT0bSVGW0LetbTfm3I2EULg==
+  dependencies:
+    prop-types "^15.5.6"
 
 react-focus-lock@^1.11.1:
   version "1.11.3"

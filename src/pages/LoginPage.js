@@ -8,14 +8,14 @@ export default class LoginPage extends Component {
   render() {
     return (
       <ContentWrapper>
-        <PageTitle>Login</PageTitle>
         <Page>
           <Grid>
-            <GridColumn medium={3} />
+            <GridColumn medium={2} />
             <GridColumn medium={6}>
+              <PageTitle>Login</PageTitle>
               <LoginForm />
             </GridColumn>
-            <GridColumn medium={3} />
+            <GridColumn medium={4} />
           </Grid>
         </Page>
       </ContentWrapper>
