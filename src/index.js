@@ -5,9 +5,8 @@ import { Provider } from 'react-redux'
 
 /* Firebase Config */
 import firebase from 'firebase/app';
-import firebaseAuth from 'firebase/auth'
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
-import AppWithFirebase from './modules/AppWithFirebase'
+import MainRouter from './modules/MainRouter'
 import rootReducer, { initialState } from './reducers'
 
 // react-redux
@@ -38,7 +37,7 @@ const reactReduxProps = {
 const AppRoot = () => (
   <Provider store={store}>
       <ReactReduxFirebaseProvider {...reactReduxProps}>
-        <AppWithFirebase />
+        <MainRouter />
       </ReactReduxFirebaseProvider>
     </Provider>
 );
