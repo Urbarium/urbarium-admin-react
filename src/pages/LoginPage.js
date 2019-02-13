@@ -5,8 +5,16 @@ import LoginForm from '../components/LoginForm'
 import Page, { Grid, GridColumn } from '@atlaskit/page'
 import FullBackground from '../components/FullBackground';
 import Card from '../components/Card';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
 
-export default class LoginPage extends Component {
+class LoginPage extends Component {
+
+  componentWillReceiveProps({ authExists }) {
+    if (authExists) {
+      this.context.router.push('/')
+    }
+  }
 
   render() {
     return (
@@ -29,3 +37,15 @@ export default class LoginPage extends Component {
     );
   }
 }
+
+LoginPage.propTypes = {
+  authExists: PropTypes.bool,
+}
+
+LoginPage.contextTypes = {
+  router: PropTypes.object.isRequired,
+}
+
+export default connect(
+  ({ firebase: { auth } }) => ({ authExists: !!auth && !!auth.uid })
+)(LoginPage)
