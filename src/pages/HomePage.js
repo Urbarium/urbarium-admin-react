@@ -5,15 +5,7 @@ import MainSection from '../components/MainSection';
 import ContentWrapper from '../components/ContentWrapper';
 import PageTitle from '../components/PageTitle';
 
-import { connect } from 'react-redux'
-
 class HomePage extends Component {
-
-  componentWillReceiveProps({ authExists }) {
-    if (!authExists) {
-      this.context.router.push('/login')
-    }
-  }
 
   render() {
     return (
@@ -33,12 +25,7 @@ class HomePage extends Component {
   }
 }
 
-HomePage.propTypes = {
-  authExists: PropTypes.bool,
-}
-
 HomePage.contextTypes = {
-  router: PropTypes.object.isRequired,
   showModal: PropTypes.func,
   addFlag: PropTypes.func,
   onConfirm: PropTypes.func,
@@ -46,6 +33,4 @@ HomePage.contextTypes = {
   onClose: PropTypes.func,
 }
 
-export default connect(
-  ({ firebase: { auth } }) => ({ authExists: !!auth && !!auth.uid })
-)(HomePage)
+export default HomePage

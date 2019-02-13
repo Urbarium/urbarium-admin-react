@@ -27,7 +27,6 @@ firebase.initializeApp(firebaseConfig);
 /* Store */
 const store = createStore(rootReducer, initialState)
 
-
 const reactReduxProps = {
   firebase,
   config: reactReduxConfig,

@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import { Router, Route, browserHistory } from 'react-router';
+import { Router, Route } from 'react-router';
 import App from './App';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import SettingsPage from '../pages/SettingsPage';
+import history from '../components/history';
+import { UserIsAuthenticated, UserIsNotAuthenticated } from '../components/AuthorizedPages'
 
 export default class MainRouter extends Component {
   constructor() {
@@ -38,12 +40,14 @@ export default class MainRouter extends Component {
 
   render() {
     return (
-      <Router history={browserHistory}>
-        <Route path="/login" component={LoginPage} />
-        <Route component={this.appWithPersistentNav()}>
-          <Route path="/" component={HomePage} />
-          <Route path="/settings" component={SettingsPage} />
-        </Route>
+      <Router history={history}>
+        <div>
+          <Route path="/login" component={UserIsNotAuthenticated(LoginPage)} />
+          <Route component={this.appWithPersistentNav()}>
+            <Route path="/" component={UserIsAuthenticated(HomePage)} />
+            <Route path="/settings" component={SettingsPage} />
+          </Route>
+        </div>
       </Router>
     );
   }
