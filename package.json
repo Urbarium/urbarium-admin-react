@@ -8,7 +8,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "surge": "bash surge_login.sh && surge --project ./build/ --domain atlaskit-starter.surge.sh"
+    "surge": "bash surge_login.sh && surge --project ./build/ --domain atlaskit-starter.surge.sh",
+    "now-build": "yarn build"
   },
   "keywords": [],
   "author": "Atlassian",
@@ -32,6 +33,7 @@
     "@atlaskit/theme": "^6.0.1",
     "@firebase/app-types": "0.x",
     "@firebase/util": "0.x",
+    "@now/static-build": "^0.4.18",
     "firebase": "^5.8.2",
     "history": "3",
     "prop-types": "^15.6.2",
