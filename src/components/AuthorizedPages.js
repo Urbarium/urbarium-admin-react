@@ -5,6 +5,9 @@ import LoginPage from '../pages/LoginPage';
 
 const locationHelper = locationHelperBuilder({});
 
+/**
+ * Redirects an user to /login when trying to access an unauthorized page.
+ */
 export let UserIsAuthenticated = connectedRouterRedirect({
   wrapperDisplayName: 'UserIsAuthenticated',
   AuthenticatingComponent: LoginPage,
@@ -20,6 +23,9 @@ export let UserIsAuthenticated = connectedRouterRedirect({
   },
 });
 
+/**
+ * Redirects an user to / login was succesful.
+ */
 export let UserIsNotAuthenticated = connectedRouterRedirect({
   wrapperDisplayName: 'UserIsNotAuthenticated',
   AuthenticatingComponent: LoginPage,
