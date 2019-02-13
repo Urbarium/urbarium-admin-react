@@ -6,7 +6,6 @@ import FlexView from 'react-flexview'
 import { connect } from 'react-redux'
 import { withFirebase } from 'react-redux-firebase'
 import InlineMessage from '@atlaskit/inline-message'
-import {Redirect} from 'react-router'
 
 const enhance = connect(
   ({ firebase: { auth } }) => ({ auth})

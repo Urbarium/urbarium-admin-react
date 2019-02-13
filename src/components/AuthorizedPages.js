@@ -1,9 +1,7 @@
-import locationHelperBuilder from 'redux-auth-wrapper/history3/locationHelper';
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history3/redirect'
 import { routerActions } from 'react-router-redux'
 import LoginPage from '../pages/LoginPage';
 
-const locationHelper = locationHelperBuilder({});
 
 /**
  * Redirects an user to /login when trying to access an unauthorized page.
@@ -18,6 +16,7 @@ export let UserIsAuthenticated = connectedRouterRedirect({
   authenticatedSelector: ({ firebase: { auth } }) =>
     auth.isLoaded && !auth.isEmpty,
   redirectAction: newLoc => (dispatch) => {
+    // eslint-disable-next-line
     routerActions.replace
     dispatch({ type: 'UNAUTHED_REDIRECT' });
   },
@@ -36,6 +35,7 @@ export let UserIsNotAuthenticated = connectedRouterRedirect({
   authenticatedSelector: ({ firebase: { auth } }) =>
     auth.isLoaded && auth.isEmpty,
   redirectAction: newLoc => (dispatch) => {
+    // eslint-disable-next-line
     routerActions.replace
     dispatch({ type: 'UNAUTHED_REDIRECT' });
   },
