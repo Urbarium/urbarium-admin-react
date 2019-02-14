@@ -14,6 +14,7 @@ import CreateIcon from '@atlaskit/icon/glyph/add';
 import AtlassianIcon from '@atlaskit/icon/glyph/atlassian';
 import ArrowleftIcon from '@atlaskit/icon/glyph/arrow-left';
 import UserAvatarCircleIcon from '@atlaskit/icon/glyph/user-avatar-circle';
+import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
 
 import CreateDrawer from '../components/CreateDrawer';
 import SearchDrawer from '../components/SearchDrawer';
@@ -26,7 +27,8 @@ export default class StarterNavigation extends React.Component {
     navLinks: [
       ['/login', 'Login', UserAvatarCircleIcon],
       ['/', 'Home', DashboardIcon],
-      ['/settings', 'Settings', GearIcon],
+      ['/permissions', 'Users', PeopleGroupIcon],
+      ['/update_profile', 'Settings', GearIcon],
     ]
   };
 

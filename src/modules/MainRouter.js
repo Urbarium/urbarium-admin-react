@@ -1,16 +1,17 @@
-import PropTypes from 'prop-types';
-import React, { Component } from 'react';
-import { Router, Route } from 'react-router';
-import App from './App';
-import HomePage from '../pages/HomePage';
-import LoginPage from '../pages/LoginPage';
-import SettingsPage from '../pages/SettingsPage';
-import history from '../components/history';
+import PropTypes from 'prop-types'
+import React, { Component } from 'react'
+import { Router, Route } from 'react-router'
+import App from './App'
+import HomePage from '../pages/HomePage'
+import LoginPage from '../pages/LoginPage'
+import history from '../components/History/history'
+import PermissionsPage from '../pages/PermissionsPage'
+import UpdateProfilePage from '../pages/UpdateProfilePage'
 import { UserIsAuthenticated, UserIsNotAuthenticated } from '../components/AuthorizedPages'
 
 export default class MainRouter extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       navOpenState: {
         isOpen: true,
@@ -22,7 +23,7 @@ export default class MainRouter extends Component {
   getChildContext () {
     return {
       navOpenState: this.state.navOpenState,
-    };
+    }
   }
 
   appWithPersistentNav = () => (props) => (
@@ -35,7 +36,7 @@ export default class MainRouter extends Component {
   onNavResize = (navOpenState) => {
     this.setState({
       navOpenState,
-    });
+    })
   }
 
   render() {
@@ -45,11 +46,12 @@ export default class MainRouter extends Component {
           <Route path="/login" component={UserIsNotAuthenticated(LoginPage)} />
           <Route component={this.appWithPersistentNav()}>
             <Route path="/" component={UserIsAuthenticated(HomePage)} />
-            <Route path="/settings" component={SettingsPage} />
+            <Route path="/permissions" component={UserIsAuthenticated(PermissionsPage)} />
+            <Route path="/update_profile" component={UserIsAuthenticated(UpdateProfilePage)} />
           </Route>
         </div>
       </Router>
-    );
+    )
   }
 }
 

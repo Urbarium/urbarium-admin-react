@@ -7,7 +7,7 @@ export default class HomePage extends Component {
   render() {
     return (
       <ContentWrapper>
-        <PageTitle>Settings</PageTitle>
+        <PageTitle>Permissions</PageTitle>
         <MainSection />
       </ContentWrapper>
     );
