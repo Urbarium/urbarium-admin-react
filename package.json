@@ -49,6 +49,7 @@
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-auth-wrapper": "^2.1.0",
+    "redux-observable": "^1.0.0",
     "styled-components": "4.x",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
