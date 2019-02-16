@@ -1,6 +1,6 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore, compose } from 'redux'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 /* Firebase Config */
@@ -8,8 +8,8 @@ import firebase from 'firebase/app';
 import 'firebase/auth'
 import 'firebase/database'
 import 'firebase/firestore' // make sure you add this for firestore
-import { ReactReduxFirebaseProvider, reactReduxFirebase } from 'react-redux-firebase'
-import { reduxFirestore } from 'redux-firestore'
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
+import { createFirestoreInstance } from 'redux-firestore'
 import MainRouter from './modules/MainRouter'
 import rootReducer, { initialState } from './reducers'
 
@@ -27,20 +27,15 @@ const firebaseConfig = {
   messagingSenderId: "1043005680434"
 };
 firebase.initializeApp(firebaseConfig);
-firebase.firestore().settings({ timestampsInSnapshots: true })
+firebase.firestore()
 
-/* Store */
-const createStoreWithFirebase = compose(
-  reduxFirestore(firebase),
-  reactReduxFirebase(firebase, reactReduxConfig)
-)(createStore)
-
-const store = createStoreWithFirebase(rootReducer, initialState)
+const store = createStore(rootReducer, initialState)
 
 const reactReduxProps = {
   firebase,
   config: reactReduxConfig,
-  dispatch: store.dispatch
+  dispatch: store.dispatch,
+  createFirestoreInstance
 }
 
 const AppRoot = () => (
