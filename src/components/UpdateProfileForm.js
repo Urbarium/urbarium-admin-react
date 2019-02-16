@@ -26,9 +26,6 @@ class UpdateProfileForm extends Component {
             <Field name="name" defaultValue={profile.name || ''} label="Name">
               {({ fieldProps }) => <TextField {...fieldProps} />}
             </Field>
-            <Field name="role" defaultValue={profile.role || ''} label="Role">
-              {({ fieldProps }) => <TextField {...fieldProps} disabled/>}
-            </Field>
             <MoveToTheRight>
               <Button type="Save" appearance="primary">
                 Submit
