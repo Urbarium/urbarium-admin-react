@@ -16,7 +16,10 @@ import rootReducer, { initialState } from './reducers'
 // react-redux
 const reactReduxConfig = {
   userProfile: 'users',
+  useFirestoreForProfile: true 
 }
+
+const store = createStore(rootReducer, initialState)
 
 const firebaseConfig = {
   apiKey: "AIzaSyDysVlFw_qKzvzmBxAs3jYwdWdI2qlmFS8",
@@ -28,8 +31,6 @@ const firebaseConfig = {
 };
 firebase.initializeApp(firebaseConfig);
 firebase.firestore()
-
-const store = createStore(rootReducer, initialState)
 
 const reactReduxProps = {
   firebase,
