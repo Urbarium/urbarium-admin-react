@@ -16,7 +16,7 @@ import rootReducer, { initialState } from './reducers'
 // react-redux
 const reactReduxConfig = {
   userProfile: 'users',
-  useFirestoreForProfile: true 
+  useFirestoreForProfile: true
 }
 
 const store = createStore(rootReducer, initialState)
