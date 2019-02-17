@@ -18,7 +18,7 @@ const reactReduxConfig = {
   userProfile: 'users',
   useFirestoreForProfile: true,
   profileParamsToPopulate: [
-    ['role:roles'], // populates user's role with matching role object from roles
+    ['role:groups'], // populates user's role with matching role object from roles
   ]
 }
 

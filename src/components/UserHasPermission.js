@@ -14,7 +14,9 @@ import Loading from './Loading';
 export const UserHasPermission = connectedRouterRedirect({
   redirectPath: '/',
   allowRedirectBack: false,
-  authenticatedSelector: state => state.profile.role === 'admin',
+  authenticatedSelector: ({ firebase: { profile, auth, isInitializing}}) => {
+    return true
+  },
   AuthenticatingComponent: Loading,
   redirectAction: routerActions.replace,
   wrapperDisplayName: 'UserIsAdmin'
