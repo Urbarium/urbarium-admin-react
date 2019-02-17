@@ -45,7 +45,7 @@ const commonGetItems = () => [
         id: 'dashboards',
         before: DashboardIcon,
         text: 'Dashboards',
-        to: '/home'
+        to: '/'
       },
       { type: 'LinkItem', 
         id: 'users', 
@@ -121,7 +121,8 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
           <div style={{ padding: 40 }}>
             <Switch>
               <Route path="/settings" component={SettingsRoute} />
-              <Route path="/home" component={DashboardsRoute} />
+              <Route path="/users" component={null} />
+              <Route path="/" component={DashboardsRoute} />
             </Switch>
           </div>
         </LayoutManagerWithViewController>
