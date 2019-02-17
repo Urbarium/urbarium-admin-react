@@ -22,51 +22,98 @@ import HomePage from '../../pages/HomePage';
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
 import ProductNavigation from './ProductNavigation';
 
+import LinkItem from './LinkItem'
+
+const commonGetItems = () => [
+  {
+    type: 'HeaderSection',
+    id: 'product/home:header',
+    items: [
+      {
+        type: 'Item',
+        text: 'Urbarium',
+        id: 'urbarium-wordmark',
+      },
+    ],
+  },
+  {
+    type: 'MenuSection',
+    id: 'product/home:menu',
+    items: [
+      {
+        type: 'LinkItem',
+        id: 'dashboards',
+        before: DashboardIcon,
+        text: 'Dashboards',
+        to: '/home'
+      },
+      { type: 'LinkItem', 
+        id: 'users', 
+        before: PeopleGroupIcon, 
+        text: 'Users',
+        to: '/users'
+      },
+      {
+        type: 'LinkItem',
+        id: 'settings',
+        before: SettingsIcon,
+        text: 'Settings',
+        to: '/settings'
+      }
+    ],
+  },
+]
+
 const productHomeView = {
   id: 'product/home',
   type: 'product',
-  getItems: () => [
-    {
-      type: 'HeaderSection',
-      id: 'product/home:header',
-      items: [
-        {
-          type: 'Item',
-          text: 'Urbarium',
-          id: 'urbarium-wordmark',
-        },
-      ],
-    },
-    {
-      type: 'MenuSection',
-      id: 'product/home:menu',
-      items: [
-        {
-          type: 'Item',
-          id: 'dashboards',
-          before: DashboardIcon,
-          text: 'Dashboards',
-        },
-        { type: 'Item', 
-          id: 'users', 
-          before: PeopleGroupIcon, 
-          text: 'Users' },
-        {
-          type: 'Item',
-          id: 'settings',
-          before: SettingsIcon,
-          text: 'Settings',
-        }
-      ],
-    },
-  ],
+  getItems: commonGetItems
 };
+
+const productSettingsView = {
+  id: 'product/settings',
+  type: 'product',
+  getItems: commonGetItems
+};
+
+class DashboardsRouteBase extends Component<{navigationViewController: ViewController}> {
+  componentDidMount() {
+    const { navigationViewController } = this.props;
+    navigationViewController.setView(productHomeView.id);
+  }
+
+  render() {
+    return (
+      <div style={{ padding: 30 }}>
+        <HomePage />
+      </div>
+    );
+  }
+}
+const DashboardsRoute = withNavigationViewController(DashboardsRouteBase);
+
+class SettingsRouteBase extends Component<{navigationViewController: ViewController}> {
+  componentDidMount() {
+    const { navigationViewController } = this.props;
+    navigationViewController.setView(productSettingsView.id);
+  }
+
+  render() {
+    return (
+      <div style={{ padding: 30 }}>
+        <UpdateProfilePage />
+      </div>
+    );
+  }
+}
+const SettingsRoute = withNavigationViewController(SettingsRouteBase);
 
 class Navigation extends Component<{navigationViewController: ViewController}> {
 
   componentDidMount() {
     const { navigationViewController } = this.props;
     navigationViewController.addView(productHomeView);
+    navigationViewController.addView(productSettingsView);
     navigationViewController.setView(productHomeView.id);
   }
 
@@ -77,12 +124,12 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
         <LayoutManagerWithViewController
           globalNavigation={DefaultGlobalNavigation}
           productNavigation={ProductNavigation}
+          customComponents={{ LinkItem }}
         >
-          <div css={{ padding: 40 }}>
+          <div style={{ padding: 40 }}>
             <Switch>
-              <Route path="/users" component={UpdateProfilePage} />
-              <Route path="/settings" component={UpdateProfilePage} />
-              <Route path="/" component={HomePage} />
+              <Route path="/settings" component={SettingsRoute} />
+              <Route path="/home" component={DashboardsRoute} />
             </Switch>
           </div>
         </LayoutManagerWithViewController>

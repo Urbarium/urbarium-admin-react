@@ -29,7 +29,6 @@
     "@atlaskit/inline-message": "^7.0.11",
     "@atlaskit/logo": "^9.2.7",
     "@atlaskit/modal-dialog": "^6.0.10",
-    "@atlaskit/navigation": "^33.3.9",
     "@atlaskit/navigation-next": "^4.2.3",
     "@atlaskit/page": "^8.0.12",
     "@atlaskit/panel": "^0.0.12",
