@@ -19,7 +19,6 @@ import UpdateProfilePage from '../../pages/UpdateProfilePage';
 import ProductNavigation from './ProductNavigation';
 
 import LinkItem from './LinkItem'
-import { HomeRootView, UsersRootView, SettingsRootView } from './RootViews'
 import { productHomeView } from './productViews'
 
 class Navigation extends Component<{navigationViewController: ViewController}> {
