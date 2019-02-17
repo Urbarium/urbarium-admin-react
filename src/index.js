@@ -9,7 +9,7 @@ import 'firebase/database'
 import 'firebase/firestore' // make sure you add this for firestore
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
-import configureStore from './configureStore'
+import configureStore, { history } from './configureStore'
 import MainRouter from './modules/MainRouter';
 import '@atlaskit/css-reset';
 
@@ -45,7 +45,7 @@ const reactReduxProps = {
 const AppRoot = () => (
   <Provider store={store}>
       <ReactReduxFirebaseProvider {...reactReduxProps}>
-        <MainRouter />
+        <MainRouter history={history}/>
       </ReactReduxFirebaseProvider>
     </Provider>
 );

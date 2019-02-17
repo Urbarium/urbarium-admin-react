@@ -83,11 +83,7 @@ class DashboardsRouteBase extends Component<{navigationViewController: ViewContr
   }
 
   render() {
-    return (
-      <div style={{ padding: 30 }}>
-        <HomePage />
-      </div>
-    );
+    return <HomePage />
   }
 }
 const DashboardsRoute = withNavigationViewController(DashboardsRouteBase);
@@ -99,11 +95,7 @@ class SettingsRouteBase extends Component<{navigationViewController: ViewControl
   }
 
   render() {
-    return (
-      <div style={{ padding: 30 }}>
-        <UpdateProfilePage />
-      </div>
-    );
+    return <UpdateProfilePage />
   }
 }
 const SettingsRoute = withNavigationViewController(SettingsRouteBase);
