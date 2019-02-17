@@ -4,18 +4,23 @@ import Button from '@atlaskit/button';
 import TextField from '@atlaskit/textfield';
 import PropTypes from 'prop-types';
 import { compose } from 'redux'
-import { withFirebase } from 'react-redux-firebase'
+import { withFirebase, isLoaded } from 'react-redux-firebase'
 import { connect } from 'react-redux'
 import { pickBy, identity } from 'lodash'
 import MoveToTheRight from './MoveToTheRight';
 
 class UpdateProfileForm extends Component {
 
+  onSubmit = (data) => {
+    console.log(JSON.stringify(data))
+    return this.props.firebase.updateProfile(pickBy(data, identity))
+  }
+
   render () {
-    const { firebase, profile } = this.props
+    const { profile } = this.props
 
     return (
-      <Form onSubmit={data => firebase.updateProfile(pickBy(data, identity))}>
+      <Form onSubmit={data => this.onSubmit(data)}>
         {({ formProps }) => (
           <form {...formProps}>
             <Field name="email" defaultValue={profile.email || ''} label="Email">
