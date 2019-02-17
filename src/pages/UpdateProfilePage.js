@@ -1,16 +1,12 @@
 import React from 'react'
-import Page, { Grid, GridColumn } from '@atlaskit/page'
+import ContentWrapper from '../components/ContentWrapper';
 import UpdateProfileForm from '../components/UpdateProfileForm';
 import PageTitle from '../components/PageTitle';
 
 const UpdateProfilePage = () => (
-  <Page>
+  <ContentWrapper>
     <PageTitle>Profile</PageTitle>
-    <Grid>
-      <GridColumn medium={6}>
-          <UpdateProfileForm />
-      </GridColumn>
-    </Grid>
-  </Page>
+    <UpdateProfileForm />
+  </ContentWrapper>
 )
 export default UpdateProfilePage
