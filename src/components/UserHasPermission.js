@@ -1,6 +1,6 @@
 import { get } from 'lodash';
 import { routerActions } from 'react-router-redux'
-import { UserAuthWrapper } from 'redux-auth-wrapper';
+import { connectedRouterRedirect } from 'redux-auth-wrapper/history3/redirect'
 import Loading from './Loading';
 
 /**
@@ -10,21 +10,30 @@ import Loading from './Loading';
  * @param {Component} componentToWrap - Component to wrap
  * @return {Component} wrappedComponent
  */
-export const userHasPermission = permission => UserAuthWrapper({
-  wrapperDisplayName: 'UserHasPermission',
-  AuthenticatingComponent: Loading,
-  allowRedirectBack: false,
-  redirectPath: (state, ownProps) => '/login',
-  authSelector: ({ firebase: { profile, auth } }) => ({ auth, profile }),
-  authenticatingSelector: ({ firebase: { profile, auth, isInitializing } }) =>
-    !auth.isLoaded || !profile.isLoaded || isInitializing === true,
-  authenticatedSelector: ({ firebase: { auth } }) =>
-    auth.isLoaded && !auth.isEmpty,
-  predicate: auth => get(auth, `profile.role.${permission}`, false),
-  redirectAction: newLoc => (dispatch) => {
-    routerActions.replace(newLoc); // or routerActions.replace
-    dispatch({ type: 'UNAUTHED_REDIRECT' });
-  }
-});
 
-export default userHasPermission
+export const UserHasPermission = connectedRouterRedirect({
+  redirectPath: '/',
+  allowRedirectBack: false,
+  authenticatedSelector: state => state.profile.role === 'admin',
+  AuthenticatingComponent: Loading,
+  redirectAction: routerActions.replace,
+  wrapperDisplayName: 'UserIsAdmin'
+})
+
+
+// export const UserIsAdmin = UserAuthWrapper({
+//   authSelector: ({ firebase: { profile, auth } }) => ({ auth, profile }),
+//   authenticatingSelector: ({ firebase: { profile, auth, isInitializing } }) =>
+//     auth === undefined || profile === undefined || isInitializing === true,
+//   redirectAction: newLoc => (dispatch) => {
+//     routerActions.replace(newLoc);
+//     dispatch({ type: 'UNAUTHED_REDIRECT' });
+//   },
+//   allowRedirectBack: false,
+//   failureRedirectPath: '/login',
+//   wrapperDisplayName: 'UserIsAdmin',
+//   predicate: auth => get(auth, `profile.role.name`) === 'admin',
+//   LoadingComponent: Loading,
+// });
+
+export default UserHasPermission

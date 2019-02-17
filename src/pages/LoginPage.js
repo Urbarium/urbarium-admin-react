@@ -10,21 +10,11 @@ class LoginPage extends Component {
 
   render() {
     return (
-      <FullBackground>
-        <ContentWrapper>
-          <Page>
-            <Grid>
-              <GridColumn medium={3} />
-              <GridColumn medium={6}>
-                <Card>
-                  <PageTitle>Urbarium Login</PageTitle>
-                  <LoginForm />
-                </Card>
-              </GridColumn>
-              <GridColumn medium={3} />
-            </Grid>
-          </Page>
-        </ContentWrapper>
+      <FullBackground centered>
+        <Card>
+          <PageTitle>Urbarium Login</PageTitle>
+          <LoginForm />
+        </Card>
       </FullBackground>
     );
   }

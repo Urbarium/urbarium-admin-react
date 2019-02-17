@@ -4,7 +4,7 @@ import Button from '@atlaskit/button';
 import TextField from '@atlaskit/textfield';
 import PropTypes from 'prop-types';
 import { compose } from 'redux'
-import { withFirebase, isLoaded } from 'react-redux-firebase'
+import { withFirebase } from 'react-redux-firebase'
 import { connect } from 'react-redux'
 import { pickBy, identity } from 'lodash'
 import MoveToTheRight from './MoveToTheRight';

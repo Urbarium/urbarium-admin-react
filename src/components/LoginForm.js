@@ -35,7 +35,7 @@ class LoginForm extends Component {
     return (
       <Form onSubmit={(credentials) => this.login(credentials)}>
         {({ formProps }) => (
-          <form {...formProps}>
+          <form {...formProps} style={{minWidth: 300}}>
             {action}
             <Field name="email" defaultValue="" label="User name" isRequired>
               {({ fieldProps }) => <TextField {...fieldProps} />}

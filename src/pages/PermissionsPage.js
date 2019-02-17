@@ -15,4 +15,4 @@ class PermissionsPage extends Component {
   }
 }
 
-export default UserHasPermission('userManagement')(PermissionsPage)
+export default UserHasPermission(PermissionsPage)

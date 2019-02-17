@@ -4,7 +4,6 @@ import Flag, { FlagGroup } from '@atlaskit/flag';
 import Modal from '@atlaskit/modal-dialog';
 import Page from '@atlaskit/page';
 import '@atlaskit/css-reset';
-
 import StarterNavigation from '../components/StarterNavigation';
 
 export default class App extends Component {

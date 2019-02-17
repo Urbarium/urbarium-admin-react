@@ -29,6 +29,7 @@
     "@atlaskit/navigation": "^33.1.7",
     "@atlaskit/page": "^8.0.12",
     "@atlaskit/panel": "^0.0.12",
+    "@atlaskit/portal": "^0.1.0",
     "@atlaskit/textfield": "^0.1.6",
     "@atlaskit/theme": "^6.0.1",
     "@firebase/app-types": "0.x",
