@@ -16,7 +16,10 @@ import rootReducer, { initialState } from './reducers'
 // react-redux
 const reactReduxConfig = {
   userProfile: 'users',
-  useFirestoreForProfile: true
+  useFirestoreForProfile: true,
+  profileParamsToPopulate: [
+    ['role:roles'], // populates user's role with matching role object from roles
+  ]
 }
 
 const store = createStore(rootReducer, initialState)

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import MainSection from '../components/MainSection';
 import ContentWrapper from '../components/ContentWrapper';
 import PageTitle from '../components/PageTitle';
+import UserHasPermission from '../components/UserHasPermission'
 
-export default class HomePage extends Component {
+class PermissionsPage extends Component {
   render() {
     return (
       <ContentWrapper>
@@ -13,3 +14,5 @@ export default class HomePage extends Component {
     );
   }
 }
+
+export default UserHasPermission('userManagement')(PermissionsPage)

@@ -2,7 +2,6 @@ import { connectedRouterRedirect } from 'redux-auth-wrapper/history3/redirect'
 import { routerActions } from 'react-router-redux'
 import LoginPage from '../pages/LoginPage';
 
-
 /**
  * Redirects an user to /login when trying to access an unauthorized page.
  */
