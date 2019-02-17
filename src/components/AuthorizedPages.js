@@ -1,6 +1,7 @@
-import { connectedRouterRedirect } from 'redux-auth-wrapper/history3/redirect'
-import { routerActions } from 'react-router-redux'
+import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect'
 import Loading from './Loading';
+import { connect } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom'
 
 /**
  * Redirects an user to /login when trying to access an unauthorized page.
@@ -16,7 +17,7 @@ export let UserIsAuthenticated = connectedRouterRedirect({
     auth.isLoaded && !auth.isEmpty,
   redirectAction: newLoc => (dispatch) => {
     // eslint-disable-next-line
-    routerActions.replace
+    browserHistory.replace(newLoc)
     dispatch({ type: 'UNAUTHED_REDIRECT' });
   },
 });
@@ -35,10 +36,10 @@ export let UserIsNotAuthenticated = connectedRouterRedirect({
     auth.isLoaded && auth.isEmpty,
   redirectAction: newLoc => (dispatch) => {
     // eslint-disable-next-line
-    routerActions.replace
+    browserHistory.replace(newLoc)
     dispatch({ type: 'UNAUTHED_REDIRECT' });
   },
-});
+})
 
 export let UserHasPermission = connectedRouterRedirect({
   wrapperDisplayName: 'UserIsNotAuthenticated',
@@ -51,7 +52,7 @@ export let UserHasPermission = connectedRouterRedirect({
     auth.isLoaded && auth.isEmpty,
   redirectAction: newLoc => (dispatch) => {
     // eslint-disable-next-line
-    routerActions.replace
+    browserHistory.replace(newLoc)
     dispatch({ type: 'UNAUTHED_REDIRECT' });
   },
 });

@@ -1,6 +1,5 @@
 import React from 'react'
 import { render } from 'react-dom'
-import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
 /* Firebase Config */
@@ -10,8 +9,9 @@ import 'firebase/database'
 import 'firebase/firestore' // make sure you add this for firestore
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
-import MainRouter from './modules/MainRouter'
-import rootReducer, { initialState } from './reducers'
+import Navigator from './components/Navigation'
+import configureStore from './configureStore'
+import MainRouter from './modules/MainRouter';
 
 // react-redux
 const reactReduxConfig = {
@@ -22,7 +22,7 @@ const reactReduxConfig = {
   ]
 }
 
-const store = createStore(rootReducer, initialState)
+const store = configureStore({})
 
 const firebaseConfig = {
   apiKey: "AIzaSyDysVlFw_qKzvzmBxAs3jYwdWdI2qlmFS8",
