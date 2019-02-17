@@ -1,7 +1,5 @@
 import { connectedRouterRedirect } from 'redux-auth-wrapper/history4/redirect'
 import Loading from './Loading';
-import { connect } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom'
 
 /**
  * Redirects an user to /login when trying to access an unauthorized page.

@@ -1,8 +1,6 @@
 import React from 'react'
 import ReactLoading from "react-loading";
 import FullBackground from './FullBackground'
-import FlexView from 'react-flexview'
-import styled from 'styled-components';
 
 
 

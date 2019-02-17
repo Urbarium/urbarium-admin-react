@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { B500 } from '@atlaskit/theme/dist/cjs/colors';
-import EmptyState from '@atlaskit/empty-state';
 import Portal from '@atlaskit/portal'
 
 const FullBackgroundDiv = styled.div`

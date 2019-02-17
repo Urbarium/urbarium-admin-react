@@ -9,9 +9,9 @@ import 'firebase/database'
 import 'firebase/firestore' // make sure you add this for firestore
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
-import Navigator from './components/Navigation'
 import configureStore from './configureStore'
 import MainRouter from './modules/MainRouter';
+import '@atlaskit/css-reset';
 
 // react-redux
 const reactReduxConfig = {
