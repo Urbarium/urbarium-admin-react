@@ -13,6 +13,13 @@ import configureStore, { history } from './configureStore'
 import MainRouter from './modules/MainRouter';
 import '@atlaskit/css-reset';
 
+import * as Sentry from '@sentry/browser';
+import ErrorBoundary from './components/ErrorBoundary'
+
+Sentry.init({
+ dsn: "https://0fe35cc0bb894339a5345458b67b88a1@sentry.io/1396151"
+})
+
 // react-redux
 const reactReduxConfig = {
   userProfile: 'users',
@@ -43,11 +50,13 @@ const reactReduxProps = {
 }
 
 const AppRoot = () => (
-  <Provider store={store}>
+  <ErrorBoundary>
+    <Provider store={store}>
       <ReactReduxFirebaseProvider {...reactReduxProps}>
         <MainRouter history={history}/>
       </ReactReduxFirebaseProvider>
     </Provider>
+  </ErrorBoundary>
 );
 
 render(<AppRoot />, document.getElementById('app-root'));
