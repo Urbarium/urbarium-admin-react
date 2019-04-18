@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
-import { B500 } from '@atlaskit/theme/dist/cjs/colors';
 import Portal from '@atlaskit/portal'
+import Colors from "../colors";
+const { primary, sec, neutral } = Colors;
 
 const FullBackgroundDiv = styled.div`
-  background-color: ${B500};
+  background-color: ${primary.primary};
   position: fixed;
   width: 100%;
   height: 100%;

@@ -19,7 +19,7 @@ class LoginForm extends Component {
     this.props.firebase.login(credentials).then(
       function(response){
         this.setState({message: {type: 'confirmation', description: 'Login succeeded!'}})
-      }.bind(this), 
+      }.bind(this),
       function(err){
         this.setState({message: {type: 'error', description: err.message}})
       }.bind(this)
@@ -31,7 +31,7 @@ class LoginForm extends Component {
     if (this.state.message.type === 'confirmation' || this.state.message.type === 'error') {
       action = <InlineMessage title={this.state.message.description} type={this.state.message.type}/>
     }
-  
+
     return (
       <Form onSubmit={(credentials) => this.login(credentials)}>
         {({ formProps }) => (
