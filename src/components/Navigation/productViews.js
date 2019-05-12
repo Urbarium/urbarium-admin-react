@@ -25,21 +25,35 @@ export const productHomeView = {
           type: 'LinkItem',
           id: 'dashboards',
           before: DashboardIcon,
-          text: 'Dashboards',
-          to: '/'
+          text: 'Beneficiarios',
+          to: '/beneficiarios'
         },
-        { type: 'LinkItem', 
-          id: 'users', 
-          before: PeopleGroupIcon, 
-          text: 'Users',
-          to: '/users'
+        { type: 'LinkItem',
+          id: 'users',
+          before: PeopleGroupIcon,
+          text: 'Casos de Bono',
+          to: '/casos-de-bono'
         },
         {
           type: 'LinkItem',
           id: 'settings',
           before: SettingsIcon,
-          text: 'Settings',
-          to: '/settings'
+          text: 'Trámites',
+          to: '/tramites'
+        },
+        {
+          type: 'LinkItem',
+          id: 'settings',
+          before: SettingsIcon,
+          text: 'Construcción',
+          to: '/construccion'
+        },
+        {
+          type: 'LinkItem',
+          id: 'settings',
+          before: SettingsIcon,
+          text: 'Desembolso',
+          to: '/desembolso'
         }
       ],
     },
