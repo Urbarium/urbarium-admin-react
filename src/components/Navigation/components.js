@@ -11,6 +11,9 @@ import AddIcon from '@atlaskit/icon/glyph/add';
 import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
 import SearchIcon from '@atlaskit/icon/glyph/search';
 import { JiraIcon } from '@atlaskit/logo';
+import EmojiAtlassianIcon from '@atlaskit/icon/glyph/emoji/atlassian';
+import GraphBarIcon from '@atlaskit/icon/glyph/graph-bar';
+import colors from '../../colors'
 
 import {
   ConnectedItem,
@@ -32,12 +35,13 @@ const globalNavPrimaryItems = ({ onSearchClick }: *) => [
   {
     id: 'jira',
     icon: ({ label }: { label: string }) => (
-      <JiraIcon size="medium" label={label} />
+      <EmojiAtlassianIcon size="medium" label={label} />
     ),
     label: 'Jira',
     to: '/',
     component: GlobalLink,
   },
+  { id: 'metrics', icon: GraphBarIcon },
   { id: 'search', icon: SearchIcon, onClick: onSearchClick },
   { id: 'create', icon: AddIcon },
 ];

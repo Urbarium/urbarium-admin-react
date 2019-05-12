@@ -500,7 +500,7 @@
     "@atlaskit/theme" "^7.0.1"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/theme@^6.0.1", "@atlaskit/theme@^6.0.2", "@atlaskit/theme@^6.1.1":
+"@atlaskit/theme@^6.0.2", "@atlaskit/theme@^6.1.1":
   version "6.2.1"
   resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-6.2.1.tgz#2d84a5b8dbd05c5d94064c0ab29e6f6a2f1ff415"
   integrity sha512-6u0OxpnZ2n+G7Wc1wckgtOEiYl3wmJ2HvBd28N7d+Fi/fbi+C4TzfBvyeENUqtrp1UIEhweVbB2WLoVoKA5c/w==
@@ -512,6 +512,15 @@
   version "7.0.4"
   resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-7.0.4.tgz#4f9a7568633a7e18bdcc121627e32916ee9ada66"
   integrity sha512-Pk7x8gwVyeEc7y7hhjeKfu26ykXl1CJfFSoLuxCIrELzNnx4LFxfAFmcoHgr09c8/nsT57vtxmcnmKkZkEJtJA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    exenv "^1.2.2"
+    prop-types "^15.5.10"
+
+"@atlaskit/theme@^9.0.0":
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-9.0.0.tgz#09eee5433a6084dfd506d8f303fd1913bdf6e5c5"
+  integrity sha512-FxPubfXMBidzyG3YrzH4T1MstpxJXg6CsW09aBvW25tmafrAlrj+gSnd5/ky9Oa4zKgXk4itZNSCdefxgwqs7w==
   dependencies:
     "@babel/runtime" "^7.0.0"
     exenv "^1.2.2"
