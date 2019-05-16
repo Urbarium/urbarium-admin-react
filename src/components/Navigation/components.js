@@ -23,8 +23,11 @@ import {
   GlobalNav,
   ContainerHeader,
   ItemAvatar,
+  modeGenerator,
+  ThemeProvider,
   Switcher,
 } from '@atlaskit/navigation-next';
+
 
 export const GlobalLink = ({ className, to, onClick, children }: any) => {
   return (
@@ -70,6 +73,13 @@ const globalNavSecondaryItems = [
 // Simple global navigation
 // ==============================
 
+const customThemeMode = modeGenerator({
+  product: {
+    text: '#FFFFFF',
+    background: '#994f7e',
+  }
+});
+
 export class DefaultGlobalNavigation extends PureComponent<*, *> {
   state = {
     isOpen: false,
@@ -88,16 +98,19 @@ export class DefaultGlobalNavigation extends PureComponent<*, *> {
   toggleSearch = () => {
     this.setState(state => ({ isOpen: !state.isOpen }));
   };
+
   render() {
     const { isOpen } = this.state;
     return (
       <Fragment>
-        <GlobalNav
-          primaryItems={globalNavPrimaryItems({
-            onSearchClick: this.toggleSearch,
-          })}
-          secondaryItems={globalNavSecondaryItems}
-        />
+        <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
+          <GlobalNav
+            primaryItems={globalNavPrimaryItems({
+              onSearchClick: this.toggleSearch,
+            })}
+            secondaryItems={globalNavSecondaryItems}
+          />
+        </ThemeProvider>
         <SearchDrawer onClose={this.toggleSearch} isOpen={isOpen}>
           <h2>Test Drawer</h2>
         </SearchDrawer>

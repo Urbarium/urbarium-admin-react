@@ -9,7 +9,31 @@ import {
   NavigationProvider,
   ViewController,
   withNavigationViewController,
+  modeGenerator,
+  ThemeProvider,
+  HeaderSection,
+  MenuSection,
+  Item,
+  ContainerHeader,
+  ItemAvatar,
+  Separator,
+  GroupHeading
 } from "@atlaskit/navigation-next";
+
+import { colors, gridSize } from '@atlaskit/theme';
+
+import Avatar from '@atlaskit/avatar';
+import AddIcon from '@atlaskit/icon/glyph/add';
+import BacklogIcon from '@atlaskit/icon/glyph/backlog';
+import BoardIcon from '@atlaskit/icon/glyph/board';
+import DashboardIcon from '@atlaskit/icon/glyph/dashboard';
+import FolderIcon from '@atlaskit/icon/glyph/folder';
+import GraphLineIcon from '@atlaskit/icon/glyph/graph-line';
+import IssuesIcon from '@atlaskit/icon/glyph/issues';
+import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
+import SearchIcon from '@atlaskit/icon/glyph/search';
+import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
+import { JiraIcon, JiraWordmark } from '@atlaskit/logo';
 
 import {
   DefaultGlobalNavigation,
@@ -19,6 +43,62 @@ import UpdateProfilePage from '../../pages/UpdateProfilePage';
 import LinkItem from './LinkItem'
 import ProjectInfoHeader from './ProjectInfoHeader'
 import { productHomeViewCreate } from './productViews'
+
+
+const ContainerNavigation = () => (
+  <div data-webdriver-test-key="container-navigation">
+    <HeaderSection>
+      {({ css }) => (
+        <div
+          data-webdriver-test-key="container-header"
+          css={{
+            ...css,
+            paddingBottom: gridSize() * 2.5,
+          }}
+        >
+          <ContainerHeader
+            before={itemState => (
+              <ItemAvatar
+                itemState={itemState}
+                appearance="square"
+                size="large"
+              />
+            )}
+            text="My software project"
+            subText="Software project"
+          />
+        </div>
+      )}
+    </HeaderSection>
+    <MenuSection>
+      {({ className }) => (
+        <div className={className}>
+          <Item
+            before={BacklogIcon}
+            text="Backlog"
+            isSelected
+            testKey="container-item-backlog"
+          />
+          <Item
+            before={BoardIcon}
+            text="Active sprints"
+            testKey="container-item-sprints"
+          />
+          <Item
+            before={GraphLineIcon}
+            text="Reports"
+            testKey="container-item-reports"
+          />
+          <Separator />
+          <GroupHeading>Shortcuts</GroupHeading>
+          <Item before={ShortcutIcon} text="Project space" />
+          <Item before={ShortcutIcon} text="Project repo" />
+        </div>
+      )}
+    </MenuSection>
+  </div>
+);
+
 
 class Navigation extends Component<{navigationViewController: ViewController}> {
 
@@ -35,7 +115,8 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
       <ConnectedRouter history={history}>
         <LayoutManagerWithViewController
           globalNavigation={DefaultGlobalNavigation}
-          customComponents={{ LinkItem, ProjectInfoHeader} }
+          containerNavigation={ContainerNavigation}
+          customComponents={{LinkItem, ProjectInfoHeader}}
         >
           <div style={{ padding: 40 }}>
             <Switch>
@@ -52,8 +133,17 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
 
 const AppWithNavigationViewController = withNavigationViewController(Navigation)
 
+const customThemeMode = modeGenerator({
+  product: {
+    text: '#994f7e',
+    background: '#ebedf8',
+  }
+});
+
 export default () => (
   <NavigationProvider>
-    <AppWithNavigationViewController />
+    <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
+      <AppWithNavigationViewController />
+    </ThemeProvider>
   </NavigationProvider>
 );

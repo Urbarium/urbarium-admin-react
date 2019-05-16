@@ -3,7 +3,8 @@ import { Route, Link } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Container = styled.div`
-  padding: 10px;
+  padding: 12px;
+  margin-bottom: 20px;
 `
 
 const Row = styled.div`

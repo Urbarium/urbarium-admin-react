@@ -8,7 +8,7 @@ import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
 
 export const productHomeViewCreate = (id,status) => {
   return {
-    id: 'product/home',
+    id: 'caso-de-bono',
     type: 'product',
     getItems: () => [
       {

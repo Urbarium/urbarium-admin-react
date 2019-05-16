@@ -6,13 +6,13 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "prepare": "patch-package",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "surge": "bash surge_login.sh && surge --project ./build/ --domain atlaskit-starter.surge.sh",
     "now-build": "yarn build",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public",
-    "prepare": "patch-package"
+    "build-storybook": "build-storybook -s public"
   },
   "keywords": [],
   "author": "Atlassian",
