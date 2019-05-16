@@ -112,7 +112,7 @@ export class DefaultGlobalNavigation extends PureComponent<*, *> {
           />
         </ThemeProvider>
         <SearchDrawer onClose={this.toggleSearch} isOpen={isOpen}>
-          <h2>Test Drawer</h2>
+          <h2>Search Results</h2>
         </SearchDrawer>
       </Fragment>
     );
