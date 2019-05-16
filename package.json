@@ -11,7 +11,8 @@
     "surge": "bash surge_login.sh && surge --project ./build/ --domain atlaskit-starter.surge.sh",
     "now-build": "yarn build",
     "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "prepare": "patch-package"
   },
   "keywords": [],
   "author": "Atlassian",
@@ -47,6 +48,8 @@
     "@types/node": "^11.9.4",
     "@types/react": "^16.8.3",
     "@types/react-dom": "^16.8.2",
+    "babel-cli": "^6.26.0",
+    "babel-plugin-component": "^1.1.1",
     "connected-react-router": "6.3.1",
     "core-js": "3",
     "firebase": "^5.8.2",
@@ -68,7 +71,7 @@
     "redux-firestore": "^0.6.4",
     "redux-observable": "^1.0.0",
     "rxjs": "^6.4.0",
-    "styled-components": "4.x",
+    "styled-components": "^4.2.0",
     "typescript": "^3.3.3",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
@@ -81,6 +84,8 @@
     "@storybook/react": "^5.0.3",
     "babel-loader": "^8.0.5",
     "eslint-plugin-flowtype": "^2.4.0",
+    "patch-package": "^6.1.2",
+    "postinstall-prepare": "^1.0.1",
     "react-scripts": "^1.1.1",
     "surge": "^0.20.1"
   }

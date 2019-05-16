@@ -14,6 +14,9 @@ import { JiraIcon } from '@atlaskit/logo';
 import EmojiAtlassianIcon from '@atlaskit/icon/glyph/emoji/atlassian';
 import GraphBarIcon from '@atlaskit/icon/glyph/graph-bar';
 import colors from '../../colors'
+import { createTheme } from '@atlaskit/theme';
+
+// Theme: check https://ak-mk-2-prod.netlify.com/packages/core/navigation-next/example/theming
 
 import {
   ConnectedItem,

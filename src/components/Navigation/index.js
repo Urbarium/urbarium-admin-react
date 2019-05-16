@@ -19,12 +19,14 @@ import UpdateProfilePage from '../../pages/UpdateProfilePage';
 import ProductNavigation from './ProductNavigation';
 
 import LinkItem from './LinkItem'
-import { productHomeView } from './productViews'
+import ProjectInfoHeader from './ProjectInfoHeader'
+import { productHomeViewCreate } from './productViews'
 
 class Navigation extends Component<{navigationViewController: ViewController}> {
 
   componentDidMount() {
     const { navigationViewController } = this.props;
+    const productHomeView = productHomeViewCreate(30, 'In Progress');
     navigationViewController.addView(productHomeView);
     navigationViewController.setView(productHomeView.id);
   }
@@ -36,7 +38,7 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
         <LayoutManagerWithViewController
           globalNavigation={DefaultGlobalNavigation}
           productNavigation={ProductNavigation}
-          customComponents={{ LinkItem }}
+          customComponents={{ LinkItem, ProjectInfoHeader} }
         >
           <div style={{ padding: 40 }}>
             <Switch>

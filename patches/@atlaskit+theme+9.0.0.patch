@@ -1,0 +1,26 @@
+diff --git a/node_modules/@atlaskit/theme/colors.js b/node_modules/@atlaskit/theme/colors.js
+index f4913ea..50f2b19 100644
+--- a/node_modules/@atlaskit/theme/colors.js
++++ b/node_modules/@atlaskit/theme/colors.js
+@@ -31,7 +31,7 @@ export var B100 = '#4C9AFF';
+ export var B200 = '#2684FF';
+ export var B300 = '#0065FF';
+ export var B400 = '#0052CC';
+-export var B500 = '#0747A6'; // Purples
++export var B500 = '#EBEDF8'; // Purples
+ 
+ export var P50 = '#EAE6FF';
+ export var P75 = '#C0B6F2';
+diff --git a/node_modules/@atlaskit/theme/colors.js.flow b/node_modules/@atlaskit/theme/colors.js.flow
+index b6d7248..202c163 100644
+--- a/node_modules/@atlaskit/theme/colors.js.flow
++++ b/node_modules/@atlaskit/theme/colors.js.flow
+@@ -37,7 +37,7 @@ export const B100 = '#4C9AFF';
+ export const B200 = '#2684FF';
+ export const B300 = '#0065FF';
+ export const B400 = '#0052CC';
+-export const B500 = '#0747A6';
++export const B500 = '#EBEDF8';
+ 
+ // Purples
+ export const P50 = '#EAE6FF';
