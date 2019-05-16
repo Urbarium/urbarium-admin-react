@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { Route, Switch } from "react-router";
 
+// Routes
+import { Route, Switch } from "react-router";
 import { ConnectedRouter } from 'connected-react-router'
 import { history } from '../../configureStore'
 
+// Navigation-Next Component
 import {
   LayoutManagerWithViewController,
   NavigationProvider,
@@ -22,6 +24,7 @@ import {
 
 import { colors, gridSize } from '@atlaskit/theme';
 
+// Icons
 import Avatar from '@atlaskit/avatar';
 import AddIcon from '@atlaskit/icon/glyph/add';
 import BacklogIcon from '@atlaskit/icon/glyph/backlog';
@@ -35,12 +38,17 @@ import SearchIcon from '@atlaskit/icon/glyph/search';
 import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
 import { JiraIcon, JiraWordmark } from '@atlaskit/logo';
 
+// Subcomponents
 import {
   DefaultGlobalNavigation,
 } from './components'
+import LinkItem from './LinkItem'
+
+// Pages
 import HomePage from '../../pages/HomePage';
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
-import LinkItem from './LinkItem'
+
+
 import ProjectInfoHeader from './ProjectInfoHeader'
 import { productHomeViewCreate } from './productViews'
 
