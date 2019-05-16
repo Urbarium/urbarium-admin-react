@@ -16,8 +16,6 @@ import {
 } from './components'
 import HomePage from '../../pages/HomePage';
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
-import ProductNavigation from './ProductNavigation';
-
 import LinkItem from './LinkItem'
 import ProjectInfoHeader from './ProjectInfoHeader'
 import { productHomeViewCreate } from './productViews'
@@ -37,7 +35,6 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
       <ConnectedRouter history={history}>
         <LayoutManagerWithViewController
           globalNavigation={DefaultGlobalNavigation}
-          productNavigation={ProductNavigation}
           customComponents={{ LinkItem, ProjectInfoHeader} }
         >
           <div style={{ padding: 40 }}>
