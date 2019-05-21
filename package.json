@@ -65,6 +65,7 @@
     "react-redux-firebase": "3.0.0-alpha.9",
     "react-router": "^4.3.1",
     "react-router-dom": "^4.3.1",
+    "react-ts": "^2.0.3",
     "recompose": "^0.30.0",
     "redux": "^4.0.1",
     "redux-auth-wrapper": "^2.1.0",
@@ -73,6 +74,7 @@
     "rxjs": "^6.4.0",
     "styled-components": "^4.2.0",
     "typescript": "^3.3.3",
+    "urbarium-shared-components": "https://github.com/Urbarium/urbarium-shared-components.git#0.1.2",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
   },
