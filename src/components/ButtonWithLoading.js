@@ -13,7 +13,7 @@ const LoadingDiv = (<Line>
   <ReactLoading type="bars" color="#fff" width='20px' height='30px'/>
 </Line>)
 
-const ButtonWithLoading = (props) => ( 
+const ButtonWithLoading = (props) => (
   <Button {...omit(props, ["children", "isLoading"])}>
     {props.isLoading ? LoadingDiv : ''}
     {props.children}

@@ -39,17 +39,17 @@ import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
 import { JiraIcon, JiraWordmark } from '@atlaskit/logo';
 
 // Subcomponents
-import { DefaultGlobalNavigation } from './components'
+import GlobalNavigation from './components/GlobalNavigation'
 import LinkItem from './components/LinkItem'
 import ProjectInfoHeader from './components/ProjectInfoHeader'
 
 // Pages
 import HomePage from '../../pages/HomePage';
-import UpdateProfilePage from '../../pages/UpdateProfilePage';
+import UpdateProfilePage from '../../pages/HomePage';
+import NewBonoPage from '../../pages/HomePage';
 
 // Menus
-import productHomeViewCreate from './menus/productItems'
-
+import productHomeViewCreate from './menus/productItems';
 
 const ContainerNavigation = () => (
   <div data-webdriver-test-key="container-navigation">
@@ -120,7 +120,7 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
     return (
       <ConnectedRouter history={history}>
         <LayoutManagerWithViewController
-          globalNavigation={DefaultGlobalNavigation}
+          globalNavigation={GlobalNavigation}
           containerNavigation={ContainerNavigation}
           customComponents={{LinkItem, ProjectInfoHeader}}
         >
@@ -128,7 +128,7 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
             <Switch>
               <Route path="/settings" component={UpdateProfilePage} />
               <Route path="/users" component={null} />
-              <Route path="/" component={HomePage} />
+              <Route path="/beneficiarios" component={NewBonoPage} />
             </Switch>
           </div>
         </LayoutManagerWithViewController>

@@ -1,4 +1,27 @@
-export class GlobalNavigation extends PureComponent<*, *> {
+import React, { Fragment, PureComponent } from 'react';
+import {
+  ConnectedItem,
+  GlobalNav,
+  ContainerHeader,
+  ItemAvatar,
+  modeGenerator,
+  ThemeProvider,
+  Switcher,
+} from '@atlaskit/navigation-next';
+import {
+  globalNavPrimaryItems,
+  globalNavSecondaryItems
+} from '../menus/globalItems';
+import SearchDrawer from './SearchDrawer';
+
+const customThemeMode = modeGenerator({
+  product: {
+    text: '#FFFFFF',
+    background: '#994f7e',
+  }
+});
+
+class GlobalNavigation extends PureComponent<*, *> {
   state = {
     isOpen: false,
   };

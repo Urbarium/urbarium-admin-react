@@ -1,6 +1,13 @@
+import React from 'react';
+import EmojiAtlassianIcon from '@atlaskit/icon/glyph/emoji/atlassian';
+import GraphBarIcon from '@atlaskit/icon/glyph/graph-bar';
+import SearchIcon from '@atlaskit/icon/glyph/search';
+import AddIcon from '@atlaskit/icon/glyph/add';
+import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
+import Avatar from '@atlaskit/avatar';
+import { GlobalLink } from '../componentsO';
 
-
-const globalNavPrimaryItems = ({ onSearchClick }: *) => [
+export const globalNavPrimaryItems = ({ onSearchClick }: *) => [
   {
     id: 'jira',
     icon: ({ label }: { label: string }) => (
@@ -15,7 +22,7 @@ const globalNavPrimaryItems = ({ onSearchClick }: *) => [
   { id: 'create', icon: AddIcon },
 ];
 
-const globalNavSecondaryItems = [
+export const globalNavSecondaryItems = [
   { id: 'help', icon: QuestionCircleIcon, label: 'Help', size: 'small' },
   {
     icon: () => (
