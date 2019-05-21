@@ -16519,9 +16519,9 @@ upper-case@^1.1.1:
   resolved "https://registry.yarnpkg.com/upper-case/-/upper-case-1.1.3.tgz#f6b4501c2ec4cdd26ba78be7222961de77621598"
   integrity sha1-9rRQHC7EzdJrp4vnIilh3ndiFZg=
 
-"urbarium-shared-components@https://github.com/Urbarium/urbarium-shared-components.git#0.1.2":
+"urbarium-shared-components@https://github.com/Urbarium/urbarium-shared-components.git#0.1.3":
   version "0.1.2"
-  resolved "https://github.com/Urbarium/urbarium-shared-components.git#dcc071325022a97d553cf4c3f7cb864537a4096d"
+  resolved "https://github.com/Urbarium/urbarium-shared-components.git#7dad04450725a3deba551ebb65a1ef6303b47633"
   dependencies:
     "@storybook/addon-actions" "^5.0.11"
     "@types/react" "^16.8.14"
