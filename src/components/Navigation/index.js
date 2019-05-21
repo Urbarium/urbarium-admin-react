@@ -46,7 +46,13 @@ import ProjectInfoHeader from './components/ProjectInfoHeader'
 // Pages
 import HomePage from '../../pages/HomePage';
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
-import NewBonoPage from '../../pages/bono/NewBonoPage';
+import NuevoBonoDeViviendaPage from '../../pages/bono/NuevoBonoDeViviendaPage';
+import CasoDeBonoPage from '../../pages/bono/CasoDeBonoPage';
+import ConstruccionPage from '../../pages/bono/ConstruccionPage';
+import DesembolsoPage from '../../pages/bono/DesembolsoPage';
+import TramitesPage from '../../pages/bono/TramitesPage';
+import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
+
 
 // Menus
 import productHomeViewCreate from './menus/productItems';
@@ -128,7 +134,12 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
             <Switch>
               <Route path="/settings" component={UpdateProfilePage} />
               <Route path="/users" component={null} />
-              <Route path="/beneficiarios" component={NewBonoPage} />
+              <Route path="/beneficiarios" component={BeneficiariosPage} />
+              <Route path="/casos-de-bono" component={CasoDeBonoPage} />
+              <Route path="/tramites" component={TramitesPage} />
+              <Route path="/construccion" component={ConstruccionPage} />
+              <Route path="/desembolso" component={DesembolsoPage} />
+              <Route path="/nuevo" component={NuevoBonoDeViviendaPage} />
             </Switch>
           </div>
         </LayoutManagerWithViewController>

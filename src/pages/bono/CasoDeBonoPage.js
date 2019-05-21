@@ -4,16 +4,16 @@ import MainSection from '../../components/MainSection';
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 
-class NewBonoPage extends Component {
+class CasoDeBonoPage extends Component {
 
   render() {
     return (
       <ContentWrapper>
-        <PageTitle>Nuevo Bono de vivienda</PageTitle>
+        <PageTitle>Caso de bono</PageTitle>
         <MainSection />
       </ContentWrapper>
     );
   }
 }
 
-export default NewBonoPage
+export default CasoDeBonoPage
