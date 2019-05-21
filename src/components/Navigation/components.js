@@ -3,18 +3,19 @@
 
 import React, { Fragment, PureComponent } from 'react';
 import { withRouter, Link, Route } from 'react-router-dom';
-import Avatar from '@atlaskit/avatar';
-import Drawer from '@atlaskit/drawer';
 import ChevronDown from '@atlaskit/icon/glyph/chevron-down';
 import LinkIcon from '@atlaskit/icon/glyph/link';
 import AddIcon from '@atlaskit/icon/glyph/add';
 import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
 import SearchIcon from '@atlaskit/icon/glyph/search';
-import { JiraIcon } from '@atlaskit/logo';
 import EmojiAtlassianIcon from '@atlaskit/icon/glyph/emoji/atlassian';
 import GraphBarIcon from '@atlaskit/icon/glyph/graph-bar';
-import colors from '../../colors'
+import { JiraIcon } from '@atlaskit/logo';
+import Avatar from '@atlaskit/avatar';
+import Drawer from '@atlaskit/drawer';
 import { createTheme } from '@atlaskit/theme';
+import colors from '../../colors';
+import SearchDrawer from './components/SearchDrawer';
 
 // Theme: check https://ak-mk-2-prod.netlify.com/packages/core/navigation-next/example/theming
 

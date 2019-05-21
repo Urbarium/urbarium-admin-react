@@ -6,7 +6,7 @@ import EditorBulletListIcon from '@atlaskit/icon/glyph/editor/bullet-list';
 import MarketplaceIcon from '@atlaskit/icon/glyph/marketplace';
 import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
 
-export const productHomeViewCreate = (id,status) => {
+const productHomeViewCreate = (id,status) => {
   return {
     id: 'caso-de-bono',
     type: 'product',
@@ -67,3 +67,5 @@ export const productHomeViewCreate = (id,status) => {
     ]
   }
 };
+
+export default productHomeViewCreate;

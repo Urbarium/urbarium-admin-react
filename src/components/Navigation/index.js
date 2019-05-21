@@ -39,18 +39,16 @@ import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
 import { JiraIcon, JiraWordmark } from '@atlaskit/logo';
 
 // Subcomponents
-import {
-  DefaultGlobalNavigation,
-} from './components'
-import LinkItem from './LinkItem'
+import { DefaultGlobalNavigation } from './components'
+import LinkItem from './components/LinkItem'
+import ProjectInfoHeader from './components/ProjectInfoHeader'
 
 // Pages
 import HomePage from '../../pages/HomePage';
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
 
-
-import ProjectInfoHeader from './ProjectInfoHeader'
-import { productHomeViewCreate } from './productViews'
+// Menus
+import productHomeViewCreate from './menus/productItems'
 
 
 const ContainerNavigation = () => (
