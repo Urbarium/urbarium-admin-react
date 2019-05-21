@@ -45,8 +45,8 @@ import ProjectInfoHeader from './components/ProjectInfoHeader'
 
 // Pages
 import HomePage from '../../pages/HomePage';
-import UpdateProfilePage from '../../pages/HomePage';
-import NewBonoPage from '../../pages/HomePage';
+import UpdateProfilePage from '../../pages/UpdateProfilePage';
+import NewBonoPage from '../../pages/bono/NewBonoPage';
 
 // Menus
 import productHomeViewCreate from './menus/productItems';

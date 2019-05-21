@@ -5,7 +5,7 @@ import SearchIcon from '@atlaskit/icon/glyph/search';
 import AddIcon from '@atlaskit/icon/glyph/add';
 import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
 import Avatar from '@atlaskit/avatar';
-import { GlobalLink } from '../componentsO';
+import GlobalLink from '../components/GlobalLink';
 
 export const globalNavPrimaryItems = ({ onSearchClick }: *) => [
   {
