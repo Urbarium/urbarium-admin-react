@@ -5,7 +5,7 @@ import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 
 // TODO: @richifg, check how to use a shared component.
-import { InputDropdown } from 'urbarium-shared-components'
+// import { InputDropdown } from 'urbarium-shared-components'
 
 class BeneficiariosPage extends Component {
 
@@ -13,7 +13,7 @@ class BeneficiariosPage extends Component {
     return (
       <ContentWrapper>
         <PageTitle>Beneficiarios</PageTitle>
-          <InputDropdown placeholder='Provincia' options={['San Jose', 'Alajuela', 'Heredia', 'Cartago', 'Limon', 'Puntarenas', 'Guancaste']}/>
+          {/* <InputDropdown placeholder='Provincia' options={['San Jose', 'Alajuela', 'Heredia', 'Cartago', 'Limon', 'Puntarenas', 'Guancaste']}/> */}
         <MainSection />
       </ContentWrapper>
     );

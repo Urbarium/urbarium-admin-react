@@ -1,7 +1,7 @@
 {
-  "name": "atlaskit-starter",
-  "version": "1.0.0",
-  "description": "Get your ADG3 on with this sample project using Atlaskit React components",
+  "name": "urbarium-admin",
+  "version": "1.0.1",
+  "description": "Admin Site for Urbarium.org",
   "homepage": "https://urbarium-org.firebaseapp.com",
   "scripts": {
     "start": "react-scripts start",
@@ -15,7 +15,7 @@
     "build-storybook": "build-storybook -s public"
   },
   "keywords": [],
-  "author": "Atlassian",
+  "author": "Urbarium",
   "license": "ISC",
   "dependencies": {
     "@atlaskit/avatar": "^14.0.9",
@@ -74,7 +74,7 @@
     "rxjs": "^6.4.0",
     "styled-components": "^4.2.0",
     "typescript": "^3.3.3",
-    "urbarium-shared-components": "https://github.com/Urbarium/urbarium-shared-components.git#0.1.3",
+    "urbarium-shared-components": "https://github.com/Urbarium/urbarium-shared-components.git#0.1.4",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
   },
