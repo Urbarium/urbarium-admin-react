@@ -56,11 +56,6 @@ const ActionsRow = (props) => (
 
 class ProfileFragment extends Component {
 
-  onLogoutClick = () => {
-    console.log(this.props.firebase.auth);
-    this.props.firebase.logout();
-  };
-
   render () {
     const { name, email, avatar } = this.props.profile
 
@@ -79,7 +74,7 @@ class ProfileFragment extends Component {
             </Subtitle>
           </PersonalInfoRow>
           <ActionsRow>
-            <ButtonWithLoading onClick={this.onLogoutClick}>Logout</ButtonWithLoading>
+            <ButtonWithLoading onClick={() => this.props.firebase.logout()}>Logout</ButtonWithLoading>
           </ActionsRow>
         </Page>
       </FullWidthFragment>

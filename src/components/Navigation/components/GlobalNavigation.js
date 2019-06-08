@@ -55,11 +55,6 @@ class GlobalNavigation extends PureComponent<*, *> {
     this.setState(state => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
   };
 
-  onLogoutClick = () => {
-    console.log(this.props.firebase.auth);
-    this.props.firebase.logout();
-  };
-
   render() {
     return (
       <Fragment>
@@ -70,7 +65,7 @@ class GlobalNavigation extends PureComponent<*, *> {
             })}
             secondaryItems={globalNavSecondaryItems({
               onProfileClick: this.toggleProfile,
-              onLogoutClick: this.onLogoutClick,
+              onLogoutClick: () => this.props.firebase.logout(),
               profile: this.props.profile,
             })}
           />
