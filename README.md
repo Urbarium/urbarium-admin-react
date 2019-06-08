@@ -1,4 +1,4 @@
-# Atlaskit starter
+# Urbarium Internal Admin app
 
 This is a basic app which includes some Atlaskit components, built on top of [create-react-app](https://github.com/facebookincubator/create-react-app). You can use this as a starting point for your next ADG3-themed project.
 
