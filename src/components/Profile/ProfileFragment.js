@@ -27,6 +27,33 @@ const FullWidthFragment = styled.div`
   padding-top: 50px;
 `
 
+const AvatarRow = (props) => (
+  <Grid>
+    <GridColumn medium={3}/>
+    <GridColumn medium={6}>
+      {props.children}
+    </GridColumn>
+    <GridColumn medium={3}/>
+  </Grid>
+)
+
+const PersonalInfoRow = (props) => (
+  <Grid>
+    <GridColumn>
+      {props.children}
+    </GridColumn>
+  </Grid>
+)
+
+const ActionsRow = (props) => (
+  <Grid>
+    <GridColumn medium={8}/>
+    <GridColumn medium={4}>
+      {props.children}
+    </GridColumn>
+  </Grid>
+)
+
 class ProfileFragment extends Component {
 
   onLogoutClick = () => {
@@ -40,29 +67,20 @@ class ProfileFragment extends Component {
     return (
       <FullWidthFragment>
         <Page>
-          <Grid>
-            <GridColumn medium={3}/>
-            <GridColumn medium={6}>
-              <Avatar src={avatar} size="xlarge" />
-            </GridColumn>
-            <GridColumn medium={3}/>
-          </Grid>
-          <Grid>
-            <GridColumn>
-              <Title>
-                {name}
-              </Title>
-              <Subtitle>
-                {email}
-              </Subtitle>
-            </GridColumn>
-          </Grid>
-          <Grid>
-            <GridColumn medium={8}/>
-            <GridColumn medium={4}>
-              <ButtonWithLoading onClick={this.onLogoutClick}>Logout</ButtonWithLoading>
-            </GridColumn>
-          </Grid>
+          <AvatarRow>
+            <Avatar src={avatar} size="xlarge" />
+          </AvatarRow>
+          <PersonalInfoRow>
+            <Title>
+              {name}
+            </Title>
+            <Subtitle>
+              {email}
+            </Subtitle>
+          </PersonalInfoRow>
+          <ActionsRow>
+            <ButtonWithLoading onClick={this.onLogoutClick}>Logout</ButtonWithLoading>
+          </ActionsRow>
         </Page>
       </FullWidthFragment>
     )
