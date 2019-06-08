@@ -1,18 +1,22 @@
 import React, { Fragment, PureComponent } from 'react';
 import {
-  ConnectedItem,
   GlobalNav,
-  ContainerHeader,
-  ItemAvatar,
   modeGenerator,
   ThemeProvider,
-  Switcher,
 } from '@atlaskit/navigation-next';
 import {
   globalNavPrimaryItems,
   globalNavSecondaryItems
 } from '../menus/globalItems';
-import SearchDrawer from './SearchDrawer';
+import Drawer from '@atlaskit/drawer';
+import ProfileFragment from '../../Profile/ProfileFragment';
+
+import { withFirebase } from 'react-redux-firebase'
+import { connect } from 'react-redux'
+
+const enhance = connect(
+  ({ firebase: { profile } }) => ({ profile })
+)
 
 const customThemeMode = modeGenerator({
   product: {
@@ -22,42 +26,58 @@ const customThemeMode = modeGenerator({
 });
 
 class GlobalNavigation extends PureComponent<*, *> {
+
   state = {
-    isOpen: false,
+    isSearchDrawerOpen: false,
+    isProfileDrawerOpen: false
   };
+
   componentDidMount = () => {
     window.addEventListener('keydown', this.handleKeyDown);
   };
+
   componentWillUnmount = () => {
     window.removeEventListener('keydown', this.handleKeyDown);
   };
+
   handleKeyDown = ({ key }: *) => {
-    if (key === '/' && !this.state.isOpen) {
+    if (key === '/' && !this.state.isSearchDrawerOpen) {
       this.toggleSearch();
     }
   };
+
   toggleSearch = () => {
-    this.setState(state => ({ isOpen: !state.isOpen }));
+    this.setState(state => ({ isSearchDrawerOpen: !state.isSearchDrawerOpen }));
+  };
+
+  toggleProfile = () => {
+    this.setState(state => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
   };
 
   render() {
-    const { isOpen } = this.state;
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
           <GlobalNav
             primaryItems={globalNavPrimaryItems({
-              onSearchClick: this.toggleSearch,
+              onSearchClick: this.toggleSearch
             })}
-            secondaryItems={globalNavSecondaryItems}
+            secondaryItems={globalNavSecondaryItems({
+              onProfileClick: this.toggleProfile,
+              onLogoutClick: () => this.props.firebase.logout(),
+              profile: this.props.profile,
+            })}
           />
         </ThemeProvider>
-        <SearchDrawer onClose={this.toggleSearch} isOpen={isOpen}>
+        <Drawer onClose={this.toggleSearch} isOpen={this.state.isSearchDrawerOpen}>
           <h2>Search Results</h2>
-        </SearchDrawer>
+        </Drawer>
+        <Drawer onClose={this.toggleProfile} isOpen={this.state.isProfileDrawerOpen}>
+          <ProfileFragment />
+        </Drawer>
       </Fragment>
     );
   }
 }
 
-export default GlobalNavigation;
+export default enhance(withFirebase(GlobalNavigation));

@@ -6,6 +6,7 @@ import AddIcon from '@atlaskit/icon/glyph/add';
 import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
 import Avatar from '@atlaskit/avatar';
 import GlobalLink from '../components/GlobalLink';
+import SignOutIcon from '@atlaskit/icon/glyph/sign-out';
 
 export const globalNavPrimaryItems = ({ onSearchClick }: *) => [
   {
@@ -22,8 +23,14 @@ export const globalNavPrimaryItems = ({ onSearchClick }: *) => [
   { id: 'create', icon: AddIcon },
 ];
 
-export const globalNavSecondaryItems = [
-  { id: 'help', icon: QuestionCircleIcon, label: 'Help', size: 'small' },
+export const globalNavSecondaryItems = ({ onProfileClick, onLogoutClick, profile }: *) => [
+  {
+    id: 'logout',
+    icon: SignOutIcon,
+    label: 'Help',
+    size: 'small',
+    onClick: onLogoutClick
+  },
   {
     icon: () => (
       <Avatar
@@ -31,10 +38,12 @@ export const globalNavSecondaryItems = [
         isActive={false}
         isHover={false}
         size="small"
+        src={profile.avatar}
       />
     ),
     label: 'Profile',
     size: 'small',
     id: 'profile',
+    onClick: onProfileClick
   },
 ];

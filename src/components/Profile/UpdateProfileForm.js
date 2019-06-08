@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import Form, { Field } from '@atlaskit/form';
-import Button from '@atlaskit/button';
 import TextField from '@atlaskit/textfield';
 import PropTypes from 'prop-types';
 import { compose } from 'redux'
 import { withFirebase } from 'react-redux-firebase'
 import { connect } from 'react-redux'
 import { pickBy, identity } from 'lodash'
-import MoveToTheRight from './MoveToTheRight';
-import ButtonWithLoading from './ButtonWithLoading';
+import MoveToTheRight from '../MoveToTheRight';
+import ButtonWithLoading from '../ButtonWithLoading';
 
 class UpdateProfileForm extends Component {
 
