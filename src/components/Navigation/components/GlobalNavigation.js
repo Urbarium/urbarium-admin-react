@@ -13,6 +13,7 @@ import {
   globalNavSecondaryItems
 } from '../menus/globalItems';
 import SearchDrawer from './SearchDrawer';
+import ProfileDrawer from './ProfileDrawer';
 
 const customThemeMode = modeGenerator({
   product: {
@@ -22,39 +23,53 @@ const customThemeMode = modeGenerator({
 });
 
 class GlobalNavigation extends PureComponent<*, *> {
+
   state = {
-    isOpen: false,
+    isSearchDrawerOpen: false,
+    isProfileDrawerOpen: false
   };
+
   componentDidMount = () => {
     window.addEventListener('keydown', this.handleKeyDown);
   };
+
   componentWillUnmount = () => {
     window.removeEventListener('keydown', this.handleKeyDown);
   };
+
   handleKeyDown = ({ key }: *) => {
-    if (key === '/' && !this.state.isOpen) {
+    if (key === '/' && !this.state.isSearchDrawerOpen) {
       this.toggleSearch();
     }
   };
+
   toggleSearch = () => {
-    this.setState(state => ({ isOpen: !state.isOpen }));
+    this.setState(state => ({ isSearchDrawerOpen: !state.isSearchDrawerOpen }));
   };
 
+  toggleProfile = () => {
+    this.setState(state => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
+  }
+
   render() {
-    const { isOpen } = this.state;
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
           <GlobalNav
             primaryItems={globalNavPrimaryItems({
-              onSearchClick: this.toggleSearch,
+              onSearchClick: this.toggleSearch
             })}
-            secondaryItems={globalNavSecondaryItems}
+            secondaryItems={globalNavSecondaryItems({
+              onProfileClick: this.toggleProfile
+            })}
           />
         </ThemeProvider>
-        <SearchDrawer onClose={this.toggleSearch} isOpen={isOpen}>
+        <SearchDrawer onClose={this.toggleSearch} isOpen={this.state.isSearchDrawerOpen}>
           <h2>Search Results</h2>
         </SearchDrawer>
+        <ProfileDrawer onClose={this.toggleProfile} isOpen={this.state.isProfileDrawerOpen}>
+          <h2>Profile</h2>
+        </ProfileDrawer>
       </Fragment>
     );
   }

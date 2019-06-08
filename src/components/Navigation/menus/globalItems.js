@@ -22,7 +22,7 @@ export const globalNavPrimaryItems = ({ onSearchClick }: *) => [
   { id: 'create', icon: AddIcon },
 ];
 
-export const globalNavSecondaryItems = [
+export const globalNavSecondaryItems = ({ onProfileClick }: *) => [
   { id: 'help', icon: QuestionCircleIcon, label: 'Help', size: 'small' },
   {
     icon: () => (
@@ -36,5 +36,6 @@ export const globalNavSecondaryItems = [
     label: 'Profile',
     size: 'small',
     id: 'profile',
+    onClick: onProfileClick
   },
 ];
