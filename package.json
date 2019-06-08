@@ -10,9 +10,8 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "surge": "bash surge_login.sh && surge --project ./build/ --domain atlaskit-starter.surge.sh",
-    "now-build": "yarn build",
-    "storybook": "start-storybook -p 9009 -s public",
-    "build-storybook": "build-storybook -s public"
+    "now-build": "yarn build", 
+    "storybook": "start-storybook"
   },
   "keywords": [],
   "author": "Urbarium",
@@ -80,10 +79,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.4.0",
-    "@storybook/addon-actions": "^5.0.3",
-    "@storybook/addon-links": "^5.0.3",
-    "@storybook/addons": "^5.0.3",
-    "@storybook/react": "^5.0.3",
+    "@storybook/react": "^5.0.10",
     "babel-loader": "^8.0.5",
     "eslint-plugin-flowtype": "^2.4.0",
     "patch-package": "^6.1.2",
