@@ -73,7 +73,6 @@
     "rxjs": "^6.4.0",
     "styled-components": "^4.2.0",
     "typescript": "^3.3.3",
-    "urbarium-shared-components": "https://github.com/Urbarium/urbarium-shared-components.git#0.1.9",
     "webpack": "^4.29.3",
     "webpack-cli": "^3.2.3"
   },
