@@ -12,6 +12,13 @@ import SearchDrawer from './SearchDrawer';
 import ProfileDrawer from './ProfileDrawer';
 import ProfileFragment from '../../Profile/ProfileFragment';
 
+import { withFirebase } from 'react-redux-firebase'
+import { connect } from 'react-redux'
+
+const enhance = connect(
+  ({ firebase: { profile } }) => ({ profile })
+)
+
 const customThemeMode = modeGenerator({
   product: {
     text: '#FFFFFF',
@@ -46,7 +53,12 @@ class GlobalNavigation extends PureComponent<*, *> {
 
   toggleProfile = () => {
     this.setState(state => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
-  }
+  };
+
+  onLogoutClick = () => {
+    console.log(this.props.firebase.auth);
+    this.props.firebase.logout();
+  };
 
   render() {
     return (
@@ -57,7 +69,9 @@ class GlobalNavigation extends PureComponent<*, *> {
               onSearchClick: this.toggleSearch
             })}
             secondaryItems={globalNavSecondaryItems({
-              onProfileClick: this.toggleProfile
+              onProfileClick: this.toggleProfile,
+              onLogoutClick: this.onLogoutClick,
+              profile: this.props.profile,
             })}
           />
         </ThemeProvider>
@@ -72,4 +86,4 @@ class GlobalNavigation extends PureComponent<*, *> {
   }
 }
 
-export default GlobalNavigation;
+export default enhance(withFirebase(GlobalNavigation));

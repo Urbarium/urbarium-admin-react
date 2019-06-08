@@ -4,6 +4,7 @@ import LoginPage from '../pages/LoginPage'
 import Navigation from '../components/Navigation';
 import { Router } from "react-router-dom";
 import Loading from '../components/Loading';
+import { UserIsAuthenticated, UserIsNotAuthenticated } from '../components/AuthorizedPages'
 
 class MainRouter extends Component {
 
@@ -11,9 +12,9 @@ class MainRouter extends Component {
     return (
       <Router history={this.props.history}>
         <Switch>
-          <Route path="/login" component={LoginPage} />
+          <Route path="/login" component={UserIsNotAuthenticated(LoginPage)} />
           <Route path="/loading" component={Loading} />
-          <Route path="/" component={Navigation} />
+          <Route path="/" component={UserIsAuthenticated(Navigation)} />
         </Switch>
       </Router>
     )
