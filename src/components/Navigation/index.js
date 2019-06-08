@@ -12,31 +12,10 @@ import {
   ViewController,
   withNavigationViewController,
   modeGenerator,
-  ThemeProvider,
-  HeaderSection,
-  MenuSection,
-  Item,
-  ContainerHeader,
-  ItemAvatar,
-  Separator,
-  GroupHeading
+  ThemeProvider
 } from "@atlaskit/navigation-next";
 
 import { colors, gridSize } from '@atlaskit/theme';
-
-// Icons
-import Avatar from '@atlaskit/avatar';
-import AddIcon from '@atlaskit/icon/glyph/add';
-import BacklogIcon from '@atlaskit/icon/glyph/backlog';
-import BoardIcon from '@atlaskit/icon/glyph/board';
-import DashboardIcon from '@atlaskit/icon/glyph/dashboard';
-import FolderIcon from '@atlaskit/icon/glyph/folder';
-import GraphLineIcon from '@atlaskit/icon/glyph/graph-line';
-import IssuesIcon from '@atlaskit/icon/glyph/issues';
-import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
-import SearchIcon from '@atlaskit/icon/glyph/search';
-import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
-import { JiraIcon, JiraWordmark } from '@atlaskit/logo';
 
 // Subcomponents
 import GlobalNavigation from './components/GlobalNavigation'
@@ -44,7 +23,6 @@ import LinkItem from './components/LinkItem'
 import ProjectInfoHeader from './components/ProjectInfoHeader'
 
 // Pages
-import HomePage from '../../pages/HomePage';
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
 import NuevoBonoDeViviendaPage from '../../pages/bono/NuevoBonoDeViviendaPage';
 import CasoDeBonoPage from '../../pages/bono/CasoDeBonoPage';
@@ -56,61 +34,6 @@ import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
 
 // Menus
 import productHomeViewCreate from './menus/productItems';
-
-const ContainerNavigation = () => (
-  <div data-webdriver-test-key="container-navigation">
-    <HeaderSection>
-      {({ css }) => (
-        <div
-          data-webdriver-test-key="container-header"
-          css={{
-            ...css,
-            paddingBottom: gridSize() * 2.5,
-          }}
-        >
-          <ContainerHeader
-            before={itemState => (
-              <ItemAvatar
-                itemState={itemState}
-                appearance="square"
-                size="large"
-              />
-            )}
-            text="My software project"
-            subText="Software project"
-          />
-        </div>
-      )}
-    </HeaderSection>
-    <MenuSection>
-      {({ className }) => (
-        <div className={className}>
-          <Item
-            before={BacklogIcon}
-            text="Backlog"
-            isSelected
-            testKey="container-item-backlog"
-          />
-          <Item
-            before={BoardIcon}
-            text="Active sprints"
-            testKey="container-item-sprints"
-          />
-          <Item
-            before={GraphLineIcon}
-            text="Reports"
-            testKey="container-item-reports"
-          />
-          <Separator />
-          <GroupHeading>Shortcuts</GroupHeading>
-          <Item before={ShortcutIcon} text="Project space" />
-          <Item before={ShortcutIcon} text="Project repo" />
-        </div>
-      )}
-    </MenuSection>
-  </div>
-);
-
 
 class Navigation extends Component<{navigationViewController: ViewController}> {
 
@@ -127,7 +50,6 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
       <ConnectedRouter history={history}>
         <LayoutManagerWithViewController
           globalNavigation={GlobalNavigation}
-          containerNavigation={ContainerNavigation}
           customComponents={{LinkItem, ProjectInfoHeader}}
         >
           <div style={{ padding: 40 }}>

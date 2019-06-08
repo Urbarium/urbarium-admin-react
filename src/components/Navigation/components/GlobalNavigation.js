@@ -10,7 +10,6 @@ import {
 } from '../menus/globalItems';
 import Drawer from '@atlaskit/drawer';
 import ProfileFragment from '../../Profile/ProfileFragment';
-
 import { withFirebase } from 'react-redux-firebase'
 import { connect } from 'react-redux'
 

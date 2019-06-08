@@ -3,7 +3,7 @@ import EmojiAtlassianIcon from '@atlaskit/icon/glyph/emoji/atlassian';
 import GraphBarIcon from '@atlaskit/icon/glyph/graph-bar';
 import SearchIcon from '@atlaskit/icon/glyph/search';
 import AddIcon from '@atlaskit/icon/glyph/add';
-import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
+import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
 import Avatar from '@atlaskit/avatar';
 import GlobalLink from '../components/GlobalLink';
 import SignOutIcon from '@atlaskit/icon/glyph/sign-out';
@@ -20,6 +20,7 @@ export const globalNavPrimaryItems = ({ onSearchClick }: *) => [
   },
   { id: 'metrics', icon: GraphBarIcon },
   { id: 'search', icon: SearchIcon, onClick: onSearchClick },
+  { id: 'users', icon: PeopleGroupIcon },
   { id: 'create', icon: AddIcon },
 ];
 
