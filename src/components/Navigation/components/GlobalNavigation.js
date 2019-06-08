@@ -1,12 +1,8 @@
 import React, { Fragment, PureComponent } from 'react';
 import {
-  ConnectedItem,
   GlobalNav,
-  ContainerHeader,
-  ItemAvatar,
   modeGenerator,
   ThemeProvider,
-  Switcher,
 } from '@atlaskit/navigation-next';
 import {
   globalNavPrimaryItems,
@@ -14,6 +10,7 @@ import {
 } from '../menus/globalItems';
 import SearchDrawer from './SearchDrawer';
 import ProfileDrawer from './ProfileDrawer';
+import ProfileFragment from '../../Profile/ProfileFragment';
 
 const customThemeMode = modeGenerator({
   product: {
@@ -68,7 +65,7 @@ class GlobalNavigation extends PureComponent<*, *> {
           <h2>Search Results</h2>
         </SearchDrawer>
         <ProfileDrawer onClose={this.toggleProfile} isOpen={this.state.isProfileDrawerOpen}>
-          <h2>Profile</h2>
+          <ProfileFragment />
         </ProfileDrawer>
       </Fragment>
     );
