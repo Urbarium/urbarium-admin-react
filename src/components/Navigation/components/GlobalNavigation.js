@@ -8,8 +8,7 @@ import {
   globalNavPrimaryItems,
   globalNavSecondaryItems
 } from '../menus/globalItems';
-import SearchDrawer from './SearchDrawer';
-import ProfileDrawer from './ProfileDrawer';
+import Drawer from '@atlaskit/drawer';
 import ProfileFragment from '../../Profile/ProfileFragment';
 
 import { withFirebase } from 'react-redux-firebase'
@@ -70,12 +69,12 @@ class GlobalNavigation extends PureComponent<*, *> {
             })}
           />
         </ThemeProvider>
-        <SearchDrawer onClose={this.toggleSearch} isOpen={this.state.isSearchDrawerOpen}>
+        <Drawer onClose={this.toggleSearch} isOpen={this.state.isSearchDrawerOpen}>
           <h2>Search Results</h2>
-        </SearchDrawer>
-        <ProfileDrawer onClose={this.toggleProfile} isOpen={this.state.isProfileDrawerOpen}>
+        </Drawer>
+        <Drawer onClose={this.toggleProfile} isOpen={this.state.isProfileDrawerOpen}>
           <ProfileFragment />
-        </ProfileDrawer>
+        </Drawer>
       </Fragment>
     );
   }
