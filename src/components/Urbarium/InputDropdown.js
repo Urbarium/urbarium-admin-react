@@ -1,7 +1,7 @@
 import React from 'react';
-import { primary } from '../colors';
-import fonts from '../fonts';
 import styled from 'styled-components/macro';
+import { primary } from '../../colors';
+import fonts from '../../fonts';
 import Arrow from './Arrow';
 
 const DropDown = styled.select`
@@ -10,7 +10,7 @@ const DropDown = styled.select`
     width: 190px;
     height: 30px;
     border-radius: 15px;
-    border: 1px ${primary.gray} solid;
+    border: 1px ${primary.passive} solid;
     padding-left: 15px;
     appearance: none;
 

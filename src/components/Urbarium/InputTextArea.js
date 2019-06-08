@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import fonts from '../fonts';
-import { primary } from '../colors';
+import fonts from '../../fonts';
+import { primary } from '../../colors';
 
 const TextArea = styled.textarea`
   ${props => props.font}
@@ -20,7 +20,7 @@ const TextArea = styled.textarea`
   }
 
   ::placeholder {
-    color: ${primary.gray};
+    color: ${primary.passive};
   }
 `
 const InputTextArea = ({placeholder = "", data = undefined, fill = false, font = fonts.defaultInput}) => (

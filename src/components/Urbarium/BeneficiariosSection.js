@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Input from './LabeledInput';
 import Label from './Label';
 import Button from './ButtonText';
-import { primary } from '../colors';
-import fonts from '../fonts';
+import { primary } from '../../colors';
+import fonts from '../../fonts';
 
 // Single beneficiaro definition
 const subLabelFont = `${fonts.subLabel} color: ${primary.passive};`

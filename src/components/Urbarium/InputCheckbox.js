@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { primary } from '../colors';
-import fonts from '../fonts';
+import { primary } from '../../colors';
+import fonts from '../../fonts';
 
 
 // boring css due to lack of assets for the checkbox
@@ -20,7 +20,7 @@ const Check = styled.div`
         width: ${props => props.size * 0.9333}px;
         height: ${props => props.size * 0.1333}px;
         border-radius: ${props => props.size * 0.0667}px;
-        background-color: inherit
+        background-color: inherit;
         transform: translate(-40%, -35%) rotate(-50deg);
 	}
 	::after {
@@ -29,7 +29,7 @@ const Check = styled.div`
         width: ${props => props.size * 0.4}px;
         height: ${props => props.size * 0.1333}px;
         border-radius: ${props => props.size * 0.0667}px;
-        background-color: inherit
+        background-color: inherit;
         transform: translate(-115%, 130%) rotate(40deg);
 	}
 `;
@@ -44,9 +44,9 @@ const Box = styled.div`
 `;
 
 const Checkbox = ({size, checkColor, boxColor}) => ( 
-		<Box size={size} color={boxColor}>
-			<Check size={size} color={checkColor}/>
-		</Box>
+    <Box size={size} color={boxColor}>
+        <Check size={size} color={checkColor}/>
+    </Box>
 );
 
 const Input = styled.input`
@@ -74,7 +74,7 @@ const OptionWrapper = styled.label`
 const CheckboxWrapper = styled.div`
     display: grid;
     justify-content: start;
-    grid-template-columns: repeat(auto-fill, minmax(150px, auto));
+    grid-template-columns: repeat(${props => props.count}, auto);
     grid-auto-flow: dense;
 `;
 
@@ -85,7 +85,7 @@ class CheckboxOption extends React.Component {
     };
 
     handleOnChange() {
-        this.setState((prev, props)=> {return {data: !prev.data}})
+        this.setState((prev)=> {return {data: !prev.data}})
     };
 
     getLabel() {
@@ -122,7 +122,7 @@ CheckboxOption.defaultProps = {
 };
 
 const InputCheckbox = ({data = [], options = ["Option 1"], right, font, size, checkColor, boxColor}) => (
-    <CheckboxWrapper>
+    <CheckboxWrapper count={options.length}>
         {options.map((option, index) => {
             return (
                 <CheckboxOption

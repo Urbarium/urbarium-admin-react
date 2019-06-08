@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { primary, neutral } from '../colors';
-import fonts from '../fonts';
+import { primary, neutral } from '../../colors';
+import fonts from '../../fonts';
 import Label from './Label';
 import Arrow from './ButtonArrow';
 import ButtonState from './ButtonState';

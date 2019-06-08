@@ -1,7 +1,8 @@
 import React from 'react';
-import colors from '../colors';
-import fonts from '../fonts';
 import styled from 'styled-components/macro';
+import colors from '../../colors';
+import fonts from '../../fonts';
+
 
 const P = styled.p`
     color: ${colors.neutral.black};

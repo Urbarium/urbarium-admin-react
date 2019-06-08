@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { primary } from '../colors';
-import fonts from '../fonts';
+import { primary } from '../../colors';
+import fonts from '../../fonts';
 
 
 // boring css due to lack of assets for the checkbox
@@ -52,7 +52,7 @@ const OptionWrapper = styled.label`
 const RadioWrapper = styled.div`
     display: grid;
     justify-content: start;
-    grid-template-columns: repeat(${props => props.count}, 1fr);
+    grid-template-columns: repeat(${props => props.count}, auto);
     grid-auto-flow: dense;
 `;
 

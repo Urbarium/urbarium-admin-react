@@ -1,7 +1,12 @@
+// DEPRECATED
+// DEPRECATED
+// DEPRECATED
+
+
 import React from 'react';
 import styled from 'styled-components/macro';
-import colors from '../colors';
-import fonts from '../fonts';
+import colors from '../../colors';
+import fonts from '../../fonts';
 
 const Input = styled.input`
     /* Nothing yet

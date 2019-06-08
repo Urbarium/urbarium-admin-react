@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components/macro';
-import { primary } from '../colors';
-import fonts from '../fonts';
+import { primary } from '../../colors';
+import fonts from '../../fonts';
 
 
 const Input = styled.input`
@@ -18,7 +18,7 @@ const Input = styled.input`
   }
 
   ::placeholder {
-    color: ${primary.gray};
+    color: ${primary.passive};
   }
 `;
 
