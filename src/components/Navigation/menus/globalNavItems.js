@@ -5,8 +5,8 @@ import SearchIcon from '@atlaskit/icon/glyph/search';
 import AddIcon from '@atlaskit/icon/glyph/add';
 import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
 import Avatar from '@atlaskit/avatar';
-import GlobalLink from '../components/GlobalLink';
 import SignOutIcon from '@atlaskit/icon/glyph/sign-out';
+import GlobalLink from '../components/GlobalLink';
 
 export const globalNavPrimaryItems = ({ onSearchClick, onUsersManagementClick, onAddBonoClick }) => [
   {
@@ -30,7 +30,7 @@ export const globalNavSecondaryItems = ({ onProfileClick, onLogoutClick, profile
     icon: SignOutIcon,
     label: 'Help',
     size: 'small',
-    onClick: onLogoutClick
+    onClick: onLogoutClick,
   },
   {
     icon: () => (
@@ -45,6 +45,6 @@ export const globalNavSecondaryItems = ({ onProfileClick, onLogoutClick, profile
     label: 'Profile',
     size: 'small',
     id: 'profile',
-    onClick: onProfileClick
+    onClick: onProfileClick,
   },
 ];

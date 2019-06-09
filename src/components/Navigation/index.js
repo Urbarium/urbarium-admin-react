@@ -33,21 +33,22 @@ import HomePage from '../../pages/HomePage';
 import bonoFormNavItems from './menus/bonoFormNavItems';
 import usersManagementNavItems from './menus/usersManagementNavItems';
 
+const initializeProductNavs = (navigationViewController, navigationUIController) => {
+  if (window.location.pathname.match(/^\/bono/)) {
+    navigationViewController.setView('bonos');
+  } else if (window.location.pathname.match(/^\/users/)) {
+    navigationViewController.setView('users');
+  } else {
+    navigationUIController.state.isCollapsed = true;
+    navigationUIController.state.isResizeDisabled = true;
+  }
+}
+
 class Navigation extends Component {
   constructor(props) {
     super(props);
-    this.initializeProductNavs();
-  }
-
-  initializeProductNavs() {
-    if (window.location.pathname.match(/^\/bono/)) {
-      this.props.navigationViewController.setView('bonos');
-    } else if (window.location.pathname.match(/^\/users/)) {
-      this.props.navigationViewController.setView('users');
-    } else {
-      this.props.navigationUIController.state.isCollapsed = true;
-      this.props.navigationUIController.state.isResizeDisabled = true;
-    }
+    const { navigationViewController, navigationUIController } = props;
+    initializeProductNavs(navigationViewController, navigationUIController);
   }
 
   componentDidMount() {

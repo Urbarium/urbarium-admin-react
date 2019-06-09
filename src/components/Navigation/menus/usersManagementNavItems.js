@@ -1,4 +1,5 @@
-import MarketplaceIcon from '@atlaskit/icon/glyph/marketplace';
+import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
+import PeopleIcon from '@atlaskit/icon/glyph/people';
 
 const usersManagementNavItems = {
   id: 'users',
@@ -6,18 +7,32 @@ const usersManagementNavItems = {
   getItems: () => [
     {
       type: 'MenuSection',
-      id: 'product/home:beneficiarios',
+      id: 'users/manage',
+      items: [
+        {
+          type: 'ContainerHeader',
+          id: 'users/title',
+          before: PeopleIcon,
+          text: 'Users',
+          subText: 'Admin',
+          to: '/users',
+        },
+      ],
+    },
+    {
+      type: 'MenuSection',
+      id: 'product/home:menu',
       items: [
         {
           type: 'LinkItem',
-          id: 'beneficiarios',
-          before: MarketplaceIcon,
-          text: 'Beneficiarios',
-          to: '/beneficiarios'
+          id: 'users/all',
+          before: PeopleGroupIcon,
+          text: 'All',
+          to: '/users/all',
         },
-      ]
-    }
-  ]
+      ],
+    },
+  ],
 };
 
 export default usersManagementNavItems;

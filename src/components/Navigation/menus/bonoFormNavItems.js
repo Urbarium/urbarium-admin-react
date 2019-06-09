@@ -4,6 +4,7 @@ import EditorBulletListIcon from '@atlaskit/icon/glyph/editor/bullet-list';
 import MarketplaceIcon from '@atlaskit/icon/glyph/marketplace';
 import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
 
+// TODO: Fix all Items ids.
 const bonoFormNavItems = (id, status) => ({
   id: 'bonos',
   type: 'product',
