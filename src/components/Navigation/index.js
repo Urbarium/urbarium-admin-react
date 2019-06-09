@@ -20,7 +20,6 @@ import ProjectInfoHeader from './components/ProjectInfoHeader';
 
 // Pages
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
-import NuevoBonoDeViviendaPage from '../../pages/bono/NuevoBonoDeViviendaPage';
 import CasoDeBonoPage from '../../pages/bono/CasoDeBonoPage';
 import ConstruccionPage from '../../pages/bono/ConstruccionPage';
 import DesembolsoPage from '../../pages/bono/DesembolsoPage';
@@ -28,26 +27,30 @@ import TramitesPage from '../../pages/bono/TramitesPage';
 import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
 import HomePage from '../../pages/HomePage';
 
-
 // Menus
 import bonoFormNavItems from './menus/bonoFormNavItems';
 import usersManagementNavItems from './menus/usersManagementNavItems';
 
+const initializeProductNavs = (navigationViewController, navigationUIController) => {
+  // eslint-disable-next-line no-undef
+  if (window.location.pathname.match(/^\/bono/)) {
+    navigationViewController.setView('bonos');
+  // eslint-disable-next-line no-undef
+  } else if (window.location.pathname.match(/^\/users/)) {
+    navigationViewController.setView('users');
+  } else {
+    // eslint-disable-next-line no-param-reassign
+    navigationUIController.state.isCollapsed = true;
+    // eslint-disable-next-line no-param-reassign
+    navigationUIController.state.isResizeDisabled = true;
+  }
+};
+
 class Navigation extends Component {
   constructor(props) {
     super(props);
-    this.initializeProductNavs();
-  }
-
-  initializeProductNavs() {
-    if (window.location.pathname.match(/^\/bono/)) {
-      this.props.navigationViewController.setView('bonos');
-    } else if (window.location.pathname.match(/^\/users/)) {
-      this.props.navigationViewController.setView('users');
-    } else {
-      this.props.navigationUIController.state.isCollapsed = true;
-      this.props.navigationUIController.state.isResizeDisabled = true;
-    }
+    const { navigationViewController, navigationUIController } = props;
+    initializeProductNavs(navigationViewController, navigationUIController);
   }
 
   componentDidMount() {
@@ -68,7 +71,6 @@ class Navigation extends Component {
             <Route path="/" exact component={HomePage} />
             <Route path="/settings" component={UpdateProfilePage} />
             <Route path="/users" component={HomePage} />
-            <Route path="/bonos/crear" component={NuevoBonoDeViviendaPage} />
             <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
             <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
             <Route path="/bonos/:id/tramites" component={TramitesPage} />

@@ -1,9 +1,11 @@
 import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
 import DocumentsIcon from '@atlaskit/icon/glyph/documents';
 import EditorBulletListIcon from '@atlaskit/icon/glyph/editor/bullet-list';
-import MarketplaceIcon from '@atlaskit/icon/glyph/marketplace';
 import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
+import OfficeBuildingIcon from '@atlaskit/icon/glyph/office-building';
+import DocumentIcon from '@atlaskit/icon/glyph/document';
 
+// TODO: Fix all Items ids.
 const bonoFormNavItems = (id, status) => ({
   id: 'bonos',
   type: 'product',
@@ -13,11 +15,11 @@ const bonoFormNavItems = (id, status) => ({
       id: 'product/home:header',
       items: [
         {
-          type: 'ProjectInfoHeader',
-          casoId: id,
-          status,
-          to: '/',
-          id: 'urbarium-wordmark',
+          type: 'ContainerHeader',
+          id: 'bonos/header',
+          before: DocumentIcon,
+          text: `Bono #${id}`,
+          subText: `${status}`,
         },
       ],
     },
@@ -49,7 +51,7 @@ const bonoFormNavItems = (id, status) => ({
         {
           type: 'LinkItem',
           id: 'construccion',
-          before: MarketplaceIcon,
+          before: OfficeBuildingIcon,
           text: 'Construcción',
           to: '/construccion',
         },

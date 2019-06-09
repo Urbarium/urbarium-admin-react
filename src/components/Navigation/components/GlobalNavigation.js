@@ -3,37 +3,41 @@ import {
   GlobalNav,
   modeGenerator,
   ThemeProvider,
+  ViewControllerSubscriber,
 } from '@atlaskit/navigation-next';
-import {
-  globalNavPrimaryItems,
-  globalNavSecondaryItems
-} from '../menus/globalNavItems';
 import Drawer from '@atlaskit/drawer';
-import ProfileFragment from '../../Profile/ProfileFragment';
 import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
-import { ViewControllerSubscriber } from '@atlaskit/navigation-next';
-import { withRouter } from 'react-router-dom'
+
+import { withRouter } from 'react-router-dom';
+import ProfileFragment from '../../Profile/ProfileFragment';
+import {
+  globalNavPrimaryItems,
+  globalNavSecondaryItems,
+} from '../menus/globalNavItems';
+import Lorem from 'react-lorem-component';
+import Modal from '@atlaskit/modal-dialog';
 
 const enhance = connect(
-  ({ firebase: { profile } }) => ({ profile })
-)
+  ({ firebase: { profile } }) => ({ profile }),
+);
 
 const customThemeMode = modeGenerator({
   product: {
     text: '#FFFFFF',
     background: '#994f7e',
-  }
+  },
 });
 
-class GlobalNavigation extends Component{
-
-  state = {
-    isSearchDrawerOpen: false,
-    isProfileDrawerOpen: false,
-    productNavView: ''
-  };
-
+class GlobalNavigation extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      isSearchDrawerOpen: false,
+      isProfileDrawerOpen: false,
+      isCreateBonoOpen: false,
+    };
+  }
 
   toggleSearch = () => {
     this.setState(state => ({ isSearchDrawerOpen: !state.isSearchDrawerOpen }));
@@ -43,13 +47,34 @@ class GlobalNavigation extends Component{
     this.setState(state => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
   };
 
-  toggle = (viewController,id) => {
-    console.log(`ViewController => ${id}`)
+  toggle = (viewController, id) => {
+    const { history } = this.props;
     viewController.setView(id);
-    this.props.history.push(`/${id}`);
+    history.push(`/${id}`);
   }
 
+  goHome = () => {
+    const { history } = this.props;
+    history.push('/');
+  }
+
+  onCreatedBono = (id) => {
+    const { history } = this.props;
+    const nid = 30;
+    history.push(`/bonos/${nid}/beneficiarios`);
+  }
+
+  openCreateBono = () => this.setState({ isCreateBonoOpen: true });
+
+  closeCreateBono = () => this.setState({ isCreateBonoOpen: false });
+
   render() {
+    const { firebase, profile } = this.props;
+    const { isSearchDrawerOpen, isProfileDrawerOpen, isCreateBonoOpen } = this.state;
+    const modalCreateBonoActions = [
+      { text: 'Crear', onClick: this.onCreatedBono },
+      { text: 'Cancelar', onClick: this.closeCreateBono },
+    ];
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
@@ -57,25 +82,34 @@ class GlobalNavigation extends Component{
             {viewController => (
               <GlobalNav
                 primaryItems={globalNavPrimaryItems({
+                  onDashboardClick: this.goHome,
                   onSearchClick: this.toggleSearch,
-                  onUsersManagementClick: () => this.toggle(viewController,'users'),
-                  onAddBonoClick: () => this.toggle(viewController,'bonos'),
+                  onUsersManagementClick: () => this.toggle(viewController, 'users'),
+                  onAddBonoClick: this.openCreateBono,
                 })}
                 secondaryItems={globalNavSecondaryItems({
                   onProfileClick: this.toggleProfile,
-                  onLogoutClick: () => this.props.firebase.logout(),
-                  profile: this.props.profile,
+                  onLogoutClick: () => firebase.logout(),
+                  profile,
                 })}
-              />)
+              />
+            )
             }
           </ViewControllerSubscriber>
         </ThemeProvider>
-        <Drawer onClose={this.toggleSearch} isOpen={this.state.isSearchDrawerOpen}>
-          <h2>Search Results</h2>
+        <Drawer onClose={this.toggleSearch} isOpen={isSearchDrawerOpen}>
+          <h2>Resultados</h2>
         </Drawer>
-        <Drawer onClose={this.toggleProfile} isOpen={this.state.isProfileDrawerOpen}>
+        <Drawer onClose={this.toggleProfile} isOpen={isProfileDrawerOpen}>
           <ProfileFragment />
         </Drawer>
+        {
+          isCreateBonoOpen && (
+            <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} heading="Nuevo Bono">
+              <Lorem count={2} />
+            </Modal>
+          )
+        }
       </Fragment>
     );
   }

@@ -5,10 +5,12 @@ import SearchIcon from '@atlaskit/icon/glyph/search';
 import AddIcon from '@atlaskit/icon/glyph/add';
 import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
 import Avatar from '@atlaskit/avatar';
-import GlobalLink from '../components/GlobalLink';
 import SignOutIcon from '@atlaskit/icon/glyph/sign-out';
+import GlobalLink from '../components/GlobalLink';
 
-export const globalNavPrimaryItems = ({ onSearchClick, onUsersManagementClick, onAddBonoClick }) => [
+export const globalNavPrimaryItems = ({
+  onDashboardClick, onSearchClick, onUsersManagementClick, onAddBonoClick,
+}) => [
   {
     id: 'jira',
     icon: ({ label }) => (
@@ -18,9 +20,9 @@ export const globalNavPrimaryItems = ({ onSearchClick, onUsersManagementClick, o
     to: '/',
     component: GlobalLink,
   },
-  { id: 'metrics', icon: GraphBarIcon },
-  { id: 'search', icon: SearchIcon, onClick: onSearchClick },
+  { id: 'metrics', icon: GraphBarIcon, onClick: onDashboardClick },
   { id: 'users', icon: PeopleGroupIcon, onClick: onUsersManagementClick },
+  { id: 'search', icon: SearchIcon, onClick: onSearchClick },
   { id: 'create', icon: AddIcon, onClick: onAddBonoClick },
 ];
 
@@ -30,7 +32,7 @@ export const globalNavSecondaryItems = ({ onProfileClick, onLogoutClick, profile
     icon: SignOutIcon,
     label: 'Help',
     size: 'small',
-    onClick: onLogoutClick
+    onClick: onLogoutClick,
   },
   {
     icon: () => (
@@ -45,6 +47,6 @@ export const globalNavSecondaryItems = ({ onProfileClick, onLogoutClick, profile
     label: 'Profile',
     size: 'small',
     id: 'profile',
-    onClick: onProfileClick
+    onClick: onProfileClick,
   },
 ];
