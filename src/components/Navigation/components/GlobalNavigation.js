@@ -15,6 +15,8 @@ import {
   globalNavPrimaryItems,
   globalNavSecondaryItems,
 } from '../menus/globalNavItems';
+import Lorem from 'react-lorem-component';
+import Modal from '@atlaskit/modal-dialog';
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile }),
@@ -33,6 +35,7 @@ class GlobalNavigation extends Component {
     this.state = {
       isSearchDrawerOpen: false,
       isProfileDrawerOpen: false,
+      isCreateBonoOpen: false,
     };
   }
 
@@ -55,9 +58,23 @@ class GlobalNavigation extends Component {
     history.push('/');
   }
 
+  onCreatedBono = (id) => {
+    const { history } = this.props;
+    const nid = 30;
+    history.push(`/bonos/${nid}/beneficiarios`);
+  }
+
+  openCreateBono = () => this.setState({ isCreateBonoOpen: true });
+
+  closeCreateBono = () => this.setState({ isCreateBonoOpen: false });
+
   render() {
     const { firebase, profile } = this.props;
-    const { isSearchDrawerOpen, isProfileDrawerOpen } = this.state;
+    const { isSearchDrawerOpen, isProfileDrawerOpen, isCreateBonoOpen } = this.state;
+    const modalCreateBonoActions = [
+      { text: 'Crear', onClick: this.onCreatedBono },
+      { text: 'Cancelar', onClick: this.closeCreateBono },
+    ];
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
@@ -68,7 +85,7 @@ class GlobalNavigation extends Component {
                   onDashboardClick: this.goHome,
                   onSearchClick: this.toggleSearch,
                   onUsersManagementClick: () => this.toggle(viewController, 'users'),
-                  onAddBonoClick: () => this.toggle(viewController, 'bonos'),
+                  onAddBonoClick: this.openCreateBono,
                 })}
                 secondaryItems={globalNavSecondaryItems({
                   onProfileClick: this.toggleProfile,
@@ -86,6 +103,13 @@ class GlobalNavigation extends Component {
         <Drawer onClose={this.toggleProfile} isOpen={isProfileDrawerOpen}>
           <ProfileFragment />
         </Drawer>
+        {
+          isCreateBonoOpen && (
+            <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} heading="Nuevo Bono">
+              <Lorem count={2} />
+            </Modal>
+          )
+        }
       </Fragment>
     );
   }

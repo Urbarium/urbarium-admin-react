@@ -21,8 +21,8 @@ export const globalNavPrimaryItems = ({
     component: GlobalLink,
   },
   { id: 'metrics', icon: GraphBarIcon, onClick: onDashboardClick },
-  { id: 'search', icon: SearchIcon, onClick: onSearchClick },
   { id: 'users', icon: PeopleGroupIcon, onClick: onUsersManagementClick },
+  { id: 'search', icon: SearchIcon, onClick: onSearchClick },
   { id: 'create', icon: AddIcon, onClick: onAddBonoClick },
 ];
 
