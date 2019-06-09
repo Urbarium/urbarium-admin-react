@@ -8,7 +8,9 @@ import Avatar from '@atlaskit/avatar';
 import SignOutIcon from '@atlaskit/icon/glyph/sign-out';
 import GlobalLink from '../components/GlobalLink';
 
-export const globalNavPrimaryItems = ({ onSearchClick, onUsersManagementClick, onAddBonoClick }) => [
+export const globalNavPrimaryItems = ({
+  onDashboardClick, onSearchClick, onUsersManagementClick, onAddBonoClick,
+}) => [
   {
     id: 'jira',
     icon: ({ label }) => (
@@ -18,7 +20,7 @@ export const globalNavPrimaryItems = ({ onSearchClick, onUsersManagementClick, o
     to: '/',
     component: GlobalLink,
   },
-  { id: 'metrics', icon: GraphBarIcon },
+  { id: 'metrics', icon: GraphBarIcon, onClick: onDashboardClick },
   { id: 'search', icon: SearchIcon, onClick: onSearchClick },
   { id: 'users', icon: PeopleGroupIcon, onClick: onUsersManagementClick },
   { id: 'create', icon: AddIcon, onClick: onAddBonoClick },

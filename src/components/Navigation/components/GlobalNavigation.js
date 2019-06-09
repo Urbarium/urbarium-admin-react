@@ -50,6 +50,11 @@ class GlobalNavigation extends Component {
     history.push(`/${id}`);
   }
 
+  goHome = () => {
+    const { history } = this.props;
+    history.push('/');
+  }
+
   render() {
     const { firebase, profile } = this.props;
     const { isSearchDrawerOpen, isProfileDrawerOpen } = this.state;
@@ -60,6 +65,7 @@ class GlobalNavigation extends Component {
             {viewController => (
               <GlobalNav
                 primaryItems={globalNavPrimaryItems({
+                  onDashboardClick: this.goHome,
                   onSearchClick: this.toggleSearch,
                   onUsersManagementClick: () => this.toggle(viewController, 'users'),
                   onAddBonoClick: () => this.toggle(viewController, 'bonos'),
