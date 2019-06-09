@@ -34,15 +34,19 @@ import bonoFormNavItems from './menus/bonoFormNavItems';
 import usersManagementNavItems from './menus/usersManagementNavItems';
 
 const initializeProductNavs = (navigationViewController, navigationUIController) => {
+  // eslint-disable-next-line no-undef
   if (window.location.pathname.match(/^\/bono/)) {
     navigationViewController.setView('bonos');
+  // eslint-disable-next-line no-undef
   } else if (window.location.pathname.match(/^\/users/)) {
     navigationViewController.setView('users');
   } else {
+    // eslint-disable-next-line no-param-reassign
     navigationUIController.state.isCollapsed = true;
+    // eslint-disable-next-line no-param-reassign
     navigationUIController.state.isResizeDisabled = true;
   }
-}
+};
 
 class Navigation extends Component {
   constructor(props) {
