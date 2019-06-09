@@ -81,7 +81,7 @@ class GlobalNavigation extends Component {
           </ViewControllerSubscriber>
         </ThemeProvider>
         <Drawer onClose={this.toggleSearch} isOpen={isSearchDrawerOpen}>
-          <h2>Search Results</h2>
+          <h2>Resultados</h2>
         </Drawer>
         <Drawer onClose={this.toggleProfile} isOpen={isProfileDrawerOpen}>
           <ProfileFragment />

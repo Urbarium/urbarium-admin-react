@@ -3,6 +3,7 @@ import DocumentsIcon from '@atlaskit/icon/glyph/documents';
 import EditorBulletListIcon from '@atlaskit/icon/glyph/editor/bullet-list';
 import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
 import OfficeBuildingIcon from '@atlaskit/icon/glyph/office-building';
+import DocumentIcon from '@atlaskit/icon/glyph/document';
 
 // TODO: Fix all Items ids.
 const bonoFormNavItems = (id, status) => ({
@@ -14,11 +15,11 @@ const bonoFormNavItems = (id, status) => ({
       id: 'product/home:header',
       items: [
         {
-          type: 'ProjectInfoHeader',
-          casoId: id,
-          status,
-          to: '/',
-          id: 'urbarium-wordmark',
+          type: 'ContainerHeader',
+          id: 'bonos/header',
+          before: DocumentIcon,
+          text: `Bono #${id}`,
+          subText: `${status}`,
         },
       ],
     },
