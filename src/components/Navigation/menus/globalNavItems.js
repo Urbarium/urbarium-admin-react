@@ -11,7 +11,7 @@ import SignOutIcon from '@atlaskit/icon/glyph/sign-out';
 export const globalNavPrimaryItems = ({ onSearchClick, onUsersManagementClick, onAddBonoClick }) => [
   {
     id: 'jira',
-    icon: ({ label }: { label: string }) => (
+    icon: ({ label }) => (
       <EmojiAtlassianIcon size="medium" label={label} />
     ),
     label: 'Jira',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Routes
-import { Route, Switch } from "react-router";
+import { Route, Switch } from 'react-router';
 
 // Navigation-Next Component
 import {
@@ -11,12 +11,12 @@ import {
   withNavigationUIController,
   modeGenerator,
   ThemeProvider,
-} from "@atlaskit/navigation-next";
+} from '@atlaskit/navigation-next';
 
 // Subcomponents
-import GlobalNavigation from './components/GlobalNavigation'
-import LinkItem from './components/LinkItem'
-import ProjectInfoHeader from './components/ProjectInfoHeader'
+import GlobalNavigation from './components/GlobalNavigation';
+import LinkItem from './components/LinkItem';
+import ProjectInfoHeader from './components/ProjectInfoHeader';
 
 // Pages
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
@@ -34,18 +34,17 @@ import bonoFormNavItems from './menus/bonoFormNavItems';
 import usersManagementNavItems from './menus/usersManagementNavItems';
 
 class Navigation extends Component {
-
   constructor(props) {
     super(props);
     this.initializeProductNavs();
   }
 
   initializeProductNavs() {
-    if (window.location.pathname.match(/^\/bono/)){
+    if (window.location.pathname.match(/^\/bono/)) {
       this.props.navigationViewController.setView('bonos');
-    }else if (window.location.pathname.match(/^\/users/)){
+    } else if (window.location.pathname.match(/^\/users/)) {
       this.props.navigationViewController.setView('users');
-    }else{
+    } else {
       this.props.navigationUIController.state.isCollapsed = true;
       this.props.navigationUIController.state.isResizeDisabled = true;
     }
@@ -62,32 +61,32 @@ class Navigation extends Component {
     return (
       <LayoutManagerWithViewController
         globalNavigation={GlobalNavigation}
-        customComponents={{LinkItem, ProjectInfoHeader}}
+        customComponents={{ LinkItem, ProjectInfoHeader }}
       >
         <div style={{ padding: 40 }}>
           <Switch>
             <Route path="/" exact component={HomePage} />
-            <Route path='/settings' component={UpdateProfilePage} />
-            <Route path='/users' component={HomePage} />
-            <Route path='/bonos/crear' component={NuevoBonoDeViviendaPage} />
-            <Route path='/bonos/:id/beneficiarios' component={BeneficiariosPage} />
-            <Route path='/bonos/:id/casos-de-bono' component={CasoDeBonoPage} />
-            <Route path='/bonos/:id/tramites' component={TramitesPage} />
-            <Route path='/bonos/:id/construccion' component={ConstruccionPage} />
-            <Route path='/bonos/:id/desembolso' component={DesembolsoPage} />
+            <Route path="/settings" component={UpdateProfilePage} />
+            <Route path="/users" component={HomePage} />
+            <Route path="/bonos/crear" component={NuevoBonoDeViviendaPage} />
+            <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
+            <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
+            <Route path="/bonos/:id/tramites" component={TramitesPage} />
+            <Route path="/bonos/:id/construccion" component={ConstruccionPage} />
+            <Route path="/bonos/:id/desembolso" component={DesembolsoPage} />
           </Switch>
         </div>
       </LayoutManagerWithViewController>
-    )
+    );
   }
 }
-const AppWithNavigationControllers = withNavigationViewController(withNavigationUIController(Navigation))
+const AppWithNavigationControllers = withNavigationViewController(withNavigationUIController(Navigation));
 
 const customThemeMode = modeGenerator({
   product: {
     text: '#994f7e',
     background: '#ebedf8',
-  }
+  },
 });
 
 export default () => (

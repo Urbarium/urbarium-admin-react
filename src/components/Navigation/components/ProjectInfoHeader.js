@@ -1,21 +1,21 @@
-import React from 'react'
-import styled from 'styled-components'
+import React from 'react';
+import styled from 'styled-components';
 
 const Container = styled.div`
   padding: 12px;
   margin-bottom: 20px;
-`
+`;
 
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-`
+`;
 
 const Col = styled.div`
   position: relative;
   width: 50%;
   height: 50px;
-`
+`;
 
 const TextId = styled.div`
   width: 94px;
@@ -26,7 +26,7 @@ const TextId = styled.div`
   text-align: right;
   position: absolute;
   right: 0;
-`
+`;
 
 const TextBono = styled.div`
   width: 32px;
@@ -39,7 +39,7 @@ const TextBono = styled.div`
   position: absolute;
   bottom: 0;
   left: 0;
-`
+`;
 
 const TextStatus = styled.div`
   width: 100%;
@@ -49,30 +49,30 @@ const TextStatus = styled.div`
   fonst-family: Sans-serif;
   font-weight: bold;
   letter-spacing: 0.01px;
-`
+`;
 
-const ProjectInfoHeader = ({ components: { Item }, to, casoId, status, ...props }) => {
-  return (
-    <Container>
-      <Row>
-        <Col>
-          <TextId>
-            {'#' + casoId}
-          </TextId>
-        </Col>
-        <Col>
-          <TextBono>
+const ProjectInfoHeader = ({
+  components: { Item }, to, casoId, status, ...props
+}) => (
+  <Container>
+    <Row>
+      <Col>
+        <TextId>
+          {`#${  casoId}`}
+        </TextId>
+      </Col>
+      <Col>
+        <TextBono>
             BONO
-          </TextBono>
-        </Col>
-      </Row>
-      <Row>
-        <TextStatus>
-          {status}
-        </TextStatus>
-      </Row>
-    </Container>
-  );
-};
+        </TextBono>
+      </Col>
+    </Row>
+    <Row>
+      <TextStatus>
+        {status}
+      </TextStatus>
+    </Row>
+  </Container>
+);
 
-export default ProjectInfoHeader
+export default ProjectInfoHeader;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export const GlobalLink = ({ className, to, onClick, children }: any) => {
+export const GlobalLink = ({ className, to, onClick, children }) => {
   return (
     <Link className={className} to={to} onClick={onClick}>
       {children}
