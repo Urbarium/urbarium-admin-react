@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import { primary } from '../../colors';
 import fonts from '../../fonts';
 import Arrow from './Arrow';
