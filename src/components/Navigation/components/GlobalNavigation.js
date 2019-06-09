@@ -1,4 +1,4 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { Fragment, Component } from 'react';
 import {
   GlobalNav,
   modeGenerator,
@@ -7,12 +7,13 @@ import {
 import {
   globalNavPrimaryItems,
   globalNavSecondaryItems
-} from '../menus/globalItems';
+} from '../menus/globalNavItems';
 import Drawer from '@atlaskit/drawer';
 import ProfileFragment from '../../Profile/ProfileFragment';
-
-import { withFirebase } from 'react-redux-firebase'
-import { connect } from 'react-redux'
+import { withFirebase } from 'react-redux-firebase';
+import { connect } from 'react-redux';
+import { ViewControllerSubscriber } from '@atlaskit/navigation-next';
+import { withRouter } from 'react-router-dom'
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile })
@@ -25,26 +26,14 @@ const customThemeMode = modeGenerator({
   }
 });
 
-class GlobalNavigation extends PureComponent<*, *> {
+class GlobalNavigation extends Component{
 
   state = {
     isSearchDrawerOpen: false,
-    isProfileDrawerOpen: false
+    isProfileDrawerOpen: false,
+    productNavView: ''
   };
 
-  componentDidMount = () => {
-    window.addEventListener('keydown', this.handleKeyDown);
-  };
-
-  componentWillUnmount = () => {
-    window.removeEventListener('keydown', this.handleKeyDown);
-  };
-
-  handleKeyDown = ({ key }: *) => {
-    if (key === '/' && !this.state.isSearchDrawerOpen) {
-      this.toggleSearch();
-    }
-  };
 
   toggleSearch = () => {
     this.setState(state => ({ isSearchDrawerOpen: !state.isSearchDrawerOpen }));
@@ -54,20 +43,32 @@ class GlobalNavigation extends PureComponent<*, *> {
     this.setState(state => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
   };
 
+  toggle = (viewController,id) => {
+    console.log(`ViewController => ${id}`)
+    viewController.setView(id);
+    this.props.history.push(`/${id}`);
+  }
+
   render() {
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
-          <GlobalNav
-            primaryItems={globalNavPrimaryItems({
-              onSearchClick: this.toggleSearch
-            })}
-            secondaryItems={globalNavSecondaryItems({
-              onProfileClick: this.toggleProfile,
-              onLogoutClick: () => this.props.firebase.logout(),
-              profile: this.props.profile,
-            })}
-          />
+          <ViewControllerSubscriber>
+            {viewController => (
+              <GlobalNav
+                primaryItems={globalNavPrimaryItems({
+                  onSearchClick: this.toggleSearch,
+                  onUsersManagementClick: () => this.toggle(viewController,'users'),
+                  onAddBonoClick: () => this.toggle(viewController,'bonos'),
+                })}
+                secondaryItems={globalNavSecondaryItems({
+                  onProfileClick: this.toggleProfile,
+                  onLogoutClick: () => this.props.firebase.logout(),
+                  profile: this.props.profile,
+                })}
+              />)
+            }
+          </ViewControllerSubscriber>
         </ThemeProvider>
         <Drawer onClose={this.toggleSearch} isOpen={this.state.isSearchDrawerOpen}>
           <h2>Search Results</h2>
@@ -80,4 +81,4 @@ class GlobalNavigation extends PureComponent<*, *> {
   }
 }
 
-export default enhance(withFirebase(GlobalNavigation));
+export default enhance(withFirebase(withRouter(GlobalNavigation)));

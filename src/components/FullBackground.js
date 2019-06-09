@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import Portal from '@atlaskit/portal'
-import Colors from "../colors";
-const { primary, sec, neutral } = Colors;
+import Portal from '@atlaskit/portal';
+import { primary } from '../colors';
 
 const FullBackgroundDiv = styled.div`
   background-color: ${primary.primary};
@@ -20,14 +19,17 @@ const CenteredDiv = styled.div`
   transform: translate(-50%, -50%);
 `;
 
-const FullBackground = (props) => (
-  <Portal zIndex={100} >
-    <FullBackgroundDiv>
-      {
-        props.centered ? <CenteredDiv>{props.children}</CenteredDiv> : props.children
-      }
-    </FullBackgroundDiv>
-  </Portal>
-)
+const FullBackground = (props) => {
+  const { centered, children } = props;
+  return (
+    <Portal zIndex={100}>
+      <FullBackgroundDiv>
+        {
+          centered ? <CenteredDiv>{children}</CenteredDiv> : children
+        }
+      </FullBackgroundDiv>
+    </Portal>
+  );
+};
 
-export default FullBackground
+export default FullBackground;

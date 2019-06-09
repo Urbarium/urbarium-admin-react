@@ -1,13 +1,16 @@
-import React from 'react'
-import FlexView from 'react-flexview'
+import React from 'react';
+import FlexView from 'react-flexview';
 
-const moveToTheRight = (props) => (
-  <FlexView style={ {marginTop: 20} }>
-    <FlexView grow={1} />
-    <FlexView>
-      {props.children}
+const moveToTheRight = (props) => {
+  const { children } = props;
+  return (
+    <FlexView style={{ marginTop: 20 }}>
+      <FlexView grow={1} />
+      <FlexView>
+        {children}
+      </FlexView>
     </FlexView>
-  </FlexView>
-)
+  );
+};
 
-export default moveToTheRight
+export default moveToTheRight;

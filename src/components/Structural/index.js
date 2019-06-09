@@ -7,3 +7,5 @@ export const CenteredXY = styled.div`
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 `;
+
+export default CenteredXY;

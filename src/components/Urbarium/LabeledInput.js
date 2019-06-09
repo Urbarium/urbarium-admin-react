@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import Label from './Label';
 import InputTextBox from './InputTextBox';
 import InputDropdown from './InputDropdown';
