@@ -15,7 +15,7 @@ const usersManagementNavItems = {
           type: 'ContainerHeader',
           id: 'users/title',
           before: PeopleIcon,
-          text: 'Users',
+          text: 'Usuarios',
           subText: 'Admin',
         },
       ],
