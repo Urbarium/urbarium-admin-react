@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Button from '@atlaskit/button';
 import ReactLoading from "react-loading";
 import styled from 'styled-components';

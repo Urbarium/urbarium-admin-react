@@ -7,11 +7,12 @@ import {
 import {
   globalNavPrimaryItems,
   globalNavSecondaryItems
-} from '../menus/globalItems';
+} from '../menus/globalNavItems';
 import Drawer from '@atlaskit/drawer';
 import ProfileFragment from '../../Profile/ProfileFragment';
-import { withFirebase } from 'react-redux-firebase'
-import { connect } from 'react-redux'
+import { withFirebase } from 'react-redux-firebase';
+import { connect } from 'react-redux';
+import { ViewControllerSubscriber } from '@atlaskit/navigation-next';
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile })
@@ -24,11 +25,12 @@ const customThemeMode = modeGenerator({
   }
 });
 
-class GlobalNavigation extends PureComponent<*, *> {
+class GlobalNavigation extends PureComponent{
 
   state = {
     isSearchDrawerOpen: false,
-    isProfileDrawerOpen: false
+    isProfileDrawerOpen: false,
+    productNavView: ''
   };
 
   componentDidMount = () => {
@@ -53,20 +55,31 @@ class GlobalNavigation extends PureComponent<*, *> {
     this.setState(state => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
   };
 
+  toggle = (viewController,id) => {
+    console.log(`ViewController => ${id}`)
+    viewController.setView(id)
+  }
+
   render() {
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
-          <GlobalNav
-            primaryItems={globalNavPrimaryItems({
-              onSearchClick: this.toggleSearch
-            })}
-            secondaryItems={globalNavSecondaryItems({
-              onProfileClick: this.toggleProfile,
-              onLogoutClick: () => this.props.firebase.logout(),
-              profile: this.props.profile,
-            })}
-          />
+          <ViewControllerSubscriber>
+            {viewController => (
+              <GlobalNav
+                primaryItems={globalNavPrimaryItems({
+                  onSearchClick: this.toggleSearch,
+                  onUsersManagementClick: () => this.toggle(viewController,'users-management'),
+                  onAddBonoClick: () => this.toggle(viewController,'crear-bono'),
+                })}
+                secondaryItems={globalNavSecondaryItems({
+                  onProfileClick: this.toggleProfile,
+                  onLogoutClick: () => this.props.firebase.logout(),
+                  profile: this.props.profile,
+                })}
+              />)
+            }
+          </ViewControllerSubscriber>
         </ThemeProvider>
         <Drawer onClose={this.toggleSearch} isOpen={this.state.isSearchDrawerOpen}>
           <h2>Search Results</h2>

@@ -15,8 +15,6 @@ import {
   ThemeProvider
 } from "@atlaskit/navigation-next";
 
-import { colors, gridSize } from '@atlaskit/theme';
-
 // Subcomponents
 import GlobalNavigation from './components/GlobalNavigation'
 import LinkItem from './components/LinkItem'
@@ -33,19 +31,20 @@ import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
 
 
 // Menus
-import productHomeViewCreate from './menus/productItems';
+import bonoFormNavItems from './menus/bonoFormNavItems';
+import usersManagementNavItems from './menus/usersManagementNavItems';
 
 class Navigation extends Component<{navigationViewController: ViewController}> {
 
   componentDidMount() {
     const { navigationViewController } = this.props;
-    const productHomeView = productHomeViewCreate(30, 'In Progress');
-    navigationViewController.addView(productHomeView);
-    navigationViewController.setView(productHomeView.id);
+    const bonoFormNav = bonoFormNavItems(30, 'In Progress');
+    navigationViewController.addView(bonoFormNav);
+    navigationViewController.addView(usersManagementNavItems);
+    navigationViewController.setView('crear-bono');
   }
 
   render() {
-
     return (
       <ConnectedRouter history={history}>
         <LayoutManagerWithViewController

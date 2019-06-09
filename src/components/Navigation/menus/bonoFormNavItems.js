@@ -1,14 +1,12 @@
-import DashboardIcon from '@atlaskit/icon/glyph/dashboard';
 import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
-import SettingsIcon from '@atlaskit/icon/glyph/settings';
 import DocumentsIcon from '@atlaskit/icon/glyph/documents';
 import EditorBulletListIcon from '@atlaskit/icon/glyph/editor/bullet-list';
 import MarketplaceIcon from '@atlaskit/icon/glyph/marketplace';
 import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
 
-const productHomeViewCreate = (id,status) => {
+const bonoFormNavItems = (id,status) => {
   return {
-    id: 'caso-de-bono',
+    id: 'crear-bono',
     type: 'product',
     getItems: () => [
       {
@@ -68,4 +66,4 @@ const productHomeViewCreate = (id,status) => {
   }
 };
 
-export default productHomeViewCreate;
+export default bonoFormNavItems;
