@@ -6,7 +6,7 @@ import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
 
 const bonoFormNavItems = (id,status) => {
   return {
-    id: 'bono',
+    id: 'bonos',
     type: 'product',
     getItems: () => [
       {

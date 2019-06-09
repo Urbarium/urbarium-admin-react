@@ -9,9 +9,11 @@ import 'firebase/database'
 import 'firebase/firestore' // make sure you add this for firestore
 import { ReactReduxFirebaseProvider } from 'react-redux-firebase'
 import { createFirestoreInstance } from 'redux-firestore'
-import configureStore, { history } from './configureStore'
+import configureStore from './configureStore'
+import { history } from './history'
 import MainRouter from './modules/MainRouter';
 import '@atlaskit/css-reset';
+import { ConnectedRouter } from 'connected-react-router'
 
 import * as Sentry from '@sentry/browser';
 import ErrorBoundary from './components/ErrorBoundary'
@@ -29,7 +31,7 @@ const reactReduxConfig = {
   ]
 }
 
-const store = configureStore({})
+const store = configureStore({}, history)
 
 const firebaseConfig = {
   apiKey: "AIzaSyDysVlFw_qKzvzmBxAs3jYwdWdI2qlmFS8",
@@ -52,9 +54,11 @@ const reactReduxProps = {
 const AppRoot = () => (
   <ErrorBoundary>
     <Provider store={store}>
-      <ReactReduxFirebaseProvider {...reactReduxProps}>
-        <MainRouter history={history}/>
-      </ReactReduxFirebaseProvider>
+      <ConnectedRouter history={history}>
+        <ReactReduxFirebaseProvider {...reactReduxProps}>
+          <MainRouter/>
+        </ReactReduxFirebaseProvider>
+      </ConnectedRouter>
     </Provider>
   </ErrorBoundary>
 );

@@ -1,20 +1,16 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 
 // Routes
 import { Route, Switch } from "react-router";
-import { ConnectedRouter } from 'connected-react-router'
-import { history } from '../../configureStore'
 
 // Navigation-Next Component
 import {
   LayoutManagerWithViewController,
   NavigationProvider,
-  ViewController,
   withNavigationViewController,
   withNavigationUIController,
   modeGenerator,
   ThemeProvider,
-  UIControllerSubscriber
 } from "@atlaskit/navigation-next";
 
 // Subcomponents
@@ -37,62 +33,54 @@ import HomePage from '../../pages/HomePage';
 import bonoFormNavItems from './menus/bonoFormNavItems';
 import usersManagementNavItems from './menus/usersManagementNavItems';
 
-const WithProductNav = (props) => {
-  const controller = props.navigationViewController;
-  if ( controller.state.activeView == null || controller.state.activeView.id !== props.viewId ){
-    controller.setView(props.viewId);
-  }
-
-  return (
-    <Fragment>
-      {props.children}
-    </Fragment>
-  )
-}
-
-const BonoSteps = (props) => (
-  <WithProductNav viewId="bono" navigationViewController={props.navigationViewController}>
-    <Route path='/bono/:id/beneficiarios' component={BeneficiariosPage} />
-    <Route path='/bono/:id/casos-de-bono' component={CasoDeBonoPage} />
-    <Route path='/bono/:id/tramites' component={TramitesPage} />
-    <Route path='/bono/:id/construccion' component={ConstruccionPage} />
-    <Route path='/bono/:id/desembolso' component={DesembolsoPage} />
-  </WithProductNav>
-)
-
 class Navigation extends Component {
 
+  constructor(props) {
+    super(props);
+    this.initializeProductNavs();
+  }
+
+  initializeProductNavs() {
+    if (window.location.pathname.match(/^\/bono/)){
+      this.props.navigationViewController.setView('bonos');
+    }else if (window.location.pathname.match(/^\/users/)){
+      this.props.navigationViewController.setView('users');
+    }else{
+      this.props.navigationUIController.state.isCollapsed = true;
+      this.props.navigationUIController.state.isResizeDisabled = true;
+    }
+  }
+
   componentDidMount() {
-    const { navigationViewController, navigationUIController } = this.props;
+    const { navigationViewController } = this.props;
     const bonoFormNav = bonoFormNavItems(30, 'In Progress');
     navigationViewController.addView(bonoFormNav);
     navigationViewController.addView(usersManagementNavItems);
-    navigationUIController.collapse();
-    navigationUIController.disableResize();
   }
 
   render() {
     return (
-      <ConnectedRouter history={history}>
-        <LayoutManagerWithViewController
-          globalNavigation={GlobalNavigation}
-          customComponents={{LinkItem, ProjectInfoHeader}}
-        >
-          <div style={{ padding: 40 }}>
-            <Route path="/" exact component={HomePage}>
-              {this.props.navigationUIController.state.isCollapsed = true}
-            </Route>,
+      <LayoutManagerWithViewController
+        globalNavigation={GlobalNavigation}
+        customComponents={{LinkItem, ProjectInfoHeader}}
+      >
+        <div style={{ padding: 40 }}>
+          <Switch>
+            <Route path="/" exact component={HomePage} />
             <Route path='/settings' component={UpdateProfilePage} />
-            <Route path='/users' component={null} />
-            <Route path='/bono/crear' component={NuevoBonoDeViviendaPage} />
-            <Route path='/bono' component={withNavigationViewController(BonoSteps)} />
-          </div>
-        </LayoutManagerWithViewController>
-      </ConnectedRouter>
+            <Route path='/users' component={HomePage} />
+            <Route path='/bonos/crear' component={NuevoBonoDeViviendaPage} />
+            <Route path='/bonos/:id/beneficiarios' component={BeneficiariosPage} />
+            <Route path='/bonos/:id/casos-de-bono' component={CasoDeBonoPage} />
+            <Route path='/bonos/:id/tramites' component={TramitesPage} />
+            <Route path='/bonos/:id/construccion' component={ConstruccionPage} />
+            <Route path='/bonos/:id/desembolso' component={DesembolsoPage} />
+          </Switch>
+        </div>
+      </LayoutManagerWithViewController>
     )
   }
 }
-
 const AppWithNavigationControllers = withNavigationViewController(withNavigationUIController(Navigation))
 
 const customThemeMode = modeGenerator({
