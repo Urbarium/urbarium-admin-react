@@ -11,8 +11,10 @@ import {
   NavigationProvider,
   ViewController,
   withNavigationViewController,
+  withNavigationUIController,
   modeGenerator,
-  ThemeProvider
+  ThemeProvider,
+  UIControllerSubscriber
 } from "@atlaskit/navigation-next";
 
 // Subcomponents
@@ -28,6 +30,7 @@ import ConstruccionPage from '../../pages/bono/ConstruccionPage';
 import DesembolsoPage from '../../pages/bono/DesembolsoPage';
 import TramitesPage from '../../pages/bono/TramitesPage';
 import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
+import HomePage from '../../pages/HomePage';
 
 
 // Menus
@@ -57,13 +60,15 @@ const BonoSteps = (props) => (
   </WithProductNav>
 )
 
-class Navigation extends Component<{navigationViewController: ViewController}> {
+class Navigation extends Component {
 
   componentDidMount() {
-    const { navigationViewController } = this.props;
+    const { navigationViewController, navigationUIController } = this.props;
     const bonoFormNav = bonoFormNavItems(30, 'In Progress');
     navigationViewController.addView(bonoFormNav);
     navigationViewController.addView(usersManagementNavItems);
+    navigationUIController.collapse();
+    navigationUIController.disableResize();
   }
 
   render() {
@@ -74,6 +79,9 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
           customComponents={{LinkItem, ProjectInfoHeader}}
         >
           <div style={{ padding: 40 }}>
+            <Route path="/" exact component={HomePage}>
+              {this.props.navigationUIController.state.isCollapsed = true}
+            </Route>,
             <Route path='/settings' component={UpdateProfilePage} />
             <Route path='/users' component={null} />
             <Route path='/bono/crear' component={NuevoBonoDeViviendaPage} />
@@ -85,7 +93,7 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
   }
 }
 
-const AppWithNavigationViewController = withNavigationViewController(Navigation)
+const AppWithNavigationControllers = withNavigationViewController(withNavigationUIController(Navigation))
 
 const customThemeMode = modeGenerator({
   product: {
@@ -97,7 +105,7 @@ const customThemeMode = modeGenerator({
 export default () => (
   <NavigationProvider>
     <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
-      <AppWithNavigationViewController />
+      <AppWithNavigationControllers />
     </ThemeProvider>
   </NavigationProvider>
 );
