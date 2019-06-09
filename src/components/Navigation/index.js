@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 // Routes
 import { Route, Switch } from "react-router";
@@ -34,6 +34,29 @@ import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
 import bonoFormNavItems from './menus/bonoFormNavItems';
 import usersManagementNavItems from './menus/usersManagementNavItems';
 
+const WithProductNav = (props) => {
+  const controller = props.navigationViewController;
+  if ( controller.state.activeView == null || controller.state.activeView.id !== props.viewId ){
+    controller.setView(props.viewId);
+  }
+
+  return (
+    <Fragment>
+      {props.children}
+    </Fragment>
+  )
+}
+
+const BonoSteps = (props) => (
+  <WithProductNav viewId="bono" navigationViewController={props.navigationViewController}>
+    <Route path='/bono/:id/beneficiarios' component={BeneficiariosPage} />
+    <Route path='/bono/:id/casos-de-bono' component={CasoDeBonoPage} />
+    <Route path='/bono/:id/tramites' component={TramitesPage} />
+    <Route path='/bono/:id/construccion' component={ConstruccionPage} />
+    <Route path='/bono/:id/desembolso' component={DesembolsoPage} />
+  </WithProductNav>
+)
+
 class Navigation extends Component<{navigationViewController: ViewController}> {
 
   componentDidMount() {
@@ -41,7 +64,6 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
     const bonoFormNav = bonoFormNavItems(30, 'In Progress');
     navigationViewController.addView(bonoFormNav);
     navigationViewController.addView(usersManagementNavItems);
-    navigationViewController.setView('crear-bono');
   }
 
   render() {
@@ -52,16 +74,10 @@ class Navigation extends Component<{navigationViewController: ViewController}> {
           customComponents={{LinkItem, ProjectInfoHeader}}
         >
           <div style={{ padding: 40 }}>
-            <Switch>
-              <Route path="/settings" component={UpdateProfilePage} />
-              <Route path="/users" component={null} />
-              <Route path="/beneficiarios" component={BeneficiariosPage} />
-              <Route path="/casos-de-bono" component={CasoDeBonoPage} />
-              <Route path="/tramites" component={TramitesPage} />
-              <Route path="/construccion" component={ConstruccionPage} />
-              <Route path="/desembolso" component={DesembolsoPage} />
-              <Route path="/nuevo" component={NuevoBonoDeViviendaPage} />
-            </Switch>
+            <Route path='/settings' component={UpdateProfilePage} />
+            <Route path='/users' component={null} />
+            <Route path='/bono/crear' component={NuevoBonoDeViviendaPage} />
+            <Route path='/bono' component={withNavigationViewController(BonoSteps)} />
           </div>
         </LayoutManagerWithViewController>
       </ConnectedRouter>
