@@ -50,4 +50,4 @@ If you are an external contributor please click [here](https://bitbucket.org/atl
 
 ## Demo
 
-![Screenshot](https://i.imgur.com/p4N266G.gif)
+![Screenshot](https://s3.gifyu.com/images/ezgif.com-crop-18e6ede318837df77.gif)
