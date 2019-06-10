@@ -14,12 +14,21 @@ import '@atlaskit/css-reset';
 import * as Sentry from '@sentry/browser';
 
 import { createBrowserHistory } from 'history';
+import LogRocket from 'logrocket';
+import setupLogRocketReact from 'logrocket-react';
 import ErrorBoundary from './components/ErrorBoundary';
 import MainRouter from './modules/MainRouter';
 import configureStore from './configureStore';
 
+LogRocket.init('eobsev/urbarium');
+setupLogRocketReact(LogRocket);
 Sentry.init({
   dsn: 'https://0fe35cc0bb894339a5345458b67b88a1@sentry.io/1396151',
+});
+LogRocket.getSessionURL((sessionURL) => {
+  Sentry.configureScope((scope) => {
+    scope.setExtra('sessionURL', sessionURL);
+  });
 });
 
 // react-redux
