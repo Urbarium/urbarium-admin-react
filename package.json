@@ -55,6 +55,8 @@
     "history": "^4.7.2",
     "jest-cli": "^24.5.0",
     "lodash": "^4.17.11",
+    "logrocket": "^1.0.0",
+    "logrocket-react": "^3.0.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.2",
     "react-aux": "^1.1.0",
