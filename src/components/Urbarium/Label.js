@@ -1,16 +1,17 @@
 import React from 'react';
-import styled from 'styled-components/macro';
+import styled from 'styled-components';
 import colors from '../../colors';
 import fonts from '../../fonts';
 
 
 const P = styled.p`
-    color: ${colors.neutral.black};
-    margin: inherit;
-    ${props => props.font ? props.font : fonts.defaultLabel}
+    margin: 0px;
+    color: ${props => props.color};
+    ${props => props.font}
 `;
 
-const Label = ({children, font=undefined}) => <P font={font}>{children}</P>;
+const Label = ({children, font=fonts.defaultLabel, color=colors.neutral.black }) =>
+  <P font={font} color={color}>{children}</P>;
 
 
 export default Label;

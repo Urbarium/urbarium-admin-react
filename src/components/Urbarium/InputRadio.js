@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components/macro';
-import { primary } from '../../colors';
+import styled from 'styled-components';
+import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
 
 
@@ -35,7 +35,7 @@ const Input = styled.input`
 `
 
 const Label = styled.p`    
-    color: ${primary.gray};
+    color: ${primary.passive};
     ${props => props.font}
 	display: inline;
 	margin: 0px 10px;
@@ -98,7 +98,7 @@ RadioOption.defaultProps = {
     font: fonts.optionLabel,
     size: 15,
     checkColor: primary.primary,
-    boxColor: primary.passive
+    boxColor: secondary.lightgray
 };
 
 const InputRadio = ({data = [], options = ["Option 1"], right, font, size, checkColor, boxColor, name}) => (

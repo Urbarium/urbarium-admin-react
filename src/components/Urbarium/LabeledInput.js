@@ -1,17 +1,11 @@
 import React from 'react';
-import styled from 'styled-components/macro';
 import Label from './Label';
 import InputTextBox from './InputTextBox';
 import InputDropdown from './InputDropdown';
 import InputTextArea from './InputTextArea';
-import InputSelection from './InputSelection';
 import InputCheckbox from './InputCheckbox';
-
-
-const Div = styled.div`
-    height: 100%;
-    margin-bottom: 10px;
-`; 
+import InputRadio from './InputRadio';
+import { Column } from '../Structural/index';
 
 const getInput = (type, props) => {
     switch (type) {
@@ -19,7 +13,7 @@ const getInput = (type, props) => {
         case "textarea": return <InputTextArea {...props}/>
         case "dropdown": return <InputDropdown {...props}/>
         case "checkbox": return <InputCheckbox {...props}/>
-        case "radio": return <InputSelection {...props}/>
+        case "radio": return <InputRadio {...props}/>
         default: return null;
     }
 }
@@ -32,10 +26,10 @@ const LabeledInput = props => {
     delete inputProps.label
     delete inputProps.type;
     return (
-        <Div>        
+        <Column gap={1}>        
             {props.label ? <Label font={props.labelFont}>{props.label}</Label> : null}        
             {getInput(props.type, inputProps)}
-        </Div>
+        </Column>
     )
 }
 

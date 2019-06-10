@@ -1,6 +1,6 @@
 import React from 'react';
-import styled from 'styled-components/macro';
-import { primary } from '../../colors';
+import styled from 'styled-components';
+import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
 
 
@@ -57,7 +57,7 @@ const Input = styled.input`
 `
 
 const Label = styled.p`    
-    color: ${primary.gray};
+    color: ${primary.passive};
     ${props => props.font}
 	display: inline;
 	margin: 0px 10px;
@@ -75,6 +75,7 @@ const CheckboxWrapper = styled.div`
     display: grid;
     justify-content: start;
     grid-template-columns: repeat(${props => props.count}, auto);
+    grid-template-rows: 1fr;
     grid-auto-flow: dense;
 `;
 
@@ -118,7 +119,7 @@ CheckboxOption.defaultProps = {
     font: fonts.optionLabel,
     size: 15,
     checkColor: primary.primary,
-    boxColor: primary.passive
+    boxColor: secondary.lightgray
 };
 
 const InputCheckbox = ({data = [], options = ["Option 1"], right, font, size, checkColor, boxColor}) => (
