@@ -12,7 +12,8 @@
     "eject": "react-scripts eject",
     "surge": "bash surge_login.sh && surge --project ./build/ --domain atlaskit-starter.surge.sh",
     "now-build": "yarn build",
-    "storybook": "start-storybook"
+    "storybook": "start-storybook",
+    "chromatic": "CHROMATIC_APP_CODE=xtkdh08jtfd chromatic test  --storybook-port 53134"
   },
   "keywords": [],
   "author": "Urbarium",
@@ -96,6 +97,7 @@
     "patch-package": "^6.1.2",
     "postinstall-prepare": "^1.0.1",
     "react-scripts": "^1.1.1",
+    "storybook-chromatic": "^1.3.3",
     "surge": "^0.20.1"
   }
 }
