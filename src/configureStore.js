@@ -1,3 +1,4 @@
+import LogRocket from 'logrocket';
 import { applyMiddleware, compose, createStore } from 'redux';
 import { routerMiddleware } from 'connected-react-router';
 import createRootReducer from './reducers';
@@ -9,6 +10,7 @@ export default function configureStore(preloadedState, history) {
     compose(
       applyMiddleware(
         routerMiddleware(history), // for dispatching history actions
+        LogRocket.reduxMiddleware(), // for LogRocket redux context
         // ... other middlewares ...
       ),
     ),
