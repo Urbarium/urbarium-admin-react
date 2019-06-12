@@ -4,7 +4,7 @@ import LoginForm from '../components/LoginForm';
 import FullBackground from '../components/FullBackground';
 import Card from '../components/Card';
 
-const LoginPage = (
+const LoginPage = () => (
   <FullBackground centered>
     <Card>
       <PageTitle>Urbarium Login</PageTitle>
