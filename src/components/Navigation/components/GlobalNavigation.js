@@ -63,6 +63,7 @@ class GlobalNavigation extends Component {
     history.push('/');
   }
 
+  // eslint-disable-next-line no-unused-vars
   onCreatedBono = (id) => {
     const { history } = this.props;
     const nid = 30;

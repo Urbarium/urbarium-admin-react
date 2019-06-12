@@ -23,7 +23,7 @@ import configureStore from './configureStore';
 LogRocket.init('eobsev/urbarium');
 setupLogRocketReact(LogRocket);
 Sentry.init({
-  dsn: 'https://0fe35cc0bb894339a5345458b67b88a1@sentry.io/1396151',
+  dsn: 'https://a0005fa943094213b8be655bbdfae8ac@sentry.io/1480102',
 });
 LogRocket.getSessionURL((sessionURL) => {
   Sentry.configureScope((scope) => {
