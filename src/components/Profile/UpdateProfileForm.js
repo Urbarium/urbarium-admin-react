@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Form, { Field } from '@atlaskit/form';
 import TextField from '@atlaskit/textfield';
-import PropTypes from 'prop-types';
 import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
