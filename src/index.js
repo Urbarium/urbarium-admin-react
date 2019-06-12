@@ -20,10 +20,10 @@ import ErrorBoundary from './components/ErrorBoundary';
 import MainRouter from './modules/MainRouter';
 import configureStore from './configureStore';
 
-LogRocket.init('eobsev/urbarium');
+LogRocket.init('urbarium/urbarium');
 setupLogRocketReact(LogRocket);
 Sentry.init({
-  dsn: 'https://a0005fa943094213b8be655bbdfae8ac@sentry.io/1480102',
+  dsn: 'https://09c10ad8e29341d59fe1bb79ab58d757@sentry.io/1480103',
 });
 LogRocket.getSessionURL((sessionURL) => {
   Sentry.configureScope((scope) => {
