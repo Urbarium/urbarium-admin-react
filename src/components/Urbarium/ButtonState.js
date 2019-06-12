@@ -20,7 +20,7 @@ const Button = styled.button`
     :focus {
        outline: none;
     }
-`
+`;
 
 const ArrowContainer = styled.div`
     position: relative;
@@ -28,54 +28,61 @@ const ArrowContainer = styled.div`
     height: 0px;
     bottom: 15px;
     left: 85px;
-`
+`;
 
 const states = [
-    {
-        text: "Por hacer",
-        color: "#0077FF",
-        backColor: "#EBEDF8",
-    },
-    {
-        text: "En proceso",
-        color: "white",
-        backColor: "#0077FF",
-    },
-    {
-        text: "Finalizado",
-        color: "white",
-        backColor: "#7ED321",
-    }
+  {
+    text: 'Por hacer',
+    color: '#0077FF',
+    backColor: '#EBEDF8',
+  },
+  {
+    text: 'En proceso',
+    color: 'white',
+    backColor: '#0077FF',
+  },
+  {
+    text: 'Finalizado',
+    color: 'white',
+    backColor: '#7ED321',
+  },
 ];
 
 
 class ButtonState extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {index: this.props.state - 1}
-    }
-    cycleState(){
-        let newIndex = this.state.index === 2 ? 0 : this.state.index + 1;
-        this.setState({index: newIndex})
-    }
-    render() {
-        return (
-                <div className="button-state-container">
-                    <Button  onClick={() => this.cycleState()} 
-                        color={states[this.state.index].color} 
-                        backColor={states[this.state.index].backColor}>                                    
-                        {states[this.state.index].text}                     
-                    </Button>
-                    <ArrowContainer>
-                        <Arrow color={states[this.state.index].color} width={6}/> 
-                    </ArrowContainer>
-                </div>
-        )
-    }
+  constructor(props) {
+    super(props);
+    const { state } = props.state;
+    this.state = { index: state - 1 };
+  }
+
+  cycleState() {
+    const { index } = this.state;
+    const newIndex = index === 2 ? 0 : index + 1;
+    this.setState({ index: newIndex });
+  }
+
+  render() {
+    const { index } = this.state;
+    return (
+      <div className="button-state-container">
+        <Button
+          onClick={() => this.cycleState()}
+          color={states[index].color}
+          backColor={states[index].backColor}
+        >
+          {states[index].text}
+        </Button>
+        <ArrowContainer>
+          <Arrow color={states[index].color} width={6} />
+        </ArrowContainer>
+      </div>
+    );
+  }
 }
 
 ButtonState.defaultProps = {
-    state: 1,
-}
+  state: 1,
+};
 
 export default ButtonState;

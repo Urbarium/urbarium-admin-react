@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { primary } from '../../colors';
+import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
 
 
@@ -10,8 +10,9 @@ const Input = styled.input`
   width: 190px;
   height: 30px;
   border-radius: 15px;
-  border: 1px ${primary.passive} solid;
+  border: 1px ${secondary.lightgray} solid;
   padding-left: 15px;
+  caret-color: ${primary.primary};
 
   :focus {
     outline: none;
@@ -22,12 +23,12 @@ const Input = styled.input`
   }
 `;
 
-const InputTextBox = ({placeholder = "", font = fonts.defaultInput, data = undefined}) => (
+const InputTextBox = ({ placeholder = '', font = fonts.defaultInput, data = undefined }) => (
   <Input
-    type = "text"
-    placeholder = {placeholder}
-    defaultValue = {data}
-    font = {font}
+    type="text"
+    placeholder={placeholder}
+    defaultValue={data}
+    font={font}
   />
 );
 
