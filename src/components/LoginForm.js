@@ -12,12 +12,12 @@ const enhance = connect(
 );
 
 class LoginForm extends Component {
-
   state = { message: { type: 'none' } };
 
   login(credentials) {
     const { firebase } = this.props;
     firebase.login(credentials).then(
+      // eslint-disable-next-line no-unused-vars
       (response) => {
         this.setState({ message: { type: 'confirmation', description: 'Login succeeded!' } });
       },

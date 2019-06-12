@@ -58,7 +58,7 @@ const ProjectInfoHeader = ({
     <Row>
       <Col>
         <TextId>
-          {`#${  casoId}`}
+          {`#${casoId}`}
         </TextId>
       </Col>
       <Col>

@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components'
+import styled from 'styled-components';
 import { primary } from '../../colors';
 import Arrow from './Arrow';
 
@@ -19,31 +19,36 @@ const Button = styled.button`
     :focus {
         outline: none;
     }
-`
+`;
 
-class ButtonArrow extends React.Component{
-    constructor(props) {
-        super(props);
-        this.state = {animate: false, color: primary.passive};
-    }
+class ButtonArrow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { animate: false, color: primary.passive };
+  }
 
-    changeState() {
-        this.setState({animate: !this.state.animate});
-        this.props.onClick();
-    }
+  changeState() {
+    const { animate } = this.state;
+    const { onClick } = this.props;
+    this.setState({ animate: !animate });
+    onClick();
+  }
 
-    // Button needs a data-attribute so css can read it and execute the animation
-    render() {
-        return(
-            <Button data-animate={this.state.animate}
-                onMouseDown={() => this.changeState()} 
-                onMouseEnter={() => this.setState({...this.state, color: primary.primary})}
-                onMouseLeave={() => this.setState({...this.state, color: primary.passive})}>                
-                <Arrow width={9} color={this.state.color}/>
-            </Button>
-        )
-    }
+  // Button needs a data-attribute so css can read it and execute the animation
+  render() {
+    const { animate, color } = this.state;
+    const state = Object.assign({}, this.state);
+    return (
+      <Button
+        data-animate={animate}
+        onMouseDown={() => this.changeState()}
+        onMouseEnter={() => this.setState({ ...state, color: primary.primary })}
+        onMouseLeave={() => this.setState({ ...state, color: primary.passive })}
+      >
+        <Arrow width={9} color={color} />
+      </Button>
+    );
+  }
 }
 
 export default ButtonArrow;
-

@@ -12,12 +12,12 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Lorem from 'react-lorem-component';
 import Modal from '@atlaskit/modal-dialog';
+import LogRocket from 'logrocket';
 import ProfileFragment from '../../Profile/ProfileFragment';
 import {
   globalNavPrimaryItems,
   globalNavSecondaryItems,
 } from '../menus/globalNavItems';
-import LogRocket from 'logrocket';
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile }),
