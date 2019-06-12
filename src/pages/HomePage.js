@@ -1,20 +1,15 @@
 import PropTypes from 'prop-types';
-import React, { Component } from 'react';
+import React from 'react';
 import MainSection from '../components/MainSection';
 import ContentWrapper from '../components/ContentWrapper';
 import PageTitle from '../components/PageTitle';
 
-class HomePage extends Component {
-
-  render() {
-    return (
-      <ContentWrapper>
-        <PageTitle>Metrics</PageTitle>
-        <MainSection />
-      </ContentWrapper>
-    );
-  }
-}
+const HomePage = (
+  <ContentWrapper>
+    <PageTitle>Metrics</PageTitle>
+    <MainSection />
+  </ContentWrapper>
+);
 
 HomePage.contextTypes = {
   showModal: PropTypes.func,
@@ -22,6 +17,6 @@ HomePage.contextTypes = {
   onConfirm: PropTypes.func,
   onCancel: PropTypes.func,
   onClose: PropTypes.func,
-}
+};
 
 export default HomePage;

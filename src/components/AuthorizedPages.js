@@ -51,5 +51,4 @@ export const UserHasPermission = connectedRouterRedirect({
   },
 });
 
-export default UserIsAuthenticated
-;
+export default UserIsAuthenticated;

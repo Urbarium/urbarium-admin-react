@@ -3,8 +3,8 @@ import styled from 'styled-components';
 import Avatar from '@atlaskit/avatar';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
 
-import { withFirebase } from 'react-redux-firebase'
-import { connect } from 'react-redux'
+import { withFirebase } from 'react-redux-firebase';
+import { connect } from 'react-redux';
 import ButtonWithLoading from '../ButtonWithLoading';
 
 const enhance = connect(

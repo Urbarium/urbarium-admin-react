@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { primary } from '../../colors';
- 
+
 const Arrow = styled.div`
     background-color: ${props => props.color};
     width: 0px;
@@ -33,6 +33,6 @@ const Arrow = styled.div`
         background-color: inherit;
         transform: translate(88%, -50%) rotate(-40deg);
     }
-`
+`;
 
-export default ({width = 10, height = 2, color = primary.primary}) => <Arrow  width={width} height={height} color={color}/>
+export default ({ width = 10, height = 2, color = primary.primary }) => <Arrow width={width} height={height} color={color} />;

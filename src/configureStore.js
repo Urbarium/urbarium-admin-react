@@ -1,6 +1,6 @@
-import { applyMiddleware, compose, createStore } from 'redux'
-import { routerMiddleware } from 'connected-react-router'
-import createRootReducer from './reducers'
+import { applyMiddleware, compose, createStore } from 'redux';
+import { routerMiddleware } from 'connected-react-router';
+import createRootReducer from './reducers';
 
 export default function configureStore(preloadedState, history) {
   const store = createStore(
@@ -12,7 +12,7 @@ export default function configureStore(preloadedState, history) {
         // ... other middlewares ...
       ),
     ),
-  )
+  );
 
-  return store
+  return store;
 }
