@@ -14,7 +14,7 @@ const DropDown = styled.select`
     padding-left: 15px;
     appearance: none;
     cursor: pointer;
-    
+
     &[disabled] {
         cursor: default;
     }
@@ -37,56 +37,61 @@ const ArrowContainer = styled.div`
     position: relative;
     bottom: 15px;
     left: 170px;
- `
+ `;
 
-// have to turn this into a more complex react component, preloading data is not working 
+// have to turn this into a more complex react component, preloading data is not working
 class InputDropDown extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {default: !this.props.data};
-  };
-
-  handleOnChange(event) {     
-    this.setState({default: false}); 
-    // TODO: check setState above should be called or after the changeHandler which trigger the parent setState 
-    const selectedIndex = this.props.options.indexOf(event.target.value);
-    this.props.changeHandler(selectedIndex);
+    const { data } = this.props;
+    this.state = { dataDefault: !data };
   }
 
+  // FIXME: There is a ESLint warning about `this` not being called. Is this ok?
   getOptions(options) {
-    return options.map(option => <option value={option} key={option}>{option}</option>)
+    return options.map(option => <option value={option} key={option}>{option}</option>);
+  }
+
+  handleOnChange(event) {
+    const { options, changeHandler } = this.props;
+    this.setState({ dataDefault: false });
+    // TODO: check setState above should be called or after the changeHandler which trigger the parent setState
+    const selectedIndex = options.indexOf(event.target.value);
+    changeHandler(selectedIndex);
   }
 
   render() {
-    const data = this.props.data;
-    const options = this.props.options; 
-    return(
+    const {
+      data, disabled, options, placeholder, font,
+    } = this.props;
+    const { dataDefault } = this.state;
+    return (
       <div className="InputDropDown">
-        {/* data-default is used as a data property to alter style using css selectors*/}
-        <DropDown 
-          data-default = {this.state.default} 
-          defaultValue = {data ? options[data - 1] : this.props.placeholder} 
-          font = {this.props.font}
-          onChange = {(event) => this.handleOnChange(event)}
-          disabled = {this.props.disabled}
+        {/* data-default is used as a data property to alter style using css selectors */}
+        <DropDown
+          data-default={dataDefault}
+          defaultValue={data ? options[data - 1] : placeholder}
+          font={font}
+          onChange={event => this.handleOnChange(event)}
+          disabled={disabled}
         >
-          {[<option hidden value="" key=" ">{this.props.placeholder}</option>, 
+          {[<option hidden value="" key=" ">{placeholder}</option>,
             ...this.getOptions(options)]}
         </DropDown>
         <ArrowContainer>
-          <Arrow width={8} color={primary.primary}/>
+          <Arrow width={8} color={primary.primary} />
         </ArrowContainer>
       </div>
     );
-  };
-};
+  }
+}
 
 InputDropDown.defaultProps = {
-  placeholder: "",
-  options: ["option 1"],
+  placeholder: '',
+  options: ['option 1'],
   data: undefined,
   font: fonts.defaultInput,
-  changeHandler(){},
+  changeHandler() {},
 };
 
 export default InputDropDown;

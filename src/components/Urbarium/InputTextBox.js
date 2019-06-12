@@ -23,12 +23,12 @@ const Input = styled.input`
   }
 `;
 
-const InputTextBox = ({placeholder = "", font = fonts.defaultInput, data = undefined}) => (
+const InputTextBox = ({ placeholder = '', font = fonts.defaultInput, data = undefined }) => (
   <Input
-    type = "text"
-    placeholder = {placeholder}
-    defaultValue = {data}
-    font = {font}
+    type="text"
+    placeholder={placeholder}
+    defaultValue={data}
+    font={font}
   />
 );
 

@@ -9,7 +9,7 @@ class HomePage extends Component {
   render() {
     return (
       <ContentWrapper>
-        <PageTitle>Home</PageTitle>
+        <PageTitle>Metrics</PageTitle>
         <MainSection />
       </ContentWrapper>
     );

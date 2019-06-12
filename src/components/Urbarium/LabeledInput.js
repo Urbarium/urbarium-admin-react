@@ -8,30 +8,33 @@ import InputRadio from './InputRadio';
 import { Column } from '../Structural/index';
 
 const getInput = (type, props) => {
-    switch (type) {
-        case "textbox": return <InputTextBox {...props}/>
-        case "textarea": return <InputTextArea {...props}/>
-        case "dropdown": return <InputDropdown {...props}/>
-        case "checkbox": return <InputCheckbox {...props}/>
-        case "radio": return <InputRadio {...props}/>
-        default: return null;
-    }
-}
+  switch (type) {
+  case 'textbox': return <InputTextBox {...props} />;
+  case 'textarea': return <InputTextArea {...props} />;
+  case 'dropdown': return <InputDropdown {...props} />;
+  case 'checkbox': return <InputCheckbox {...props} />;
+  case 'radio': return <InputRadio {...props} />;
+  default: return null;
+  }
+};
 
-const LabeledInput = props => {
-    const inputProps = Object.assign({}, props, {font: props.inputFont});
-    // there's probably a better pattern for this
-    delete inputProps.inputFont;
-    delete inputProps.labelFont;
-    delete inputProps.label
-    delete inputProps.type;
-    return (
-        <Column gap={1}>        
-            {props.label ? <Label font={props.labelFont}>{props.label}</Label> : null}        
-            {getInput(props.type, inputProps)}
-        </Column>
-    )
-}
+const LabeledInput = (props) => {
+  const {
+    label, labelFont, type, inputFont,
+  } = props;
+  const inputProps = Object.assign({}, props, { font: inputFont });
+  // there's probably a better pattern for this
+  delete inputProps.inputFont;
+  delete inputProps.labelFont;
+  delete inputProps.label;
+  delete inputProps.type;
+  return (
+    <Column gap={1}>
+      {label ? <Label font={labelFont}>{label}</Label> : null}
+      {getInput(type, inputProps)}
+    </Column>
+  );
+};
 
 
 export default LabeledInput;

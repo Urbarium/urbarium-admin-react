@@ -1,166 +1,100 @@
 import React, { Component } from 'react';
 
 // Routes
-import { Route, Switch } from "react-router";
-import { ConnectedRouter } from 'connected-react-router'
-import { history } from '../../configureStore'
+import { Route, Switch } from 'react-router';
 
 // Navigation-Next Component
 import {
   LayoutManagerWithViewController,
   NavigationProvider,
-  ViewController,
   withNavigationViewController,
+  withNavigationUIController,
   modeGenerator,
   ThemeProvider,
-  HeaderSection,
-  MenuSection,
-  Item,
-  ContainerHeader,
-  ItemAvatar,
-  Separator,
-  GroupHeading
-} from "@atlaskit/navigation-next";
-
-import { colors, gridSize } from '@atlaskit/theme';
-
-// Icons
-import Avatar from '@atlaskit/avatar';
-import AddIcon from '@atlaskit/icon/glyph/add';
-import BacklogIcon from '@atlaskit/icon/glyph/backlog';
-import BoardIcon from '@atlaskit/icon/glyph/board';
-import DashboardIcon from '@atlaskit/icon/glyph/dashboard';
-import FolderIcon from '@atlaskit/icon/glyph/folder';
-import GraphLineIcon from '@atlaskit/icon/glyph/graph-line';
-import IssuesIcon from '@atlaskit/icon/glyph/issues';
-import QuestionCircleIcon from '@atlaskit/icon/glyph/question-circle';
-import SearchIcon from '@atlaskit/icon/glyph/search';
-import ShortcutIcon from '@atlaskit/icon/glyph/shortcut';
-import { JiraIcon, JiraWordmark } from '@atlaskit/logo';
+} from '@atlaskit/navigation-next';
 
 // Subcomponents
-import GlobalNavigation from './components/GlobalNavigation'
-import LinkItem from './components/LinkItem'
-import ProjectInfoHeader from './components/ProjectInfoHeader'
+import GlobalNavigation from './components/GlobalNavigation';
+import LinkItem from './components/LinkItem';
+import ProjectInfoHeader from './components/ProjectInfoHeader';
 
 // Pages
-import HomePage from '../../pages/HomePage';
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
-import NuevoBonoDeViviendaPage from '../../pages/bono/NuevoBonoDeViviendaPage';
 import CasoDeBonoPage from '../../pages/bono/CasoDeBonoPage';
 import ConstruccionPage from '../../pages/bono/ConstruccionPage';
 import DesembolsoPage from '../../pages/bono/DesembolsoPage';
 import TramitesPage from '../../pages/bono/TramitesPage';
 import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
-
+import HomePage from '../../pages/HomePage';
 
 // Menus
-import productHomeViewCreate from './menus/productItems';
+import bonoFormNavItems from './menus/bonoFormNavItems';
+import usersManagementNavItems from './menus/usersManagementNavItems';
 
-const ContainerNavigation = () => (
-  <div data-webdriver-test-key="container-navigation">
-    <HeaderSection>
-      {({ css }) => (
-        <div
-          data-webdriver-test-key="container-header"
-          css={{
-            ...css,
-            paddingBottom: gridSize() * 2.5,
-          }}
-        >
-          <ContainerHeader
-            before={itemState => (
-              <ItemAvatar
-                itemState={itemState}
-                appearance="square"
-                size="large"
-              />
-            )}
-            text="My software project"
-            subText="Software project"
-          />
-        </div>
-      )}
-    </HeaderSection>
-    <MenuSection>
-      {({ className }) => (
-        <div className={className}>
-          <Item
-            before={BacklogIcon}
-            text="Backlog"
-            isSelected
-            testKey="container-item-backlog"
-          />
-          <Item
-            before={BoardIcon}
-            text="Active sprints"
-            testKey="container-item-sprints"
-          />
-          <Item
-            before={GraphLineIcon}
-            text="Reports"
-            testKey="container-item-reports"
-          />
-          <Separator />
-          <GroupHeading>Shortcuts</GroupHeading>
-          <Item before={ShortcutIcon} text="Project space" />
-          <Item before={ShortcutIcon} text="Project repo" />
-        </div>
-      )}
-    </MenuSection>
-  </div>
-);
+const initializeProductNavs = (navigationViewController, navigationUIController) => {
+  // eslint-disable-next-line no-undef
+  if (window.location.pathname.match(/^\/bono/)) {
+    navigationViewController.setView('bonos');
+  // eslint-disable-next-line no-undef
+  } else if (window.location.pathname.match(/^\/users/)) {
+    navigationViewController.setView('users');
+  } else {
+    // eslint-disable-next-line no-param-reassign
+    navigationUIController.state.isCollapsed = true;
+    // eslint-disable-next-line no-param-reassign
+    navigationUIController.state.isResizeDisabled = true;
+  }
+};
 
-
-class Navigation extends Component<{navigationViewController: ViewController}> {
+class Navigation extends Component {
+  constructor(props) {
+    super(props);
+    const { navigationViewController, navigationUIController } = props;
+    initializeProductNavs(navigationViewController, navigationUIController);
+  }
 
   componentDidMount() {
     const { navigationViewController } = this.props;
-    const productHomeView = productHomeViewCreate(30, 'In Progress');
-    navigationViewController.addView(productHomeView);
-    navigationViewController.setView(productHomeView.id);
+    const bonoFormNav = bonoFormNavItems(30, 'In Progress');
+    navigationViewController.addView(bonoFormNav);
+    navigationViewController.addView(usersManagementNavItems);
   }
 
   render() {
-
     return (
-      <ConnectedRouter history={history}>
-        <LayoutManagerWithViewController
-          globalNavigation={GlobalNavigation}
-          containerNavigation={ContainerNavigation}
-          customComponents={{LinkItem, ProjectInfoHeader}}
-        >
-          <div style={{ padding: 40 }}>
-            <Switch>
-              <Route path="/settings" component={UpdateProfilePage} />
-              <Route path="/users" component={null} />
-              <Route path="/beneficiarios" component={BeneficiariosPage} />
-              <Route path="/casos-de-bono" component={CasoDeBonoPage} />
-              <Route path="/tramites" component={TramitesPage} />
-              <Route path="/construccion" component={ConstruccionPage} />
-              <Route path="/desembolso" component={DesembolsoPage} />
-              <Route path="/nuevo" component={NuevoBonoDeViviendaPage} />
-            </Switch>
-          </div>
-        </LayoutManagerWithViewController>
-      </ConnectedRouter>
-    )
+      <LayoutManagerWithViewController
+        globalNavigation={GlobalNavigation}
+        customComponents={{ LinkItem, ProjectInfoHeader }}
+      >
+        <div style={{ padding: 40 }}>
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/settings" component={UpdateProfilePage} />
+            <Route path="/users" component={HomePage} />
+            <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
+            <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
+            <Route path="/bonos/:id/tramites" component={TramitesPage} />
+            <Route path="/bonos/:id/construccion" component={ConstruccionPage} />
+            <Route path="/bonos/:id/desembolso" component={DesembolsoPage} />
+          </Switch>
+        </div>
+      </LayoutManagerWithViewController>
+    );
   }
 }
-
-const AppWithNavigationViewController = withNavigationViewController(Navigation)
+const AppWithNavigationControllers = withNavigationViewController(withNavigationUIController(Navigation));
 
 const customThemeMode = modeGenerator({
   product: {
     text: '#994f7e',
     background: '#ebedf8',
-  }
+  },
 });
 
 export default () => (
   <NavigationProvider>
     <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
-      <AppWithNavigationViewController />
+      <AppWithNavigationControllers />
     </ThemeProvider>
   </NavigationProvider>
 );

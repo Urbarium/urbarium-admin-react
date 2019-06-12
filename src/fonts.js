@@ -1,5 +1,5 @@
 export default {
-  
+
   defaultTitle: `
   font-family: Lato, Roboto, Sans-Serif;
   fonr-size: 27px;
@@ -47,5 +47,5 @@ export default {
   defaultAccordionInput: `
   font-family: Lato, Roboto, Sans-Serif;
   font-size: 12px;
-  `
-}
+  `,
+};
