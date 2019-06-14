@@ -10,7 +10,6 @@ import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
-import Lorem from 'react-lorem-component';
 import Modal from '@atlaskit/modal-dialog';
 import LogRocket from 'logrocket';
 import ProfileFragment from '../../Profile/ProfileFragment';
@@ -18,6 +17,7 @@ import {
   globalNavPrimaryItems,
   globalNavSecondaryItems,
 } from '../menus/globalNavItems';
+import CrearBonoPage from '../../../pages/bono/CrearBonoPage';
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile }),
@@ -111,8 +111,8 @@ class GlobalNavigation extends Component {
         </Drawer>
         {
           isCreateBonoOpen && (
-            <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} heading="Nuevo Bono">
-              <Lorem count={2} />
+            <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono}>
+              <CrearBonoPage />
             </Modal>
           )
         }
