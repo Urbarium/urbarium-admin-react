@@ -3,11 +3,11 @@ import MainSection from '../components/MainSection';
 import ContentWrapper from '../components/ContentWrapper';
 import PageTitle from '../components/PageTitle';
 
-const HomePage = () => (
+const UsersPage = () => (
   <ContentWrapper>
-    <PageTitle>Home Page</PageTitle>
+    <PageTitle>Users</PageTitle>
     <MainSection />
   </ContentWrapper>
 );
 
-export default HomePage;
+export default UsersPage;

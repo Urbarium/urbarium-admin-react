@@ -26,6 +26,7 @@ import DesembolsoPage from '../../pages/bono/DesembolsoPage';
 import TramitesPage from '../../pages/bono/TramitesPage';
 import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
 import HomePage from '../../pages/HomePage';
+import UsersPage from '../../pages/UsersPage';
 
 // Menus
 import bonoFormNavItems from './menus/bonoFormNavItems';
@@ -70,7 +71,7 @@ class Navigation extends Component {
           <Switch>
             <Route path="/" exact component={HomePage} />
             <Route path="/settings" component={UpdateProfilePage} />
-            <Route path="/users" component={HomePage} />
+            <Route path="/users" component={UsersPage} />
             <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
             <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
             <Route path="/bonos/:id/tramites" component={TramitesPage} />

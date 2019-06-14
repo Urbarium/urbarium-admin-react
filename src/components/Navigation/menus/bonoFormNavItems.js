@@ -5,7 +5,7 @@ import ArrowUpIcon from '@atlaskit/icon/glyph/arrow-up';
 import OfficeBuildingIcon from '@atlaskit/icon/glyph/office-building';
 import DocumentIcon from '@atlaskit/icon/glyph/document';
 
-// TODO: Fix all Items ids.
+
 const bonoFormNavItems = (id, status) => ({
   id: 'bonos',
   type: 'product',
@@ -32,35 +32,35 @@ const bonoFormNavItems = (id, status) => ({
           id: 'beneficiarios',
           before: PeopleGroupIcon,
           text: 'Beneficiarios',
-          to: '/beneficiarios',
+          to: `/bonos/:${id}/beneficiarios`,
         },
         {
           type: 'LinkItem',
           id: 'users',
           before: EditorBulletListIcon,
           text: 'Casos de Bono',
-          to: '/casos-de-bono',
+          to: `/bonos/:i${id}/casos-de-bono`,
         },
         {
           type: 'LinkItem',
           id: 'tramites',
           before: DocumentsIcon,
           text: 'Trámites',
-          to: '/tramites',
+          to: `/bonos/:i${id}/tramites`,
         },
         {
           type: 'LinkItem',
           id: 'construccion',
           before: OfficeBuildingIcon,
           text: 'Construcción',
-          to: '/construccion',
+          to: `/bonos/:i${id}/construccion`,
         },
         {
           type: 'LinkItem',
           id: 'desembolso',
           before: ArrowUpIcon,
           text: 'Desembolso',
-          to: '/desembolso',
+          to: `/bonos/:i${id}/desembolso`,
         },
       ],
     },
