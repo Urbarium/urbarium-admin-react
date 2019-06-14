@@ -42,7 +42,7 @@ jobs:
       - checkout
       - attach_workspace:
           at: .
-      - run: yarn test --passWithNoTests
+      - run: yarn test
   lint:
     <<: *defaults
     steps:
