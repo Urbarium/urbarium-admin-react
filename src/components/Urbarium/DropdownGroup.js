@@ -125,89 +125,90 @@ DDG.defaultProps = {
 export default DDG;
 
 
+// FIXME: Commented so CI build check is passed.
 // first try, have to define a better structure
-const testData = {
-  provincias: [
-    {
-      name: 'San Jose',
-      cantones: [
-        {
-          name: 'San Jose',
-          distritos: [
-            {
-              name: 'Carmen',
-            },
-            {
-              name: 'Merced',
-            },
-          ],
-        },
-        {
-          name: 'Desampadaros',
-          distritos: [
-            {
-              name: 'Desamparados',
-            },
-            {
-              name: 'San Miguel',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'Alajuela',
-      cantones: [
-        {
-          name: 'Alajuela',
-          distritos: [
-            {
-              name: 'Guacima',
-            },
-            {
-              name: 'San Isidro',
-            },
-          ],
-        },
-        {
-          name: 'San Ramon',
-          distritos: [
-            {
-              name: 'Piedades Norte',
-            },
-            {
-              name: 'Piedades Sur',
-            },
-          ],
-        },
-      ],
-    },
-    {
-      name: 'Cartago',
-      cantones: [
-        {
-          name: 'Cartago',
-          distritos: [
-            {
-              name: 'Oriental',
-            },
-            {
-              name: 'Occidental',
-            },
-          ],
-        },
-        {
-          name: 'Turrialba',
-          distritos: [
-            {
-              name: 'Santa Cruz',
-            },
-            {
-              name: 'Pavones',
-            },
-          ],
-        },
-      ],
-    },
-  ],
-};
+// const testData = {
+//   provincias: [
+//     {
+//       name: 'San Jose',
+//       cantones: [
+//         {
+//           name: 'San Jose',
+//           distritos: [
+//             {
+//               name: 'Carmen',
+//             },
+//             {
+//               name: 'Merced',
+//             },
+//           ],
+//         },
+//         {
+//           name: 'Desampadaros',
+//           distritos: [
+//             {
+//               name: 'Desamparados',
+//             },
+//             {
+//               name: 'San Miguel',
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//     {
+//       name: 'Alajuela',
+//       cantones: [
+//         {
+//           name: 'Alajuela',
+//           distritos: [
+//             {
+//               name: 'Guacima',
+//             },
+//             {
+//               name: 'San Isidro',
+//             },
+//           ],
+//         },
+//         {
+//           name: 'San Ramon',
+//           distritos: [
+//             {
+//               name: 'Piedades Norte',
+//             },
+//             {
+//               name: 'Piedades Sur',
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//     {
+//       name: 'Cartago',
+//       cantones: [
+//         {
+//           name: 'Cartago',
+//           distritos: [
+//             {
+//               name: 'Oriental',
+//             },
+//             {
+//               name: 'Occidental',
+//             },
+//           ],
+//         },
+//         {
+//           name: 'Turrialba',
+//           distritos: [
+//             {
+//               name: 'Santa Cruz',
+//             },
+//             {
+//               name: 'Pavones',
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//   ],
+// };
