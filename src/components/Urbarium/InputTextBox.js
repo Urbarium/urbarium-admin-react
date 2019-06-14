@@ -1,26 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
+import { InputFieldStyle } from './urbarium-styles';
 
 
 const Input = styled.input`
+  ${InputFieldStyle}
   ${props => props.font}
-  box-sizing: border-box;
-  width: 190px;
-  height: 30px;
-  border-radius: 15px;
-  border: 1px ${secondary.lightgray} solid;
-  padding-left: 15px;
-  caret-color: ${primary.primary};
-
-  :focus {
-    outline: none;
-  }
-
-  ::placeholder {
-    color: ${primary.passive};
-  }
 `;
 
 const InputTextBox = ({ placeholder = '', font = fonts.defaultInput, data = undefined }) => (

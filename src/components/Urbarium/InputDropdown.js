@@ -1,27 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { primary, secondary } from '../../colors';
+import { primary } from '../../colors';
+import { InputFieldStyle } from './urbarium-styles';
 import fonts from '../../fonts';
 import Arrow from './Arrow';
 
 const DropDown = styled.select`
+    ${InputFieldStyle}
     ${props => props.font}
-    box-sizing: border-box;
-    width: 190px;
-    height: 30px;
-    border-radius: 15px;
-    border: 1px ${secondary.lightgray} solid;
-    padding-left: 15px;
-    appearance: none;
     cursor: pointer;
-
-    &[disabled] {
-        cursor: default;
-    }
-
-    :focus {
-        outline: none;
-    }
+    appearance: none;
 
     &[data-default=true] {
         color: ${primary.passive};
@@ -39,17 +27,16 @@ const ArrowContainer = styled.div`
     left: 170px;
  `;
 
+const getOptions = (options) => {
+  options.map(option => <option value={option} key={option}>{option}</option>);
+};
+
 // have to turn this into a more complex react component, preloading data is not working
 class InputDropDown extends React.Component {
   constructor(props) {
     super(props);
     const { data } = this.props;
     this.state = { dataDefault: !data };
-  }
-
-  // FIXME: There is a ESLint warning about `this` not being called. Is this ok?
-  getOptions(options) {
-    return options.map(option => <option value={option} key={option}>{option}</option>);
   }
 
   handleOnChange(event) {
@@ -76,7 +63,7 @@ class InputDropDown extends React.Component {
           disabled={disabled}
         >
           {[<option hidden value="" key=" ">{placeholder}</option>,
-            ...this.getOptions(options)]}
+            ...getOptions(options)]}
         </DropDown>
         <ArrowContainer>
           <Arrow width={8} color={primary.primary} />
