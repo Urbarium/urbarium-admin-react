@@ -4,7 +4,6 @@ import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
 
 
-// boring css due to lack of assets for the checkbox
 const Radio = styled.div`
     display: inline-block;
     width: ${props => props.size}px;

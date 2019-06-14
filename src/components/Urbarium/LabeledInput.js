@@ -36,5 +36,4 @@ const LabeledInput = (props) => {
   );
 };
 
-
 export default LabeledInput;

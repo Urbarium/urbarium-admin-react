@@ -4,7 +4,6 @@ import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
 
 
-// boring css due to lack of assets for the checkbox
 const Check = styled.div`
     opacity: 0;
     transition: opacity 0.2s ease-in-out;

@@ -50,6 +50,18 @@ const labelFont = `
     color: ${primary.passive}
 `;
 
+const insertProps = (children) => {
+  let childrenWithProps;
+  if (children) {
+    if (isArray(children)) {
+      childrenWithProps = children.map(child => React.cloneElement(child, { ...childrenFont }));
+    }
+    childrenWithProps = React.cloneElement(children, { ...childrenFont });
+  }
+  return childrenWithProps;
+};
+
+
 class AccordionItem extends React.Component {
   constructor(props) {
     super(props);
@@ -59,16 +71,7 @@ class AccordionItem extends React.Component {
   }
 
   handleClick() {
-    this.setState((prev, props) => ({ opened: !prev.opened }));
-  }
-
-  insertProps(children) {
-    if (children) {
-      if (isArray(children)) {
-        return children.map(child => React.cloneElement(child, { ...childrenFont }));
-      }
-      return React.cloneElement(children, { ...childrenFont });
-    }
+    this.setState(prev => ({ opened: !prev.opened }));
   }
 
   render() {
@@ -93,7 +96,7 @@ class AccordionItem extends React.Component {
           <Arrow onClick={() => this.handleClick()} />
         </GridHeader>
         <GridBody columns={columns} data-opened={opened}>
-          {this.insertProps(children)}
+          {insertProps(children)}
         </GridBody>
       </Frame>
     );

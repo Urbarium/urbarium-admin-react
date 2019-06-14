@@ -41,18 +41,16 @@ const Beneficiario = ({
   </Column>
 );
 
+const getBeneficiarios = beneficiarios => beneficiarios.map((beneficiario, index) => (
+  <Beneficiario {...Object.assign({}, { index: index + 1 }, beneficiario)} />));
+
+
 // Beneficiaros Section definiton
 class BeneficiariosSection extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { benefList: this.getBeneficiarios(this.props.data) };
-  }
-
-  getBeneficiarios(beneficiarios) {
-    return (
-      beneficiarios.map((beneficiario, index) => (
-        <Beneficiario {...Object.assign({}, { index: index + 1 }, beneficiario)} />))
-    );
+    const { data } = this.props;
+    this.state = { benefList: getBeneficiarios(data) };
   }
 
   handleClickAdd() {
