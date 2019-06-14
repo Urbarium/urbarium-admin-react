@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React from 'react';
 import styled from 'styled-components';
 import { primary, secondary } from '../../colors';
@@ -5,41 +6,43 @@ import fonts from '../../fonts';
 
 
 const Check = styled.div`
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    width: 0px;
-    height: 0px;
-    background-color: ${props => props.color};
-    ::before {
-        content: "";
-        position: absolute;
-        width: ${props => props.size * 0.9333}px;
-        height: ${props => props.size * 0.1333}px;
-        border-radius: ${props => props.size * 0.0667}px;
-        background-color: inherit;
-        transform: translate(-40%, -35%) rotate(-50deg);
-    }
-    ::after {
-        content: "";
-        position: absolute;
-        width: ${props => props.size * 0.4}px;
-        height: ${props => props.size * 0.1333}px;
-        border-radius: ${props => props.size * 0.0667}px;
-        background-color: inherit;
-        transform: translate(-115%, 130%) rotate(40deg);
-    }
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 0px;
+  height: 0px;
+  background-color: ${props => props.color};
+  ::before {
+      content: "";
+      position: absolute;
+      width: ${props => props.size * 0.9333}px;
+      height: ${props => props.size * 0.1333}px;
+      border-radius: ${props => props.size * 0.0667}px;
+      background-color: inherit;
+      transform: translate(-40%, -35%) rotate(-50deg);
+  }
+  ::after {
+      content: "";
+      position: absolute;
+      width: ${props => props.size * 0.4}px;
+      height: ${props => props.size * 0.1333}px;
+      border-radius: ${props => props.size * 0.0667}px;
+      background-color: inherit;
+      transform: translate(-115%, 130%) rotate(40deg);
+  }
 `;
 
 const Box = styled.div`
-    display: inline-block;
-    width: ${props => props.size * 1}px;
-    height: ${props => props.size * 1}px;
-    border: ${props => props.size * 0.0667}px ${props => props.color} solid;
-    border-radius: ${props => props.size * 0.133}px;
-    position: relative;
+  display: inline-block;
+  min-width: ${props => props.size * 1}px;
+  max-width: ${props => props.size * 1}px;
+  min-height: ${props => props.size * 1}px;
+  max-height: ${props => props.size * 1}px;
+  border: ${props => props.size * 0.0667}px ${props => props.color} solid;
+  border-radius: ${props => props.size * 0.133}px;
+  position: relative;
 `;
 
 const Checkbox = ({ size, checkColor, boxColor }) => (
@@ -49,33 +52,32 @@ const Checkbox = ({ size, checkColor, boxColor }) => (
 );
 
 const Input = styled.input`
-    display: none;
-    &:checked + div > div {
-        opacity: 1;
-    }
+  display: none;
+  &:checked + div > div {
+      opacity: 1;
+  }
 `;
 
 const Label = styled.p`
-    color: ${primary.passive};
-    ${props => props.font}
-    display: inline;
-    margin: 0px 10px;
-    ::selection {
-        color: inherit;
-        background-color: inherit;
-    }
+  color: ${primary.passive};
+  ${props => props.font}
+  margin: 0px 10px;
 `;
 const OptionWrapper = styled.label`
-    cursor: pointer;
-    margin: 10px 10px 0 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  width: fit-content;
 `;
 
 const CheckboxWrapper = styled.div`
-    display: grid;
-    justify-content: start;
-    grid-template-columns: repeat(${props => props.count}, auto);
-    grid-template-rows: 1fr;
-    grid-auto-flow: dense;
+${props => (props.grid
+  ? `display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(max-content, ${props.grid}px));
+    grid-gap: 10px;`
+  : `display: flex
+    flex-direction: row;`)
+}
 `;
 
 class CheckboxOption extends React.Component {
@@ -128,9 +130,10 @@ CheckboxOption.defaultProps = {
 };
 
 const InputCheckbox = ({
-  data = [], options = ['Option 1'], right, font, size, checkColor, boxColor,
+  data = [], options = ['Option 1'], grid = 0,
+  right, font, size, checkColor, boxColor,
 }) => (
-  <CheckboxWrapper count={options.length}>
+  <CheckboxWrapper count={options.length} grid={grid}>
     {options.map((option, index) => (
       <CheckboxOption
         data={data.indexOf(index + 1) !== -1}
@@ -140,6 +143,7 @@ const InputCheckbox = ({
         size={size}
         checkColor={checkColor}
         boxColor={boxColor}
+        grid={grid}
       />
     ))
     }
