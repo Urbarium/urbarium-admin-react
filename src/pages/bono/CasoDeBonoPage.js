@@ -1,5 +1,4 @@
 /* eslint-disable eol-last */
-import PropTypes from 'prop-types';
 import React, { Component } from 'react';
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
@@ -8,7 +7,7 @@ import { Column } from '../../components/Structural/index';
 
 class CasoDeBonoPage extends Component {
   render() {
-    const {data} = this.props;
+    const { data } = this.props;
     return (
       <ContentWrapper>
         <PageTitle>{data.title}</PageTitle>

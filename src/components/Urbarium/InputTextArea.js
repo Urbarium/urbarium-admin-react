@@ -6,8 +6,8 @@ import { primary, secondary } from '../../colors';
 const TextArea = styled.textarea`
   ${props => props.font}
   box-sizing: border-box;
-  width: ${props => props.fill ? " 100%;" : "360px"};
-  height:${props => props.height ? props.height : props.fill ? "100%;" : "108px"};
+  width: ${props => (props.fill ? ' 100%;' : '360px')};
+  height:${props => (props.height ? props.height : props.fill ? '100%;' : '108px')};
   border-radius: 15px;
   border: 1px ${secondary.lightgray} solid;
   padding-left: 15px;
@@ -23,17 +23,17 @@ const TextArea = styled.textarea`
   ::placeholder {
     color: ${primary.passive};
   }
-`
-const InputTextArea = ({placeholder = "", data = undefined, fill = false, font = fonts.defaultInput, height}) => (
+`;
+const InputTextArea = ({
+  placeholder = '', data = undefined, fill = false, font = fonts.defaultInput, height,
+}) => (
   <TextArea
-    placeholder = {placeholder}
-    defaultValue = {data}
-    fill = {fill}
-    font = {font}
-    height = {height}
+    placeholder={placeholder}
+    defaultValue={data}
+    fill={fill}
+    font={font}
+    height={height}
   />
 );
 
 export default InputTextArea;
-
-
