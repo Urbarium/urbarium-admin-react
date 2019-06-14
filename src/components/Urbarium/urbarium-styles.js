@@ -20,7 +20,7 @@ const InputFieldStyle = `
 
     :disabled {
         cursor: default;
-        background-color: ${secondary.lightgray}
+        background-color: #eaedf2;
     }
 `;
 const styles = {
