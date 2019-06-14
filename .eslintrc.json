@@ -1,5 +1,6 @@
 {
-  "extends": "airbnb",
+  "plugins": ["jest"],
+  "extends": ["airbnb","plugin:jest/recommended"],
   "parser": "babel-eslint",
   "rules": {
     "indent": ["warn", 2],
@@ -9,5 +10,8 @@
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
     "import/no-extraneous-dependencies": 0
+  },
+  "env": {
+    "jest/globals": true
   }
 }
