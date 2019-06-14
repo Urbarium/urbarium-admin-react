@@ -52,6 +52,7 @@ const states = [
 class ButtonState extends React.Component {
   constructor(props) {
     super(props);
+    // Fixme: Check
     const { state } = props.state;
     this.state = { index: state - 1 };
   }
