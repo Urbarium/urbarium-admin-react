@@ -5,7 +5,6 @@ import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 
 class TramitesPage extends Component {
-
   render() {
     return (
       <ContentWrapper>
@@ -16,4 +15,4 @@ class TramitesPage extends Component {
   }
 }
 
-export default TramitesPage
+export default TramitesPage;

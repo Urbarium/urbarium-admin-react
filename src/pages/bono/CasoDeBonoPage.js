@@ -8,7 +8,7 @@ import { Column } from '../../components/Structural/index';
 
 class CasoDeBonoPage extends Component {
   render() {
-    const {data} = this.props;
+    const { data } = this.props;
     return (
       <ContentWrapper>
         <PageTitle>{data.title}</PageTitle>

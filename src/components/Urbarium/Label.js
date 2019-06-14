@@ -10,8 +10,7 @@ const P = styled.p`
     ${props => props.font}
 `;
 
-const Label = ({children, font=fonts.defaultLabel, color=colors.neutral.black }) =>
-  <P font={font} color={color}>{children}</P>;
+const Label = ({ children, font = fonts.defaultLabel, color = colors.neutral.black }) => <P font={font} color={color}>{children}</P>;
 
 
 export default Label;

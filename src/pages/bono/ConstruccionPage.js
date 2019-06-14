@@ -5,7 +5,6 @@ import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 
 class ConstruccionPage extends Component {
-
   render() {
     return (
       <ContentWrapper>
@@ -16,4 +15,4 @@ class ConstruccionPage extends Component {
   }
 }
 
-export default ConstruccionPage
+export default ConstruccionPage;

@@ -12,7 +12,7 @@ class DDG extends React.Component {
       // intially only the first dropdown will be enabled and have options to display
       disabled: [false, ...Array(this.count - 1).fill(true)],
       options: [this.props.options[0], ...Array(this.count - 1).fill(undefined)],
-    }
+    };
   }
 
 
@@ -20,36 +20,35 @@ class DDG extends React.Component {
     // options receive are nested arrays so accesing
     console.log(array, indexes, level, count);
     return count === level ? array : this.accessRecursively(array[indexes[count]], indexes, level, count + 1);
-  };
+  }
 
 
   handleChange(dropdownIndex, optionIndex) {
-    this.setState( prevState => {
+    this.setState((prevState) => {
       // enable next dropdown in chain and disable others further down
-      const newDisabled = prevState.disabled.map((current, index) => 
-        index - dropdownIndex <= 0 ?  current : index - dropdownIndex === 1 ? false : true);
+      const newDisabled = prevState.disabled.map((current, index) => (index - dropdownIndex <= 0 ? current : index - dropdownIndex !== 1));
 
-      // update selected indexes  
+      // update selected indexes
       this.selectedIndexes.splice(dropdownIndex, 1, optionIndex);
 
 
       // update available options for each dropdown depeding on selected indexes
-      const newOptions = prevState.options.map((element, index) => 
-        index < dropdownIndex ? element : this.accessRecursively(this.props.options[index], this.selectedIndexes, index));
+      const newOptions = prevState.options.map((element, index) => (index < dropdownIndex ? element : this.accessRecursively(this.props.options[index], this.selectedIndexes, index)));
 
-      return {disabled: newDisabled, options: newOptions};
-    })        
-  };
+      return { disabled: newDisabled, options: newOptions };
+    });
+  }
 
   getDropdowns() {
     const result = Array(this.count).fill('');
-    return result.map((_, dropdownIndex) => 
+    return result.map((_, dropdownIndex) => (
       <Dropdown
-        options = {this.state.options[dropdownIndex]}
-        placeholder = {this.props.placeholders[dropdownIndex]}
-        disabled = {this.state.disabled[dropdownIndex]} 
-        changeHandler = {(optionIndex) => this.handleChange(dropdownIndex, optionIndex)}
-      />)
+        options={this.state.options[dropdownIndex]}
+        placeholder={this.props.placeholders[dropdownIndex]}
+        disabled={this.state.disabled[dropdownIndex]}
+        changeHandler={optionIndex => this.handleChange(dropdownIndex, optionIndex)}
+      />
+    ));
   }
 
   render() {
@@ -57,162 +56,158 @@ class DDG extends React.Component {
       <Row>
         {this.getDropdowns()}
       </Row>
-    )
+    );
   }
 }
 
-// TODO: Change data structure of linked dropdowns 
+// TODO: Change data structure of linked dropdowns
 // there's an object structure below but its not quite ready
 
 const provincias = [
-  "San Jose",
-  "Alajuela",
-  "Cartago"
+  'San Jose',
+  'Alajuela',
+  'Cartago',
 ];
 
 const cantones = [
   [
-    "San Jose",
-    "Desamparados"
+    'San Jose',
+    'Desamparados',
   ],
   [
-    "Alajuela",
-    "San Ramon"
+    'Alajuela',
+    'San Ramon',
   ],
   [
-    "Cartago",
-    "Turrialba"
-  ]
+    'Cartago',
+    'Turrialba',
+  ],
 ];
 
 const distritos = [
   [
     [
-      "Carmen",
-      "Merced"
+      'Carmen',
+      'Merced',
     ],
     [
-      "Desamparados",
-      "San Miguel"
-    ]
+      'Desamparados',
+      'San Miguel',
+    ],
   ],
   [
     [
-      "Guacimo",
-      "San Isidro"
+      'Guacimo',
+      'San Isidro',
     ],
     [
-      "Piedades Norte",
-      "PIedades Sur"
-    ]
+      'Piedades Norte',
+      'PIedades Sur',
+    ],
   ],
   [
     [
-      "Oriental",
-      "Occidental"
+      'Oriental',
+      'Occidental',
     ],
     [
-      "Santa Cruz",
-      "Pavones"
-    ]
-  ]
-]
+      'Santa Cruz',
+      'Pavones',
+    ],
+  ],
+];
 
 DDG.defaultProps = {
   options: [provincias, cantones, distritos],
-  placeholders: ["Provincia", "Canton", "Distrito"]
+  placeholders: ['Provincia', 'Canton', 'Distrito'],
 };
 
 export default DDG;
-
-
-
-
 
 
 // first try, have to define a better structure
 const testData = {
   provincias: [
     {
-      name: "San Jose",
+      name: 'San Jose',
       cantones: [
         {
-          name: "San Jose",
+          name: 'San Jose',
           distritos: [
             {
-              name: "Carmen"
+              name: 'Carmen',
             },
             {
-              name: "Merced"
-            }
-          ]
+              name: 'Merced',
+            },
+          ],
         },
         {
-          name: "Desampadaros",
+          name: 'Desampadaros',
           distritos: [
             {
-              name: "Desamparados"
+              name: 'Desamparados',
             },
             {
-              name: "San Miguel"
-            }
-          ]
-        }
-      ]
+              name: 'San Miguel',
+            },
+          ],
+        },
+      ],
     },
     {
-      name: "Alajuela",
+      name: 'Alajuela',
       cantones: [
         {
-          name: "Alajuela",
+          name: 'Alajuela',
           distritos: [
             {
-              name: "Guacima"
+              name: 'Guacima',
             },
             {
-              name: "San Isidro"
-            }
-          ]
+              name: 'San Isidro',
+            },
+          ],
         },
         {
-          name: "San Ramon",
+          name: 'San Ramon',
           distritos: [
             {
-              name: "Piedades Norte"
+              name: 'Piedades Norte',
             },
             {
-              name: "Piedades Sur"
-            }
-          ]
-        }
-      ]
+              name: 'Piedades Sur',
+            },
+          ],
+        },
+      ],
     },
     {
-      name: "Cartago",
+      name: 'Cartago',
       cantones: [
         {
-          name: "Cartago",
+          name: 'Cartago',
           distritos: [
             {
-              name: "Oriental"
+              name: 'Oriental',
             },
             {
-              name: "Occidental"
-            }
-          ]
+              name: 'Occidental',
+            },
+          ],
         },
         {
-          name: "Turrialba",
+          name: 'Turrialba',
           distritos: [
             {
-              name: "Santa Cruz"
+              name: 'Santa Cruz',
             },
             {
-              name: "Pavones"
-            }
-          ]
-        }
-      ]
+              name: 'Pavones',
+            },
+          ],
+        },
+      ],
     },
-  ]
-}
+  ],
+};

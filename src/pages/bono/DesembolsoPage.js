@@ -5,7 +5,6 @@ import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 
 class DesembolsoPage extends Component {
-
   render() {
     return (
       <ContentWrapper>
@@ -16,4 +15,4 @@ class DesembolsoPage extends Component {
   }
 }
 
-export default DesembolsoPage
+export default DesembolsoPage;
