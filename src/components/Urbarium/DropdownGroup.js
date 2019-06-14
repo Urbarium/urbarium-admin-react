@@ -17,7 +17,8 @@ class DDG extends React.Component {
 
   getDropdowns() {
     const result = Array(this.count).fill('');
-    const { options, placeholders, disabled } = this.state;
+    const { placeholders } = this.props;
+    const { options, disabled } = this.state;
     return result.map((_, dropdownIndex) => (
       <Dropdown
         options={options[dropdownIndex]}

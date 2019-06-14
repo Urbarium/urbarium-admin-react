@@ -9,7 +9,7 @@ const InputFieldStyle = `
     padding-left: 15px;
     caret-color: ${primary.primary};
 
-    :focus, :hover {
+    :focus, :enabled:hover {
         outline: none;
         border: 1px ${primary.primary} solid;
     }
@@ -18,8 +18,9 @@ const InputFieldStyle = `
         color: ${primary.passive};
     }
 
-    &[disabled] {
+    :disabled {
         cursor: default;
+        background-color: ${secondary.lightgray}
     }
 `;
 const styles = {

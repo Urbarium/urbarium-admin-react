@@ -27,9 +27,9 @@ const ArrowContainer = styled.div`
     left: 170px;
  `;
 
-const getOptions = (options) => {
-  options.map(option => <option value={option} key={option}>{option}</option>);
-};
+const getOptions = options => (
+  options.map(option => <option value={option} key={option}>{option}</option>)
+);
 
 // have to turn this into a more complex react component, preloading data is not working
 class InputDropDown extends React.Component {
@@ -62,8 +62,8 @@ class InputDropDown extends React.Component {
           onChange={event => this.handleOnChange(event)}
           disabled={disabled}
         >
-          {[<option hidden value="" key=" ">{placeholder}</option>,
-            ...getOptions(options)]}
+          <option hidden value="" key=" ">{placeholder}</option>
+          {getOptions(options)}
         </DropDown>
         <ArrowContainer>
           <Arrow width={8} color={primary.primary} />
@@ -79,6 +79,7 @@ InputDropDown.defaultProps = {
   data: undefined,
   font: fonts.defaultInput,
   changeHandler() {},
+  disabled: false,
 };
 
 export default InputDropDown;
