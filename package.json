@@ -6,7 +6,7 @@
   "scripts": {
     "analyze": "source-map-explorer 'build/static/js/*.js'",
     "start": "react-scripts start",
-    "lint": "eslint src/**/*.js",
+    "lint": "./node_modules/eslint/bin/eslint.js src/**/*.js",
     "build": "react-scripts build",
     "prepare": "patch-package",
     "test": "react-scripts test --env=jsdom",
