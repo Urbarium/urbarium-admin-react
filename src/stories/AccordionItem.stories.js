@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Accordion from '../src/components/Urbarium/AccordionItem';
-import Input from '../src/components/Urbarium/LabeledInput';
+import Accordion from '../components/Urbarium/AccordionItem';
+import Input from '../components/Urbarium/LabeledInput';
 
 storiesOf('Others/Accordion', module)
   .add('Default', () => (
