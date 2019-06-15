@@ -6,8 +6,9 @@ import fonts from '../../fonts';
 import Label from './Label';
 import Arrow from './ButtonArrow';
 import ButtonState from './ButtonState';
+import { Row as AccordionHeader } from '../Structural/index';
 
-const Frame = styled.div`
+const AccordionFrame = styled.div`
     border: 1px ${secondary.lightgray} solid;
     border-radius: 15px;
     padding: 15px 25px;
@@ -19,8 +20,7 @@ const Flex = styled.div`
     flex-direction: row;
 `;
 
-const GridBody = styled.div`    
-    
+const AccordionContent = styled.div`    
     display: grid;
     grid-template-columns: ${props => props.columns};
     overflow: hidden;
@@ -32,13 +32,6 @@ const GridBody = styled.div`
         padding: 15px 25px;
         padding-bottom: 0px;
     }
-`;
-
-const GridHeader = styled.div`
-    display: grid;
-    grid-template-columns: 5fr 2fr 2fr 2fr 2fr 0.5fr;
-    align-items: center;
-    justify-content: space-between;
 `;
 
 const childrenFont = {
@@ -84,8 +77,8 @@ class AccordionItem extends React.Component {
     } = data;
     const { opened } = this.state;
     return (
-      <Frame>
-        <GridHeader>
+      <AccordionFrame>
+        <AccordionHeader columns="5fr 2fr 2fr 2fr 2fr 0.5fr">
           <Flex>
             <Label color={primary.primary}>{`${index}.`}</Label>
             <Label>{title}</Label>
@@ -98,11 +91,11 @@ class AccordionItem extends React.Component {
             ? <Arrow onClick={() => this.handleClick()} />
             : null
           }
-        </GridHeader>
-        <GridBody columns={columns} data-opened={opened}>
+        </AccordionHeader>
+        <AccordionContent columns={columns} data-opened={opened}>
           {insertProps(children)}
-        </GridBody>
-      </Frame>
+        </AccordionContent>
+      </AccordionFrame>
     );
   }
 }

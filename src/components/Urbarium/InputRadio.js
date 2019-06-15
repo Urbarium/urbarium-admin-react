@@ -2,10 +2,15 @@ import React from 'react';
 import styled from 'styled-components';
 import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
+import { FlexGrid } from '../Structural/index';
+import Label from './Label';
+import OptionWrapper from './OptionWrapper';
 
 
 const Radio = styled.div`
     display: inline-block;
+    margin: 0px 5px;
+    transition: transform 0.1s ease-in-out, border-color 0.1s ease-in-out;
     min-width: ${props => props.size}px;
     max-width: ${props => props.size}px;
     min-height: ${props => props.size}px;
@@ -29,35 +34,10 @@ const Radio = styled.div`
 `;
 
 const Input = styled.input`
-    display: none;
-    :checked + div::before {
-        opacity: 1;
-    }
-`;
-
-const Label = styled.p`
-    color: ${primary.passive};
-    ${props => props.font}
-    display: inline;
-    margin: 0px 10px;
-    ::selection {
-        color: inherit;
-        background-color: inherit;
-    }
-`;
-const OptionWrapper = styled.label`
-    cursor: pointer;
-    margin: 10px 10px 0 0;
-`;
-
-const RadioWrapper = styled.div`
-${props => (props.grid
-    ? `display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(max-content, ${props.grid}px));
-      grid-gap: 10px;`
-    : `display: flex
-      flex-direction: row;`)
-}
+  display: none;
+  :checked + div::before {
+      opacity: 1;
+  }
 `;
 
 class RadioOption extends React.Component {
@@ -67,23 +47,18 @@ class RadioOption extends React.Component {
     this.state = { data };
   }
 
-  getLabel() {
-    const { font, value } = this.props;
-    return <Label font={font}>{value}</Label>;
-  }
-
   handleOnChange(event) {
     this.setState({ data: event.target.checked });
   }
 
   render() {
     const {
-      name, value, right, size, checkColor, boxColor,
+      name, value, right, size, font, checkColor, boxColor,
     } = this.props;
     const { data } = this.state;
     return (
       <OptionWrapper>
-        {right ? this.getLabel() : null}
+        {right ? <Label font={font} color={primary.passive}>{value}</Label> : null}
         <Input
           type="radio"
           name={name}
@@ -96,7 +71,7 @@ class RadioOption extends React.Component {
           checkColor={checkColor}
           boxColor={boxColor}
         />
-        {right ? null : this.getLabel()}
+        {right ? null : <Label font={font} color={primary.passive}>{value}</Label>}
       </OptionWrapper>
     );
   }
@@ -114,7 +89,7 @@ RadioOption.defaultProps = {
 const InputRadio = ({
   data = [], options = ['Option 1'], grid = 0, right, font, size, checkColor, boxColor, name,
 }) => (
-  <RadioWrapper grid={grid} count={options.length}>
+  <FlexGrid grid={grid}>
     {options.map((option, index) => (
       <RadioOption
         data={data.indexOf(index + 1) !== -1}
@@ -128,7 +103,7 @@ const InputRadio = ({
       />
     ))
     }
-  </RadioWrapper>
+  </FlexGrid>
 );
 
 export default InputRadio;

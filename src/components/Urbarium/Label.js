@@ -6,7 +6,9 @@ import fonts from '../../fonts';
 const P = styled.p`
     margin: 0px;
     color: ${props => props.color};
-    ${props => props.font}
+    ${props => props.font};
+    display: inline;
+    vertical-align: ${props => (props.verticalAlign ? 'middle' : 'middle')}
 `;
 
 const Label = ({ children, font = fonts.defaultLabel, color = neutral.black }) => (

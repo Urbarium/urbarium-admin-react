@@ -10,7 +10,7 @@ import fonts from '../../fonts';
 import { secondary } from '../../colors';
 
 // TODO: FIX SCROLL ON ACCORDION MENU
-const AccordionMenu = ({ data }) => (  
+const AccordionMenu = ({ data }) => (
   <Column gap={5} style={{ height: '100%', overflowY: 'scroll' }}>
     <Accordion index={1} data={data[0]} title="Visita preliminar solicitada" />
     <Accordion index={2} data={data[1]} title="En conformación" columns="3fr 1fr">
