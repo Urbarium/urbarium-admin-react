@@ -57,12 +57,12 @@ class InputDropDown extends React.Component {
         {/* data-default is used as a data property to alter style using css selectors */}
         <DropDown
           data-default={dataDefault}
-          defaultValue={data ? options[data - 1] : placeholder}
+          defaultValue={data ? options[data] : placeholder}
           font={font}
           onChange={event => this.handleOnChange(event)}
           disabled={disabled}
         >
-          <option hidden value="" key=" ">{placeholder}</option>
+          <option hidden value={placeholder} key=" ">{placeholder}</option>
           {getOptions(options)}
         </DropDown>
         <ArrowContainer>
