@@ -11,8 +11,7 @@ const Frame = styled.div`
     border: 1px ${secondary.lightgray} solid;
     border-radius: 15px;
     padding: 15px 25px;
-    margin: 5px 0px;
-    max-width: 800px;
+    max-width: 850px;
 `;
 
 const Flex = styled.div`
@@ -20,23 +19,24 @@ const Flex = styled.div`
     flex-direction: row;
 `;
 
-const GridBody = styled.div`
-    padding: 15px 25px;
-    padding-bottom: 0px;
+const GridBody = styled.div`    
+    
     display: grid;
     grid-template-columns: ${props => props.columns};
     overflow: hidden;
     max-height: 0px;
-    //transition: max-height 0.5s ease-in-out;
+    //transition: max-height 0.5s ease;
 
     &[data-opened=true] {
-        max-height: 800px;
+        max-height: 100%;
+        padding: 15px 25px;
+        padding-bottom: 0px;
     }
 `;
 
 const GridHeader = styled.div`
     display: grid;
-    grid-template-columns: 5fr 2fr 2fr 2fr  2fr 0.5fr;
+    grid-template-columns: 5fr 2fr 2fr 2fr 2fr 0.5fr;
     align-items: center;
     justify-content: space-between;
 `;
@@ -50,6 +50,19 @@ const labelFont = `
     color: ${primary.passive}
 `;
 
+const insertProps = (children) => {
+  let childrenWithProps;
+  if (children) {
+    if (isArray(children)) {
+      childrenWithProps = children.map(child => React.cloneElement(child, { ...childrenFont }));
+    } else {
+      childrenWithProps = React.cloneElement(children, { ...childrenFont });
+    }
+  }
+  return childrenWithProps;
+};
+
+
 class AccordionItem extends React.Component {
   constructor(props) {
     super(props);
@@ -59,16 +72,7 @@ class AccordionItem extends React.Component {
   }
 
   handleClick() {
-    this.setState((prev, props) => ({ opened: !prev.opened }));
-  }
-
-  insertProps(children) {
-    if (children) {
-      if (isArray(children)) {
-        return children.map(child => React.cloneElement(child, { ...childrenFont }));
-      }
-      return React.cloneElement(children, { ...childrenFont });
-    }
+    this.setState(prev => ({ opened: !prev.opened }));
   }
 
   render() {
@@ -89,11 +93,14 @@ class AccordionItem extends React.Component {
           <Label font={labelFont}>{startDate}</Label>
           <Label font={labelFont}>{endDate}</Label>
           <Label font={labelFont}>{user}</Label>
-          <ButtonState state={state} />
-          <Arrow onClick={() => this.handleClick()} />
+          <ButtonState data={state} />
+          { children
+            ? <Arrow onClick={() => this.handleClick()} />
+            : null
+          }
         </GridHeader>
         <GridBody columns={columns} data-opened={opened}>
-          {this.insertProps(children)}
+          {insertProps(children)}
         </GridBody>
       </Frame>
     );
@@ -108,7 +115,7 @@ AccordionItem.defaultProps = {
     startDate: '-',
     endDate: '-',
     user: '-',
-    state: 1,
+    state: 0,
   },
 };
 

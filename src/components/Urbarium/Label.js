@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import colors from '../../colors';
+import { neutral } from '../../colors';
 import fonts from '../../fonts';
-
 
 const P = styled.p`
     margin: 0px;
@@ -10,7 +9,8 @@ const P = styled.p`
     ${props => props.font}
 `;
 
-const Label = ({ children, font = fonts.defaultLabel, color = colors.neutral.black }) => <P font={font} color={color}>{children}</P>;
-
+const Label = ({ children, font = fonts.defaultLabel, color = neutral.black }) => (
+  <P font={font} color={color}>{children}</P>
+);
 
 export default Label;

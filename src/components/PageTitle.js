@@ -1,8 +1,7 @@
 import styled from 'styled-components';
-import { gridSize } from '@atlaskit/theme';
 
 const PageTitle = styled.h1`
-  margin-bottom: ${gridSize() * 2}px;
+  margin-bottom: 45px;
 `;
 
 export default PageTitle;

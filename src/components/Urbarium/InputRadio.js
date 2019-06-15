@@ -4,11 +4,12 @@ import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
 
 
-// boring css due to lack of assets for the checkbox
 const Radio = styled.div`
     display: inline-block;
-    width: ${props => props.size}px;
-    height: ${props => props.size}px;
+    min-width: ${props => props.size}px;
+    max-width: ${props => props.size}px;
+    min-height: ${props => props.size}px;
+    max-height: ${props => props.size}px;
     border-radius: 50%;
     position: relative;
     border: ${props => `${props.size * 0.05}px ${props.boxColor}`} solid;
@@ -50,10 +51,13 @@ const OptionWrapper = styled.label`
 `;
 
 const RadioWrapper = styled.div`
-    display: grid;
-    justify-content: start;
-    grid-template-columns: repeat(${props => props.count}, auto);
-    grid-auto-flow: dense;
+${props => (props.grid
+    ? `display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(max-content, ${props.grid}px));
+      grid-gap: 10px;`
+    : `display: flex
+      flex-direction: row;`)
+}
 `;
 
 class RadioOption extends React.Component {
@@ -108,9 +112,9 @@ RadioOption.defaultProps = {
 };
 
 const InputRadio = ({
-  data = [], options = ['Option 1'], right, font, size, checkColor, boxColor, name,
+  data = [], options = ['Option 1'], grid = 0, right, font, size, checkColor, boxColor, name,
 }) => (
-  <RadioWrapper count={options.length}>
+  <RadioWrapper grid={grid} count={options.length}>
     {options.map((option, index) => (
       <RadioOption
         data={data.indexOf(index + 1) !== -1}

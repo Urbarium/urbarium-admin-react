@@ -35,4 +35,6 @@ const Arrow = styled.div`
     }
 `;
 
-export default ({ width = 10, height = 2, color = primary.primary }) => <Arrow width={width} height={height} color={color} />;
+export default ({ width = 10, height = 2, color = primary.primary }) => (
+  <Arrow width={width} height={height} color={color} />
+);

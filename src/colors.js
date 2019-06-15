@@ -1,3 +1,6 @@
+// TODO: many colors here where already there before I edited this file,
+// have to find which ones are not used and delete them
+
 // Primary
 const primary = {
   primary: '#742E5D',
