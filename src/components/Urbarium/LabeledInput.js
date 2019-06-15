@@ -29,7 +29,7 @@ const LabeledInput = (props) => {
   delete inputProps.label;
   delete inputProps.type;
   return (
-    <Column gap={1}>
+    <Column>
       {label ? <Label font={labelFont}>{label}</Label> : null}
       {getInput(type, inputProps)}
     </Column>

@@ -10,21 +10,19 @@ import { Row, Column } from '../../components/Structural/index';
 const BeneficiariosPage = (({ data }) => (
   <ContentWrapper>
     <PageTitle>{data.title}</PageTitle>
-    <Column gap={2}>
+    <Column gap={20}>
 
       <Beneficiarios data={data.beneficiarios} />
 
-      <Column gap={1}>
+      <Column gap={10}>
         <Label>Dirección</Label>
         <DropdownGroup />
         <Input type="textarea" placeholder="Dirección exacta" height={100} fill data={data.direccion} />
       </Column>
 
-      <Row columns={3}>
+      <Row columns="1fr 1fr 1fr">
         <Input type="textbox" label="Telefono" placeholder="0000 0000" data={data.telefono} />
         <Input type="textbox" label="Celular" placeholder="0000 0000" data={data.cedula} />
-        {/* This below is ridiculous, gotta find a better way to align this */ }
-        <div style={{ width: '190px' }} />
       </Row>
     </Column>
 
