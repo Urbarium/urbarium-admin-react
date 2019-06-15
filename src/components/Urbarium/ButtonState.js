@@ -52,8 +52,7 @@ const states = [
 class ButtonState extends React.Component {
   constructor(props) {
     super(props);
-    const { state } = props.state;
-    this.state = { index: state - 1 };
+    this.state = { index: props.data };
   }
 
   cycleState() {
@@ -82,7 +81,7 @@ class ButtonState extends React.Component {
 }
 
 ButtonState.defaultProps = {
-  state: 1,
+  data: 0,
 };
 
 export default ButtonState;
