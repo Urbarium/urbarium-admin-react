@@ -131,7 +131,6 @@ export default DDG;
 // const testData = {
 //   provincias: [
 //     {
-//       name: "San Jose",
 //       cantones: [
 //         {
 //           name: "San Jose",

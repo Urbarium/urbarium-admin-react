@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Input from '../components/Urbarium/InputTextBox';
+import Input from '../src/components/Urbarium/InputTextBox';
 
 storiesOf('Input Fields/TextBox Input', module)
   .add('With placeholder', () => (
