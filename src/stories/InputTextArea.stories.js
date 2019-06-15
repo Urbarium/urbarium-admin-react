@@ -16,7 +16,7 @@ storiesOf('Input Fields/TextArea Input', module)
   .add('Filling available space', () => ([
     <p style={{ color: 'red', fontSize: '1.5em' }}>Available Space</p>,
     <div style={{
-      width: '600px', height: '200px', padding: '5px', border: '1px red dashed' 
+      width: '600px', height: '200px', padding: '5px', border: '1px red dashed',
     }}
     >
       <Input fill />

@@ -1,5 +1,4 @@
-/* eslint-disable no-nested-ternary */
-// FIXME: Check nested ternary operation in line 12.
+// FIXME: Check nested ternary operation in line 11.
 import React from 'react';
 import styled from 'styled-components';
 import fonts from '../../fonts';
