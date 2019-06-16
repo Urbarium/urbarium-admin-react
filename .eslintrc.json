@@ -9,7 +9,8 @@
     "quote-props": [1, "consistent-as-needed"],
     "react/jsx-filename-extension": 0,
     "react/prop-types": 0,
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": 0,
+    "quotes": 0
   },
   "env": {
     "jest/globals": true

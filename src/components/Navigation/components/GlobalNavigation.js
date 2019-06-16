@@ -10,7 +10,6 @@ import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
-import Modal from '@atlaskit/modal-dialog';
 import LogRocket from 'logrocket';
 import ProfileFragment from '../../Profile/ProfileFragment';
 import {
@@ -67,6 +66,7 @@ class GlobalNavigation extends Component {
   onCreatedBono = (id) => {
     const { history } = this.props;
     const nid = 30;
+    this.setState({ isCreateBonoOpen: false });
     history.push(`/bonos/${nid}/beneficiarios`);
   }
 
@@ -77,10 +77,6 @@ class GlobalNavigation extends Component {
   render() {
     const { firebase, profile } = this.props;
     const { isSearchDrawerOpen, isProfileDrawerOpen, isCreateBonoOpen } = this.state;
-    const modalCreateBonoActions = [
-      { text: 'Crear', onClick: this.onCreatedBono },
-      { text: 'Cancelar', onClick: this.closeCreateBono },
-    ];
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
@@ -111,9 +107,7 @@ class GlobalNavigation extends Component {
         </Drawer>
         {
           isCreateBonoOpen && (
-            <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} width="large">
-              <CrearBonoPage />
-            </Modal>
+            <CrearBonoPage onSuccess={this.onCreatedBono} onClose={this.closeCreateBono} width="large" />
           )
         }
       </Fragment>
