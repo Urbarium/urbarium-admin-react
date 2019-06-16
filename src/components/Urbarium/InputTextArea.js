@@ -1,31 +1,21 @@
+// FIXME: Check nested ternary operation in line 11.
 import React from 'react';
 import styled from 'styled-components';
 import fonts from '../../fonts';
-import { primary, secondary } from '../../colors';
+import { InputFieldStyle } from './urbarium-styles';
 
 const TextArea = styled.textarea`
+  ${InputFieldStyle}
   ${props => props.font}
-  box-sizing: border-box;
-  width: ${props => (props.fill ? ' 100%;' : '360px')};
-  height:${props => (props.height ? props.height : props.fill ? '100%;' : '108px')};
-  border-radius: 15px;
-  border: 1px ${secondary.lightgray} solid;
-  padding-left: 15px;
+  width: ${props => (props.fill ? ' 100%' : '360px')};
+  height: ${props => (props.height ? `${props.height}px` : props.fill ? '100%;' : '108px')};
   padding-top: 10px;
   margin: 0px;
   resize: none;
-  caret-color: ${primary.primary};
-
-  :focus {
-    outline: none;
-  }
-
-  ::placeholder {
-    color: ${primary.passive};
-  }
 `;
+
 const InputTextArea = ({
-  placeholder = '', data = undefined, fill = false, font = fonts.defaultInput, height,
+  placeholder = '', data = undefined, fill = false, font = fonts.defaultInput, height = 0,
 }) => (
   <TextArea
     placeholder={placeholder}

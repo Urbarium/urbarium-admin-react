@@ -1,4 +1,6 @@
-// Primary
+// TODO: many colors here where already there before I edited this file,
+// have to find which ones are not used and delete them
+
 const primary = {
   primary: '#742E5D',
   passive: '#8A96A0',
@@ -7,7 +9,6 @@ const primary = {
   mustard: '#F4D849',
 };
 
-// Secondary
 const secondary = {
   lightgray: '#d0d5e0',
   blue: '#0077FF',

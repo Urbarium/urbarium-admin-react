@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import LabeledInput from '../src/components/Urbarium/LabeledInput';
+import LabeledInput from '../components/Urbarium/LabeledInput';
 
 const inputFont = `
     font-size: 15px;

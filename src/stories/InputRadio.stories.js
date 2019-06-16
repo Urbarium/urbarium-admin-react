@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Radio from '../src/components/Urbarium/InputRadio';
+import Radio from '../components/Urbarium/InputRadio';
 
 
 storiesOf('Input Fields/Radio Input', module)
@@ -24,4 +24,27 @@ storiesOf('Input Fields/Radio Input', module)
   ))
   .add('Custom font', () => (
     <Radio options={['Chocolate', 'Strawberry']} data={[1]} size={30} font="font-size: 2em; color: black;" />
+  ))
+  .add('As a grid', () => (
+    <div>
+      <p style={{ color: 'red', fontSize: '1.5em' }}>TODO: Radio button is crazy, gotta find whats wrong</p>
+      <div style={{ width: '60vw', border: '1px red dashed' }}>
+        <Radio
+          grid={200}
+          options={[
+            'Bienes inmuebles',
+            'Informe registral',
+            'Reporte CSS',
+            'Formulario de utilidad',
+            'Nacimientos',
+            'Declaraciones Juradas',
+            'Justificación de propiedades',
+            'Escritura de hipoteca',
+            'Constancia Salarial',
+            'Impuestos al día',
+            'Estado Civil',
+          ]}
+        />
+      </div>
+    </div>
   ));

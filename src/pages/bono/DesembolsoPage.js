@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import MainSection from '../../components/MainSection';
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 
-class DesembolsoPage extends Component {
-  render() {
-    return (
-      <ContentWrapper>
-        <PageTitle>Desembolso</PageTitle>
-        <MainSection />
-      </ContentWrapper>
-    );
-  }
-}
+const DesembolsoPage = () => (
+  <ContentWrapper>
+    <PageTitle>Desembolso</PageTitle>
+    <MainSection />
+  </ContentWrapper>
+);
 
 export default DesembolsoPage;

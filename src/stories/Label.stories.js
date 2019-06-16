@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Label from '../src/components/Urbarium/Label';
-import fonts from '../src/fonts';
-import colors from '../src/colors';
+import Label from '../components/Urbarium/Label';
+import fonts from '../fonts';
+import colors from '../colors';
 
 const customFont = `
     ${fonts.subLabel}

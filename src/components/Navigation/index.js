@@ -26,6 +26,7 @@ import DesembolsoPage from '../../pages/bono/DesembolsoPage';
 import TramitesPage from '../../pages/bono/TramitesPage';
 import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
 import HomePage from '../../pages/HomePage';
+import UsersPage from '../../pages/UsersPage';
 
 // Menus
 import bonoFormNavItems from './menus/bonoFormNavItems';
@@ -66,18 +67,16 @@ class Navigation extends Component {
         globalNavigation={GlobalNavigation}
         customComponents={{ LinkItem, ProjectInfoHeader }}
       >
-        <div style={{ padding: 40 }}>
-          <Switch>
-            <Route path="/" exact component={HomePage} />
-            <Route path="/settings" component={UpdateProfilePage} />
-            <Route path="/users" component={HomePage} />
-            <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
-            <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
-            <Route path="/bonos/:id/tramites" component={TramitesPage} />
-            <Route path="/bonos/:id/construccion" component={ConstruccionPage} />
-            <Route path="/bonos/:id/desembolso" component={DesembolsoPage} />
-          </Switch>
-        </div>
+        <Switch>
+          <Route path="/" exact component={HomePage} />
+          <Route path="/settings" component={UpdateProfilePage} />
+          <Route path="/users" component={UsersPage} />
+          <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
+          <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
+          <Route path="/bonos/:id/tramites" component={TramitesPage} />
+          <Route path="/bonos/:id/construccion" component={ConstruccionPage} />
+          <Route path="/bonos/:id/desembolso" component={DesembolsoPage} />
+        </Switch>
       </LayoutManagerWithViewController>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Input from '../src/components/Urbarium/InputDropdown';
+import Input from '../components/Urbarium/InputDropdown';
 
 
 storiesOf('Input Fields/Dropdown Input', module)

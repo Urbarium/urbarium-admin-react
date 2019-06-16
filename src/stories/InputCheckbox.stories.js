@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
-import Checkbox from '../src/components/Urbarium/InputCheckbox';
+import Checkbox from '../components/Urbarium/InputCheckbox';
 
 
 storiesOf('Input Fields/Checkbox Input', module)
@@ -24,4 +24,28 @@ storiesOf('Input Fields/Checkbox Input', module)
   ))
   .add('Custom font', () => (
     <Checkbox options={['Pizza', 'Breadsticks']} data={[1]} size={30} font="font-size: 2em; color: black;" />
+  ))
+
+  .add('As a grid', () => (
+    <div>
+      <p style={{ color: 'red', fontSize: '1.5em' }}>Avaiblable space</p>
+      <div style={{ width: '60vw', border: '1px red dashed' }}>
+        <Checkbox
+          grid={200}
+          options={[
+            'Bienes inmuebles',
+            'Informe registral',
+            'Reporte CSS',
+            'Formulario de utilidad',
+            'Nacimientos',
+            'Declaraciones Juradas',
+            'Justificación de propiedades',
+            'Escritura de hipoteca',
+            'Constancia Salarial',
+            'Impuestos al día',
+            'Estado Civil',
+          ]}
+        />
+      </div>
+    </div>
   ));

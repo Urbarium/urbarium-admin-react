@@ -12,7 +12,7 @@ const subLabelFont = `${fonts.subLabel} color: ${primary.passive};`;
 const Beneficiario = ({
   index, cedula, nombre, apellido1, apellido2,
 }) => (
-  <Column gap={1}>
+  <Column gap={15}>
     <Label>{`Beneficiario ${index}`}</Label>
     <Input type="textbox" label="CEDULA" placeholder="0 0000 0000" data={cedula} labelFont={subLabelFont} />
     <Row>
@@ -41,19 +41,16 @@ const Beneficiario = ({
   </Column>
 );
 
+const getBeneficiarios = beneficiarios => beneficiarios.map((beneficiario, index) => (
+  <Beneficiario {...Object.assign({}, { index: index + 1 }, beneficiario)} />));
+
+
 // Beneficiaros Section definiton
 class BeneficiariosSection extends React.Component {
   constructor(props) {
     super(props);
-    const { data } = props;
-    this.state = { benefList: this.getBeneficiarios(data) };
-  }
-
-  getBeneficiarios(beneficiarios) {
-    return (
-      beneficiarios.map((beneficiario, index) => (
-        <Beneficiario {...Object.assign({}, { index: index + 1 }, beneficiario)} />))
-    );
+    const { data } = this.props;
+    this.state = { benefList: getBeneficiarios(data) };
   }
 
   handleClickAdd() {

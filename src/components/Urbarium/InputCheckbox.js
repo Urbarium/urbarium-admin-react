@@ -2,81 +2,65 @@ import React from 'react';
 import styled from 'styled-components';
 import { primary, secondary } from '../../colors';
 import fonts from '../../fonts';
+import { FlexGrid } from '../Structural/index';
+import Label from './Label';
+import OptionWrapper from './OptionWrapper';
 
-
-// boring css due to lack of assets for the checkbox
 const Check = styled.div`
-    opacity: 0;
-    transition: opacity 0.2s ease-in-out;
-    position: absolute;
-    top: 50%;
-    right: 50%;
-    width: 0px;
-    height: 0px;
-    background-color: ${props => props.color};
-    ::before {
-        content: "";
-        position: absolute;
-        width: ${props => props.size * 0.9333}px;
-        height: ${props => props.size * 0.1333}px;
-        border-radius: ${props => props.size * 0.0667}px;
-        background-color: inherit;
-        transform: translate(-40%, -35%) rotate(-50deg);
-    }
-    ::after {
-        content: "";
-        position: absolute;
-        width: ${props => props.size * 0.4}px;
-        height: ${props => props.size * 0.1333}px;
-        border-radius: ${props => props.size * 0.0667}px;
-        background-color: inherit;
-        transform: translate(-115%, 130%) rotate(40deg);
-    }
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  width: 0px;
+  height: 0px;
+  background-color: ${props => props.color};
+  ::before {
+      content: "";
+      position: absolute;
+      width: ${props => props.size * 0.9333}px;
+      height: ${props => props.size * 0.1333}px;
+      border-radius: ${props => props.size * 0.0667}px;
+      background-color: inherit;
+      transform: translate(-40%, -35%) rotate(-50deg);
+  }
+  ::after {
+      content: "";
+      position: absolute;
+      width: ${props => props.size * 0.4}px;
+      height: ${props => props.size * 0.1333}px;
+      border-radius: ${props => props.size * 0.0667}px;
+      background-color: inherit;
+      transform: translate(-115%, 130%) rotate(40deg);
+  }
 `;
 
 const Box = styled.div`
-    display: inline-block;
-    width: ${props => props.size * 1}px;
-    height: ${props => props.size * 1}px;
-    border: ${props => props.size * 0.0667}px ${props => props.color} solid;
-    border-radius: ${props => props.size * 0.133}px;
-    position: relative;
+  margin-${props => (props.right ? 'left' : 'right')}: 5px;
+  display: inline-block;
+  transition: transform 0.1s ease-in-out, border-color 0.1s ease-in-out;
+  min-width: ${props => props.size * 1}px;
+  max-width: ${props => props.size * 1}px;
+  min-height: ${props => props.size * 1}px;
+  max-height: ${props => props.size * 1}px;
+  border: ${props => props.size * 0.0667}px ${props => props.color} solid;
+  border-radius: ${props => props.size * 0.133}px;
+  position: relative;
 `;
 
-const Checkbox = ({ size, checkColor, boxColor }) => (
-  <Box size={size} color={boxColor}>
+const Checkbox = ({
+  size, checkColor, boxColor, right,
+}) => (
+  <Box size={size} color={boxColor} right={right}>
     <Check size={size} color={checkColor} />
   </Box>
 );
 
 const Input = styled.input`
-    display: none;
-    &:checked + div > div {
-        opacity: 1;
-    }
-`;
-
-const Label = styled.p`
-    color: ${primary.passive};
-    ${props => props.font}
-    display: inline;
-    margin: 0px 10px;
-    ::selection {
-        color: inherit;
-        background-color: inherit;
-    }
-`;
-const OptionWrapper = styled.label`
-    cursor: pointer;
-    margin: 10px 10px 0 0;
-`;
-
-const CheckboxWrapper = styled.div`
-    display: grid;
-    justify-content: start;
-    grid-template-columns: repeat(${props => props.count}, auto);
-    grid-template-rows: 1fr;
-    grid-auto-flow: dense;
+  display: none;
+  &:checked + div > div {
+      opacity: 1;
+  }
 `;
 
 class CheckboxOption extends React.Component {
@@ -97,12 +81,12 @@ class CheckboxOption extends React.Component {
 
   render() {
     const {
-      right, value, size, checkColor, boxColor,
+      right, value, size, font, checkColor, boxColor,
     } = this.props;
     const { data } = this.state;
     return (
       <OptionWrapper>
-        {right ? this.getLabel() : null}
+        {right ? <Label font={font} color={primary.passive}>{value}</Label> : null}
         <Input
           type="checkbox"
           value={value}
@@ -113,8 +97,9 @@ class CheckboxOption extends React.Component {
           size={size}
           checkColor={checkColor}
           boxColor={boxColor}
+          right={right}
         />
-        {right ? null : this.getLabel()}
+        {right ? null : <Label font={font} color={primary.passive}>{value}</Label>}
       </OptionWrapper>
     );
   }
@@ -129,9 +114,10 @@ CheckboxOption.defaultProps = {
 };
 
 const InputCheckbox = ({
-  data = [], options = ['Option 1'], right, font, size, checkColor, boxColor,
+  data = [], options = ['Option 1'], grid = 0,
+  right, font, size, checkColor, boxColor,
 }) => (
-  <CheckboxWrapper count={options.length}>
+  <FlexGrid grid={grid}>
     {options.map((option, index) => (
       <CheckboxOption
         data={data.indexOf(index + 1) !== -1}
@@ -144,7 +130,7 @@ const InputCheckbox = ({
       />
     ))
     }
-  </CheckboxWrapper>
+  </FlexGrid>
 );
 
 export default InputCheckbox;
