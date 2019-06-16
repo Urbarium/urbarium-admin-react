@@ -111,7 +111,7 @@ class GlobalNavigation extends Component {
         </Drawer>
         {
           isCreateBonoOpen && (
-            <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono}>
+            <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} width="large">
               <CrearBonoPage />
             </Modal>
           )
