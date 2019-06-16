@@ -1,17 +1,21 @@
 import React from 'react';
-import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import Accordion from '../../components/Urbarium/AccordionItem';
 import Input from '../../components/Urbarium/LabeledInput';
 import Label from '../../components/Urbarium/Label';
-import Button from '../../components/Urbarium/ButtonRound';
 import { Column, Row } from '../../components/Structural/index';
 import fonts from '../../fonts';
 import { secondary } from '../../colors';
+import ButtonRound from '../../components/Urbarium/ButtonRound';
+
+import {
+  PageWrapper, PageHeader, PageContent, PageFooter,
+} from '../../components/PageWrapper';
+
 
 // TODO: FIX SCROLL ON ACCORDION MENU
 const AccordionMenu = ({ data }) => (
-  <Column gap={5} style={{ height: '100%', overflowY: 'scroll' }}>
+  <Column gap={5} style={{ height: '100%', overflowY: 'auto' }}>
     <Accordion index={1} data={data[0]} title="Visita preliminar solicitada" />
     <Accordion index={2} data={data[1]} title="En conformación" columns="3fr 1fr">
       <Input
@@ -108,21 +112,33 @@ AccordionMenu.defaultProps = {
 
 const headerFont = ` ${fonts.subLabel} color: ${secondary.lightgray};`;
 
+const AccordionHeader = () => (
+  <Row columns="5fr 2fr 2fr 2fr 2fr 0.5fr" style={{ padding: '0 25px' }}>
+    <Label font={headerFont} style={{ justifySelf: 'center' }}>TRÁMITE</Label>
+    <Label font={headerFont}>FECHA INICIO</Label>
+    <Label font={headerFont}>CONCLUSIÓN</Label>
+    <Label font={headerFont}>ASIGNADO</Label>
+    <Label font={headerFont}>STATUS</Label>
+  </Row>
+);
+
 const TramitesPage = () => (
-  <ContentWrapper>
-    <Column>
-      <PageTitle>Trámites</PageTitle>
-      <Row columns="4fr 2fr 2fr 2fr 2fr 0.5fr">
-        <Label font={headerFont}>TRÁMITE</Label>
-        <Label font={headerFont}>FECHA INICIO</Label>
-        <Label font={headerFont}>FECHA CONCLUSIÓN</Label>
-        <Label font={headerFont}>ASIGNADO</Label>
-        <Label font={headerFont}>STATUS</Label>
-      </Row>
+  <PageWrapper>
+    <PageHeader>
+      <Column>
+        <PageTitle>Trámites</PageTitle>
+      </Column>
+    </PageHeader>
+
+    <PageContent>
+      <AccordionHeader />
       <AccordionMenu />
-      <Button>GUARDAR Y CONTINUAR</Button>
-    </Column>
-  </ContentWrapper>
+    </PageContent>
+
+    <PageFooter>
+      <ButtonRound>GUARDAR Y CONTINUAR</ButtonRound>
+    </PageFooter>
+  </PageWrapper>
 );
 
 export default TramitesPage;

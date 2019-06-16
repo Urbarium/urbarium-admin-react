@@ -1,8 +1,13 @@
 import React from 'react';
-import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import Input from '../../components/Urbarium/LabeledInput';
 import { Column } from '../../components/Structural/index';
+import ButtonRound from '../../components/Urbarium/ButtonRound';
+
+import {
+  PageWrapper, PageHeader, PageContent, PageFooter,
+} from '../../components/PageWrapper';
+
 
 // TODO: gotta find a way to dynamically get years
 // wonder what range of options are they expecting here?
@@ -34,39 +39,48 @@ const entidadesBancarias = [
 
 
 const CasoDeBonoPage = ({ data }) => (
-  <ContentWrapper>
-    <PageTitle>{data.title}</PageTitle>
-    <Column gap={40}>
-      <Input
-        type="dropdown"
-        label="Año"
-        placeholder="2019"
-        options={years}
-        data={data.año}
-      />
-      <Input
-        type="checkbox"
-        label="Modalidad"
-        options={['CLP', 'Bono Crédito', 'Bono RAMT', 'Vivienda Nueva']}
-        data={data.modalidad}
-        right
-      />
-      <Input
-        type="radio"
-        label="Característica Expecial"
-        options={['Ninguna', 'Adulto Mayor', 'Discapacidad']}
-        data={data.caractersitica}
-        right
-      />
-      <Input
-        type="dropdown"
-        label="Entidad bancaria a cargo"
-        placeholder="Grupo Mutual"
-        options={entidadesBancarias}
-        data={data.entidad}
-      />
-    </Column>
-  </ContentWrapper>
+  <PageWrapper>
+    <PageHeader>
+      <PageTitle>{data.title}</PageTitle>
+    </PageHeader>
+
+    <PageContent>
+      <Column gap={40}>
+        <Input
+          type="dropdown"
+          label="Año"
+          placeholder="2019"
+          options={years}
+          data={data.año}
+        />
+        <Input
+          type="checkbox"
+          label="Modalidad"
+          options={['CLP', 'Bono Crédito', 'Bono RAMT', 'Vivienda Nueva']}
+          data={data.modalidad}
+          right
+        />
+        <Input
+          type="radio"
+          label="Característica Expecial"
+          options={['Ninguna', 'Adulto Mayor', 'Discapacidad']}
+          data={data.caractersitica}
+          right
+        />
+        <Input
+          type="dropdown"
+          label="Entidad bancaria a cargo"
+          placeholder="Grupo Mutual"
+          options={entidadesBancarias}
+          data={data.entidad}
+        />
+      </Column>
+    </PageContent>
+
+    <PageFooter>
+      <ButtonRound>GUARDAR Y CONTINUAR</ButtonRound>
+    </PageFooter>
+  </PageWrapper>
 );
 
 // default values for the page,
