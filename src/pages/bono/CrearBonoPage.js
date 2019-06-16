@@ -95,6 +95,7 @@ class CrearBonoPage extends Component {
                   apellido1={apellido1}
                   apellido2={apellido2}
                   cedula={cedula}
+                  onChange={props => this.setState({ newBono: props })}
                 />
               </GridColumn>
             </Grid>
