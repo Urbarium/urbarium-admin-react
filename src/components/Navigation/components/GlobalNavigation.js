@@ -65,9 +65,8 @@ class GlobalNavigation extends Component {
   // eslint-disable-next-line no-unused-vars
   onCreatedBono = (id) => {
     const { history } = this.props;
-    const nid = 30;
     this.setState({ isCreateBonoOpen: false });
-    history.push(`/bonos/${nid}/beneficiarios`);
+    history.push(`/bonos/${id}/beneficiarios`);
   }
 
   openCreateBono = () => this.setState({ isCreateBonoOpen: true });

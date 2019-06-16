@@ -45,7 +45,8 @@ const Beneficiario = ({
 class BeneficiariosSection extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { benefList: this.getBeneficiarios(this.props.data) };
+    const { data } = props;
+    this.state = { benefList: this.getBeneficiarios(data) };
   }
 
   getBeneficiarios(beneficiarios) {

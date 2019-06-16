@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import Moment from 'react-moment';
-import { withFirebase } from 'react-redux-firebase';
-import { compose, withHandlers } from 'recompose';
+import { withFirestore } from 'react-redux-firebase';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
 import Modal from '@atlaskit/modal-dialog';
+import SectionMessage from '@atlaskit/section-message';
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import JefeDeFamiliaSection from '../../components/Urbarium/JefeDeFamiliaSection';
@@ -18,31 +18,64 @@ class CrearBonoPage extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      jefeDeFamilia: {
+      onSuccess: props.onSuccess,
+      onClose: props.onClose,
+      newBono: {
         nombre: null,
-        primerApellido: null,
-        segundoApellido: null,
+        apellido1: null,
+        apellido2: null,
         cedula: null,
       },
+      firestore: props.firestore,
+      creating: false,
+      error: null,
     };
+  }
+
+  addBono() {
+    const {
+      newBono,
+      firestore,
+      onSuccess,
+      creating,
+    } = this.state;
+    if (!creating) {
+      this.setState({ creating: true });
+      firestore.add({ collection: 'bonos' }, newBono).then((result) => {
+        // TRANSACTION_SUCCESS action dispatched
+        onSuccess(result.id);
+      }).catch((err) => {
+        // TRANSACTION_FAILURE action dispatched
+        this.setState({ creating: false });
+      });
+    }
   }
 
   render() {
     const {
-      jefeDeFamilia,
-      jefeDeFamilia: {
-        nombre, primerApellido, segundoApellido, cedula,
+      onClose,
+      error,
+      newBono: {
+        nombre, apellido1, apellido2, cedula,
       },
     } = this.state;
-    const { onSuccess, onClose, addBono } = this.props;
+
     const modalCreateBonoActions = [
-      { text: 'Crear', onClick: () => addBono(jefeDeFamilia) && onSuccess() },
+      { text: 'Crear', onClick: () => this.addBono() },
       { text: 'Cancelar', onClick: onClose },
     ];
+
+    const errorSection = (
+      <SectionMessage appearance="error">
+        {error}
+      </SectionMessage>
+    );
+
     return (
       <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} width="large">
         <Page>
           <ContentWrapper>
+            {error != null ? errorSection : null}
             <Grid>
               <GridColumn medium={10}>
                 <PageTitle>Nuevo Bono de Vivienda</PageTitle>
@@ -59,8 +92,8 @@ class CrearBonoPage extends Component {
               <GridColumn medium={12}>
                 <JefeDeFamiliaSection
                   nombre={nombre}
-                  apellido1={primerApellido}
-                  apellido2={segundoApellido}
+                  apellido1={apellido1}
+                  apellido2={apellido2}
                   cedula={cedula}
                 />
               </GridColumn>
@@ -72,13 +105,4 @@ class CrearBonoPage extends Component {
   }
 }
 
-const enhance = compose(
-  withFirebase,
-  withHandlers({
-    addBono: props => (payload) => {
-      props.firebase.push('bonos', payload);
-    },
-  }),
-);
-
-export default enhance(CrearBonoPage);
+export default withFirestore(CrearBonoPage);
