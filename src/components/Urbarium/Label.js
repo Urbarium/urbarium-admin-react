@@ -8,7 +8,6 @@ const P = styled.p`
     color: ${props => props.color};
     ${props => props.font};
     display: inline;
-    vertical-align: ${props => (props.verticalAlign ? 'middle' : 'middle')}
 `;
 
 const Label = ({ children, font = fonts.defaultLabel, color = neutral.black }) => (
