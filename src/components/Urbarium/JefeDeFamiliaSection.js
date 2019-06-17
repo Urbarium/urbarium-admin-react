@@ -14,11 +14,8 @@ class JefeDeFamiliaSection extends Component {
     this.state = props;
   }
 
-  handleChange(value) {
-    const { onChange } = this.props;
-    this.setState(value);
-    console.log(this.state);
-    onChange(this.state);
+  handleChange = (params) => {
+    this.setState(params);
   }
 
   render() {

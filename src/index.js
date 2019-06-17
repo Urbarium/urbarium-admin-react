@@ -72,7 +72,6 @@ export const configureStore = (preloadedState, fbConfig, history) => {
 
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
-firebase.firestore().settings({ timestampsInSnapshots: true });
 
 const history = createBrowserHistory();
 const store = configureStore({}, firebaseConfig, history);

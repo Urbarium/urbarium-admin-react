@@ -14,7 +14,7 @@ export function actionAddBonoFail(error) {
   return { type: 'ADD_BONO_FAIL', error };
 }
 
-export const actionAddBono = (payload, firestore) => (dispatch) => {
+export const actionAddBono = (payload, firestore, dispatch) => {
   dispatch(actionAddBonoStart(payload, firestore));
   return firestore.add({ collection: 'bonos' }, payload)
     .then((result) => {

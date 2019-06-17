@@ -36,7 +36,7 @@ class CrearBonoPage extends Component {
     } = this.props;
 
     const modalCreateBonoActions = [
-      { text: 'Crear', onClick: () => dispatch(actionAddBono(newBono, firestore)) },
+      { text: 'Crear', onClick: () => actionAddBono(newBono, firestore, dispatch) },
       { text: 'Cancelar', onClick: () => {} },
     ];
 
@@ -85,17 +85,7 @@ function mapStateToProps(state) {
   return { ...state.bonos };
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
-  const { newBono, firestore } = ownProps;
-  return {
-    actions: bindActionCreators({
-      actionAddBonoBuild,
-      actionAddBono: () => dispatch(actionAddBono(newBono, firestore)),
-    }, dispatch),
-  };
-}
-
 const ConnectedFirestore = withFirestore(CrearBonoPage);
-const ConnectedNewBono = connect(mapStateToProps, mapDispatchToProps)(ConnectedFirestore);
+const ConnectedNewBono = connect(mapStateToProps)(ConnectedFirestore);
 
 export default ConnectedNewBono;
