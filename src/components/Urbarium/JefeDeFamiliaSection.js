@@ -32,6 +32,7 @@ class JefeDeFamiliaSection extends Component {
             placeholder="Nombre"
             data={nombre}
             labelFont={subLabelFont}
+            // FIXME: @richifg We need this method to be called when the Input data has changed. Check onChange and onBlur methods.
             onChange={event => this.handleChange({ nombre: event.target.value })}
           />
           <Input
@@ -40,6 +41,7 @@ class JefeDeFamiliaSection extends Component {
             placeholder="Primer apellido"
             data={apellido1}
             labelFont={subLabelFont}
+            // FIXME: @richifg We need this method to be called when the Input data has changed. Check onChange and onBlur methods.
             onChange={event => this.handleChange({ apellido1: event.target.value })}
           />
           <Input
@@ -48,6 +50,7 @@ class JefeDeFamiliaSection extends Component {
             placeholder="Segundo apellido"
             data={apellido2}
             labelFont={subLabelFont}
+            // FIXME: @richifg We need this method to be called when the Input data has changed. Check onChange and onBlur methods.
             onChange={event => this.handleChange({ apellido2: event.target.value })}
           />
         </Row>
@@ -57,6 +60,7 @@ class JefeDeFamiliaSection extends Component {
           placeholder="0 0000 0000"
           data={cedula}
           labelFont={subLabelFont}
+          // FIXME: @richifg We need this method to be called when the Input data has changed. Check onChange and onBlur methods.
           onChange={event => this.handleChange({ cedula: event.target.value })}
         />
       </Column>
