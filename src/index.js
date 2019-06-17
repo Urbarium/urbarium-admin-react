@@ -52,7 +52,7 @@ const reactReduxConfig = {
 };
 
 const history = createBrowserHistory();
-const store = configureStore({}, history);
+const store = configureStore({}, firebaseConfig, history);
 
 const reactReduxProps = {
   firebase,

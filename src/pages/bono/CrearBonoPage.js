@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
+import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
 import { withFirestore } from 'react-redux-firebase';
+import { connect } from 'react-redux';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
 import Modal from '@atlaskit/modal-dialog';
 import SectionMessage from '@atlaskit/section-message';
+import { changeCreatingBono, addBono } from '../../actions/bonoActions';
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import JefeDeFamiliaSection from '../../components/Urbarium/JefeDeFamiliaSection';
@@ -15,59 +18,27 @@ const CreationDate = styled.label`
 
 // eslint-disable-next-line react/prefer-stateless-function
 class CrearBonoPage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      onSuccess: props.onSuccess,
-      onClose: props.onClose,
-      newBono: {
-        nombre: null,
-        apellido1: null,
-        apellido2: null,
-        cedula: null,
-      },
-      firestore: props.firestore,
-      creating: false,
-      error: null,
-    };
-  }
-
-  addBono() {
-    const {
-      newBono,
-      firestore,
-      onSuccess,
-      creating,
-    } = this.state;
-    if (!creating) {
-      this.setState({ creating: true });
-      firestore.add({ collection: 'bonos' }, newBono).then((result) => {
-        // TRANSACTION_SUCCESS action dispatched
-        onSuccess(result.id);
-      }).catch((err) => {
-        // TRANSACTION_FAILURE action dispatched
-        this.setState({ creating: false });
-      });
-    }
-  }
-
   render() {
     const {
-      onClose,
-      error,
+      newBono,
       newBono: {
         nombre, apellido1, apellido2, cedula,
       },
-    } = this.state;
+      log,
+      isFetching,
+      isCompleted,
+      isFailure,
+      dispatch,
+    } = this.props;
 
     const modalCreateBonoActions = [
-      { text: 'Crear', onClick: () => this.addBono() },
-      { text: 'Cancelar', onClick: onClose },
+      { text: 'Crear', onClick: () => dispatch(addBono(newBono)) },
+      { text: 'Cancelar', onClick: () => {} },
     ];
 
-    const errorSection = (
-      <SectionMessage appearance="error">
-        {error}
+    const errorSection = (log == null) ? null : (
+      <SectionMessage appearance={log.severity}>
+        {log.msg}
       </SectionMessage>
     );
 
@@ -75,7 +46,7 @@ class CrearBonoPage extends Component {
       <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} width="large">
         <Page>
           <ContentWrapper>
-            {error != null ? errorSection : null}
+            { errorSection }
             <Grid>
               <GridColumn medium={10}>
                 <PageTitle>Nuevo Bono de Vivienda</PageTitle>
@@ -95,7 +66,7 @@ class CrearBonoPage extends Component {
                   apellido1={apellido1}
                   apellido2={apellido2}
                   cedula={cedula}
-                  onChange={props => this.setState({ newBono: props })}
+                  onChange={() => dispatch(changeCreatingBono(newBono))}
                 />
               </GridColumn>
             </Grid>
@@ -106,4 +77,19 @@ class CrearBonoPage extends Component {
   }
 }
 
-export default withFirestore(CrearBonoPage);
+function mapStateToProps(state) {
+  return { ...state.bonos };
+}
+
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators({
+      changeCreatingBono,
+    }, dispatch),
+  };
+}
+
+const ConnectedFirestore = withFirestore(CrearBonoPage);
+const ConnectedNewBono = connect(mapStateToProps, mapDispatchToProps)(ConnectedFirestore);
+
+export default ConnectedNewBono;
