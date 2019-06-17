@@ -20,9 +20,8 @@ export function changeCreatingBono(payload) {
 
 export function addBono(payload) {
   return (dispatch, getState) => {
-    const { firestore } = getState();
     dispatch(requestAddBono(payload));
-    return firestore.add({ collection: 'bonos' }, payload)
+    return getState().firestore.add({ collection: 'bonos' }, payload)
       .then((result) => {
         dispatch(responseAddBonoSuccess(result));
       }).catch((error) => {
