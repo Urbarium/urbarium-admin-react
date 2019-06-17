@@ -10,14 +10,13 @@ import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
-import Lorem from 'react-lorem-component';
-import Modal from '@atlaskit/modal-dialog';
 import LogRocket from 'logrocket';
 import ProfileFragment from '../../Profile/ProfileFragment';
 import {
   globalNavPrimaryItems,
   globalNavSecondaryItems,
 } from '../menus/globalNavItems';
+import CrearBonoPage from '../../../pages/bono/CrearBonoPage';
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile }),
@@ -66,8 +65,8 @@ class GlobalNavigation extends Component {
   // eslint-disable-next-line no-unused-vars
   onCreatedBono = (id) => {
     const { history } = this.props;
-    const nid = 30;
-    history.push(`/bonos/${nid}/beneficiarios`);
+    this.setState({ isCreateBonoOpen: false });
+    history.push(`/bonos/${id}/beneficiarios`);
   }
 
   openCreateBono = () => this.setState({ isCreateBonoOpen: true });
@@ -77,10 +76,6 @@ class GlobalNavigation extends Component {
   render() {
     const { firebase, profile } = this.props;
     const { isSearchDrawerOpen, isProfileDrawerOpen, isCreateBonoOpen } = this.state;
-    const modalCreateBonoActions = [
-      { text: 'Crear', onClick: this.onCreatedBono },
-      { text: 'Cancelar', onClick: this.closeCreateBono },
-    ];
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
@@ -111,9 +106,7 @@ class GlobalNavigation extends Component {
         </Drawer>
         {
           isCreateBonoOpen && (
-            <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} heading="Nuevo Bono">
-              <Lorem count={2} />
-            </Modal>
+            <CrearBonoPage onSuccess={this.onCreatedBono} onClose={this.closeCreateBono} width="large" />
           )
         }
       </Fragment>
