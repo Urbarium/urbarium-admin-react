@@ -5,7 +5,7 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/firestore'; //
-import { ReactReduxFirebaseProvider, reactReduxFirebase } from 'react-redux-firebase';
+import { ReactReduxFirebaseProvider } from 'react-redux-firebase';
 import { createFirestoreInstance } from 'redux-firestore';
 import { ConnectedRouter, routerMiddleware } from 'connected-react-router';
 import '@atlaskit/css-reset';
@@ -13,9 +13,10 @@ import { createBrowserHistory } from 'history';
 import LogRocket from 'logrocket';
 import setupLogRocketReact from 'logrocket-react';
 import * as Sentry from '@sentry/browser';
-import { applyMiddleware, createStore, compose } from 'redux';
+import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import MainRouter from './modules/MainRouter';
 import ErrorBoundary from './components/ErrorBoundary';
 import createRootReducer from './reducers';
@@ -50,9 +51,6 @@ export const firebaseReduxConfig = {
   ],
 };
 
-// const createStoreWithFirebase = compose(
-//   reactReduxFirebase(firebase, firebaseReduxConfig),
-// )(createStore);
 const composeEnhancers = composeWithDevTools({ trace: true, traceLimit: 25 });
 
 export const configureStore = (preloadedState, fbConfig, history) => {
@@ -60,9 +58,12 @@ export const configureStore = (preloadedState, fbConfig, history) => {
     createRootReducer(history), // root reducer with router state
     preloadedState,
     composeEnhancers(
-      applyMiddleware(thunk),
-      applyMiddleware(routerMiddleware(history)),
-      applyMiddleware(LogRocket.reduxMiddleware()),
+      applyMiddleware(
+        logger,
+        thunk,
+        routerMiddleware(history),
+        LogRocket.reduxMiddleware(),
+      ),
     ),
   );
 
@@ -71,6 +72,7 @@ export const configureStore = (preloadedState, fbConfig, history) => {
 
 firebase.initializeApp(firebaseConfig);
 firebase.firestore();
+firebase.firestore().settings({ timestampsInSnapshots: true });
 
 const history = createBrowserHistory();
 const store = configureStore({}, firebaseConfig, history);

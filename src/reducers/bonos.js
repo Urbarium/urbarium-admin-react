@@ -1,10 +1,3 @@
-import {
-  REQUEST_ADD_BONO,
-  RESPONSE_BONO_SUCCESS,
-  RESPONSE_BONO_FAILED,
-  CHANGE_CREATING_BONO,
-} from '../actions/bonoActions';
-
 const initialState = {
   newBono: {
     jefeDeFamilia: {
@@ -18,13 +11,15 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
-  case REQUEST_ADD_BONO:
+  case 'ADD_BONO':
     return Object.assign({}, state, { isFetching: true });
-  case RESPONSE_BONO_SUCCESS:
+  case 'ADD_BONO_START':
+    return Object.assign({}, state, { isFetching: true });
+  case 'ADD_BONO_COMPLETE':
     return Object.assign({}, state, { isFetching: false, isCompleted: true, newBono: action.payload });
-  case RESPONSE_BONO_FAILED:
+  case 'ADD_BONO_FAIL':
     return Object.assign({}, state, { isFetching: false, isFailure: true, log: { severity: 'error', msg: action.error } });
-  case CHANGE_CREATING_BONO:
+  case 'ADD_BONO_UPDATE_PAYLOAD':
     return Object.assign({}, state, { newBono: action.payload });
   default:
     return { ...state };

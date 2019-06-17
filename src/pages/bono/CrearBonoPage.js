@@ -7,7 +7,10 @@ import { connect } from 'react-redux';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
 import Modal from '@atlaskit/modal-dialog';
 import SectionMessage from '@atlaskit/section-message';
-import { changeCreatingBono, addBono } from '../../actions/bonoActions';
+import {
+  actionAddBono,
+  actionAddBonoBuild,
+} from '../../actions/bonoActions';
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import JefeDeFamiliaSection from '../../components/Urbarium/JefeDeFamiliaSection';
@@ -29,21 +32,22 @@ class CrearBonoPage extends Component {
       isCompleted,
       isFailure,
       dispatch,
+      firestore,
     } = this.props;
 
     const modalCreateBonoActions = [
-      { text: 'Crear', onClick: () => dispatch(addBono(newBono)) },
+      { text: 'Crear', onClick: () => dispatch(actionAddBono(newBono, firestore)) },
       { text: 'Cancelar', onClick: () => {} },
     ];
 
-    const errorSection = (log == null) ? null : (
+    const errorSection = isFailure ? (
       <SectionMessage appearance={log.severity}>
         {log.msg}
       </SectionMessage>
-    );
+    ) : null;
 
     return (
-      <Modal actions={modalCreateBonoActions} onClose={this.closeCreateBono} width="large">
+      <Modal actions={modalCreateBonoActions} onClose={isCompleted} width="large">
         <Page>
           <ContentWrapper>
             { errorSection }
@@ -66,7 +70,7 @@ class CrearBonoPage extends Component {
                   apellido1={apellido1}
                   apellido2={apellido2}
                   cedula={cedula}
-                  onChange={() => dispatch(changeCreatingBono(newBono))}
+                  onChange={() => dispatch(actionAddBonoBuild(newBono))}
                 />
               </GridColumn>
             </Grid>
@@ -81,10 +85,12 @@ function mapStateToProps(state) {
   return { ...state.bonos };
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
+  const { newBono, firestore } = ownProps;
   return {
     actions: bindActionCreators({
-      changeCreatingBono,
+      actionAddBonoBuild,
+      actionAddBono: () => dispatch(actionAddBono(newBono, firestore)),
     }, dispatch),
   };
 }
