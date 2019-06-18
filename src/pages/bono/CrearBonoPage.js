@@ -31,6 +31,9 @@ class CrearBonoPage extends Component {
     // and the arguments received are a name-value pair list of all input fields
     console.log(this);
     console.log(argsPassedByTheForm);
+    // you will only get here if the input fields had correct data..
+
+    // actionAddBono(newBono, firestore, dispatch);
   }
 
   render() {
@@ -54,11 +57,10 @@ class CrearBonoPage extends Component {
         text: 'Crear', onClick: () => {    
           // My plan was to have the submit button inside the form
           // this can't always be the case, the modal 'crear' button is outside for example
-          // so query below is workaround for these cases.
+          // so query below is a workaround for these cases.
           // for some reason calling the form's submit function bypasses the forms onSubmit event
           // so I added a hidden button inside every form that we can click so the onSubmit event triggers properly
-          document.querySelector(`#${myFormID}`).click();
-          actionAddBono(newBono, firestore, dispatch);
+          document.querySelector(`#${myFormID}`).click();          
         },
       },
       { text: 'Cancelar', onClick: () => {} },

@@ -9,14 +9,21 @@ const Input = styled.input`
   ${props => props.font}
 `;
 
-const InputTextBox = ({ placeholder = '', font = fonts.defaultInput, data = undefined, name='textbox'}) => (
+const InputTextBox = props => (
   <Input
     type="text"
-    placeholder={placeholder}
-    defaultValue={data}
-    font={font}
-    name={name}
+    {...props}
   />
 );
+
+InputTextBox.defaultProps = {
+  placeholder: '',
+  font: fonts.defaultInput,
+  data: undefined,
+  name: 'textbox',
+  title: 'No requirements',
+  pattern: '',
+  required: false,
+};
 
 export default InputTextBox;
