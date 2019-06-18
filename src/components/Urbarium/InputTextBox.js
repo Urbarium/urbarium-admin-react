@@ -9,12 +9,13 @@ const Input = styled.input`
   ${props => props.font}
 `;
 
-const InputTextBox = ({ placeholder = '', font = fonts.defaultInput, data = undefined }) => (
+const InputTextBox = ({ placeholder = '', font = fonts.defaultInput, data = undefined, name='textbox'}) => (
   <Input
     type="text"
     placeholder={placeholder}
     defaultValue={data}
     font={font}
+    name={name}
   />
 );
 
