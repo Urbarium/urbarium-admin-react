@@ -37,6 +37,11 @@ const entidadesBancarias = [
   'Asociación Solidarista de Empleados de INA (ASEMINA)',
 ];
 
+const handleSubmit = (params) => {
+  console.log("I was called!");
+  console.log(params);
+};
+
 
 const CasoDeBonoPage = ({ data }) => (
   <PageWrapper>
@@ -45,36 +50,43 @@ const CasoDeBonoPage = ({ data }) => (
     </PageHeader>
 
     <PageContent>
-      <Column gap={40}>
-        <Input
-          type="dropdown"
-          label="Año"
-          placeholder="2019"
-          options={years}
-          data={data.año}
-        />
-        <Input
-          type="checkbox"
-          label="Modalidad"
-          options={['CLP', 'Bono Crédito', 'Bono RAMT', 'Vivienda Nueva']}
-          data={data.modalidad}
-          right
-        />
-        <Input
-          type="radio"
-          label="Característica Expecial"
-          options={['Ninguna', 'Adulto Mayor', 'Discapacidad']}
-          data={data.caractersitica}
-          right
-        />
-        <Input
-          type="dropdown"
-          label="Entidad bancaria a cargo"
-          placeholder="Grupo Mutual"
-          options={entidadesBancarias}
-          data={data.entidad}
-        />
-      </Column>
+      <form onSubmit={handleSubmit}>
+        <Column gap={40}>
+          <Input
+            type="dropdown"
+            label="Año"
+            placeholder="2019"
+            options={years}
+            data={data.año}
+            name="ano"
+          />
+          <Input
+            type="checkbox"
+            label="Modalidad"
+            options={['CLP', 'Bono Crédito', 'Bono RAMT', 'Vivienda Nueva']}
+            data={data.modalidad}
+            right
+            name="modalidad"
+          />
+          <Input
+            type="radio"
+            label="Característica Expecial"
+            options={['Ninguna', 'Adulto Mayor', 'Discapacidad']}
+            data={data.caractersitica}
+            right
+            name="caracteristica"
+          />
+          <Input
+            type="dropdown"
+            label="Entidad bancaria a cargo"
+            placeholder="Grupo Mutual"
+            options={entidadesBancarias}
+            data={data.entidad}
+            name="entidad"
+          />
+        </Column>
+        <button type="submit" />
+      </form>
     </PageContent>
 
     <PageFooter>

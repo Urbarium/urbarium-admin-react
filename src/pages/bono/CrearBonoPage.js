@@ -14,13 +14,28 @@ import {
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import JefeDeFamiliaSection from '../../components/Urbarium/JefeDeFamiliaSection';
+import Form from '../../components/Form';
 
 const CreationDate = styled.label`
   font-size: 15px;
 `;
 
+const myFormID = "anyString_noSpaces";
+
 // eslint-disable-next-line react/prefer-stateless-function
 class CrearBonoPage extends Component {
+
+  handleSubmit(argsPassedByTheForm) {
+    // TODO: do whatever backend thingy you were going to do
+    // here you can access CrearBonoPage as this
+    // and the arguments received are a name-value pair list of all input fields
+    console.log(this);
+    console.log(argsPassedByTheForm);
+    // you will only get here if the input fields had correct data..
+
+    // actionAddBono(newBono, firestore, dispatch);
+  }
+
   render() {
     const {
       newBono,
@@ -35,10 +50,21 @@ class CrearBonoPage extends Component {
       firestore,
     } = this.props;
 
+
+    // TODO: why is modalCreateBonoActions and errorSection inside the reder method?
     const modalCreateBonoActions = [
-      { text: 'Crear', onClick: () => actionAddBono(newBono, firestore, dispatch) },
+      {
+        text: 'Crear', onClick: () => {    
+          // My plan was to have the submit button inside the form
+          // this can't always be the case, the modal 'crear' button is outside for example
+          // so query below is a workaround for these cases.
+          // for some reason calling the form's submit function bypasses the forms onSubmit event
+          // so I added a hidden button inside every form that we can click so the onSubmit event triggers properly
+          document.querySelector(`#${myFormID}`).click();          
+        },
+      },
       { text: 'Cancelar', onClick: () => {} },
-    ];
+    ];    
 
     const errorSection = isFailure ? (
       <SectionMessage appearance={log.severity}>
@@ -65,13 +91,11 @@ class CrearBonoPage extends Component {
             </Grid>
             <Grid>
               <GridColumn medium={12}>
-                <JefeDeFamiliaSection
-                  nombre={nombre}
-                  apellido1={apellido1}
-                  apellido2={apellido2}
-                  cedula={cedula}
-                  onChange={() => dispatch(actionAddBonoBuild(newBono))}
-                />
+                {/* The idea here is to keep the input fields as simple as possible
+                  The form component allows us to fetch all data from the input fields */}
+                <Form id={myFormID} onSubmit={args => this.handleSubmit(args)}>
+                  <JefeDeFamiliaSection />
+                </Form>
               </GridColumn>
             </Grid>
           </ContentWrapper>
