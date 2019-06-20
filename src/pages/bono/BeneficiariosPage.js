@@ -26,7 +26,7 @@ const BeneficiariosPage = (({ data }) => (
           <Input type="textarea" placeholder="Dirección exacta" height={100} fill data={data.direccion} />
         </Column>
         <Row>
-          <Input type="textbox" label="Telefono" placeholder="0000 0000" data={data.telefono} />          
+          <Input type="textbox" label="Telefono" placeholder="0000 0000" data={data.telefono} />
           <Input type="textbox" label="Celular" placeholder="0000 0000" data={data.cedula} />
           <div style={{ width: '190px' }} />
         </Row>

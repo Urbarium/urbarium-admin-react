@@ -23,20 +23,16 @@ const myFormID = "anyString_noSpaces";
 // eslint-disable-next-line react/prefer-stateless-function
 class CrearBonoPage extends Component {
   handleSubmit(argsPassedByTheForm) {
-    const payload = {
-      newBono: argsPassedByTheForm,
-    };
-    const { firestore } = this.props;
-    dispatch(actionAddBono(payload, firestore, dispatch));
+    const { addBono } = this.props;
+    addBono({ newBono: argsPassedByTheForm });
   }
 
   render() {
     const {
       log,
-      isFetching,
+      // isFetching,
       isCompleted,
       isFailure,
-      firestore,
     } = this.props;
 
     // TODO: why is modalCreateBonoActions and errorSection inside the reder method?
@@ -49,6 +45,7 @@ class CrearBonoPage extends Component {
           // so query below is a workaround for these cases.
           // for some reason calling the form's submit function bypasses the forms onSubmit event
           // so I added a hidden button inside every form that we can click so the onSubmit event triggers properly
+          // eslint-disable-next-line no-undef
           document.querySelector(`#${myFormID}`).click();
         },
       },
@@ -98,7 +95,11 @@ function mapStateToProps(state) {
   return { ...state.bonos };
 }
 
-const ConnectedFirestore = withFirestore(CrearBonoPage);
-const ConnectedNewBono = connect(mapStateToProps)(ConnectedFirestore);
+const mapDispatchToProps = (dispatch, { firestore }) => ({
+  addBono: payload => dispatch(actionAddBono(payload, firestore)),
+});
 
-export default ConnectedNewBono;
+const ConnectedNewBono = connect(mapStateToProps, mapDispatchToProps)(CrearBonoPage);
+const ConnectedFirestore = withFirestore(ConnectedNewBono);
+
+export default ConnectedFirestore;
