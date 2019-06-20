@@ -7,16 +7,27 @@ const initialState = {
       cedula: null,
     },
   },
+  isCreating: false,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+  case 'BONO_START':
+    return Object.assign({}, initialState, { isCreating: true });
+  case 'BONO_CANCELED':
+    return Object.assign({}, state, { isCreating: false });
   case 'ADD_BONO':
     return Object.assign({}, state, { isFetching: true });
   case 'ADD_BONO_START':
     return Object.assign({}, state, { isFetching: true });
   case 'ADD_BONO_COMPLETE':
-    return Object.assign({}, state, { isFetching: false, isCompleted: true, newBono: action.payload });
+    return Object.assign(
+      {},
+      state,
+      {
+        isFetching: false, isCompleted: true, isCreating: false, newBono: action.payload,
+      },
+    );
   case 'ADD_BONO_FAIL':
     return Object.assign(
       {},
