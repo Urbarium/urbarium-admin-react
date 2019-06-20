@@ -18,7 +18,11 @@ export default (state = initialState, action) => {
   case 'ADD_BONO_COMPLETE':
     return Object.assign({}, state, { isFetching: false, isCompleted: true, newBono: action.payload });
   case 'ADD_BONO_FAIL':
-    return Object.assign({}, state, { isFetching: false, isFailure: true, log: { severity: 'error', msg: action.error } });
+    return Object.assign(
+      {},
+      state,
+      { isFetching: false, isFailure: true, log: { severity: 'error', msg: action.error } },
+    );
   case 'ADD_BONO_UPDATE_PAYLOAD':
     return Object.assign({}, state, { newBono: action.payload });
   default:
