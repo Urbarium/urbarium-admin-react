@@ -8,6 +8,7 @@ const HiddenButton = styled.button`
 class Form extends React.Component {
   handleSubmit(event) {
     const { onSubmit, id } = this.props;
+    // eslint-disable-next-line no-undef
     const nameValuePairs = [...document.querySelectorAll(`#${id}-form input,select`)].map(
       element => ({ name: element.name, value: element.value }),
     );
