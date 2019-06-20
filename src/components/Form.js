@@ -18,9 +18,9 @@ class Form extends React.Component {
   render() {
     const { children, id } = this.props;
     return (
-      <form id={`${id}-form`} onSubmit={event => this.handleSubmit(event)}>    
+      <form id={`${id}-form`} onSubmit={event => this.handleSubmit(event)}>
         {children}
-        <HiddenButton type="submit" id={id}/>
+        <HiddenButton type="submit" id={id} />
       </form>
     );
   }
