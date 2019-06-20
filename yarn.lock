@@ -297,17 +297,16 @@
     "@atlaskit/theme" "^9.1.1"
     "@babel/runtime" "^7.0.0"
 
-"@atlaskit/field-base@^11.0.15":
-  version "11.0.15"
-  resolved "https://registry.yarnpkg.com/@atlaskit/field-base/-/field-base-11.0.15.tgz#bd06931a462bbe2ad4e9222f39b1734762f47342"
-  integrity sha512-Zlp/y5WaZsKoh377tUujB1xHsZvxSkOfvT5sUoKVlwTK4dYRnIg3uSteuAXPgn6YvuxCa4lVL/QwOlQ3+zpS1A==
+"@atlaskit/field-base@^13.0.5":
+  version "13.0.5"
+  resolved "https://registry.yarnpkg.com/@atlaskit/field-base/-/field-base-13.0.5.tgz#fb5622d725307cd5dd5a182fb3442bf83e441285"
+  integrity sha512-0XrI1RSkafX3Vg05vJIEXbqorjhjdviyR06OtaAb4HelqnjTzztyrG2qnX2Z+8g0BLJEDF18cIoa/RWNSif80Q==
   dependencies:
-    "@atlaskit/icon" "^16.0.0"
-    "@atlaskit/inline-dialog" "^9.0.14"
-    "@atlaskit/spinner" "^9.0.13"
-    "@atlaskit/theme" "^7.0.1"
+    "@atlaskit/icon" "^18.0.4"
+    "@atlaskit/inline-dialog" "^12.0.1"
+    "@atlaskit/spinner" "^12.0.1"
+    "@atlaskit/theme" "^9.1.1"
     "@babel/runtime" "^7.0.0"
-    babel-runtime "^6.26.0"
 
 "@atlaskit/flag@12.0.8":
   version "12.0.8"
@@ -324,22 +323,7 @@
     tslib "^1.9.3"
     uuid "^3.1.0"
 
-"@atlaskit/form@^5.1.3":
-  version "5.2.10"
-  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-5.2.10.tgz#bd47cbec43a95efe9fef00cd3268bf7534a52070"
-  integrity sha512-nZa3UQfLbrGwDvoj+zv3S1cPkTgheSj3VVraZl6VHqIhxJXPDBg9B/hFb6Hxrmz21l8q9C29alZ/jTD7BJxXEw==
-  dependencies:
-    "@atlaskit/icon" "^16.0.9"
-    "@atlaskit/theme" "^8.1.7"
-    "@babel/runtime" "^7.0.0"
-    final-form "^4.10.0"
-    final-form-focus "^1.1.0"
-    memoize-one "^3.0.1"
-    react-uid "^2.2.0"
-    shallow-equal "^1.0.0"
-    tiny-invariant "^0.0.3"
-
-"@atlaskit/form@^6.0.5":
+"@atlaskit/form@^6.0.5", "@atlaskit/form@^6.0.7":
   version "6.0.7"
   resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.0.7.tgz#49032a48811c6091b4e708a1a658cbd07d7585c9"
   integrity sha512-GzL0Ey7Ncvb9+2TpJ+b1jA7WZ805FVajXG+wDpGzH58Ah7Oi7XJD0fuYwrs2Qw50ux8WVIMJsaLgB2bAP6kymQ==
@@ -390,7 +374,7 @@
     babel-runtime "^6.26.0"
     uuid "^3.1.0"
 
-"@atlaskit/icon@^16.0.0", "@atlaskit/icon@^16.0.4", "@atlaskit/icon@^16.0.9":
+"@atlaskit/icon@^16.0.0", "@atlaskit/icon@^16.0.4":
   version "16.0.9"
   resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-16.0.9.tgz#4dff47273165671e907f78835c984cff29c4a98e"
   integrity sha512-1gWuWgBsX6XZwX12iAPjoU0B0na92BZuCG0k8vHAIHJnhrgFpMJP7bqqV1IEob39qgbahk/4G9zagLBaNHWxoQ==
@@ -420,17 +404,6 @@
     "@babel/runtime" "^7.0.0"
     react-node-resolver "^1.0.1"
     tslib "^1.9.3"
-
-"@atlaskit/inline-dialog@^9.0.14":
-  version "9.0.15"
-  resolved "https://registry.yarnpkg.com/@atlaskit/inline-dialog/-/inline-dialog-9.0.15.tgz#e8c5bdd530aecba0226f74ae9169902b8e5cb4d9"
-  integrity sha512-MxhL2hfvvJE+db4gcXt794ljGdhL0SJJRkhIF5b1Eo6ZXvBSfZCvN9xxXy2VzIWOSL35oVAvKn54zlwo+YMnJQ==
-  dependencies:
-    "@atlaskit/analytics-next" "^3.1.2"
-    "@atlaskit/popper" "^0.3.6"
-    "@atlaskit/theme" "^7.0.1"
-    "@babel/runtime" "^7.0.0"
-    react-node-resolver "^1.0.1"
 
 "@atlaskit/inline-edit@^10.0.3":
   version "10.0.3"
@@ -533,14 +506,13 @@
     prop-types "^15.5.10"
     react-uid "^2.2.0"
 
-"@atlaskit/logo@^9.2.7":
-  version "9.2.7"
-  resolved "https://registry.yarnpkg.com/@atlaskit/logo/-/logo-9.2.7.tgz#8ff4a1526a27cb1dfdde3489ee52cd86707f4600"
-  integrity sha512-wdTNUjvac1IEfx0I9I6dEmDwsI6kP8ppej7+IXT6K8992uFtaV7BPSTA42zCjdcYTqfMEH4NonWnTcO5Iew9Bw==
+"@atlaskit/logo@^12.0.4":
+  version "12.0.4"
+  resolved "https://registry.yarnpkg.com/@atlaskit/logo/-/logo-12.0.4.tgz#add0a52396851dbf76ab3439b62fd631c20b8326"
+  integrity sha512-Hu+OLHspnXW8lrYIWx6wI9cClg2UNydGAufjHwGcPGaCL+jSb/nuUNEzXCU9lTK4B8yyXfsmHkpcYAWZAMlrBg==
   dependencies:
-    "@babel/runtime" "^7.0.0"
-    prop-types "^15.5.10"
-    uuid "^3.1.0"
+    react-uid "^2.2.0"
+    tslib "^1.9.3"
 
 "@atlaskit/lozenge@^7.0.0":
   version "7.0.3"
@@ -7831,13 +7803,6 @@ final-form-focus@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/final-form-focus/-/final-form-focus-1.1.2.tgz#8ea5c4bd802e220cebaa47a587bb0be164eb6806"
   integrity sha512-Gd+Bd2Ll7ijo3/sd6kJ/bwLkhc2bUJPxTON6fIqee/008EJpACWhT+zoWCm9q6NcfMcWRS+Sp5ikRX8iqdXeGQ==
-
-final-form@^4.10.0:
-  version "4.14.1"
-  resolved "https://registry.yarnpkg.com/final-form/-/final-form-4.14.1.tgz#260b680fe89cb1a78ad0f4bd42f589272007eded"
-  integrity sha512-kd1KMH7FL3/qDqNZm1h/OGmdbcNiXSU/19T7aVhQQYhyYM4Oz7mpVOff5wpUMixexExkuzq4hce4zXLeim1/Tg==
-  dependencies:
-    "@babel/runtime" "^7.3.1"
 
 final-form@^4.13.0:
   version "4.16.1"
