@@ -20,7 +20,7 @@ yarn install  # install dependencies
 yarn start  # start the project
 ```
 
-Alternative we have a storybook with a few React based components. 
+Alternatively, we have a Storybook of React components. 
 
 ```bash
 yarn run storybook
