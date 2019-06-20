@@ -8,7 +8,7 @@ import InputRadio from './InputRadio';
 import { Column } from '../Structural/index';
 
 const getInput = (type, props) => {
-  switch (type) {  
+  switch (type) {
   case 'textarea': return <InputTextArea {...props} />;
   case 'dropdown': return <InputDropdown {...props} />;
   case 'checkbox': return <InputCheckbox {...props} />;
