@@ -1,6 +1,7 @@
 # Urbarium Admin React
 
 [![Depfu](https://badges.depfu.com/badges/162bf61e2b9550630153a8111d486b27/count.svg)](https://depfu.com/github/Urbarium/urbarium-admin-react?project_id=8338)
+<a href="https://codeclimate.com/github/Urbarium/urbarium-admin-react/maintainability"><img src="https://api.codeclimate.com/v1/badges/a2dac334a6039df7d287/maintainability" /></a>
 
 This is an internal app for Urbarium.org, useful for managing bonos and a very simple user management. It is a React app which includes some Atlaskit components, built on top of [create-react-app](https://github.com/facebookincubator/create-react-app).
 
