@@ -21,5 +21,8 @@
     "eslint-plugin-promise": "^4.0.1"
   },
   "private": true,
-  "snyk": true
+  "snyk": true,
+  "engines": {
+    "node": "8"
+  }
 }
