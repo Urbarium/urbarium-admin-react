@@ -45,7 +45,7 @@
     "@emotion/core": "^10.0.9",
     "@firebase/app-types": "0.x",
     "@firebase/util": "0.x",
-    "@now/static-build": "^0.4.18",
+    "@now/static-build": "^0.5.9",
     "@sentry/browser": "^4.6.1",
     "@types/jest": "^24.0.15",
     "@types/node": "^11.9.4",
