@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import Avatar from '@atlaskit/avatar';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
@@ -27,58 +27,52 @@ const FullWidthFragment = styled.div`
   padding-top: 50px;
 `;
 
-const AvatarRow = props => (
+const AvatarRow = ({ children }) => (
   <Grid>
     <GridColumn medium={3} />
     <GridColumn medium={6}>
-      {props.children}
+      {children}
     </GridColumn>
     <GridColumn medium={3} />
   </Grid>
 );
 
-const PersonalInfoRow = props => (
+const PersonalInfoRow = ({ children }) => (
   <Grid>
     <GridColumn>
-      {props.children}
+      {children}
     </GridColumn>
   </Grid>
 );
 
-const ActionsRow = props => (
+const ActionsRow = ({ children }) => (
   <Grid>
     <GridColumn medium={8} />
     <GridColumn medium={4}>
-      {props.children}
+      {children}
     </GridColumn>
   </Grid>
 );
 
-class ProfileFragment extends Component {
-  render() {
-    const { name, email, avatar } = this.props.profile;
-
-    return (
-      <FullWidthFragment>
-        <Page>
-          <AvatarRow>
-            <Avatar src={avatar} size="xlarge" />
-          </AvatarRow>
-          <PersonalInfoRow>
-            <Title>
-              {name}
-            </Title>
-            <Subtitle>
-              {email}
-            </Subtitle>
-          </PersonalInfoRow>
-          <ActionsRow>
-            <ButtonWithLoading onClick={() => this.props.firebase.logout()}>Logout</ButtonWithLoading>
-          </ActionsRow>
-        </Page>
-      </FullWidthFragment>
-    );
-  }
-}
+const ProfileFragment = ({ profile: { name, email, avatar }, firebase }) => (
+  <FullWidthFragment>
+    <Page>
+      <AvatarRow>
+        <Avatar src={avatar} size="xlarge" />
+      </AvatarRow>
+      <PersonalInfoRow>
+        <Title>
+          {name}
+        </Title>
+        <Subtitle>
+          {email}
+        </Subtitle>
+      </PersonalInfoRow>
+      <ActionsRow>
+        <ButtonWithLoading onClick={() => firebase.logout()}>Logout</ButtonWithLoading>
+      </ActionsRow>
+    </Page>
+  </FullWidthFragment>
+);
 
 export default enhance(withFirebase(ProfileFragment));

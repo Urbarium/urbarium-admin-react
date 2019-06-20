@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import styled from 'styled-components';
 import Moment from 'react-moment';
 import { withFirestore } from 'react-redux-firebase';
@@ -9,7 +8,6 @@ import Modal from '@atlaskit/modal-dialog';
 import SectionMessage from '@atlaskit/section-message';
 import {
   actionAddBono,
-  actionAddBonoBuild,
 } from '../../actions/bonoActions';
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
@@ -24,47 +22,35 @@ const myFormID = "anyString_noSpaces";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class CrearBonoPage extends Component {
-
   handleSubmit(argsPassedByTheForm) {
-    // TODO: do whatever backend thingy you were going to do
-    // here you can access CrearBonoPage as this
-    // and the arguments received are a name-value pair list of all input fields
-    console.log(this);
-    console.log(argsPassedByTheForm);
-    // you will only get here if the input fields had correct data..
-
-    // actionAddBono(newBono, firestore, dispatch);
+    const { addBono } = this.props;
+    addBono({ newBono: argsPassedByTheForm });
   }
 
   render() {
     const {
-      newBono,
-      newBono: {
-        nombre, apellido1, apellido2, cedula,
-      },
       log,
-      isFetching,
+      // isFetching,
       isCompleted,
       isFailure,
-      dispatch,
-      firestore,
     } = this.props;
-
 
     // TODO: why is modalCreateBonoActions and errorSection inside the reder method?
     const modalCreateBonoActions = [
       {
-        text: 'Crear', onClick: () => {    
+        text: 'Crear',
+        onClick: () => {
           // My plan was to have the submit button inside the form
           // this can't always be the case, the modal 'crear' button is outside for example
           // so query below is a workaround for these cases.
           // for some reason calling the form's submit function bypasses the forms onSubmit event
           // so I added a hidden button inside every form that we can click so the onSubmit event triggers properly
-          document.querySelector(`#${myFormID}`).click();          
+          // eslint-disable-next-line no-undef
+          document.querySelector(`#${myFormID}`).click();
         },
       },
       { text: 'Cancelar', onClick: () => {} },
-    ];    
+    ];
 
     const errorSection = isFailure ? (
       <SectionMessage appearance={log.severity}>
@@ -109,7 +95,11 @@ function mapStateToProps(state) {
   return { ...state.bonos };
 }
 
-const ConnectedFirestore = withFirestore(CrearBonoPage);
-const ConnectedNewBono = connect(mapStateToProps)(ConnectedFirestore);
+const mapDispatchToProps = (dispatch, { firestore }) => ({
+  addBono: payload => dispatch(actionAddBono(payload, firestore)),
+});
 
-export default ConnectedNewBono;
+const ConnectedNewBono = connect(mapStateToProps, mapDispatchToProps)(CrearBonoPage);
+const ConnectedFirestore = withFirestore(ConnectedNewBono);
+
+export default ConnectedFirestore;

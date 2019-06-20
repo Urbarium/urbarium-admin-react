@@ -51,9 +51,7 @@ const TextStatus = styled.div`
   letter-spacing: 0.01px;
 `;
 
-const ProjectInfoHeader = ({
-  components: { Item }, to, casoId, status, ...props
-}) => (
+const ProjectInfoHeader = ({ casoId, status }) => (
   <Container>
     <Row>
       <Col>

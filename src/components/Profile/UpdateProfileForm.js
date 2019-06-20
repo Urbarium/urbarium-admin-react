@@ -20,7 +20,7 @@ class UpdateProfileForm extends Component {
       .then(() => {
         this.setState({ updating: false });
       })
-      .catch((error) => {
+      .catch(() => {
         this.setState({ updating: false });
       });
   }
