@@ -13,6 +13,7 @@ import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import JefeDeFamiliaSection from '../../components/Urbarium/JefeDeFamiliaSection';
 import Form from '../../components/Form';
+import { today } from '../../helpers/time';
 
 const StyledDate = styled.label`
   font-size: 15px;
@@ -25,9 +26,6 @@ const Today = ({ date }) => (
     </Moment>
   </StyledDate>
 );
-
-// TODO: Move to a helper class;
-const today = () => (new Date());
 
 const myFormID = "anyString_noSpaces";
 const modalCreateBonoActions = [
