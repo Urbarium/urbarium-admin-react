@@ -6,6 +6,7 @@ import LockIcon from '@atlaskit/icon/glyph/lock';
 const usersManagementNavItems = {
   id: 'users',
   type: 'product',
+  // eslint-disable-next-line max-lines-per-function
   getItems: () => [
     {
       type: 'HeaderSection',
