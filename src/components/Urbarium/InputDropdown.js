@@ -47,13 +47,14 @@ class InputDropDown extends React.Component {
 
   render() {
     const {
-      data, disabled, options, placeholder, font,
+      name, placeholder, options, data, font, disabled,
     } = this.props;
     const { dataDefault } = this.state;
     return (
       <div className="InputDropDown">
         {/* data-default is used as a data property to alter style using css selectors */}
         <DropDown
+          name={name}
           data-default={dataDefault}
           defaultValue={data || placeholder}
           font={font}
@@ -73,12 +74,12 @@ class InputDropDown extends React.Component {
 
 InputDropDown.defaultProps = {
   placeholder: ' ',
-  options: [{ name: 'Option 1', value: 'option_1' }],
   name: 'unnamed_dropdown',
+  options: [{ name: 'Option 1', value: 'option_1' }],
   data: undefined,
   font: fonts.defaultInput,
-  changeHandler() {},
   disabled: false,
+  changeHandler() {},
 };
 
 export default InputDropDown;

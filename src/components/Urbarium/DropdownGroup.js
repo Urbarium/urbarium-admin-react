@@ -41,9 +41,9 @@ class DDG extends React.Component {
     const { options, disables } = this.state;
     return result.map((_, dropdownIndex) => (
       <Dropdown
-        options={options[dropdownIndex]}
         placeholder={placeholders[dropdownIndex]}
         name={names[dropdownIndex]}
+        options={options[dropdownIndex]}
         disabled={disables[dropdownIndex]}
         changeHandler={optionIndex => this.handleChange(dropdownIndex, optionIndex)}
         data={data[dropdownIndex]}
@@ -86,14 +86,14 @@ class DDG extends React.Component {
 // there's an object structure below but its not quite ready
 
 const provincias = [
-  { name: 'San Jose', value: 'san_jose' },
+  { name: 'San José', value: 'san_jose' },
   { name: 'Alajuela', value: 'alajuela' },
   { name: 'Cartago', value: 'cartago' },
 ];
 
 const cantones = [
   [
-    { name: 'San Jose', value: 'san_jose' },
+    { name: 'San José', value: 'san_jose' },
     { name: 'Desamparados', value: 'desamparados' },
   ],
   [
@@ -124,13 +124,22 @@ const distritos = [
     ],
     [
       { name: 'Piedades Norte', value: 'piedades_norte' },
-      { name: 'PIedades Sur', value: 'piedades_sur' },
+      { name: 'Piedades Sur', value: 'piedades_sur' },
     ],
   ],
   [
     [
       { name: 'Oriental', value: 'oriental' },
       { name: 'Occidental', value: 'occidental' },
+      { name: 'Carmen', value: 'carmen' },
+      { name: 'San Nicolás', value: 'san_nicolas' },
+      { name: 'Agua Caliente', value: 'agua_caliente' },
+      { name: 'Guadalupe', value: 'guadalupe' },
+      { name: 'Corralillo', value: 'corralillo' },
+      { name: 'Tierra Blanca', value: 'tierra_blanca' },
+      { name: 'Dulce Nombre', value: 'dulce_nombre' },
+      { name: 'Llano Grande', value: 'llano_grande' },
+      { name: 'Quebradilla', value: 'quebradilla' },
     ],
     [
       { name: 'Santa Cruz', value: 'santa_cruz' },
@@ -141,7 +150,7 @@ const distritos = [
 
 DDG.defaultProps = {
   options: [provincias, cantones, distritos],
-  placeholders: ['Provincia', 'Canton', 'Distrito'],
+  placeholders: ['Provincia', 'Cantón', 'Distrito'],
   names: ['provincia', 'canton', 'distrito'],
   data: [],
 };
