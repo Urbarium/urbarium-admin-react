@@ -33,7 +33,7 @@ Form.defaultProps = {
 };
 
 export default Form;
-export const formSubmitter = id => (
+export const submitForm = id => (
   // eslint-disable-next-line no-undef
   () => document.querySelector(`#${id}`).click()
 );

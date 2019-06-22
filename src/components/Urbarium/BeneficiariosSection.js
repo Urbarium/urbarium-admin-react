@@ -10,34 +10,54 @@ import { Row, Column } from '../Structural/index';
 const subLabelFont = `${fonts.subLabel} color: ${primary.passive};`;
 
 const Beneficiario = ({
-  index, cedula, nombre, apellido1, apellido2,
+  index, cedula, nombre, primerApellido, segundoApellido,
 }) => (
   <Column gap={15}>
+
     <Label>{`Beneficiario ${index}`}</Label>
-    <Input type="textbox" label="CEDULA" placeholder="0 0000 0000" data={cedula} labelFont={subLabelFont} />
+
+    <Input
+      type="text"
+      label="CEDULA"
+      placeholder="0 0000 0000"
+      data={cedula}
+      labelFont={subLabelFont}
+      name={`cedula_${index}`}
+      title="At least nine digits"
+      pattern="^[\d]{9,}$"
+      required
+    />
+
     <Row>
       <Input
-        type="textbox"
+        type="text"
         label="NOMBRE"
         placeholder="Nombre"
+        name={`nombre_${index}`}
         data={nombre}
         labelFont={subLabelFont}
+        required
       />
       <Input
-        type="textbox"
+        type="text"
         label="PRIMER APELLIDO"
         placeholder="Primer apellido"
-        data={apellido1}
+        name={`primer_apellido_${index}`}
+        data={primerApellido}
         labelFont={subLabelFont}
+        required
       />
       <Input
-        type="textbox"
+        type="text"
         label="SEGUNDO APELLIDO"
         placeholder="Segundo apellido"
-        data={apellido2}
+        name={`segundo_apellido_${index}`}
+        data={segundoApellido}
         labelFont={subLabelFont}
+        title="Optional"
       />
     </Row>
+
   </Column>
 );
 
