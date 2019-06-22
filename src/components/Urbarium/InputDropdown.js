@@ -47,7 +47,7 @@ class InputDropDown extends React.Component {
 
   render() {
     const {
-      name, placeholder, options, data, font, disabled,
+      name, placeholder, options, data, font, required, disabled,
     } = this.props;
     const { dataDefault } = this.state;
     return (
@@ -56,12 +56,13 @@ class InputDropDown extends React.Component {
         <DropDown
           name={name}
           data-default={dataDefault}
-          defaultValue={data || placeholder}
+          defaultValue={data || ""}
           font={font}
           onChange={event => this.handleOnChange(event)}
           disabled={disabled}
+          required={required}
         >
-          <option hidden value={placeholder} key=" ">{placeholder}</option>
+          <option hidden value="" key={placeholder}>{placeholder}</option>
           {getOptions(options)}
         </DropDown>
         <ArrowContainer>
@@ -79,6 +80,7 @@ InputDropDown.defaultProps = {
   data: undefined,
   font: fonts.defaultInput,
   disabled: false,
+  required: false,
   changeHandler() {},
 };
 

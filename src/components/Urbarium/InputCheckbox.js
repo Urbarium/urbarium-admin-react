@@ -91,6 +91,7 @@ class CheckboxOption extends React.Component {
           type="checkbox"
           name={value}
           checked={data}
+          value={data}
           onChange={() => this.handleOnChange()}
         />
         <Checkbox
