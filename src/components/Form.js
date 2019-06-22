@@ -9,11 +9,16 @@ class Form extends React.Component {
   handleSubmit(event) {
     const { onSubmit, id } = this.props;
     // eslint-disable-next-line no-undef
-    const nameValuePairs = [...document.querySelectorAll(`#${id}-form input,select`)].map(
-      element => ({ name: element.name, value: element.value }),
-    );
-    event.preventDefault();
+    const inputs = [...document.querySelectorAll(
+      // inside the form -> all radio inputs checked & all non radio iputs & all selects
+      `#${id}-form input[type=radio]:checked, input:not([type=radio]), select`,
+    )];
+
+    const nameValuePairs = inputs.map(element => ({ name: element.name, value: element.value }));
+
     onSubmit(nameValuePairs);
+    event.preventDefault();
+    return false;
   }
 
   render() {
