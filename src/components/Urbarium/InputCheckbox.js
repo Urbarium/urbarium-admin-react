@@ -81,15 +81,15 @@ class CheckboxOption extends React.Component {
 
   render() {
     const {
-      right, value, size, font, checkColor, boxColor,
+      value, name, right, font, size, checkColor, boxColor,
     } = this.props;
     const { data } = this.state;
     return (
       <OptionWrapper>
-        {right ? <Label font={font} color={primary.passive}>{value}</Label> : null}
+        {right ? <Label font={font} color={primary.passive}>{name}</Label> : null}
         <Input
           type="checkbox"
-          value={value}
+          name={value}
           checked={data}
           onChange={() => this.handleOnChange()}
         />
@@ -99,7 +99,7 @@ class CheckboxOption extends React.Component {
           boxColor={boxColor}
           right={right}
         />
-        {right ? null : <Label font={font} color={primary.passive}>{value}</Label>}
+        {right ? null : <Label font={font} color={primary.passive}>{name}</Label>}
       </OptionWrapper>
     );
   }
@@ -114,14 +114,21 @@ CheckboxOption.defaultProps = {
 };
 
 const InputCheckbox = ({
-  data = [], options = ['Option 1'], grid = 0,
-  right, font, size, checkColor, boxColor,
+  data = [],
+  options = [{ name: 'Option 1', value: 'option_1' }],
+  grid = 0,
+  right,
+  font,
+  size,
+  checkColor,
+  boxColor,
 }) => (
   <FlexGrid grid={grid}>
-    {options.map((option, index) => (
+    {options.map(option => (
       <CheckboxOption
-        data={data.indexOf(index + 1) !== -1}
-        value={option}
+        data={data.indexOf(option.value) !== -1}
+        value={option.value}
+        name={option.name}
         right={right}
         font={font}
         size={size}
