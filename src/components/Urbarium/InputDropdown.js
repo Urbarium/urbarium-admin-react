@@ -10,7 +10,7 @@ const DropDown = styled.select`
     ${props => props.font}
     cursor: pointer;
     appearance: none;
-
+ 
     &[data-default=true] {
         color: ${primary.passive};
     }
@@ -28,10 +28,9 @@ const ArrowContainer = styled.div`
  `;
 
 const getOptions = options => (
-  options.map(option => <option value={option} key={option}>{option}</option>)
+  options.map(option => <option value={option.value} key={option.value}>{option.name}</option>)
 );
 
-// have to turn this into a more complex react component, preloading data is not working
 class InputDropDown extends React.Component {
   constructor(props) {
     super(props);
@@ -57,7 +56,7 @@ class InputDropDown extends React.Component {
         {/* data-default is used as a data property to alter style using css selectors */}
         <DropDown
           data-default={dataDefault}
-          defaultValue={data ? options[data] : placeholder}
+          defaultValue={data || placeholder}
           font={font}
           onChange={event => this.handleOnChange(event)}
           disabled={disabled}
@@ -74,8 +73,8 @@ class InputDropDown extends React.Component {
 }
 
 InputDropDown.defaultProps = {
-  placeholder: '',
-  options: ['option 1'],
+  placeholder: ' ',
+  options: [{ name: 'Option 1', value: 'option_1' }],
   data: undefined,
   font: fonts.defaultInput,
   changeHandler() {},

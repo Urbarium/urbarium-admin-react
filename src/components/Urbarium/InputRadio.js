@@ -87,7 +87,7 @@ RadioOption.defaultProps = {
 };
 
 const InputRadio = ({
-  data = [],
+  data = undefined,
   options = [{ name: 'Option 1', value: 'option_1' }],
   grid = 0,
   name,
@@ -102,7 +102,7 @@ const InputRadio = ({
       <RadioOption
         groupName={name}
         groupRight={right}
-        data={data.indexOf(option.value) !== -1}
+        data={option.value === data}
         optionValue={option.value}
         optionName={option.name}
         labelFont={font}
