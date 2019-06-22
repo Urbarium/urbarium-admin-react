@@ -13,27 +13,33 @@ const labelFont = `
     color: blue;
 `;
 
+const options = [
+  { name: 'Option 1', value: 'option_1'},
+  { name: 'Option 2', value: 'option_2'},
+  { name: 'Option 3', value: 'option_3'},
+]
+
 
 storiesOf('Input Fields/Labeled Input', module)
   .add('textbox input - normal label', () => (
-    <LabeledInput type="textbox" label="Teléfono" placeholder="0000 0000" />
+    <LabeledInput type="text" label="Teléfono" placeholder="0000 0000" />
   ))
   .add('textbox input - no label', () => (
-    <LabeledInput data="some text" type="textbox" placeholder="some placeholder" />
+    <LabeledInput type="text" data="some text" placeholder="some placeholder" />
   ))
   .add('textbox input - custom font', () => ([
-    <LabeledInput type="textbox" labelFont={labelFont} inputFont={inputFont} label="NOMBRE" placeholder="Nombre" />,
-    <LabeledInput type="textbox" labelFont={labelFont} inputFont={inputFont} label="APELLIDO" placeholder="Apellido" />,
+    <LabeledInput type="text" labelFont={labelFont} inputFont={inputFont} label="NOMBRE" placeholder="Nombre" />,
+    <LabeledInput type="text" labelFont={labelFont} inputFont={inputFont} label="APELLIDO" placeholder="Apellido" />,
   ]))
 
   .add('dropdown input - normal label', () => (
     <LabeledInput type="dropdown" label="Mano" options={['derecha', 'izquierda']} />
   ))
   .add('dropdown input - no label', () => (
-    <LabeledInput type="dropdown" options={['derecha', 'izquierda']} />
+    <LabeledInput type="dropdown" options={options} />
   ))
   .add('dropdown input - custom font', () => (
-    <LabeledInput type="dropdown" label="Mano" labelFont={labelFont} inputFont={inputFont} placeholder="mano" options={['derecha', 'izquierda']} />
+    <LabeledInput type="dropdown" label="Options" labelFont={labelFont} inputFont={inputFont} placeholder="some placeholder" options={options} />
   ))
 
   .add('textarea input - normal label', () => (
@@ -47,11 +53,11 @@ storiesOf('Input Fields/Labeled Input', module)
   ))
 
   .add('checkbox input - no label', () => (
-    <LabeledInput type="checkbox" options={['Opcion 1', 'Opcion 2', 'Opcion 3']} data={[3, 1]} />
+    <LabeledInput type="checkbox" options={options} data={['option_3', 'option_1']} />
   ))
   .add('radio input - normal label', () => (
-    <LabeledInput type="radio" label="Seleccion unica" options={['Opcion 1', 'Opcion 2', 'Opcion 3']} data={[2]} />
+    <LabeledInput type="radio" label="Seleccion unica" options={options} data="option_2" />
   ))
   .add('checkbox input - custom font', () => (
-    <LabeledInput type="checkbox" label="Seleccion multiple" options={['Opcion 1', 'Opcion 2', 'Opcion 3']} data={[1]} labelFont={labelFont} inputFont={inputFont} />
+    <LabeledInput type="checkbox" label="Seleccion multiple" options={options} data={['option_1']} labelFont={labelFont} inputFont={inputFont} />
   ));
