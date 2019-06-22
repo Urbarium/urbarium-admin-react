@@ -14,6 +14,7 @@ const getInput = (type, props) => {
   case 'checkbox': return <InputCheckbox {...props} />;
   case 'radio': return <InputRadio {...props} />;
   case 'tel':
+  case 'number':
   case 'text': return <InputTextBox {...props} />;
   default: return null;
   }
