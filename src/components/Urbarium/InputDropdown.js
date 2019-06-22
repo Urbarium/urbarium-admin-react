@@ -75,6 +75,7 @@ class InputDropDown extends React.Component {
 InputDropDown.defaultProps = {
   placeholder: ' ',
   options: [{ name: 'Option 1', value: 'option_1' }],
+  name: 'unnamed_dropdown',
   data: undefined,
   font: fonts.defaultInput,
   changeHandler() {},

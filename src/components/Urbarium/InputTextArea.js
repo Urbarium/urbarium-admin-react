@@ -23,16 +23,20 @@ const TextArea = styled.textarea`
   resize: none;
 `;
 
-const InputTextArea = ({
-  placeholder = '', data = undefined, fill = false, font = fonts.defaultInput, height = 0,
-}) => (
-  <TextArea
-    placeholder={placeholder}
-    defaultValue={data}
-    fill={fill}
-    font={font}
-    height={height}
-  />
+const InputTextArea = props => (
+  <TextArea {...props} />
 );
+
+InputTextArea.defaultProps = {
+  placeholder: "",
+  defaultValue: "",
+  fill: false,
+  font: fonts.defaultInput,
+  height: 0,
+  pattern: undefined,
+  name: "unnamed_textarea",
+  title: "",
+  required: false,
+};
 
 export default InputTextArea;

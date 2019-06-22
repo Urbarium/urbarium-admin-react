@@ -21,9 +21,9 @@ InputTextBox.defaultProps = {
   font: fonts.defaultInput,
   data: undefined,
   type: 'text',
-  name: 'textbox',
-  title: 'No requirements',
-  pattern: '',
+  name: 'unnamed_textbox',
+  pattern: undefined,
+  title: '',
   required: false,
 };
 

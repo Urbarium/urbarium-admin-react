@@ -78,7 +78,7 @@ class RadioOption extends React.Component {
 }
 
 RadioOption.defaultProps = {
-  groupName: 'UnnamedRadioGroup',
+  groupName: 'unnamed_radiogroup',
   groupRight: false,
   labelFont: fonts.optionLabel,
   radioSize: 15,
