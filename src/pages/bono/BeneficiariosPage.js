@@ -7,9 +7,11 @@ import Label from '../../components/Urbarium/Label';
 import ButtonRound from '../../components/Urbarium/ButtonRound';
 import { Row, Column } from '../../components/Structural/index';
 import Form, { submitForm } from '../../components/Form';
-
 import {
-  PageWrapper, PageHeader, PageContent, PageFooter,
+  PageWrapper,
+  PageHeader,
+  PageContent,
+  PageFooter,
 } from '../../components/PageWrapper';
 
 const formID = "beneficiarios-page-form";
@@ -80,8 +82,6 @@ const BeneficiariosPage = (({ data, onSubmit }) => (
   </PageWrapper>
 ));
 
-// default data prop for the page are empty input fields and a single empty beneficiario
-// You can edit this to test preloading data into the page
 BeneficiariosPage.defaultProps = {
   data: {
     title: 'Beneficiarios',
