@@ -12,7 +12,7 @@ import {
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import JefeDeFamiliaSection from '../../components/Urbarium/JefeDeFamiliaSection';
-import Form from '../../components/Form';
+import Form, { submitForm } from '../../components/Form';
 import { today } from '../../helpers/time';
 
 const StyledDate = styled.label`
@@ -27,19 +27,11 @@ const Today = ({ date }) => (
   </StyledDate>
 );
 
-const myFormID = "anyString_noSpaces";
+const formID = "crear-bono-form";
 const modalCreateBonoActions = [
   {
     text: 'Crear',
-    onClick: () => {
-      // My plan was to have the submit button inside the form
-      // this can't always be the case, the modal 'crear' button is outside for example
-      // so query below is a workaround for these cases.
-      // for some reason calling the form's submit function bypasses the forms onSubmit event
-      // so I added a hidden button inside every form that we can click so the onSubmit event triggers properly
-      // eslint-disable-next-line no-undef
-      document.querySelector(`#${myFormID}`).click();
-    },
+    onClick: submitForm(formID),
   },
   { text: 'Cancelar', onClick: () => {} },
 ];
@@ -66,8 +58,6 @@ class CrearBonoPage extends Component {
       isFailure,
     } = this.props;
 
-    /* The idea here is to keep the input fields as simple as possible
-      The form component allows us to fetch all data from the input fields */
     return (
       <Modal actions={modalCreateBonoActions} onClose={isCompleted} width="large">
         <Page>
@@ -83,7 +73,7 @@ class CrearBonoPage extends Component {
             </Grid>
             <Grid>
               <GridColumn medium={12}>
-                <Form id={myFormID} onSubmit={args => this.handleSubmit(args)}>
+                <Form id={formID} onSubmit={args => this.handleSubmit(args)}>
                   <JefeDeFamiliaSection />
                 </Form>
               </GridColumn>
