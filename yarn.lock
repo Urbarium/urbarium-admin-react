@@ -110,10 +110,10 @@
     react-dom "^16.8.0"
     react-transition-group "^2.2.1"
 
-"@atlaskit/form@^6.0.7":
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.0.7.tgz#49032a48811c6091b4e708a1a658cbd07d7585c9"
-  integrity sha512-GzL0Ey7Ncvb9+2TpJ+b1jA7WZ805FVajXG+wDpGzH58Ah7Oi7XJD0fuYwrs2Qw50ux8WVIMJsaLgB2bAP6kymQ==
+"@atlaskit/form@^6.1.0":
+  version "6.1.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.1.0.tgz#a5d65527c9c9040ac2b7305fb0e1998d65350a9e"
+  integrity sha512-G+AaERdRngsHRVV2Xc2Cbpu3t1ae+X+UC/iEXR0DOyle5n1cLGHROSF15vv3BwOWmernTwD6LSl6i0d4tgDTsA==
   dependencies:
     "@atlaskit/icon" "^18.0.4"
     "@atlaskit/theme" "^9.1.1"
