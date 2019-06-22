@@ -5,26 +5,48 @@ import { Row } from '../Structural/index';
 class DDG extends React.Component {
   constructor(props) {
     super(props);
-    const { options } = this.props;
-    this.count = props.options.length;
-    this.selectedIndexes = Array(this.count).fill(0);
+    const { options, data } = this.props;
+    this.count = options.length;
+    const initDisables = Array(this.count).fill(true);
+    const initSelectedIndexes = Array(this.count).fill(0);
+    const initOptions = Array(this.count).fill(undefined);
+    const initData = Array(this.count).fill(undefined);
+    // initialize dropdowns if data is passed
+    if (data.length > 0) {
+      data.forEach((element, index) => {
+        initDisables[index] = false;
+        initOptions[index] = this.accessRecursively(options[index], initSelectedIndexes, index);
+        initSelectedIndexes[index] = initOptions[index].findIndex(option => option.value === element);
+        initData[index] = element;
+      });
+      initDisables[data.length] = false;
+    } else {
+      initDisables[0] = false;
+      // eslint-disable-next-line prefer-destructuring
+      initOptions[0] = options[0];
+    }
+
+    this.selectedIndexes = initSelectedIndexes;
+    this.initialData = initData;
     this.state = {
-      // intially only the first dropdown will be enabled and have options to display
-      disabled: [false, ...Array(this.count - 1).fill(true)],
-      options: [options[0], ...Array(this.count - 1).fill(undefined)],
+      disables: initDisables,
+      options: initOptions,
     };
   }
 
   getDropdowns() {
     const result = Array(this.count).fill('');
-    const { placeholders } = this.props;
-    const { options, disabled } = this.state;
+    const data = this.initialData;
+    const { placeholders, names } = this.props;
+    const { options, disables } = this.state;
     return result.map((_, dropdownIndex) => (
       <Dropdown
         options={options[dropdownIndex]}
         placeholder={placeholders[dropdownIndex]}
-        disabled={disabled[dropdownIndex]}
+        name={names[dropdownIndex]}
+        disabled={disables[dropdownIndex]}
         changeHandler={optionIndex => this.handleChange(dropdownIndex, optionIndex)}
+        data={data[dropdownIndex]}
       />
     ));
   }
@@ -32,21 +54,18 @@ class DDG extends React.Component {
   handleChange(dropdownIndex, optionIndex) {
     this.setState((prevState) => {
       // enable next dropdown in chain and disable others further down
-      const newDisabled = prevState.disabled.map((current, index) => (
-        (index - dropdownIndex <= 0 ? current : index - dropdownIndex !== 1)
-      ));
+      const newDisables = prevState.disables.map((_, index) => index > dropdownIndex + 1);
 
       // update selected indexes
       this.selectedIndexes.splice(dropdownIndex, 1, optionIndex);
 
-
-      // update available options for each dropdown depeding on selected indexes
+      // update available options for each dropdown depending on selected indexes
       const { options } = this.props;
       const newOptions = prevState.options.map((element, index) => (
         (index < dropdownIndex ? element : this.accessRecursively(options[index], this.selectedIndexes, index))
       ));
 
-      return { disabled: newDisabled, options: newOptions };
+      return { disables: newDisables, options: newOptions };
     });
   }
 
@@ -67,55 +86,55 @@ class DDG extends React.Component {
 // there's an object structure below but its not quite ready
 
 const provincias = [
-  'San Jose',
-  'Alajuela',
-  'Cartago',
+  { name: 'San Jose', value: 'san_jose' },
+  { name: 'Alajuela', value: 'alajuela' },
+  { name: 'Cartago', value: 'cartago' },
 ];
 
 const cantones = [
   [
-    'San Jose',
-    'Desamparados',
+    { name: 'San Jose', value: 'san_jose' },
+    { name: 'Desamparados', value: 'desamparados' },
   ],
   [
-    'Alajuela',
-    'San Ramon',
+    { name: 'Alajuela', value: 'alajuela' },
+    { name: 'San Ramon', value: 'san_ramon' },
   ],
   [
-    'Cartago',
-    'Turrialba',
+    { name: 'Cartago', value: 'cartago' },
+    { name: 'Turrialba', value: 'turrialba' },
   ],
 ];
 
 const distritos = [
   [
     [
-      'Carmen',
-      'Merced',
+      { name: 'Carmen', value: 'carmen' },
+      { name: 'Merced', value: 'merced' },
     ],
     [
-      'Desamparados',
-      'San Miguel',
-    ],
-  ],
-  [
-    [
-      'Guacimo',
-      'San Isidro',
-    ],
-    [
-      'Piedades Norte',
-      'PIedades Sur',
+      { name: 'Desamparados', value: 'desamparados' },
+      { name: 'San Miguel', value: 'san_miguel' },
     ],
   ],
   [
     [
-      'Oriental',
-      'Occidental',
+      { name: 'Guácimo', value: 'guacimo' },
+      { name: 'San Isidro', value: 'san_isidro' },
     ],
     [
-      'Santa Cruz',
-      'Pavones',
+      { name: 'Piedades Norte', value: 'piedades_norte' },
+      { name: 'PIedades Sur', value: 'piedades_sur' },
+    ],
+  ],
+  [
+    [
+      { name: 'Oriental', value: 'oriental' },
+      { name: 'Occidental', value: 'occidental' },
+    ],
+    [
+      { name: 'Santa Cruz', value: 'santa_cruz' },
+      { name: 'Pavones', value: 'pavones' },
     ],
   ],
 ];
@@ -123,6 +142,8 @@ const distritos = [
 DDG.defaultProps = {
   options: [provincias, cantones, distritos],
   placeholders: ['Provincia', 'Canton', 'Distrito'],
+  names: ['provincia', 'canton', 'distrito'],
+  data: [],
 };
 
 export default DDG;

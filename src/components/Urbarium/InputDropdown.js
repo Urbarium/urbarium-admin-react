@@ -41,8 +41,7 @@ class InputDropDown extends React.Component {
   handleOnChange(event) {
     const { options, changeHandler } = this.props;
     this.setState({ dataDefault: false });
-    // TODO: check setState above should be called or after the changeHandler which trigger the parent setState
-    const selectedIndex = options.indexOf(event.target.value);
+    const selectedIndex = options.findIndex(element => element.value === event.target.value);
     changeHandler(selectedIndex);
   }
 
