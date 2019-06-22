@@ -100,10 +100,12 @@ BeneficiariosPage.defaultProps = {
     telefono: '',
     celular: '',
   },
+
   // TODO: You can give an on submit function to the page which it will call using all the
   // data from the input fields  as arguments...
+
   // eslint-disable-next-line no-console
-  onSubmit(args) { console.log(args); },
+  onSubmit(args) { console.table(args); },
 };
 
 export default BeneficiariosPage;
