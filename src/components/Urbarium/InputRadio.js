@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { primary, secondary } from '../../colors';
-import fonts from '../../fonts';
 import { FlexGrid } from '../Structural/index';
-import Label from './Label';
 import OptionWrapper from './OptionWrapper';
+import OptionLabel from './OptionLabel';
 
 
 const Radio = styled.div`
@@ -53,53 +52,59 @@ class RadioOption extends React.Component {
 
   render() {
     const {
-      name, value, right, size, font, checkColor, boxColor,
+      groupName, groupRight, optionValue, optionName, radioSize, radioCheckColor, radioBoxColor,
     } = this.props;
     const { data } = this.state;
     return (
       <OptionWrapper>
-        {right ? <Label font={font} color={primary.passive}>{value}</Label> : null}
+        {groupRight ? <OptionLabel>{optionName}</OptionLabel> : null}
         <Input
           type="radio"
-          name={name}
-          value={value}
+          name={groupName}
+          value={optionValue}
           checked={data}
           onChange={event => this.handleOnChange(event)}
         />
         <Radio
-          size={size}
-          checkColor={checkColor}
-          boxColor={boxColor}
+          size={radioSize}
+          checkColor={radioCheckColor}
+          boxColor={radioBoxColor}
         />
-        {right ? null : <Label font={font} color={primary.passive}>{value}</Label>}
+        {groupRight ? null : <OptionLabel>{optionName}</OptionLabel>}
       </OptionWrapper>
     );
   }
 }
 
 RadioOption.defaultProps = {
-  name: 'RadioGroup',
-  right: false,
-  font: fonts.optionLabel,
-  size: 15,
-  checkColor: primary.primary,
-  boxColor: secondary.lightgray,
+  groupName: 'unnamed_radiogroup',
+  groupRight: false,
+  radioSize: 15,
+  radioCheckColor: primary.primary,
+  radioBoxColor: secondary.lightgray,
 };
 
 const InputRadio = ({
-  data = [], options = ['Option 1'], grid = 0, right, font, size, checkColor, boxColor, name,
+  data = undefined,
+  options = [{ name: 'Option 1', value: 'option_1' }],
+  grid = 0,
+  name,
+  right,
+  size,
+  checkColor,
+  boxColor,
 }) => (
   <FlexGrid grid={grid}>
-    {options.map((option, index) => (
+    {options.map(option => (
       <RadioOption
-        data={data.indexOf(index + 1) !== -1}
-        value={option}
-        right={right}
-        font={font}
-        size={size}
-        checkColor={checkColor}
-        boxColor={boxColor}
-        name={name}
+        groupName={name}
+        groupRight={right}
+        data={option.value === data}
+        optionValue={option.value}
+        optionName={option.name}
+        radioSize={size}
+        radioCheckColor={checkColor}
+        radioBoxColor={boxColor}
       />
     ))
     }

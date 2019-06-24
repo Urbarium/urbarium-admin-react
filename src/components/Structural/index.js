@@ -15,16 +15,19 @@ export const Row = styled.div`
       ? `grid-template-columns: ${props.columns};`
       : `grid-template-columns: repeat(${props.children.length}, auto);`
   )}
+  grid-gap: ${props => props.gap || 0}px;
   grid-template-rows: 1fr;
-  justify-content: space-between;
+  justify-content: ${props => props.justify || 'space-between'};
+  align-items: ${props => props.align || 'start'}
 `;
 
 export const Column = styled.div`
   display: grid;
   grid-template-rows: repeat(${props => props.children.length}, auto);
   grid-template-columns: 1fr;
-  grid-gap: ${props => (props.gap ? props.gap : 10)}px;
+  grid-gap: ${props => props.gap || 0}px;
   height: fit-content;
+  justify-items: ${props => props.justify || 'space-between'};
 `;
 
 export const FlexGrid = styled.div`

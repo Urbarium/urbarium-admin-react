@@ -1,18 +1,41 @@
 import React from 'react';
-import styled from 'styled-components';
-import { isArray } from 'util';
-import { primary, secondary, neutral } from '../../colors';
-import fonts from '../../fonts';
+import styled, { ThemeProvider } from 'styled-components';
 import Label from './Label';
 import Arrow from './ButtonArrow';
 import ButtonState from './ButtonState';
 import { Row as AccordionHeader } from '../Structural/index';
+import { FrameStyle as style, colors } from './urbarium-theme';
+
+const contentTheme = {
+  label_fontSize: '12px',
+  label_fontWeight: 'bold',
+  label_color: '#354052',
+  option_fontSize: '12px',
+  option_fontWeight: 'normal',
+  option_color: '#838383',
+};
+
+const headerTheme = {
+  label_fontSize: '12px',
+  label_fontWeight: 'normal',
+  label_color: '#8A96A0',
+};
+
+const indexTheme = {
+  label_fontSize: '15px',
+  label_fontWeight: 'bold',
+  label_color: colors.primary,
+};
+
+const titleTheme = Object.assign({}, indexTheme, { label_color: '#354052' });
+
 
 const AccordionFrame = styled.div`
-    border: 1px ${secondary.lightgray} solid;
-    border-radius: 15px;
+    border: ${style.border};
+    border-radius: ${style.borderRadius};    
+    max-width: ${style.maxWidth};
+    box-sizing: border-box;
     padding: 15px 25px;
-    max-width: 850px;
 `;
 
 const Flex = styled.div`
@@ -33,28 +56,6 @@ const AccordionContent = styled.div`
         padding-bottom: 0px;
     }
 `;
-
-const childrenFont = {
-  inputFont: `${fonts.defaultAccordionInput} color: ${primary.passive};`,
-  labelFont: `${fonts.defaultAccordionLabel} color: ${neutral.black};`,
-};
-const labelFont = `
-    ${fonts.accLabel}
-    color: ${primary.passive}
-`;
-
-const insertProps = (children) => {
-  let childrenWithProps;
-  if (children) {
-    if (isArray(children)) {
-      childrenWithProps = children.map(child => React.cloneElement(child, { ...childrenFont }));
-    } else {
-      childrenWithProps = React.cloneElement(children, { ...childrenFont });
-    }
-  }
-  return childrenWithProps;
-};
-
 
 class AccordionItem extends React.Component {
   constructor(props) {
@@ -78,23 +79,28 @@ class AccordionItem extends React.Component {
     const { opened } = this.state;
     return (
       <AccordionFrame>
-        <AccordionHeader columns="5fr 2fr 2fr 2fr 2fr 0.5fr">
+
+        <AccordionHeader columns="5fr 2fr 2fr 2fr 2fr 0.5fr" align="center">
           <Flex>
-            <Label color={primary.primary}>{`${index}.`}</Label>
-            <Label>{title}</Label>
+            <Label theme={indexTheme}>{`${index}.  `}</Label>
+            <Label theme={titleTheme}>{title}</Label>
           </Flex>
-          <Label font={labelFont}>{startDate}</Label>
-          <Label font={labelFont}>{endDate}</Label>
-          <Label font={labelFont}>{user}</Label>
+          <Label theme={headerTheme}>{startDate}</Label>
+          <Label theme={headerTheme}>{endDate}</Label>
+          <Label theme={headerTheme}>{user}</Label>
           <ButtonState data={state} />
           { children
             ? <Arrow onClick={() => this.handleClick()} />
             : null
           }
         </AccordionHeader>
-        <AccordionContent columns={columns} data-opened={opened}>
-          {insertProps(children)}
-        </AccordionContent>
+
+        <ThemeProvider theme={contentTheme}>
+          <AccordionContent columns={columns} data-opened={opened}>
+            {children}
+          </AccordionContent>
+        </ThemeProvider>
+
       </AccordionFrame>
     );
   }

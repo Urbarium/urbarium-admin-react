@@ -1,30 +1,40 @@
-/* eslint-disable no-nested-ternary */
-// FIXME: Check nested ternary operation in line 12.
 import React from 'react';
 import styled from 'styled-components';
-import fonts from '../../fonts';
-import { InputFieldStyle } from './urbarium-styles';
+import { TextAreaStyle as style, InputField } from './urbarium-theme';
 
-const TextArea = styled.textarea`
-  ${InputFieldStyle}
-  ${props => props.font}
-  width: ${props => (props.fill ? ' 100%' : '360px')};
-  height: ${props => (props.height ? `${props.height}px` : props.fill ? '100%;' : '108px')};
+const getHeight = (props) => {
+  let height;
+  if (props.theme.textArea_height) {
+    height = props.theme.textArea_height;
+  } else { height = props.fill ? '100%' : style.height; }
+  return height;
+};
+
+const TextArea = styled(InputField)`
+  width: ${props => (props.fill ? ' 100%' : style.width)};
+  height: ${props => getHeight(props)};
   padding-top: 10px;
   margin: 0px;
   resize: none;
+  border: ${style.border};
+  border-radius: ${style.borderRadius};
+  background-color: ${style.backgroundColor};
+  font-size: ${style.fontSize};
+  color: ${style.color};
 `;
 
-const InputTextArea = ({
-  placeholder = '', data = undefined, fill = false, font = fonts.defaultInput, height = 0,
-}) => (
-  <TextArea
-    placeholder={placeholder}
-    defaultValue={data}
-    fill={fill}
-    font={font}
-    height={height}
-  />
+const InputTextArea = ({ data, ...props }) => (
+  <TextArea as="textarea" defaultValue={data} {...props} />
 );
+
+InputTextArea.defaultProps = {
+  data: undefined,
+  placeholder: "",
+  fill: false,
+  pattern: undefined,
+  name: "unnamed_textarea",
+  title: "",
+  required: false,
+};
 
 export default InputTextArea;

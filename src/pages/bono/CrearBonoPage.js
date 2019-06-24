@@ -13,7 +13,7 @@ import {
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
 import JefeDeFamiliaSection from '../../components/Urbarium/JefeDeFamiliaSection';
-import Form from '../../components/Form';
+import Form, { submitForm } from '../../components/Form';
 import { today } from '../../helpers/time';
 
 const StyledDate = styled.label`
@@ -69,8 +69,6 @@ class CrearBonoPage extends Component {
       isCreating,
     } = this.props;
 
-    /* The idea here is to keep the input fields as simple as possible
-      The form component allows us to fetch all data from the input fields */
     return (
       <ModalTransition>
         { isCreating && (

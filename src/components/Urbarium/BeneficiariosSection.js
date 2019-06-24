@@ -1,43 +1,55 @@
 import React from 'react';
 import Input from './LabeledInput';
-import Label from './Label';
 import Button from './ButtonText';
-import { primary } from '../../colors';
-import fonts from '../../fonts';
+import IconTitle from './IconTitle';
 import { Row, Column } from '../Structural/index';
 
 // Single beneficiaro definition
-const subLabelFont = `${fonts.subLabel} color: ${primary.passive};`;
-
 const Beneficiario = ({
   index, cedula, nombre, apellido1, apellido2,
 }) => (
   <Column gap={15}>
-    <Label>{`Beneficiario ${index}`}</Label>
-    <Input type="textbox" label="CEDULA" placeholder="0 0000 0000" data={cedula} labelFont={subLabelFont} />
+
+    <IconTitle icon="person">{`Beneficiario ${index}`}</IconTitle>
+
+    <Input
+      type="text"
+      label="Cédula"
+      placeholder="0 0000 0000"
+      data={cedula}
+      name={`cedula_${index}`}
+      title="At least nine digits"
+      pattern="^[\d]{9,}$"
+      required
+    />
+
     <Row>
       <Input
-        type="textbox"
-        label="NOMBRE"
+        type="text"
+        label="Nombre"
         placeholder="Nombre"
+        name={`nombre_${index}`}
         data={nombre}
-        labelFont={subLabelFont}
+        required
       />
       <Input
-        type="textbox"
-        label="PRIMER APELLIDO"
+        type="text"
+        label="Primer Apellido"
         placeholder="Primer apellido"
+        name={`primer_apellido_${index}`}
         data={apellido1}
-        labelFont={subLabelFont}
+        required
       />
       <Input
-        type="textbox"
-        label="SEGUNDO APELLIDO"
+        type="text"
+        label="Segundo Apellido"
         placeholder="Segundo apellido"
+        name={`segundo_apellido_${index}`}
         data={apellido2}
-        labelFont={subLabelFont}
+        title="Optional"
       />
     </Row>
+
   </Column>
 );
 
@@ -74,12 +86,15 @@ class BeneficiariosSection extends React.Component {
   render() {
     const { benefList } = this.state;
     return (
-      <Column>
+      <Column gap={15}>
         {benefList}
-        {benefList.length > 1
-          ? <Button onClick={() => this.handleClickRemove()}>Remover beneficiario -</Button>
-          : null}
-        <Button onClick={() => this.handleClickAdd()}>Agregar beneficiario +</Button>
+
+        <Column gap={1} justify="end">
+          {benefList.length > 1
+            ? <Button onClick={() => this.handleClickRemove()}>Remover beneficiario -</Button>
+            : null}
+          <Button onClick={() => this.handleClickAdd()}>Agregar beneficiario +</Button>
+        </Column>
       </Column>
     );
   }

@@ -1,28 +1,19 @@
 import React from 'react';
-import styled from 'styled-components';
 import fonts from '../../fonts';
-import { InputFieldStyle } from './urbarium-styles';
+import { InputField } from './urbarium-theme';
 
-
-const Input = styled.input`
-  ${InputFieldStyle}
-  ${props => props.font}
-`;
-
-const InputTextBox = props => (
-  <Input
-    type="text"
-    {...props}
-  />
+const InputTextBox = ({ data, ...props }) => (
+  <InputField defaultValue={data} {...props} />
 );
 
 InputTextBox.defaultProps = {
   placeholder: '',
   font: fonts.defaultInput,
   data: undefined,
-  name: 'textbox',
-  title: 'No requirements',
-  pattern: '',
+  type: 'text',
+  name: 'unnamed_textbox',
+  pattern: undefined,
+  title: '',
   required: false,
 };
 

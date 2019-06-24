@@ -1,96 +1,81 @@
 import React from 'react';
-import PageTitle from '../../components/PageTitle';
+import BonoTitle from '../../components/Urbarium/BonoTitle';
 import Input from '../../components/Urbarium/LabeledInput';
-import { Column } from '../../components/Structural/index';
+import { Column, Row } from '../../components/Structural/index';
 import ButtonRound from '../../components/Urbarium/ButtonRound';
-
+import Form, { submitForm } from '../../components/Form';
 import {
-  PageWrapper, PageHeader, PageContent, PageFooter,
+  PageWrapper,
+  PageHeader,
+  PageContent,
+  PageFooter,
 } from '../../components/PageWrapper';
+import {
+  Anos,
+  Modalidad,
+  Caracteristica,
+  EntidadesBancarias,
+} from './options';
 
+const formID = 'caso-de-bono-page-form';
 
-// TODO: gotta find a way to dynamically get years
-// wonder what range of options are they expecting here?
-const years = [2017, 2018, 2019, 2020, 2021];
-
-// TODO: these look awful due to their size
-// have to style the dropdown menu options anyway so i'll deal with this later...
-const entidadesBancarias = [
-  'Grupo Mutual',
-  'Mutual Cartago',
-  'Fundación Costa Rica – Canadá',
-  'Banco Nacional (Oficinas Centrales)',
-  'Banco de Costa Rica (Centrales)',
-  'Banco Popular',
-  'BAC SanJosé',
-  'Instituto Nacional de Vivienda y Urbanismo (Invu)',
-  'COOCIQUE R.L',
-  'COOPENAE R.L',
-  'COOPESERVIDORES R.L',
-  'COOPEUNA R.L',
-  'COOPESANMARCOS R.L',
-  'COOPEANDE #1',
-  'COOPESANRAMÓN R.L',
-  'CREDECOOP R.L',
-  'COOPESPARTA R.L',
-  'Asociación Solidarista de Empleados de Demasa (ASEDEMASA)',
-  'Asociación Solidarista de Empleados de INA (ASEMINA)',
-];
-
-const handleSubmit = (params) => {
-  console.log("I was called!");
-  console.log(params);
-};
-
-
-const CasoDeBonoPage = ({ data }) => (
+const CasoDeBonoPage = ({ title, data, onSubmit }) => (
   <PageWrapper>
     <PageHeader>
-      <PageTitle>{data.title}</PageTitle>
+      <BonoTitle>{title}</BonoTitle>
     </PageHeader>
 
     <PageContent>
-      <form onSubmit={handleSubmit}>
+      <Form onSubmit={onSubmit} id={formID}>
         <Column gap={40}>
-          <Input
-            type="dropdown"
-            label="Año"
-            placeholder="2019"
-            options={years}
-            data={data.año}
-            name="ano"
-          />
+          <Column gap={20}>
+            <Input
+              type="dropdown"
+              label="Año"
+              icon="calendar"
+              options={Anos}
+              placeholder="Año"
+              data={data.ano}
+              name="ano"
+              required
+            />
+          </Column>
           <Input
             type="checkbox"
             label="Modalidad"
-            options={['CLP', 'Bono Crédito', 'Bono RAMT', 'Vivienda Nueva']}
+            icon="none"
+            options={Modalidad}
             data={data.modalidad}
-            right
             name="modalidad"
+            required
           />
           <Input
             type="radio"
             label="Característica Expecial"
-            options={['Ninguna', 'Adulto Mayor', 'Discapacidad']}
-            data={data.caractersitica}
-            right
+            icon="none"
+            options={Caracteristica}
+            data={data.caracteristica}
             name="caracteristica"
+            required
           />
           <Input
             type="dropdown"
             label="Entidad bancaria a cargo"
+            icon="none"
             placeholder="Grupo Mutual"
-            options={entidadesBancarias}
+            options={EntidadesBancarias}
             data={data.entidad}
             name="entidad"
+            required
           />
         </Column>
-        <button type="submit" />
-      </form>
+      </Form>
     </PageContent>
 
     <PageFooter>
-      <ButtonRound>GUARDAR Y CONTINUAR</ButtonRound>
+      <Row justify="end">
+        <ButtonRound id={formID} onClick={(submitForm(formID))}>Guardar y continuar</ButtonRound>
+      </Row>
     </PageFooter>
   </PageWrapper>
 );
@@ -98,13 +83,15 @@ const CasoDeBonoPage = ({ data }) => (
 // default values for the page,
 // you can edit this to test how it would look once rendered with different data
 CasoDeBonoPage.defaultProps = {
+  title: {},
   data: {
-    title: 'Casos de Bono',
-    año: undefined,
-    modalidad: [1, 4],
-    caractersitica: [2],
-    entidad: undefined,
+    ano: '',
+    modalidad: [],
+    caracteristica: '',
+    entidad: '',
   },
+  // eslint-disable-next-line no-console
+  onSubmit(args) { console.table(args); },
 };
 
 

@@ -1,19 +1,18 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Label from '../components/Urbarium/Label';
-import fonts from '../fonts';
-import colors from '../colors';
 
-const customFont = `
-    ${fonts.subLabel}
-    color: ${colors.passive};
-`;
+const customTheme = {
+  label_fontSize: '2em',
+  label_color: '#89a6c4',
+  label_fontWeight: 'normal',
+};
 
 storiesOf('Others/Label', module)
-  .add('default', () => (
+  .add('Default', () => (
     <Label>Beneficiario</Label>
   ))
 
-  .add('custom font', () => ([
-    <Label font={customFont}>CÉDULA</Label>,
-  ]));
+  .add('Custom theme', () => (
+    <Label theme={customTheme}>CÉDULA</Label>
+  ));
