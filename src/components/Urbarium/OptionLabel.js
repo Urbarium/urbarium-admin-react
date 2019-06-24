@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { OptionLabelStyle as style } from './urbarium-theme';
+import { OptionLabelStyle as style } from './urbarium-styles';
 import Label from './Label';
 
 const OptionLabel = styled(Label)`

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { TextAreaStyle as style, InputField } from './urbarium-theme';
+import { TextAreaStyle as style, InputField } from './urbarium-styles';
 
 const getHeight = (props) => {
   let height;

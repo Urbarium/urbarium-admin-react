@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { primary } from '../../colors';
 
 const OptionWrapper = styled.label`
   margin-right: 10px;
@@ -9,7 +8,6 @@ const OptionWrapper = styled.label`
   flex-direction: row;  
   &:hover div {
     transform: scale(1.1);
-    border-color: ${primary.primary}
   }
 `;
 

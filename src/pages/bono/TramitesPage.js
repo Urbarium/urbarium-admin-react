@@ -4,7 +4,7 @@ import BonoTitle from '../../components/Urbarium/BonoTitle';
 import Accordion from '../../components/Urbarium/AccordionItem';
 import Input from '../../components/Urbarium/LabeledInput';
 import Label from '../../components/Urbarium/Label';
-import { FrameStyle } from '../../components/Urbarium/urbarium-theme';
+import { FrameStyle } from '../../components/Urbarium/urbarium-styles';
 import { Column, Row } from '../../components/Structural/index';
 import ButtonRound from '../../components/Urbarium/ButtonRound';
 import Form, { submitForm } from '../../components/Form';

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ButtonRoundStyle as style } from './urbarium-theme';
+import { ButtonRoundStyle as style } from './urbarium-styles';
 
 const Button = styled.button`
   width: ${style.width};

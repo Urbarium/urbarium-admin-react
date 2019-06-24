@@ -4,7 +4,7 @@ import Label from './Label';
 import Arrow from './ButtonArrow';
 import ButtonState from './ButtonState';
 import { Row as AccordionHeader } from '../Structural/index';
-import { FrameStyle as style, colors } from './urbarium-theme';
+import { FrameStyle as style, colors } from './urbarium-styles';
 
 const contentTheme = {
   label_fontSize: '12px',

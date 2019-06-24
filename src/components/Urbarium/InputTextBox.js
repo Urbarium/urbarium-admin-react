@@ -1,6 +1,6 @@
 import React from 'react';
 import fonts from '../../fonts';
-import { InputField } from './urbarium-theme';
+import { InputField } from './urbarium-styles';
 
 const InputTextBox = ({ data, ...props }) => (
   <InputField defaultValue={data} {...props} />

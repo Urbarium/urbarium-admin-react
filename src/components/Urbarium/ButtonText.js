@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ButtonTextStyle as style } from './urbarium-theme';
+import { ButtonTextStyle as style } from './urbarium-styles';
 
 const ButtonText = styled.p`
   margin: 0px

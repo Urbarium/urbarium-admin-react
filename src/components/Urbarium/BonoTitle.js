@@ -1,7 +1,7 @@
 import React from 'react';
 import Label from './Label';
 import { Row, Column } from '../Structural/index';
-import { colors } from './urbarium-theme';
+import { colors } from './urbarium-styles';
 
 const titleTheme = {
   label_color: '#23262',

@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
+export const fonts = {
+  primary: `'Lato', sans-serif`,
+};
+
 export const colors = {
   primary: '#742E5D',
   secondary: '#99BF24',
+  passive: '#7A869A',
   white: '#FFFFFF',
   black: '#000000',
   light: {
@@ -20,8 +25,8 @@ export const InputStyle = {
   paddingLeft: '15px',
   fontSize: '14px',
   color: colors.black,
-  caretColor: '#000000',
-  placeholderColor: '#7A869A',
+  caretColor: colors.black,
+  placeholderColor: colors.passive,
   disabledBackgroundColor: '#EAEDF2',
   focusBorder: `2px ${colors.primary} solid`,
 };
@@ -58,6 +63,7 @@ export const ButtonRoundStyle = {
 };
 
 export const LabelStyle = {
+  fontFamily: fonts.primary,
   color: '#000000',
   fontSize: '14px',
   fontWeight: 'bold',

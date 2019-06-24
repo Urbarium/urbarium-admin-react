@@ -2,13 +2,13 @@ import React from 'react';
 import styled from 'styled-components';
 import fonts from '../../fonts';
 import Arrow from './Arrow';
-import { colors, InputField } from './urbarium-theme';
+import { colors, InputField } from './urbarium-styles';
 
 const StyledInput = styled(InputField)`
   appearance: none;
 
-  &[data-default=true] {
-      color: ${colors.black};
+  &[data-default=true] { 
+      color: ${colors.passive};
   }
   option {
       color: ${colors.black};
