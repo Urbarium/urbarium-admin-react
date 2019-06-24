@@ -7,54 +7,49 @@ import { Column, Row } from '../Structural/index';
 
 const subLabelFont = `${fonts.subLabel} color: ${primary.passive};`;
 
-const JefeDeFamiliaSection = ({ name, apellido1, apellido2, cedula }) => (
+const JefeDeFamiliaSection = ({
+  name, apellido1, apellido2, cedula,
+}) => (
   <Column gap={15}>
     <Label>Jefe de Familia</Label>
+
+    <Input
+      type="text"
+      label="NOMBRE"
+      placeholder="Nombre"
+      name="nombre"
+      labelFont={subLabelFont}
+      value={name}
+      required
+    />
     <Row>
       <Input
-        type="textbox"
-        label="NOMBRE"
-        placeholder="Nombre"
-        name="nombre"
-        labelFont={subLabelFont}
-        pattern="[A-Za-z\s]{2,}"
-        title="Un debe de consistir de solo letras"
-        value={name}
-        required
-      />
-      <Input
-        type="textbox"
+        type="text"
         label="PRIMER APELLIDO"
-        name="primer_appelido"
+        name="primer1"
         placeholder="Primer apellido"
         labelFont={subLabelFont}
-        pattern="[A-Za-z\s]{2,}"
-        title="Un apellido de consistir de solo letras"
         value={apellido1}
         required
       />
       <Input
-        type="textbox"
+        type="text"
         label="SEGUNDO APELLIDO"
-        name="segundo_appellido"
+        name="segundo2"
         placeholder="Segundo apellido"
         labelFont={subLabelFont}
-        pattern="[A-Za-z\s]{2,}"
-        title="Un apellido de consistir de solo letras"
         value={apellido2}
       />
     </Row>
+
     <Input
-      type="textbox"
-      label="CEDULA"
+      type="text"
+      label="CÉDULA"
       name="cedula"
       placeholder="0 0000 0000"
       labelFont={subLabelFont}
       pattern="\d{9,}"
-      title={
-        `-Solo caracteres numericos
-        -Al menos 9 caracteres`
-      }
+      title="Cedula debe de consistir de al menos 9 caracteres numericos"
       value={cedula}
       required
     />

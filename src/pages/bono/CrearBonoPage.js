@@ -28,22 +28,13 @@ const Today = ({ date }) => (
   </StyledDate>
 );
 
-const myFormID = "anyString_noSpaces";
+const formID = "crear-bono-form";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class CrearBonoPage extends Component {
   modalCreateBonoActions = close => [
     {
-      text: 'Crear',
-      onClick: () => {
-        // My plan was to have the submit button inside the form
-        // this can't always be the case, the modal 'crear' button is outside for example
-        // so query below is a workaround for these cases.
-        // for some reason calling the form's submit function bypasses the forms onSubmit event
-        // so I added a hidden button inside every form that we can click so the onSubmit event triggers properly
-        // eslint-disable-next-line no-undef
-        document.querySelector(`#${myFormID}`).click();
-      },
+      text: 'Crear', onClick: submitForm(formID),
     },
     { text: 'Cancelar', onClick: () => { close(); } },
   ];
@@ -56,9 +47,10 @@ class CrearBonoPage extends Component {
     ) : null
   )
 
-  handleSubmit(argsPassedByTheForm) {
+  handleSubmit(formNameValues) {
+    console.table(formNameValues);
     const { addBono } = this.props;
-    addBono({ newBono: argsPassedByTheForm });
+    addBono({ newBono: formNameValues });
   }
 
   render() {
@@ -86,7 +78,7 @@ class CrearBonoPage extends Component {
                 </Grid>
                 <Grid>
                   <GridColumn medium={12}>
-                    <Form id={myFormID} onSubmit={args => this.handleSubmit(args)}>
+                    <Form id={formID} onSubmit={args => this.handleSubmit(args)}>
                       <JefeDeFamiliaSection />
                     </Form>
                   </GridColumn>

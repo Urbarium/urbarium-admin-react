@@ -6,7 +6,7 @@ import MapIcon from '@atlaskit/icon/glyph/location';
 import CalendarIcon from '@atlaskit/icon/glyph/calendar';
 import Label from './Label';
 import { Row } from '../Structural/index';
-import { IconTitleStyle as style } from './urbarium-theme';
+import { IconTitleStyle as style } from './urbarium-styles';
 
 
 const TitleLabel = styled(Label)`

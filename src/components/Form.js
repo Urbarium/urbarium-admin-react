@@ -11,7 +11,7 @@ class Form extends React.Component {
     // eslint-disable-next-line no-undef
     const inputs = [...document.querySelectorAll(
       // inside the form -> all radio inputs checked & all non radio iputs & all selects
-      `#${id}-form input[type=radio]:checked, input:not([type=radio]), select`,
+      `#${id}-form input[type=radio]:checked, #${id}-form input:not([type=radio]), #${id}-form select`,
     )];
 
     const nameValuePairs = inputs.map(element => ({ name: element.name, value: element.value }));
@@ -38,7 +38,5 @@ Form.defaultProps = {
 };
 
 export default Form;
-export const submitForm = id => (
-  // eslint-disable-next-line no-undef
-  () => document.querySelector(`#${id}`).click()
-);
+// eslint-disable-next-line no-undef
+export const submitForm = id => () => document.querySelector(`#${id}`).click();
