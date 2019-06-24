@@ -1,5 +1,5 @@
 import React from 'react';
-import PageTitle from '../../components/PageTitle';
+import BonoTitle from '../../components/Urbarium/BonoTitle';
 import Input from '../../components/Urbarium/LabeledInput';
 import { Column, Row } from '../../components/Structural/index';
 import ButtonRound from '../../components/Urbarium/ButtonRound';
@@ -19,10 +19,10 @@ import {
 
 const formID = 'caso-de-bono-page-form';
 
-const CasoDeBonoPage = ({ data, onSubmit }) => (
+const CasoDeBonoPage = ({ title, data, onSubmit }) => (
   <PageWrapper>
     <PageHeader>
-      <PageTitle>{data.title}</PageTitle>
+      <BonoTitle>{title}</BonoTitle>
     </PageHeader>
 
     <PageContent>
@@ -83,8 +83,8 @@ const CasoDeBonoPage = ({ data, onSubmit }) => (
 // default values for the page,
 // you can edit this to test how it would look once rendered with different data
 CasoDeBonoPage.defaultProps = {
+  title: {},
   data: {
-    title: 'Casos de Bono default title',
     ano: '',
     modalidad: [],
     caracteristica: '',

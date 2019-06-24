@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 
 export const PageWrapper = styled.div`
-    padding: 60px 90px;
+    padding: 60px 20px 30px 80px;
     box-sizing: border-box;
     height: 100%;
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 60px 1fr 40px;
+    grid-template-rows: 65px 1fr 30px;
     grid-template-areas:
         'header'
         'content'
@@ -14,7 +14,7 @@ export const PageWrapper = styled.div`
 `;
 
 export const PageHeader = styled.div`
-    padding: 10px
+    padding-right: 100px; 
     width: 100%;
     box-sizing: border-box;
     grid-area: header;
@@ -22,7 +22,8 @@ export const PageHeader = styled.div`
 `;
 
 export const PageContent = styled.div`
-    padding: 20px
+    padding: 40px 0px;
+    padding-right: 100px;
     box-sizing: border-box;
     grid-area: content;
     overflow-y: hidden;
@@ -30,7 +31,7 @@ export const PageContent = styled.div`
 `;
 
 export const PageFooter = styled.div`
-    padding: 10px;
+    padding-right: 100px;
     box-sizing: border-box;
     grid-area: footer;
     position: relative

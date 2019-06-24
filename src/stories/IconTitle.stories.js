@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import IconTitle from '../components/Urbarium/IconTitle';
 
-storiesOf('Others/IconTitle', module)
+storiesOf('Others/Icon Title', module)
   .add('Default', () => (
     <IconTitle>This is a title</IconTitle>
   ))

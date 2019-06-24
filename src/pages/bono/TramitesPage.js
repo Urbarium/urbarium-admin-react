@@ -1,6 +1,6 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import PageTitle from '../../components/PageTitle';
+import BonoTitle from '../../components/Urbarium/BonoTitle';
 import Accordion from '../../components/Urbarium/AccordionItem';
 import Input from '../../components/Urbarium/LabeledInput';
 import Label from '../../components/Urbarium/Label';
@@ -142,9 +142,7 @@ const AccordionHeader = () => (
 const TramitesPage = ({ title, ...props }) => (
   <PageWrapper>
     <PageHeader>
-      <Column>
-        <PageTitle>{title}</PageTitle>
-      </Column>
+      <BonoTitle {...title} />
     </PageHeader>
 
     <PageContent>
@@ -165,7 +163,7 @@ const TramitesPage = ({ title, ...props }) => (
 export default TramitesPage;
 
 TramitesPage.defaultProps = {
-  title: 'Tramites default title',
+  title: {},
   data: Array(14).fill({
     startDate: '12/10/2019',
     endDate: '12/10/2109',

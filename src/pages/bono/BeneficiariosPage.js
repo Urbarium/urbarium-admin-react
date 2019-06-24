@@ -1,5 +1,5 @@
 import React from 'react';
-import PageTitle from '../../components/PageTitle';
+import BonoTitle from '../../components/Urbarium/BonoTitle';
 import Beneficiarios from '../../components/Urbarium/BeneficiariosSection';
 import Input from '../../components/Urbarium/LabeledInput';
 import DropdownGroup from '../../components/Urbarium/DropdownGroup';
@@ -16,10 +16,10 @@ import {
 
 const formID = "beneficiarios-page-form";
 
-const BeneficiariosPage = ({ data, onSubmit }) => (
+const BeneficiariosPage = ({ title, data, onSubmit }) => (
   <PageWrapper>
     <PageHeader>
-      <PageTitle>{data.title}</PageTitle>
+      <BonoTitle {...title} />
     </PageHeader>
 
     <PageContent style={{ overflowY: 'auto' }}>
@@ -85,8 +85,8 @@ const BeneficiariosPage = ({ data, onSubmit }) => (
 );
 
 BeneficiariosPage.defaultProps = {
+  title: {},
   data: {
-    title: 'Beneficiarios  default title',
     beneficiarios: [
       {
         cedula: '',
