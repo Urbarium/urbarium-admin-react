@@ -1,5 +1,6 @@
 import React from 'react';
 import Label from './Label';
+import IconTitle from './IconTitle';
 import InputTextBox from './InputTextBox';
 import InputDropdown from './InputDropdown';
 import InputTextArea from './InputTextArea';
@@ -20,19 +21,26 @@ const getInput = (type, props) => {
   }
 };
 
+const getLabel = (label, icon) => {
+  let result;
+  if (label) {
+    result = icon ? <IconTitle icon={icon}>{label}</IconTitle> : <Label>{label}</Label>;
+  } else { result = null; }
+  return result;
+};
+
 const LabeledInput = (props) => {
   const {
-    label, labelFont, type, inputFont,
+    label, type, icon,
   } = props;
-  const inputProps = Object.assign({}, props, { font: inputFont });
+  const inputProps = Object.assign({}, props);
   // there's probably a better pattern for this
-  delete inputProps.inputFont;
-  delete inputProps.labelFont;
   delete inputProps.label;
+  delete inputProps.icon;
   delete inputProps.type;
   return (
-    <Column>
-      {label ? <Label font={labelFont}>{label}</Label> : null}
+    <Column gap={7}>
+      {getLabel(label, icon)}
       {getInput(type, inputProps)}
     </Column>
   );

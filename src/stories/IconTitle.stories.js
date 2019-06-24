@@ -4,11 +4,10 @@ import IconTitle from '../components/Urbarium/IconTitle';
 
 storiesOf('Others/IconTitle', module)
   .add('Default', () => (
-    <IconTitle />
-  ))
-
-  .add('With text', () => (
     <IconTitle>This is a title</IconTitle>
+  ))
+  .add('Only icon', () => (
+    <IconTitle icon="person" />
   ))
   .add('Different Icon', () => (
     <IconTitle icon="phone">Phone icon</IconTitle>

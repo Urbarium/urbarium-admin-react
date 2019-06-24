@@ -28,36 +28,40 @@ const CasoDeBonoPage = ({ data, onSubmit }) => (
     <PageContent>
       <Form onSubmit={onSubmit} id={formID}>
         <Column gap={40}>
-          <Input
-            type="dropdown"
-            label="Año"
-            options={Anos}
-            placeholder="Año"
-            data={data.ano}
-            name="ano"
-            required
-          />
+          <Column gap={20}>
+            <Input
+              type="dropdown"
+              label="Año"
+              icon="calendar"
+              options={Anos}
+              placeholder="Año"
+              data={data.ano}
+              name="ano"
+              required
+            />
+          </Column>
           <Input
             type="checkbox"
             label="Modalidad"
+            icon="none"
             options={Modalidad}
             data={data.modalidad}
-            right
             name="modalidad"
             required
           />
           <Input
             type="radio"
             label="Característica Expecial"
+            icon="none"
             options={Caracteristica}
             data={data.caracteristica}
-            right
             name="caracteristica"
             required
           />
           <Input
             type="dropdown"
             label="Entidad bancaria a cargo"
+            icon="none"
             placeholder="Grupo Mutual"
             options={EntidadesBancarias}
             data={data.entidad}
@@ -70,9 +74,7 @@ const CasoDeBonoPage = ({ data, onSubmit }) => (
 
     <PageFooter>
       <Row justify="end">
-        <ButtonRound id={formID} onClick={(submitForm(formID))}>
-          GUARDAR Y CONTINUAR
-        </ButtonRound>
+        <ButtonRound id={formID} onClick={(submitForm(formID))}>Guardar y continuar</ButtonRound>
       </Row>
     </PageFooter>
   </PageWrapper>
@@ -82,7 +84,7 @@ const CasoDeBonoPage = ({ data, onSubmit }) => (
 // you can edit this to test how it would look once rendered with different data
 CasoDeBonoPage.defaultProps = {
   data: {
-    title: 'Casos de Bono',
+    title: 'Casos de Bono default title',
     ano: '',
     modalidad: [],
     caracteristica: '',

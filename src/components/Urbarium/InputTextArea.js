@@ -2,9 +2,17 @@ import React from 'react';
 import styled from 'styled-components';
 import { TextAreaStyle as style, InputField } from './urbarium-theme';
 
+const getHeight = (props) => {
+  let height;
+  if (props.theme.textArea_height) {
+    height = props.theme.textArea_height;
+  } else { height = props.fill ? '100%' : style.height; }
+  return height;
+};
+
 const TextArea = styled(InputField)`
   width: ${props => (props.fill ? ' 100%' : style.width)};
-  height: ${props => (props.theme.textArea_height || props.fill ? '100%' : style.height)};
+  height: ${props => getHeight(props)};
   padding-top: 10px;
   margin: 0px;
   resize: none;

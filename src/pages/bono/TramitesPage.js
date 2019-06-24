@@ -1,13 +1,14 @@
 import React from 'react';
+import { ThemeProvider } from 'styled-components';
 import PageTitle from '../../components/PageTitle';
 import Accordion from '../../components/Urbarium/AccordionItem';
 import Input from '../../components/Urbarium/LabeledInput';
 import Label from '../../components/Urbarium/Label';
+import { FrameStyle } from '../../components/Urbarium/urbarium-theme';
 import { Column, Row } from '../../components/Structural/index';
-import fonts from '../../fonts';
-import { secondary } from '../../colors';
 import ButtonRound from '../../components/Urbarium/ButtonRound';
 import Form, { submitForm } from '../../components/Form';
+
 import {
   PageWrapper,
   PageHeader,
@@ -34,7 +35,7 @@ const AccordionMenu = ({ data, onSubmit }) => (
         <Accordion index={1} data={data[0]} title="Visita preliminar solicitada" />
         <Accordion index={2} data={data[1]} title="En conformación" columns="3fr 1fr">
           <Input
-            grid={150}
+            grid={170}
             type="checkbox"
             label="Expediente"
             name="conformacion_expediente"
@@ -118,24 +119,31 @@ const AccordionMenu = ({ data, onSubmit }) => (
     </Form>
   </div>
 );
-
-const headerFont = ` ${fonts.subLabel} color: ${secondary.lightgray};`;
+const headerTheme = {
+  label_color: '#B4BAC6',
+  label_fontSize: '10.45px',
+  label_fontWeight: 'normal',
+};
 
 const AccordionHeader = () => (
-  <Row columns="5fr 2fr 2fr 2fr 2fr 0.5fr" style={{ padding: '0 25px' }}>
-    <Label font={headerFont} style={{ justifySelf: 'center' }}>TRÁMITE</Label>
-    <Label font={headerFont}>FECHA INICIO</Label>
-    <Label font={headerFont}>CONCLUSIÓN</Label>
-    <Label font={headerFont}>ASIGNADO</Label>
-    <Label font={headerFont}>STATUS</Label>
-  </Row>
+  <ThemeProvider theme={headerTheme}>
+    <div style={{ maxWidth: FrameStyle.maxWidth }}>
+      <Row columns="5fr 2fr 2fr 2fr 2fr 0.5fr" style={{ padding: '0 25px' }}>
+        <div />
+        <Label>FECHA INICIO</Label>
+        <Label>CONCLUSIÓN</Label>
+        <Label>ASIGNADO</Label>
+        <Label>STATUS</Label>
+      </Row>
+    </div>
+  </ThemeProvider>
 );
 
-const TramitesPage = props => (
+const TramitesPage = ({ title, ...props }) => (
   <PageWrapper>
     <PageHeader>
       <Column>
-        <PageTitle>Trámites</PageTitle>
+        <PageTitle>{title}</PageTitle>
       </Column>
     </PageHeader>
 
@@ -157,10 +165,11 @@ const TramitesPage = props => (
 export default TramitesPage;
 
 TramitesPage.defaultProps = {
+  title: 'Tramites default title',
   data: Array(14).fill({
-    startDate: '-',
-    endDate: '-',
-    user: '-',
+    startDate: '12/10/2019',
+    endDate: '12/10/2109',
+    user: 'Juan Jose Alfaro',
     state: 0,
   }),
   // eslint-disable-next-line no-console

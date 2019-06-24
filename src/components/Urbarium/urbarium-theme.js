@@ -14,7 +14,7 @@ export const colors = {
 export const InputStyle = {
   width: '240px',
   height: '40px',
-  border: 'none',
+  border: `2px #F5F6F8 solid`,
   borderRadius: '20px',
   backgroundColor: '#F5F6F8',
   paddingLeft: '15px',
@@ -23,7 +23,7 @@ export const InputStyle = {
   caretColor: '#000000',
   placeholderColor: '#7A869A',
   disabledBackgroundColor: '#EAEDF2',
-  focusBorder: `1px ${colors.primary} solid`,
+  focusBorder: `2px ${colors.primary} solid`,
 };
 
 export const TextAreaStyle = {
@@ -72,7 +72,7 @@ export const OptionLabelStyle = {
 export const IconTitleStyle = {
   label: {
     color: '#404B5C',
-    fontSize: '22px',
+    fontSize: '18px',
     fontWeight: 'bold',
   },
   icon: {
@@ -87,6 +87,12 @@ export const PageTitleStyle = {
     fontSize: '22px',
     fontWeight: 'bold',
   },
+};
+
+export const FrameStyle = {
+  border: '2px solid #EBEDF8',
+  borderRadius: '15px',
+  maxWidth: '890px',
 };
 
 // InputField defined here because it is the base for TextArea, TextBox and DropDown

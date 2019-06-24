@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import PersonIcon from '@atlaskit/icon/glyph/invite-team';
 import PhoneIcon from '@atlaskit/icon/glyph/hipchat/dial-out';
 import MapIcon from '@atlaskit/icon/glyph/location';
+import CalendarIcon from '@atlaskit/icon/glyph/calendar';
 import Label from './Label';
 import { Row } from '../Structural/index';
 import { IconTitleStyle as style } from './urbarium-theme';
@@ -15,21 +16,23 @@ const TitleLabel = styled(Label)`
 `;
 
 const getIcon = (logoName) => {
-  let icon;
   switch (logoName) {
-  case "phone": icon = PhoneIcon; break;
-  case "map": icon = MapIcon; break;
-  case "person":
-  default: icon = PersonIcon; break;
+  case "phone": return PhoneIcon;
+  case "map": return MapIcon;
+  case "person": return PersonIcon;
+  case "calendar": return CalendarIcon;
+  default: return null;
   }
-  return icon;
 };
 
 export default ({ icon, children }) => {
   const Icon = getIcon(icon);
   return (
-    <Row justify="start" align="center">
-      <Icon primaryColor={style.icon.color} size={style.icon.size} />
+    <Row gap={10} justify="start" align="center">
+      {Icon
+        ? <Icon primaryColor={style.icon.color} size={style.icon.size} />
+        : null
+      }
       <TitleLabel>{children}</TitleLabel>
     </Row>
   );

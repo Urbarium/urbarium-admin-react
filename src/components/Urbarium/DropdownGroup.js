@@ -12,7 +12,7 @@ class DDG extends React.Component {
     const initOptions = Array(this.count).fill(undefined);
     const initData = Array(this.count).fill(undefined);
     // initialize dropdowns if data is passed
-    if (data.length > 0) {
+    if (data.some(element => !!element)) {
       data.forEach((element, index) => {
         initDisables[index] = false;
         initOptions[index] = this.accessRecursively(options[index], initSelectedIndexes, index);
