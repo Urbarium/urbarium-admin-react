@@ -27,6 +27,8 @@ const headerValueTheme = {
   label_fontWeight: 'bold',
 };
 
+const HeaderNames = ['MONTO DEL BONO', 'ÚLTIMA MODIFICACIÓN', 'FECHA CREACIÓN'];
+
 export default ({
   nombre = 'Default',
   cedula = '12345678',
@@ -34,26 +36,23 @@ export default ({
   monto = '',
   modificacion = '',
   creacion = '00-00-00',
-}) => (
-  <Row>
-    <Column>
-      <Label theme={titleTheme}>{`${nombre}-${cedula}`}</Label>
-      <Label theme={numberTheme}>{`#${numero}`}</Label>
-    </Column>
-
-    <Row justify="end" gap={50}>
-      <Column justify="end">
-        <Label theme={headerNameTheme}>MONTO DEL BONO</Label>
-        <Label theme={headerValueTheme}>{monto}</Label>
+}) => {
+  const HeaderValues = [monto, modificacion, creacion];
+  return (
+    <Row>
+      <Column>
+        <Label theme={titleTheme}>{`${nombre}-${cedula}`}</Label>
+        <Label theme={numberTheme}>{`#${numero}`}</Label>
       </Column>
-      <Column justify="end">
-        <Label theme={headerNameTheme}>ÚLTIMA MODIFICACIÓN</Label>
-        <Label theme={headerValueTheme}>{modificacion}</Label>
-      </Column>
-      <Column justify="end">
-        <Label theme={headerNameTheme}>FECHA CREACIÓN</Label>
-        <Label theme={headerValueTheme}>{creacion}</Label>
-      </Column>
+      
+      <Row justify="end" gap={50}>
+        {HeaderNames.map((name, index) => (
+          <Column justify="end">
+            <Label theme={headerNameTheme}>{name}</Label>
+            <Label theme={headerValueTheme}>{HeaderValues[index]}</Label>
+          </Column>
+        ))}
+      </Row>
     </Row>
-  </Row>
-);
+  );
+};
