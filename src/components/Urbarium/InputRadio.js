@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { primary, secondary } from '../../colors';
-import fonts from '../../fonts';
 import { FlexGrid } from '../Structural/index';
-import Label from './Label';
 import OptionWrapper from './OptionWrapper';
+import OptionLabel from './OptionLabel';
 
 
 const Radio = styled.div`
@@ -53,12 +52,12 @@ class RadioOption extends React.Component {
 
   render() {
     const {
-      groupName, groupRight, optionValue, optionName, labelFont, radioSize, radioCheckColor, radioBoxColor,
+      groupName, groupRight, optionValue, optionName, radioSize, radioCheckColor, radioBoxColor,
     } = this.props;
     const { data } = this.state;
     return (
       <OptionWrapper>
-        {groupRight ? <Label font={labelFont} color={primary.passive}>{optionName}</Label> : null}
+        {groupRight ? <OptionLabel>{optionName}</OptionLabel> : null}
         <Input
           type="radio"
           name={groupName}
@@ -71,7 +70,7 @@ class RadioOption extends React.Component {
           checkColor={radioCheckColor}
           boxColor={radioBoxColor}
         />
-        {groupRight ? null : <Label font={labelFont} color={primary.passive}>{optionName}</Label>}
+        {groupRight ? null : <OptionLabel>{optionName}</OptionLabel>}
       </OptionWrapper>
     );
   }
@@ -80,7 +79,6 @@ class RadioOption extends React.Component {
 RadioOption.defaultProps = {
   groupName: 'unnamed_radiogroup',
   groupRight: false,
-  labelFont: fonts.optionLabel,
   radioSize: 15,
   radioCheckColor: primary.primary,
   radioBoxColor: secondary.lightgray,
@@ -92,7 +90,6 @@ const InputRadio = ({
   grid = 0,
   name,
   right,
-  font,
   size,
   checkColor,
   boxColor,
@@ -105,7 +102,6 @@ const InputRadio = ({
         data={option.value === data}
         optionValue={option.value}
         optionName={option.name}
-        labelFont={font}
         radioSize={size}
         radioCheckColor={checkColor}
         radioBoxColor={boxColor}

@@ -1,22 +1,24 @@
 import React from 'react';
 import styled from 'styled-components';
-import { secondary, neutral } from '../../colors';
-import fonts from '../../fonts';
+import { ButtonRoundStyle as style } from './urbarium-theme';
 
 const Button = styled.button`
-  ${fonts.defaultInput}
-  background: ${secondary.green};
-  width: 292px;
-  height: 42px;
-  border-radius: 21px;
-  border: 0px;
-  color: ${neutral.white};
+  width: ${style.width};
+  height: ${style.height};
+  font-size: ${style.fontSize};
+  font-weight: ${style.fontWeight};
+  border: ${style.border};
+  border-radius: ${style.borderRadius};  
+  color: ${style.color};
+  background-color: ${style.backgroundColor};
+  
   cursor: pointer;
-  :focus{
+  :focus, :hover{
     outline: none;
+    background-color: ${style.focusBackgroundColor};
   }
 `;
 
-const RoundButton = ({ onClick = null, children }) => <Button onClick={onClick}>{children}</Button>;
+const RoundButton = props => <Button {...props} />;
 
 export default RoundButton;

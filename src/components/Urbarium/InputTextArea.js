@@ -1,38 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import fonts from '../../fonts';
-import { InputFieldStyle } from './urbarium-styles';
+import { TextAreaStyle as style, InputField } from './urbarium-theme';
 
-const getHeight = ({ height, fill }) => {
-  let result;
-  if (height) {
-    result = `${height}px`;
-  } else {
-    result = fill ? '100%' : '100px';
-  }
-  return result;
-};
-
-const TextArea = styled.textarea`
-  ${InputFieldStyle}
-  ${props => props.font}
-  width: ${props => (props.fill ? ' 100%' : '360px')};
-  height: ${props => (getHeight(props))};
+const TextArea = styled(InputField)`
+  width: ${props => (props.fill ? ' 100%' : style.width)};
+  height: ${props => (props.theme.textArea_height || props.fill ? '100%' : style.height)};
   padding-top: 10px;
   margin: 0px;
   resize: none;
+  border: ${style.border};
+  border-radius: ${style.borderRadius};
+  background-color: ${style.backgroundColor};
+  font-size: ${style.fontSize};
+  color: ${style.color};
 `;
 
-const InputTextArea = props => (
-  <TextArea {...props} />
+const InputTextArea = ({ data, ...props }) => (
+  <TextArea as="textarea" defaultValue={data} {...props} />
 );
 
 InputTextArea.defaultProps = {
+  data: undefined,
   placeholder: "",
-  defaultValue: "",
   fill: false,
-  font: fonts.defaultInput,
-  height: 0,
   pattern: undefined,
   name: "unnamed_textarea",
   title: "",

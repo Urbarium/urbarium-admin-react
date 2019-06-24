@@ -1,17 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import { neutral } from '../../colors';
-import fonts from '../../fonts';
+import { LabelStyle as style } from './urbarium-theme';
 
-const P = styled.p`
+const Label = styled.p`
     margin: 0px;
-    color: ${props => props.color};
-    ${props => props.font};
-    display: inline;
+    color: ${props => props.theme.label_color || style.color};
+    font-size: ${props => props.theme.label_fontSize || style.fontSize};
+    font-weight: ${props => props.theme.label_fontWeight || style.fontWeight};
 `;
 
-const Label = ({ children, font = fonts.defaultLabel, color = neutral.black }) => (
-  <P font={font} color={color}>{children}</P>
-);
-
-export default Label;
+export default props => <Label {...props} />;

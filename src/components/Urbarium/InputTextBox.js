@@ -1,19 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 import fonts from '../../fonts';
-import { InputFieldStyle } from './urbarium-styles';
+import { InputField } from './urbarium-theme';
 
-const Input = styled.input`
-  ${InputFieldStyle}
-  ${props => props.font}
-`;
-
-const InputTextBox = props => (
-  <Input
-    // eslint-disable-next-line react/destructuring-assignment
-    defaultValue={props.data}
-    {...props}
-  />
+const InputTextBox = ({ data, ...props }) => (
+  <InputField defaultValue={data} {...props} />
 );
 
 InputTextBox.defaultProps = {

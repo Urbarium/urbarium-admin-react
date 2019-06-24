@@ -1,30 +1,28 @@
 import React from 'react';
 import styled from 'styled-components';
-import { primary } from '../../colors';
-import { InputFieldStyle } from './urbarium-styles';
 import fonts from '../../fonts';
 import Arrow from './Arrow';
+import { colors, InputField } from './urbarium-theme';
 
-const DropDown = styled.select`
-    ${InputFieldStyle}
-    ${props => props.font}
-    cursor: pointer;
-    appearance: none;
- 
-    &[data-default=true] {
-        color: ${primary.passive};
-    }
+const StyledInput = styled(InputField)`
+  appearance: none;
 
-    option {
-        color: black;
-    }
+  &[data-default=true] {
+      color: ${colors.black};
+  }
+  option {
+      color: ${colors.black};
+  }
 `;
+
+const DropDown = props => <StyledInput as="select" {...props} />;
+
 const ArrowContainer = styled.div`
     width: 0px;
     height: 0px;
     position: relative;
-    bottom: 15px;
-    left: 170px;
+    bottom: 18px;
+    left: 215px;
  `;
 
 const getOptions = options => (
@@ -66,7 +64,7 @@ class InputDropDown extends React.Component {
           {getOptions(options)}
         </DropDown>
         <ArrowContainer>
-          <Arrow width={8} color={primary.primary} />
+          <Arrow width={8} color={colors.primary} />
         </ArrowContainer>
       </div>
     );

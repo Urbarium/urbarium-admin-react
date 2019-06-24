@@ -1,5 +1,5 @@
 import React from 'react';
-import Dropdown from './InputDropdown';
+import Input from './LabeledInput';
 import { Row } from '../Structural/index';
 
 class DDG extends React.Component {
@@ -37,10 +37,12 @@ class DDG extends React.Component {
   getDropdowns() {
     const result = Array(this.count).fill('');
     const data = this.initialData;
-    const { placeholders, names } = this.props;
+    const { placeholders, names, labels } = this.props;
     const { options, disables } = this.state;
     return result.map((_, dropdownIndex) => (
-      <Dropdown
+      <Input
+        type="dropdown"
+        label={labels[dropdownIndex]}
         placeholder={placeholders[dropdownIndex]}
         name={names[dropdownIndex]}
         options={options[dropdownIndex]}
@@ -152,6 +154,7 @@ DDG.defaultProps = {
   options: [provincias, cantones, distritos],
   placeholders: ['Provincia', 'Cantón', 'Distrito'],
   names: ['provincia', 'canton', 'distrito'],
+  labels: [],
   data: [],
 };
 

@@ -2,7 +2,6 @@ import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkbox from '../components/Urbarium/InputCheckbox';
 
-
 const options1 = [
   { name: 'Pizza', value: 'pizza' },
   { name: 'Breadsticks', value: 'breadsticks' },
@@ -46,7 +45,7 @@ storiesOf('Input Fields/Checkbox Input', module)
     <Checkbox options={options2} data={[1]} size={30} checkColor="blue" boxColor="darkblue" />
   ))
   .add('Custom font', () => (
-    <Checkbox options={options2} data={[1]} size={30} font="font-size: 2em; color: black;" />
+    <Checkbox options={options2} data={[1]} size={30} />
   ))
 
   .add('As a grid', () => (

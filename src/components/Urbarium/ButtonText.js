@@ -1,14 +1,18 @@
 import styled from 'styled-components';
-import { primary } from '../../colors';
-import fonts from '../../fonts';
+import { ButtonTextStyle as style } from './urbarium-theme';
 
 const ButtonText = styled.p`
-    display: inline;
-    cursor: pointer;
-    border: none;
-    background-color: transparent;
-    color: ${primary.primary}
-    ${fonts.optionLabel}
-`;
+  margin: 0px
+  display: inline;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  color: ${style.color}
+  font-weight: ${style.fontWeight}
+  font-size: ${style.fontSize}
+  :focus, :hover {
+    color: ${style.focusColor}
+  }
+}`;
 
 export default ButtonText;

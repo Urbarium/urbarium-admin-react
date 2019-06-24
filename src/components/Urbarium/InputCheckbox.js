@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { primary, secondary } from '../../colors';
-import fonts from '../../fonts';
 import { FlexGrid } from '../Structural/index';
-import Label from './Label';
 import OptionWrapper from './OptionWrapper';
+import OptionLabel from './OptionLabel';
 
 const Check = styled.div`
   opacity: 0;
@@ -70,23 +69,18 @@ class CheckboxOption extends React.Component {
     this.state = { data };
   }
 
-  getLabel() {
-    const { font, value } = this.props;
-    return <Label font={font}>{value}</Label>;
-  }
-
   handleOnChange() {
     this.setState(prev => ({ data: !prev.data }));
   }
 
   render() {
     const {
-      value, name, right, font, size, checkColor, boxColor,
+      value, name, right, size, checkColor, boxColor,
     } = this.props;
     const { data } = this.state;
     return (
       <OptionWrapper>
-        {right ? <Label font={font} color={primary.passive}>{name}</Label> : null}
+        {right ? <OptionLabel>{name}</OptionLabel> : null}
         <Input
           type="checkbox"
           name={value}
@@ -100,7 +94,7 @@ class CheckboxOption extends React.Component {
           boxColor={boxColor}
           right={right}
         />
-        {right ? null : <Label font={font} color={primary.passive}>{name}</Label>}
+        {right ? null : <OptionLabel>{name}</OptionLabel>}
       </OptionWrapper>
     );
   }
@@ -108,7 +102,6 @@ class CheckboxOption extends React.Component {
 
 CheckboxOption.defaultProps = {
   right: false,
-  font: fonts.optionLabel,
   size: 15,
   checkColor: primary.primary,
   boxColor: secondary.lightgray,
@@ -119,7 +112,6 @@ const InputCheckbox = ({
   options = [{ name: 'Option 1', value: 'option_1' }],
   grid = 0,
   right,
-  font,
   size,
   checkColor,
   boxColor,
@@ -131,7 +123,6 @@ const InputCheckbox = ({
         value={option.value}
         name={option.name}
         right={right}
-        font={font}
         size={size}
         checkColor={checkColor}
         boxColor={boxColor}

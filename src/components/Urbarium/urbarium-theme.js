@@ -1,77 +1,87 @@
 import styled from 'styled-components';
 
-const colors = {
+export const colors = {
   primary: '#742E5D',
   secondary: '#99BF24',
   white: '#FFFFFF',
   black: '#000000',
   light: {
-    primary: '#A04E85',
+    primary: '#b7619b',
     secondary: '#B5DB3F',
   },
 };
 
-const UrbariumTheme = {
-  input: {
-    width: '240px',
-    height: '40px',
-    border: 'none',
-    borderRadius: '20px',
-    backColor: '#F5F6F8',
-    paddLeft: '15px',
-    caretColor: '#000000',
-    placeholderColor: '#7A869A',
-    disabledBackColor: '#EAEDF2',
-    focusBorder: `1px ${colors.primary} solid`,
-    fontSize: '14px',
-    color: colors.black,
+export const InputStyle = {
+  width: '240px',
+  height: '40px',
+  border: 'none',
+  borderRadius: '20px',
+  backgroundColor: '#F5F6F8',
+  paddingLeft: '15px',
+  fontSize: '14px',
+  color: colors.black,
+  caretColor: '#000000',
+  placeholderColor: '#7A869A',
+  disabledBackgroundColor: '#EAEDF2',
+  focusBorder: `1px ${colors.primary} solid`,
+};
 
-  },
-  textArea: {
-    border: '2px solid #DFE1E5',
-    borderRadius: '16px',
-    backColor: '#FAFBFC',
-  },
-  buttonText: {
-    fontSize: '12px',
-    fontWeight: 'bold',
-    color: colors.primary,
-  },
-  buttonRound: {
-    height: '32px',
-    width: '240px',
-    fontSize: '14px',
-    fontWeight: 'bold',
-    border: 'none',
-    borderRadius: '16px',
-    backColor: colors.secondary,
-    hoverBackColor: colors.light.secondary,
-    color: colors.white,
-  },
-  option: {
-    label: {
-      color: '#172B4D',
-      fontSize: '14px',
-      fontWeight: 'normal',
-    },
-    check: {
-      backColor: colors.primary,
-      checkColor: colors.white,
-      border: 'none',
-      size: '14',
-    },
-  },
+export const TextAreaStyle = {
+  height: '100px',
+  width: '360px',
+  border: '2px solid #DFE1E5',
+  borderRadius: '16px',
+  backgroundColor: '#FAFBFC',
+  fontSize: '14px',
+  color: colors.black,
+
+};
+
+export const ButtonTextStyle = {
+  fontSize: '12px',
+  fontWeight: 'bold',
+  color: colors.primary,
+  focusColor: colors.light.primary,
+};
+
+
+export const ButtonRoundStyle = {
+  height: '32px',
+  width: '240px',
+  fontSize: '14px',
+  fontWeight: 'bold',
+  border: 'none',
+  borderRadius: '16px',
+  color: colors.white,
+  backgroundColor: colors.secondary,
+  focusBackgroundColor: colors.light.secondary,
+};
+
+export const LabelStyle = {
+  color: '#000000',
+  fontSize: '14px',
+  fontWeight: 'bold',
+};
+
+export const OptionLabelStyle = {
+  color: '#172B4D',
+  fontSize: '14px',
+  fontWeight: 'normal',
+};
+
+export const IconTitleStyle = {
   label: {
-    color: '#000000',
-    fontSize: '14px',
-    fontWeight: 'bold',
-  },
-  sectionLabel: {
     color: '#404B5C',
     fontSize: '22px',
-    logoColor: colors.secondary,
-    logoHeight: '22px',
+    fontWeight: 'bold',
   },
+  icon: {
+    color: colors.secondary,
+    size: 'large',
+  },
+};
+
+export const PageTitleStyle = {
   title: {
     color: '#23262B',
     fontSize: '22px',
@@ -79,34 +89,30 @@ const UrbariumTheme = {
   },
 };
 
-const InputField = styled.input`
+// InputField defined here because it is the base for TextArea, TextBox and DropDown
+export const InputField = styled.input`
     box-sizing: border-box;
-    height: ${props => props.theme.height};
-    width: ${props => props.theme.width};
-    border: ${props => props.theme.border};
-    border-radius: ${props => props.theme.borderRadius};
-    background-color: ${props => props.theme.backColor};
-    padding-left: ${props => props.theme.paddLeft};
-    caret-color: ${props => props.theme.caretColor};
-    font-size: ${props => props.theme.fontSize};
-    color: ${props => props.theme.color};
+    height: ${InputStyle.height};
+    width: ${InputStyle.width};
+    border: ${InputStyle.border};
+    border-radius: ${InputStyle.borderRadius};
+    background-color: ${InputStyle.backgroundColor};
+    padding-left: ${InputStyle.paddingLeft};
+    caret-color: ${InputStyle.caretColor};
+    font-size: ${InputStyle.fontSize};
+    color: ${InputStyle.color};
+
     :focus, :enabled:hover {
-        outline: none;
-        border: ${props => props.theme.focusBorder};
+      outline: none;
+      border: ${InputStyle.focusBorder};
     }
 
     ::placeholder {
-        color: ${props => props.theme.placeholderColor};
+      color: ${InputStyle.placeholderColor};
     }
 
     :disabled {
-        cursor: default;
-        background-color: ${props => props.theme.disabledBackColor};
+      cursor: default;
+      background-color: ${InputStyle.disabledBackgroundColor};
     }
 `;
-
-InputField.defaultProps = {
-  theme: UrbariumTheme.input,
-};
-
-export { UrbariumTheme as default, InputField, colors };
