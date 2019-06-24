@@ -7,7 +7,7 @@ import { Column, Row } from '../Structural/index';
 
 const subLabelFont = `${fonts.subLabel} color: ${primary.passive};`;
 
-const JefeDeFamiliaSection = () => (
+const JefeDeFamiliaSection = ({ name, apellido1, apellido2, cedula }) => (
   <Column gap={15}>
     <Label>Jefe de Familia</Label>
     <Row>
@@ -19,6 +19,7 @@ const JefeDeFamiliaSection = () => (
         labelFont={subLabelFont}
         pattern="[A-Za-z\s]{2,}"
         title="Un debe de consistir de solo letras"
+        value={name}
         required
       />
       <Input
@@ -29,6 +30,7 @@ const JefeDeFamiliaSection = () => (
         labelFont={subLabelFont}
         pattern="[A-Za-z\s]{2,}"
         title="Un apellido de consistir de solo letras"
+        value={apellido1}
         required
       />
       <Input
@@ -39,6 +41,7 @@ const JefeDeFamiliaSection = () => (
         labelFont={subLabelFont}
         pattern="[A-Za-z\s]{2,}"
         title="Un apellido de consistir de solo letras"
+        value={apellido2}
       />
     </Row>
     <Input
@@ -52,6 +55,7 @@ const JefeDeFamiliaSection = () => (
         `-Solo caracteres numericos
         -Al menos 9 caracteres`
       }
+      value={cedula}
       required
     />
   </Column>

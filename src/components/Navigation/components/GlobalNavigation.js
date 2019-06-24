@@ -17,6 +17,9 @@ import {
   globalNavSecondaryItems,
 } from '../menus/globalNavItems';
 import CrearBonoPage from '../../../pages/bono/CrearBonoPage';
+import {
+  actionBonoStart,
+} from '../../../actions/bonoActions';
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile }),
@@ -35,7 +38,6 @@ class GlobalNavigation extends Component {
     this.state = {
       isSearchDrawerOpen: false,
       isProfileDrawerOpen: false,
-      isCreateBonoOpen: false,
     };
     LogRocket.identify(props.profile.email, {
       name: props.profile.name,
@@ -62,20 +64,9 @@ class GlobalNavigation extends Component {
     history.push('/');
   }
 
-  // eslint-disable-next-line no-unused-vars
-  onCreatedBono = (id) => {
-    const { history } = this.props;
-    this.setState({ isCreateBonoOpen: false });
-    history.push(`/bonos/${id}/beneficiarios`);
-  }
-
-  openCreateBono = () => this.setState({ isCreateBonoOpen: true });
-
-  closeCreateBono = () => this.setState({ isCreateBonoOpen: false });
-
   render() {
-    const { firebase, profile } = this.props;
-    const { isSearchDrawerOpen, isProfileDrawerOpen, isCreateBonoOpen } = this.state;
+    const { firebase, profile, openCreateBonoModal } = this.props;
+    const { isSearchDrawerOpen, isProfileDrawerOpen } = this.state;
     return (
       <Fragment>
         <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
@@ -86,7 +77,7 @@ class GlobalNavigation extends Component {
                   onDashboardClick: this.goHome,
                   onSearchClick: this.toggleSearch,
                   onUsersManagementClick: () => this.toggle(viewController, 'users'),
-                  onAddBonoClick: () => this.toggle(viewController, 'bonos'),
+                  onAddBonoClick: openCreateBonoModal,
                 })}
                 secondaryItems={globalNavSecondaryItems({
                   onProfileClick: this.toggleProfile,
@@ -104,14 +95,16 @@ class GlobalNavigation extends Component {
         <Drawer onClose={this.toggleProfile} isOpen={isProfileDrawerOpen}>
           <ProfileFragment />
         </Drawer>
-        {
-          isCreateBonoOpen && (
-            <CrearBonoPage onSuccess={this.onCreatedBono} onClose={this.closeCreateBono} width="large" />
-          )
-        }
+        <CrearBonoPage width="large" />
       </Fragment>
     );
   }
 }
 
-export default enhance(withFirebase(withRouter(GlobalNavigation)));
+const mapDispatchToProps = dispatch => ({
+  openCreateBonoModal: () => dispatch(actionBonoStart()),
+});
+
+const ConnectedGlobalNavigation = connect(null, mapDispatchToProps)(GlobalNavigation);
+
+export default enhance(withFirebase(withRouter(ConnectedGlobalNavigation)));

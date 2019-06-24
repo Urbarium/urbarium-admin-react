@@ -4,10 +4,11 @@ import Moment from 'react-moment';
 import { withFirestore } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import Page, { Grid, GridColumn } from '@atlaskit/page';
-import Modal from '@atlaskit/modal-dialog';
+import Modal, { ModalTransition } from '@atlaskit/modal-dialog';
 import SectionMessage from '@atlaskit/section-message';
+import { withRouter } from "react-router";
 import {
-  actionAddBono,
+  actionAddBono, actionBonoCanceled,
 } from '../../actions/bonoActions';
 import ContentWrapper from '../../components/ContentWrapper';
 import PageTitle from '../../components/PageTitle';
@@ -27,18 +28,27 @@ const Today = ({ date }) => (
   </StyledDate>
 );
 
-const formID = "crear-bono-form";
-const modalCreateBonoActions = [
-  {
-    text: 'Crear',
-    onClick: submitForm(formID),
-  },
-  { text: 'Cancelar', onClick: () => {} },
-];
+const myFormID = "anyString_noSpaces";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class CrearBonoPage extends Component {
-  errorSection = (isFailure, { severity, msg }) => (
+  modalCreateBonoActions = close => [
+    {
+      text: 'Crear',
+      onClick: () => {
+        // My plan was to have the submit button inside the form
+        // this can't always be the case, the modal 'crear' button is outside for example
+        // so query below is a workaround for these cases.
+        // for some reason calling the form's submit function bypasses the forms onSubmit event
+        // so I added a hidden button inside every form that we can click so the onSubmit event triggers properly
+        // eslint-disable-next-line no-undef
+        document.querySelector(`#${myFormID}`).click();
+      },
+    },
+    { text: 'Cancelar', onClick: () => { close(); } },
+  ];
+
+  errorSection = (isFailure, { severity, msg } = {}) => (
     isFailure ? (
       <SectionMessage appearance={severity}>
         {msg}
@@ -54,33 +64,38 @@ class CrearBonoPage extends Component {
   render() {
     const {
       log,
-      isCompleted,
+      close,
       isFailure,
+      isCreating,
     } = this.props;
 
     return (
-      <Modal actions={modalCreateBonoActions} onClose={isCompleted} width="large">
-        <Page>
-          <ContentWrapper>
-            { this.errorSection(isFailure, log) }
-            <Grid>
-              <GridColumn medium={10}>
-                <PageTitle>Nuevo Bono de Vivienda</PageTitle>
-              </GridColumn>
-              <GridColumn medium={2}>
-                <Today date={today()} />
-              </GridColumn>
-            </Grid>
-            <Grid>
-              <GridColumn medium={12}>
-                <Form id={formID} onSubmit={args => this.handleSubmit(args)}>
-                  <JefeDeFamiliaSection />
-                </Form>
-              </GridColumn>
-            </Grid>
-          </ContentWrapper>
-        </Page>
-      </Modal>
+      <ModalTransition>
+        { isCreating && (
+          <Modal actions={this.modalCreateBonoActions(close)} onClose={close} width="large">
+            <Page>
+              <ContentWrapper>
+                { this.errorSection(isFailure, log) }
+                <Grid>
+                  <GridColumn medium={10}>
+                    <PageTitle>Nuevo Bono de Vivienda</PageTitle>
+                  </GridColumn>
+                  <GridColumn medium={2}>
+                    <Today date={today()} />
+                  </GridColumn>
+                </Grid>
+                <Grid>
+                  <GridColumn medium={12}>
+                    <Form id={myFormID} onSubmit={args => this.handleSubmit(args)}>
+                      <JefeDeFamiliaSection />
+                    </Form>
+                  </GridColumn>
+                </Grid>
+              </ContentWrapper>
+            </Page>
+          </Modal>
+        )}
+      </ModalTransition>
     );
   }
 }
@@ -89,11 +104,13 @@ function mapStateToProps(state) {
   return { ...state.bonos };
 }
 
-const mapDispatchToProps = (dispatch, { firestore }) => ({
-  addBono: payload => dispatch(actionAddBono(payload, firestore)),
+const mapDispatchToProps = (dispatch, { firestore, history }) => ({
+  addBono: payload => dispatch(actionAddBono(payload, firestore, history)),
+  close: () => dispatch(actionBonoCanceled()),
 });
 
 const ConnectedNewBono = connect(mapStateToProps, mapDispatchToProps)(CrearBonoPage);
 const ConnectedFirestore = withFirestore(ConnectedNewBono);
+const ConnectedRouter = withRouter(ConnectedFirestore);
 
-export default ConnectedFirestore;
+export default ConnectedRouter;
