@@ -27,8 +27,9 @@ export const actionAddBono = (payload, firestore, history) => (dispatch) => {
   dispatch(actionAddBonoStart(payload, firestore));
   firestore.add({ collection: 'bonos' }, payload)
     .then((result) => {
-      dispatch(actionAddBonoComplete(payload));
-      history.push(`/bonos/${result.id}/beneficiarios`);
+      const bono = { ...payload, id: result.id };
+      dispatch(actionAddBonoComplete(bono));
+      history.push(`/bonos/${bono.id}/beneficiarios`);
     }).catch((error) => {
       dispatch(actionAddBonoFail(error));
     });

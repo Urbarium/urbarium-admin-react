@@ -52,7 +52,7 @@ class CrearBonoPage extends Component {
     const newBono = formNameValues
       .map(({ name, value }) => ({ [name]: value }))
       .reduce((accumulator, current) => ({ ...accumulator, ...current }), {});
-    addBono({ newBono });
+    addBono(newBono);
   }
 
   render() {
