@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
       {},
       state,
       {
-        isFetching: false, isCompleted: true, isCreating: false, newBono: action.payload,
+        isFetching: false, isCompleted: true, isCreating: false, currentBono: { ...state.newBono }, newBono: null,
       },
     );
   case 'ADD_BONO_FAIL':

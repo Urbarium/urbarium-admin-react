@@ -77,7 +77,7 @@ class GlobalNavigation extends Component {
                   onDashboardClick: this.goHome,
                   onSearchClick: this.toggleSearch,
                   onUsersManagementClick: () => this.toggle(viewController, 'users'),
-                  onAddBonoClick: () => this.toggle(viewController, 'bonos'),
+                  onAddBonoClick: () => openCreateBonoModal(),
                 })}
                 secondaryItems={globalNavSecondaryItems({
                   onProfileClick: this.toggleProfile,
