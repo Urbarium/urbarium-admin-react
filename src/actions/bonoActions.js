@@ -1,3 +1,5 @@
+import { navs, actionProductNavSet } from './navigationActions';
+
 export function actionBonoStart() {
   return { type: 'BONO_START' };
 }
@@ -23,11 +25,14 @@ export function actionAddBonoFail(error) {
 }
 
 export const actionAddBono = (payload, firestore, history) => (dispatch) => {
+  dispatch(actionAddBonoBuild(payload, firestore));
   dispatch(actionAddBonoStart(payload, firestore));
   firestore.add({ collection: 'bonos' }, payload)
     .then((result) => {
-      dispatch(actionAddBonoComplete(result));
-      history.push(`/bonos/${result.id}/beneficiarios`);
+      const bono = { ...payload, id: result.id };
+      dispatch(actionAddBonoComplete(bono));
+      history.push(`/bonos/${bono.id}/beneficiarios`);
+      dispatch(actionProductNavSet(navs.BONOS, bono.id));
     }).catch((error) => {
       dispatch(actionAddBonoFail(error));
     });

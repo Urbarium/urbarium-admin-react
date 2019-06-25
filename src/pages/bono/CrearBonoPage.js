@@ -48,9 +48,11 @@ class CrearBonoPage extends Component {
   )
 
   handleSubmit(formNameValues) {
-    console.table(formNameValues);
     const { addBono } = this.props;
-    addBono({ newBono: formNameValues });
+    const newBono = formNameValues
+      .map(({ name, value }) => ({ [name]: value }))
+      .reduce((accumulator, current) => ({ ...accumulator, ...current }), {});
+    addBono(newBono);
   }
 
   render() {
