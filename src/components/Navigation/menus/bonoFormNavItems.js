@@ -12,7 +12,7 @@ const bonoFormNavItems = (id, status) => ({
   getItems: () => [
     {
       type: 'HeaderSection',
-      id: 'product/home:header',
+      id: 'product/bonos:header',
       items: [
         {
           type: 'ContainerHeader',
@@ -25,7 +25,7 @@ const bonoFormNavItems = (id, status) => ({
     },
     {
       type: 'MenuSection',
-      id: 'product/home:menu',
+      id: 'product/bonos:menu',
       items: [
         {
           type: 'LinkItem',

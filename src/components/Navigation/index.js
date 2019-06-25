@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 
 // Routes
 import { Route, Switch } from 'react-router';
@@ -12,6 +12,7 @@ import {
   modeGenerator,
   ThemeProvider,
 } from '@atlaskit/navigation-next';
+import { connect } from 'react-redux';
 
 // Subcomponents
 import GlobalNavigation from './components/GlobalNavigation';
@@ -47,7 +48,7 @@ const initializeProductNavs = (navigationViewController, navigationUIController)
   }
 };
 
-class Navigation extends Component {
+class Navigation extends PureComponent {
   constructor(props) {
     super(props);
     const { navigationViewController, navigationUIController } = props;
@@ -55,10 +56,13 @@ class Navigation extends Component {
   }
 
   componentDidMount() {
-    const { navigationViewController } = this.props;
-    const bonoFormNav = bonoFormNavItems(30, 'In Progress');
-    navigationViewController.addView(bonoFormNav);
+    const { navigationViewController, navigation: { key, id } } = this.props;
+    if (key === 'bonos') {
+      const bonoFormNav = bonoFormNavItems(id, 'In Progress');
+      navigationViewController.addView(bonoFormNav);
+    }
     navigationViewController.addView(usersManagementNavItems);
+    navigationViewController.setView(key);
   }
 
   render() {
@@ -81,7 +85,13 @@ class Navigation extends Component {
     );
   }
 }
-const AppWithNavigationControllers = withNavigationViewController(withNavigationUIController(Navigation));
+
+function mapStateToProps(state) {
+  return { navigation: state.navigation };
+}
+
+const ConnectedNavigation = connect(mapStateToProps, {})(Navigation);
+const AppWithNavigationControllers = withNavigationViewController(withNavigationUIController(ConnectedNavigation));
 
 const customThemeMode = modeGenerator({
   product: {
@@ -90,10 +100,12 @@ const customThemeMode = modeGenerator({
   },
 });
 
-export default () => (
+const ThemedNavigationProvider = () => (
   <NavigationProvider>
     <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
       <AppWithNavigationControllers />
     </ThemeProvider>
   </NavigationProvider>
 );
+
+export default ThemedNavigationProvider;

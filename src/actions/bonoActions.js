@@ -1,3 +1,5 @@
+import { navs, actionProductNavSet } from './navigationActions';
+
 export function actionBonoStart() {
   return { type: 'BONO_START' };
 }
@@ -30,6 +32,7 @@ export const actionAddBono = (payload, firestore, history) => (dispatch) => {
       const bono = { ...payload, id: result.id };
       dispatch(actionAddBonoComplete(bono));
       history.push(`/bonos/${bono.id}/beneficiarios`);
+      dispatch(actionProductNavSet(navs.BONOS, bono.id));
     }).catch((error) => {
       dispatch(actionAddBonoFail(error));
     });
