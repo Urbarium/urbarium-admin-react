@@ -23,6 +23,7 @@ export function actionAddBonoFail(error) {
 }
 
 export const actionAddBono = (payload, firestore, history) => (dispatch) => {
+  dispatch(actionAddBonoBuild(payload, firestore));
   dispatch(actionAddBonoStart(payload, firestore));
   firestore.add({ collection: 'bonos' }, payload)
     .then((result) => {

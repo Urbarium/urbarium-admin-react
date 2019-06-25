@@ -26,7 +26,7 @@ const JefeDeFamiliaSection = ({
       <Input
         type="text"
         label="PRIMER APELLIDO"
-        name="primer1"
+        name="apellido1"
         placeholder="Primer apellido"
         labelFont={subLabelFont}
         value={apellido1}
@@ -35,7 +35,7 @@ const JefeDeFamiliaSection = ({
       <Input
         type="text"
         label="SEGUNDO APELLIDO"
-        name="segundo2"
+        name="apellido2"
         placeholder="Segundo apellido"
         labelFont={subLabelFont}
         value={apellido2}
