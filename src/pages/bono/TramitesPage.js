@@ -141,7 +141,7 @@ const TramitesPage = ({ bono, ...props }) => (
   <PageWrapper>
     <BonoHeader bono={bono} />
 
-    <PageContent>
+    <PageContent style={{ overflowY: 'hidden' }}>
       <AccordionHeader />
       <AccordionMenu {...props} />
     </PageContent>

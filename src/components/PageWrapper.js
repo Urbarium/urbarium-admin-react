@@ -45,7 +45,7 @@ export const PageContent = styled.div`
   padding: 40px 0px;
   padding-right: 100px;
   box-sizing: border-box;    
-  overflow-y: hidden;
+  overflow-y: auto;
   height: 100%;
 `;
 

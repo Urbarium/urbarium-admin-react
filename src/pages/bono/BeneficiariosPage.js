@@ -19,7 +19,7 @@ const BeneficiariosPage = ({ bono, data, onSubmit }) => (
 
     <BonoHeader bono={bono} />
 
-    <PageContent style={{ overflowY: 'auto' }}>
+    <PageContent>
       <Form onSubmit={onSubmit} id={formID}>
         <Column gap={30}>
 

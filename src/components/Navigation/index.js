@@ -21,7 +21,7 @@ import ProjectInfoHeader from './components/ProjectInfoHeader';
 // Pages
 import UpdateProfilePage from '../../pages/UpdateProfilePage';
 import CasoDeBonoPage from '../../pages/bono/CasoDeBonoPage';
-import ConstruccionPage from '../../pages/bono/ConstruccionPage';
+import ConstruccionTramitesPage from '../../pages/bono/ConstruccionTramitesPage';
 import DesembolsoPage from '../../pages/bono/DesembolsoPage';
 import TramitesPage from '../../pages/bono/TramitesPage';
 import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
@@ -74,7 +74,7 @@ class Navigation extends Component {
           <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
           <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
           <Route path="/bonos/:id/tramites" component={TramitesPage} />
-          <Route path="/bonos/:id/construccion" component={ConstruccionPage} />
+          <Route path="/bonos/:id/construccion" component={ConstruccionTramitesPage} />
           <Route path="/bonos/:id/desembolso" component={DesembolsoPage} />
         </Switch>
       </LayoutManagerWithViewController>

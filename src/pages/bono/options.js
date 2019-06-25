@@ -40,6 +40,9 @@ export const Anos = [
   { name: '2021', value: 2021 },
 ];
 
+
+// Checkbox options, values have to be very specific
+
 export const ConformacionExpedienteOptions = [
   { name: 'Bienes inmuebles', value: 'conformacion_expediente_bienes_inmuebles' },
   { name: 'Informe registral', value: 'conformacion_expediente_informe_registral' },
@@ -85,4 +88,11 @@ export const TramiteMunicipalidadRechazadoOptions = [
 
 export const TramiteMunicipalidadAvaluoOptions = [
   { name: 'Aprobado', value: 'tramite_municipalidad_avaluo_aprobado' },
+];
+
+// Radio options, values can be simple because only one is ever present
+
+export const SolicitudPlanoPresupuestoOptions = [
+  { name: 'Aprobado', value: 'aprobado' },
+  { name: 'Solicitud de cambios', value: 'solicitud_cambios' },
 ];

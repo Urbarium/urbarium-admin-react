@@ -26,8 +26,9 @@ export const Column = styled.div`
   grid-template-rows: repeat(${props => props.children.length}, auto);
   grid-template-columns: 1fr;
   grid-gap: ${props => props.gap || 0}px;
-  height: fit-content;
+  height: ${props => (props.fill ? '100%' : 'fit-content')};
   justify-items: ${props => props.justify || 'space-between'};
+  align-content: ${props => props.align || 'start'}
 `;
 
 export const FlexGrid = styled.div`
