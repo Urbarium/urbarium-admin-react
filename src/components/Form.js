@@ -39,4 +39,4 @@ Form.defaultProps = {
 
 export default Form;
 // eslint-disable-next-line no-undef
-export const submitForm = id => () => document.querySelector(`#${id}`).click();
+export const submitForm = id => () => (id ? document.querySelector(`#${id}`).click() : null);

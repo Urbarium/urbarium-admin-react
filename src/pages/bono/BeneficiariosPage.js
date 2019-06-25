@@ -1,26 +1,23 @@
 import React from 'react';
-import BonoTitle from '../../components/Urbarium/BonoTitle';
 import Beneficiarios from '../../components/Urbarium/BeneficiariosSection';
 import Input from '../../components/Urbarium/LabeledInput';
 import DropdownGroup from '../../components/Urbarium/DropdownGroup';
 import IconTitle from '../../components/Urbarium/IconTitle';
-import ButtonRound from '../../components/Urbarium/ButtonRound';
 import { Row, Column } from '../../components/Structural/index';
-import Form, { submitForm } from '../../components/Form';
+import Form from '../../components/Form';
 import {
   PageWrapper,
-  PageHeader,
+  BonoHeader,
   PageContent,
-  PageFooter,
+  BonoFooter,
 } from '../../components/PageWrapper';
 
 const formID = "beneficiarios-page-form";
 
-const BeneficiariosPage = ({ title, data, onSubmit }) => (
+const BeneficiariosPage = ({ bono, data, onSubmit }) => (
   <PageWrapper>
-    <PageHeader>
-      <BonoTitle {...title} />
-    </PageHeader>
+
+    <BonoHeader bono={bono} />
 
     <PageContent style={{ overflowY: 'auto' }}>
       <Form onSubmit={onSubmit} id={formID}>
@@ -76,16 +73,20 @@ const BeneficiariosPage = ({ title, data, onSubmit }) => (
       </Form>
     </PageContent>
 
-    <PageFooter>
-      <Row justify="end">
-        <ButtonRound onClick={submitForm(formID)}>Guardar y continuar</ButtonRound>
-      </Row>
-    </PageFooter>
+    <BonoFooter id={formID} />
+
   </PageWrapper>
 );
 
 BeneficiariosPage.defaultProps = {
-  title: {},
+  bono: {
+    nombre: 'Default',
+    cedula: '12345678',
+    numero: '12345',
+    monto: '',
+    modificacion: '',
+    creacion: '6/24/2019',
+  },
   data: {
     beneficiarios: [
       {
@@ -102,10 +103,6 @@ BeneficiariosPage.defaultProps = {
     telefono: '',
     celular: '',
   },
-
-  // TODO: You can give an on submit function to the page which it will call using all the
-  // data from the input fields  as arguments...
-
   // eslint-disable-next-line no-console
   onSubmit(args) { console.table(args); },
 };

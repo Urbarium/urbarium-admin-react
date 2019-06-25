@@ -1,19 +1,17 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
-import BonoTitle from '../../components/Urbarium/BonoTitle';
 import Accordion from '../../components/Urbarium/AccordionItem';
 import Input from '../../components/Urbarium/LabeledInput';
 import Label from '../../components/Urbarium/Label';
 import { FrameStyle } from '../../components/Urbarium/urbarium-styles';
 import { Column, Row } from '../../components/Structural/index';
-import ButtonRound from '../../components/Urbarium/ButtonRound';
-import Form, { submitForm } from '../../components/Form';
+import Form from '../../components/Form';
 
 import {
   PageWrapper,
-  PageHeader,
+  BonoHeader,
   PageContent,
-  PageFooter,
+  BonoFooter,
 } from '../../components/PageWrapper';
 import {
   ConformacionExpedienteOptions,
@@ -139,31 +137,30 @@ const AccordionHeader = () => (
   </ThemeProvider>
 );
 
-const TramitesPage = ({ title, ...props }) => (
+const TramitesPage = ({ bono, ...props }) => (
   <PageWrapper>
-    <PageHeader>
-      <BonoTitle {...title} />
-    </PageHeader>
+    <BonoHeader bono={bono} />
 
     <PageContent>
       <AccordionHeader />
       <AccordionMenu {...props} />
     </PageContent>
 
-    <PageFooter>
-      <Row justify="end">
-        <ButtonRound id={formID} onClick={(submitForm(formID))}>
-          GUARDAR Y CONTINUAR
-        </ButtonRound>
-      </Row>
-    </PageFooter>
+    <BonoFooter id={formID} />
   </PageWrapper>
 );
 
 export default TramitesPage;
 
 TramitesPage.defaultProps = {
-  title: {},
+  bono: {
+    nombre: 'Default',
+    cedula: '12345678',
+    numero: '12345',
+    monto: '',
+    modificacion: '',
+    creacion: '6/24/2019',
+  },
   data: Array(14).fill({
     startDate: '12/10/2019',
     endDate: '12/10/2109',

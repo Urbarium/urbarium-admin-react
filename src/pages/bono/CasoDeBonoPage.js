@@ -1,14 +1,12 @@
 import React from 'react';
-import BonoTitle from '../../components/Urbarium/BonoTitle';
 import Input from '../../components/Urbarium/LabeledInput';
-import { Column, Row } from '../../components/Structural/index';
-import ButtonRound from '../../components/Urbarium/ButtonRound';
-import Form, { submitForm } from '../../components/Form';
+import { Column } from '../../components/Structural/index';
+import Form from '../../components/Form';
 import {
   PageWrapper,
-  PageHeader,
+  BonoHeader,
   PageContent,
-  PageFooter,
+  BonoFooter,
 } from '../../components/PageWrapper';
 import {
   Anos,
@@ -19,11 +17,10 @@ import {
 
 const formID = 'caso-de-bono-page-form';
 
-const CasoDeBonoPage = ({ title, data, onSubmit }) => (
+const CasoDeBonoPage = ({ bono, data, onSubmit }) => (
   <PageWrapper>
-    <PageHeader>
-      <BonoTitle>{title}</BonoTitle>
-    </PageHeader>
+
+    <BonoHeader bono={bono} />
 
     <PageContent>
       <Form onSubmit={onSubmit} id={formID}>
@@ -72,18 +69,22 @@ const CasoDeBonoPage = ({ title, data, onSubmit }) => (
       </Form>
     </PageContent>
 
-    <PageFooter>
-      <Row justify="end">
-        <ButtonRound id={formID} onClick={(submitForm(formID))}>Guardar y continuar</ButtonRound>
-      </Row>
-    </PageFooter>
+    <BonoFooter id={formID} />
+
   </PageWrapper>
 );
 
 // default values for the page,
 // you can edit this to test how it would look once rendered with different data
 CasoDeBonoPage.defaultProps = {
-  title: {},
+  bono: {
+    nombre: 'Default',
+    cedula: '12345678',
+    numero: '12345',
+    monto: '',
+    modificacion: '',
+    creacion: '6/24/2019',
+  },
   data: {
     ano: '',
     modalidad: [],

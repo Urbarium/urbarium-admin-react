@@ -30,12 +30,12 @@ const headerValueTheme = {
 const HeaderNames = ['MONTO DEL BONO', 'ÚLTIMA MODIFICACIÓN', 'FECHA CREACIÓN'];
 
 export default ({
-  nombre = 'Default',
-  cedula = '12345678',
-  numero = '12345',
-  monto = '',
-  modificacion = '',
-  creacion = '00-00-00',
+  nombre = 'Default name',
+  cedula = 'default cedula',
+  numero = 'default bono number',
+  monto = 'default monto',
+  modificacion = 'default date',
+  creacion = 'default date',
 }) => {
   const HeaderValues = [monto, modificacion, creacion];
   return (
