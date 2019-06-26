@@ -71,6 +71,6 @@ workflows:
       - test:
           requires:
             - build
-      - chromatic:
-          requires:
-            - build
+      # - chromatic:
+      #     requires:
+      #       - build
