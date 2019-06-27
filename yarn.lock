@@ -191,10 +191,10 @@
     tiny-invariant "^0.0.3"
     tslib "^1.9.3"
 
-"@atlaskit/navigation-next@^6.2.1":
-  version "6.2.1"
-  resolved "https://registry.yarnpkg.com/@atlaskit/navigation-next/-/navigation-next-6.2.1.tgz#26ea38d5d17b258595313db6d67b3b291fa0e63f"
-  integrity sha512-3zDuPkuPbO7wIlHVd6Odn/LBqkbyR34ktfBBXEwzXPl2805on1PXs6+sKKY00uKCW041kX6rN2jDHxkAClOe8Q==
+"@atlaskit/navigation-next@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/navigation-next/-/navigation-next-6.3.0.tgz#1b0fabca830f09ae45a2811a7b8b57ad58084260"
+  integrity sha512-ZxYrO1Cyp7ygfiEIYb7tWvOzqU/O40g/vlVIk1I5KPIWG0LVWPANflxaOsBgEAXs/5e0et9IkxHDSgG8I96zDQ==
   dependencies:
     "@atlaskit/analytics-namespaced-context" "^4.0.0"
     "@atlaskit/analytics-next" "^5.0.2"
