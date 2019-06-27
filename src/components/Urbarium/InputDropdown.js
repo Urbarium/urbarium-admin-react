@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import fonts from '../../fonts';
 import Arrow from './Arrow';
 import { colors, InputField } from './urbarium-styles';
 
@@ -45,7 +44,7 @@ class InputDropDown extends React.Component {
 
   render() {
     const {
-      name, placeholder, options, data, font, required, disabled,
+      name, placeholder, options, data, required, disabled,
     } = this.props;
     const { dataDefault } = this.state;
     return (
@@ -55,7 +54,6 @@ class InputDropDown extends React.Component {
           name={name}
           data-default={dataDefault}
           defaultValue={data || ""}
-          font={font}
           onChange={event => this.handleOnChange(event)}
           disabled={disabled}
           required={required}
@@ -76,7 +74,6 @@ InputDropDown.defaultProps = {
   name: 'unnamed_dropdown',
   options: [{ name: 'Option 1', value: 'option_1' }],
   data: undefined,
-  font: fonts.defaultInput,
   disabled: false,
   required: false,
   changeHandler() {},

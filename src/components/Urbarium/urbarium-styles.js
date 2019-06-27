@@ -108,11 +108,11 @@ export const InputField = styled.input`
     width: ${InputStyle.width};
     border: ${InputStyle.border};
     border-radius: ${InputStyle.borderRadius};
-    background-color: ${InputStyle.backgroundColor};
+    background-color: ${props => props.theme.input_backgroundColor || InputStyle.backgroundColor};
     padding-left: ${InputStyle.paddingLeft};
     caret-color: ${InputStyle.caretColor};
     font-size: ${InputStyle.fontSize};
-    color: ${InputStyle.color};
+    color: ${props => props.theme.input_color || InputStyle.color};
 
     :focus, :enabled:hover {
       outline: none;
