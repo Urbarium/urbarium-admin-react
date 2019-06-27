@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Label from './Label';
 import Arrow from './ButtonArrow';
-import ButtonState from './ButtonState';
-import { Row as AccordionHeader } from '../Structural/index';
+import InputState from './InputState';
+import { Row } from '../Structural/index';
 import { FrameStyle as style, colors } from './urbarium-styles';
 
 const contentTheme = {
@@ -29,13 +29,15 @@ const indexTheme = {
 
 const titleTheme = Object.assign({}, indexTheme, { label_color: '#354052' });
 
+const masmenosTheme = Object.assign({}, headerTheme, { label_color: '#0077FF' });
+
 
 const AccordionFrame = styled.div`
     border: ${style.border};
     border-radius: ${style.borderRadius};    
     max-width: ${style.maxWidth};
     box-sizing: border-box;
-    padding: 15px 25px;
+    padding: 10px;
 `;
 
 const Flex = styled.div`
@@ -56,6 +58,12 @@ const AccordionContent = styled.div`
         padding-bottom: 0px;
     }
 `;
+
+const AccordionStateOptions = [
+  { name: 'Por hacer', value: 'por_hacer', style: 'gray' },
+  { name: 'En proceso', value: 'en_proceso', style: 'blue' },
+  { name: 'Finalizado', value: 'finalizado', style: 'green' },
+];
 
 class AccordionItem extends React.Component {
   constructor(props) {
@@ -80,7 +88,7 @@ class AccordionItem extends React.Component {
     return (
       <AccordionFrame>
 
-        <AccordionHeader columns="5fr 2fr 2fr 2fr 2fr 0.5fr" align="center">
+        <Row columns="5fr 2fr 2fr 2fr 2fr 1fr" align="center">
           <Flex>
             <Label theme={indexTheme}>{`${index}.  `}</Label>
             <Label theme={titleTheme}>{title}</Label>
@@ -88,12 +96,17 @@ class AccordionItem extends React.Component {
           <Label theme={headerTheme}>{startDate}</Label>
           <Label theme={headerTheme}>{endDate}</Label>
           <Label theme={headerTheme}>{user}</Label>
-          <ButtonState data={state} />
+          <InputState data={state} options={AccordionStateOptions} />
           { children
-            ? <Arrow onClick={() => this.handleClick()} />
+            ? (
+              <Row>
+                <Label theme={masmenosTheme}>{opened ? 'Menos' : 'Más'}</Label>
+                <Arrow onClick={() => this.handleClick()} />
+              </Row>
+            )
             : null
           }
-        </AccordionHeader>
+        </Row>
 
         <ThemeProvider theme={contentTheme}>
           <AccordionContent columns={columns} data-opened={opened}>
@@ -114,7 +127,7 @@ AccordionItem.defaultProps = {
     startDate: '-',
     endDate: '-',
     user: '-',
-    state: 0,
+    state: 'por_hacer',
   },
 };
 

@@ -42,9 +42,10 @@ const ArrowContainer = styled.div`
 class InputState extends React.Component {
   constructor(props) {
     super(props);
-    const { options } = props;
+    const { options, data } = props;
     this.TaggedOptions = options.map(option => <option value={option.value} key={option.value}>{option.name}</option>);
-    this.state = { theme: StateThemes.gray };
+    const initialTheme = data ? this.getTheme(data) : this.getTheme(options[0].value);
+    this.state = { theme: StateThemes[initialTheme] };
   }
 
   getTheme(value) {
