@@ -5,6 +5,7 @@
 ![GitHub](https://img.shields.io/github/license/Urbarium/urbarium-admin-react.svg)
 [![Known Vulnerabilities](https://snyk.io/test/github/Urbarium/urbarium-admin-react/badge.svg)](https://snyk.io/test/github/Urbarium/urbarium-admin-react)
 [![CircleCI](https://circleci.com/gh/Urbarium/urbarium-admin-react.svg?style=svg)](https://circleci.com/gh/Urbarium/urbarium-admin-react)
+[![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/emmamm05/urbarium)
 
 This is an internal app for Urbarium.org, useful for managing bonos and a very simple user management. It is a React app which includes some Atlaskit components, built on top of [create-react-app](https://github.com/facebookincubator/create-react-app).
 
@@ -32,7 +33,10 @@ yarn run storybook
 
 This repository is helpful for people using a build with Atlaskit + React + Redux for the first time, including technologies like Firebase, Zeit Now, Sentry & Log Rocket. If you find a bug or require an improvement, please report it:
 
+## Tech Stack
+<a frameborder="0" data-theme="light" data-layers="1,2,3,4" data-stack-embed="true" href="https://embed.stackshare.io/stacks/embed/444a000a6e0857112ff82f669dbbda"/></a><script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
 
+https://zeit.co/now
 
 ## Demo
 
