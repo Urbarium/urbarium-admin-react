@@ -17,13 +17,13 @@ import {
 
 const formID = 'caso-de-bono-page-form';
 
-const CasoDeBonoPage = ({ bono, data, onSubmit }) => (
+const CasoDeBonoPage = ({ bono }) => (
   <PageWrapper>
 
     <BonoHeader bono={bono} />
 
     <PageContent>
-      <Form onSubmit={onSubmit} id={formID}>
+      <Form id={formID}>
         <Column gap={40}>
           <Column gap={20}>
             <Input
@@ -32,7 +32,6 @@ const CasoDeBonoPage = ({ bono, data, onSubmit }) => (
               icon="calendar"
               options={Anos}
               placeholder="Año"
-              data={data.ano}
               name="ano"
               required
             />
@@ -42,7 +41,6 @@ const CasoDeBonoPage = ({ bono, data, onSubmit }) => (
             label="Modalidad"
             icon="none"
             options={Modalidad}
-            data={data.modalidad}
             name="modalidad"
             required
           />
@@ -51,8 +49,7 @@ const CasoDeBonoPage = ({ bono, data, onSubmit }) => (
             label="Característica Expecial"
             icon="none"
             options={Caracteristica}
-            data={data.caracteristica}
-            name="caracteristica"
+            name="caracteristica_especial"
             required
           />
           <Input
@@ -61,8 +58,7 @@ const CasoDeBonoPage = ({ bono, data, onSubmit }) => (
             icon="none"
             placeholder="Grupo Mutual"
             options={EntidadesBancarias}
-            data={data.entidad}
-            name="entidad"
+            name="entidad_bancaria"
             required
           />
         </Column>
@@ -85,14 +81,6 @@ CasoDeBonoPage.defaultProps = {
     modificacion: '',
     creacion: '6/24/2019',
   },
-  data: {
-    ano: '',
-    modalidad: [],
-    caracteristica: '',
-    entidad: '',
-  },
-  // eslint-disable-next-line no-console
-  onSubmit(args) { console.table(args); },
 };
 
 

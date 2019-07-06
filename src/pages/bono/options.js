@@ -28,8 +28,8 @@ export const Modalidad = [
 ];
 export const Caracteristica = [
   { name: 'Ninguna', value: 'ninguna' },
-  { name: 'Adulto Mayor', value: 'mayor' },
-  { name: 'Persona con Discapacidad', value: 'discapacidad' },
+  { name: 'Adulto Mayor', value: 'adulto_mayor' },
+  { name: 'Persona con Discapacidad', value: 'persona_con_discapacidad' },
 ];
 
 // TODO: Change this to a year range from the current year
