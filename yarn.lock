@@ -52,6 +52,20 @@
     memoize-one "^3.0.1"
     tslib "^1.9.3"
 
+"@atlaskit/button@^13.0.9":
+  version "13.0.9"
+  resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-13.0.9.tgz#bcc97d4a67e8b97a38820ffd9c1fe3e247279993"
+  integrity sha512-xzGyA+JmFmciogTkThR41YNx4qedo4V+dWSC3n4Kv/Cqsu9mLqYrTrQ3+E0eI84ReAOaUaGqrcCoaSmQ3RhDWg==
+  dependencies:
+    "@atlaskit/analytics-next" "^5.0.0"
+    "@atlaskit/spinner" "^12.0.1"
+    "@atlaskit/theme" "^9.1.0"
+    "@atlaskit/type-helpers" "^4.1.1"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/core" "^10.0.9"
+    memoize-one "^3.0.1"
+    tslib "^1.9.3"
+
 "@atlaskit/code@^11.0.1":
   version "11.0.3"
   resolved "https://registry.yarnpkg.com/@atlaskit/code/-/code-11.0.3.tgz#2adb585441fae2c3a35017e620c2d1511572c04c"
@@ -131,6 +145,16 @@
   version "18.0.5"
   resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-18.0.5.tgz#46fc66900e6da589f31e6e50b1cf1864c2a12dba"
   integrity sha512-N94RTnHRGE1S31JXao7Ow8xvwmx4ZQMhY08OalAfh+vBU5fJwf2cn27JqdLhmsUFhNtFPXZ/fxxITZV+x8HWUQ==
+  dependencies:
+    "@atlaskit/theme" "^9.1.1"
+    "@babel/runtime" "^7.0.0"
+    tslib "^1.9.3"
+    uuid "^3.1.0"
+
+"@atlaskit/icon@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-19.0.0.tgz#c7b522e1fdbbe9e7aca4cf31062979b78bce8a61"
+  integrity sha512-PZpx/wPB3AWjQ42UgMuFLHUxeF7uKkYeyxXujXxE86lkHhhGKTzwTWDXK+0hlzCS+rvaBq3upwBoYucDNu6dUg==
   dependencies:
     "@atlaskit/theme" "^9.1.1"
     "@babel/runtime" "^7.0.0"
@@ -247,13 +271,24 @@
     tiny-invariant "^0.0.3"
     tslib "^1.9.3"
 
-"@atlaskit/section-message@^4.0.2", "@atlaskit/section-message@^4.0.4":
+"@atlaskit/section-message@^4.0.2":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@atlaskit/section-message/-/section-message-4.0.4.tgz#1faf6b1a2a9a18b85e92d39f06541b33bb33f6ab"
   integrity sha512-tFgLOK9lhbvtrlaTv4UInnZrh4eREyaMk4QkiFSutn1w6tRE1ilkLk/8PEDN5aINfPjJpLWNV8re2bJXBwywlg==
   dependencies:
     "@atlaskit/button" "^13.0.8"
     "@atlaskit/icon" "^18.0.4"
+    "@atlaskit/theme" "^9.1.1"
+    "@babel/runtime" "^7.0.0"
+    tslib "^1.9.3"
+
+"@atlaskit/section-message@^4.0.5":
+  version "4.0.5"
+  resolved "https://registry.yarnpkg.com/@atlaskit/section-message/-/section-message-4.0.5.tgz#ff378825fd0dde29f526f3f708242b7f956bbf7e"
+  integrity sha512-pajwc4L6riri+ABdmu/UIM5z4blSDOMaMjeJ3rvIVOyN5eS7y12t8SwCdMXKjHhr2zGmFHcMkLFNQlkdlLy2xQ==
+  dependencies:
+    "@atlaskit/button" "^13.0.9"
+    "@atlaskit/icon" "^19.0.0"
     "@atlaskit/theme" "^9.1.1"
     "@babel/runtime" "^7.0.0"
     tslib "^1.9.3"
