@@ -1,20 +1,36 @@
 import React from 'react';
-import fonts from '../../fonts';
+import { connect } from 'react-redux';
+import { actionUpdateBonoField } from '../../actions/bonoActions';
 import { InputField } from './urbarium-styles';
 
-const InputTextBox = ({ data, ...props }) => (
-  <InputField defaultValue={data} {...props} />
-);
+
+const mapDispathToProps = dispatch => ({ updateField: payload => dispatch(actionUpdateBonoField(payload)) });
+
+
+class InputTextBox extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleBlur = this.handleBlur.bind(this);
+  }
+
+  handleBlur(event) {
+    const { name, updateField } = this.props;
+    const { value } = event.target;
+    const payload = { field: name, value };
+    updateField(payload);
+  }
+
+  render() {
+    const { data, updateField, ...otherProps } = this.props;
+    return (
+      <InputField defaultValue={data} onBlur={this.handleBlur} {...otherProps} />
+    );
+  }
+}
 
 InputTextBox.defaultProps = {
-  placeholder: '',
-  font: fonts.defaultInput,
-  data: undefined,
   type: 'text',
   name: 'unnamed_textbox',
-  pattern: undefined,
-  title: '',
-  required: false,
 };
 
-export default InputTextBox;
+export default connect(null, mapDispathToProps)(InputTextBox);
