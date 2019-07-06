@@ -26,93 +26,95 @@ import {
 
 const formID = 'tramites-page-form';
 
-const AccordionMenu = ({ data, onSubmit }) => (
+const AccordionMenu = () => (
   <div style={{ height: '100%', overflowY: 'auto' }}>
-    <Form onSubmit={onSubmit} id={formID}>
+    <Form id={formID}>
       <Column gap={5}>
-        <Accordion index={1} data={data[0]} title="Visita preliminar solicitada" />
-        <Accordion index={2} data={data[1]} title="En conformación" columns="3fr 1fr">
+        <Accordion index={1} title="Visita preliminar solicitada" name="tramites-1" />
+        <Accordion index={2} title="En conformación" name="tramites-2" columns="3fr 1fr">
           <Input
             grid={170}
             type="checkbox"
             label="Expediente"
-            name="conformacion_expediente"
             options={ConformacionExpedienteOptions}
+            name="tramites-2"
           />
           <Input
             type="checkbox"
             label="Avalúo"
-            name="conformacion_avaluo"
-            options={ConformacionAvaluoOptions}
             checkColor="blue"
+            options={ConformacionAvaluoOptions}
+            name="tramites-2"
           />
         </Accordion>
-        <Accordion index={3} data={data[2]} title="Enviado a entidad" columns="1fr 4fr">
+        <Accordion index={3} title="Enviado a entidad" name="tramites-3" columns="1fr 4fr">
           <Input
             type="checkbox"
             grid={200}
             options={EnviadoEntidadOptions}
-            name="enviado_entidad"
+            name="tramites-3"
           />
         </Accordion>
-        <Accordion index={4} data={data[3]} title="Cambios tramitados y enviados" />
-        <Accordion index={5} data={data[4]} title="Análisis en entidad" />
-        <Accordion index={6} data={data[5]} title="FHA solicitado por entidad" />
-        <Accordion index={7} data={data[6]} title="En espera de postulación" />
-        <Accordion index={8} data={data[7]} title="Postulada a Bahnvi" columns="2fr 3fr 1fr">
+        <Accordion index={4} title="Cambios tramitados y enviados" name="tramites-4" />
+        <Accordion index={5} title="Análisis en entidad" name="tramites-5" />
+        <Accordion index={6} title="FHA solicitado por entidad" name="tramites-6" />
+        <Accordion index={7} title="En espera de postulación" name="tramites-7" />
+        <Accordion index={8} title="Postulada a Bahnvi" name="tramites-8" columns="2fr 3fr 1fr">
           <Input
             type="checkbox"
             grid={200}
+            name="tramites-8"
             options={PostuladaBanhviOptions}
-            name="postulada_banhvi"
           />
           <Input
             type="textarea"
+            name="tramites-8-notas"
             placeholder="Notas"
             height={58}
             fill
           />
         </Accordion>
-        <Accordion index={9} data={data[8]} title="Preparación de documentos para APC" columns="1fr 1fr 1fr">
+        <Accordion index={9} title="Preparación de documentos para APC" name="tramites-9" columns="1fr 1fr 1fr">
           <Input
             type="checkbox"
             grid={200}
             options={PreparacionApcOptions}
-            name="preparacion_apc"
+            name="tramites-9"
           />
           <Input
             type="dropdown"
             placeholder="Adjuntar documento"
             options={['This should be a document input', 'not a dropdown', 'working on it...']}
+            name="tramites-9-documento"
           />
         </Accordion>
-        <Accordion index={10} data={data[9]} title="Listos para APC" />
-        <Accordion index={11} data={data[10]} title="Subida a APC" />
-        <Accordion index={12} data={data[11]} title="CFIA" columns="1fr 3fr">
+        <Accordion index={10} title="Listos para APC" name="tramites-10" />
+        <Accordion index={11} title="Subida a APC" name="tramites-11" />
+        <Accordion index={12} title="CFIA" name="tramites-12" columns="1fr 3fr">
           <Input
             type="checkbox"
             grid={200}
             options={CfiaOPtions}
-            name="cfia"
+            name="tramites-12"
           />
         </Accordion>
-        <Accordion index={13} data={data[12]} title="Trámite con Municipalidad" columns="1fr 1fr">
+        <Accordion index={13} title="Trámite con Municipalidad" name="tramites-13" columns="1fr 1fr">
           <Input
             type="checkbox"
             label="Rechazado"
             grid={200}
             options={TramiteMunicipalidadRechazadoOptions}
-            name="tramite_municipalidad_rechazado"
+            name="tramites-13"
           />
           <Input
             type="checkbox"
             label="Avalúo"
             grid={200}
             options={TramiteMunicipalidadAvaluoOptions}
-            name="tramite_municipalidad_avaluo"
+            name="tramites-13"
           />
         </Accordion>
-        <Accordion index={14} data={data[13]} title="En espera de Ins y permiso municipal" />
+        <Accordion index={14} title="En espera de Ins y permiso municipal" name="tramites-14" />
       </Column>
     </Form>
   </div>
@@ -161,45 +163,4 @@ TramitesPage.defaultProps = {
     modificacion: '',
     creacion: '6/24/2019',
   },
-  data: Array(14).fill({
-    startDate: '12/10/2019',
-    endDate: '12/10/2109',
-    user: 'Juan Jose Alfaro',
-    state: 0,
-  }),
-  // eslint-disable-next-line no-console
-  onSubmit(args) { console.table(args); },
 };
-
-
-// const data = {
-//   vistaPreliminar: {
-//     inicio: '-',
-//     conclusion: '-',
-//     asignado: '-',
-//     status: 0,
-//   },
-//   enConformacion: {
-//     inicio: '-',
-//     conclusion: '-',
-//     asignado: '-',
-//     status: 0,
-//     conformacion_expediente_bienes_inmueble: false,
-//     conformacion_expediente_informe_registral: false,
-//     conformacion_expediente_reporte_css: false,
-//     conformacion_expediente_formulario_utilidad: false,
-//     conformacion_expediente_nacimiento: false,
-//     conformacion_expediente_declaraciones_jurada: false,
-//     conformacion_expediente_justificacion_propiedades: false,
-//     conformacion_expediente_escritura_hipoteca: false,
-//     conformacion_expediente_constancia_salarial: false,
-//     conformacion_expediente_impuestos_dia: false,
-//     conformacion_expediente_estado_civil: false,
-//   },
-//   enviadoEntidad: {
-//     inicio: '-',
-//     conclusion: '-',
-//     asignado: '-',
-//     status: 0,
-//   },
-// };

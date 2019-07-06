@@ -32,7 +32,7 @@ export const Caracteristica = [
   { name: 'Persona con Discapacidad', value: 'discapacidad' },
 ];
 
-// TODO: Change this to an year range from the current year
+// TODO: Change this to a year range from the current year
 export const Anos = [
   { name: '2018', value: 2018 },
   { name: '2019', value: 2019 },
@@ -40,57 +40,52 @@ export const Anos = [
   { name: '2021', value: 2021 },
 ];
 
-
-// Checkbox options, values have to be very specific
-
 export const ConformacionExpedienteOptions = [
-  { name: 'Bienes inmuebles', value: 'conformacion_expediente_bienes_inmuebles' },
-  { name: 'Informe registral', value: 'conformacion_expediente_informe_registral' },
-  { name: 'Reporte CSS', value: 'conformacion_expediente_reporte_css' },
-  { name: 'Formulario de utilidad', value: 'conformacion_expediente_formulario_utilidad' },
-  { name: 'Nacimientos', value: 'conformacion_expediente_nacimientos' },
-  { name: 'Declaraciones Juradas', value: 'conformacion_expediente_declaraciones_juradas' },
-  { name: 'Justificación de propiedades', value: 'conformacion_expediente_justificacion_propiedades' },
-  { name: 'Escritura de hipoteca', value: 'conformacion_expediente_escritura_hipoteca' },
-  { name: 'Constancia Salarial', value: 'conformacion_expediente_constancia_salarial' },
-  { name: 'Impuestos al día', value: 'conformacion_expediente_impuestos_dia' },
-  { name: 'Estado Civil', value: 'conformacion_expediente_estado_civil' },
+  { name: 'Bienes inmuebles', value: 'bienes_inmuebles' },
+  { name: 'Informe registral', value: 'informe_registral' },
+  { name: 'Reporte CSS', value: 'reporte_css' },
+  { name: 'Formulario de utilidad', value: 'formulario_utilidad' },
+  { name: 'Nacimientos', value: 'acimientos' },
+  { name: 'Declaraciones Juradas', value: 'eclaraciones_juradas' },
+  { name: 'Justificación de propiedades', value: 'justificacion_propiedades' },
+  { name: 'Escritura de hipoteca', value: 'escritura_hipoteca' },
+  { name: 'Constancia Salarial', value: 'constancia_salarial' },
+  { name: 'Impuestos al día', value: 'impuestos_dia' },
+  { name: 'Estado Civil', value: 'estado_civil' },
 ];
 
 export const ConformacionAvaluoOptions = [
-  { name: 'Recibo de Pago', value: 'conformacion_avaluo_recibo_pago' },
+  { name: 'Recibo de Pago', value: 'recibo_pago' },
 ];
 
 export const EnviadoEntidadOptions = [
-  { name: 'Solicitud de cambio por avalúo', value: 'enviado_entidad_cambio_avaluo' },
-  { name: 'Solicitud de cambios en trámites', value: 'enviado_entidad_cambio_tramites' },
+  { name: 'Solicitud de cambio por avalúo', value: 'solicitud_cambio_avaluo' },
+  { name: 'Solicitud de cambios en trámites', value: 'solicitud_cambio_tramites' },
 ];
 
 export const PostuladaBanhviOptions = [
-  { name: 'Inconscistencias', value: 'postulada_banhvi_incoscistencias' },
-  { name: 'Declaratoria emitida', value: 'postulada_banhvi_declaratoria_emitida' },
+  { name: 'Inconscistencias', value: 'incoscistencias' },
+  { name: 'Declaratoria emitida', value: 'declaratoria_emitida' },
 ];
 
 export const PreparacionApcOptions = [
-  { name: 'Planos en Sharepoint', value: 'preparacion_apc_planos_sharepoint' },
-  { name: 'Documentos en Sharepoint', value: 'preparacion_apc_documentos_sharepoint' },
+  { name: 'Planos en Sharepoint', value: 'planos_sharepoint' },
+  { name: 'Documentos en Sharepoint', value: 'documentos_sharepoint' },
 ];
 
 export const CfiaOPtions = [
-  { name: 'Condicionado', value: 'cfia_condicionado' },
-  { name: 'Aprobado', value: 'cfia_aprobado' },
+  { name: 'Condicionado', value: 'condicionado' },
+  { name: 'Aprobado', value: 'aprobado' },
 ];
 
 export const TramiteMunicipalidadRechazadoOptions = [
-  { name: 'En solicitud de requisito', value: 'tramite_municipalidad_rechazado_requisito' },
-  { name: 'En solicitud de cambios de diseño', value: 'tramite_municipalidad_rechazado_cambios_diseno' },
+  { name: 'En solicitud de requisito', value: 'solicitud_requisito' },
+  { name: 'En solicitud de cambios de diseño', value: 'solicitud_cambios_diseno' },
 ];
 
 export const TramiteMunicipalidadAvaluoOptions = [
   { name: 'Aprobado', value: 'tramite_municipalidad_avaluo_aprobado' },
 ];
-
-// Radio options, values can be simple because only one is ever present
 
 export const SolicitudPlanoPresupuestoOptions = [
   { name: 'Aprobado', value: 'aprobado' },
