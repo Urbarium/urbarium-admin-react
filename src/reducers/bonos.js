@@ -5,8 +5,8 @@ const initialState = {
   currentBono: {
     jefeDeFamilia: {
       nombre: null,
-      apellido1: null,
-      apellido2: null,
+      primer_apellido: null,
+      segundo_apellido: null,
       cedula: null,
     },
     beneficiarios: {
