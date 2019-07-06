@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { actionUpdateBonoField } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs as mapDispatchToProps } from '../../actions/bonoActions';
 import Arrow from './Arrow';
 import { colors, InputField } from './urbarium-styles';
 
@@ -29,8 +29,6 @@ const ArrowContainer = styled.div`
 const getOptions = options => (
   options.map(option => <option value={option.value} key={option.value}>{option.name}</option>)
 );
-
-const mapDispatchToProps = dispath => ({ updateField: payload => dispath(actionUpdateBonoField(payload)) });
 
 class InputDropDown extends React.Component {
   constructor(props) {

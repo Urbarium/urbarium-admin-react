@@ -45,6 +45,11 @@ export function actionUpdateBonoField(payload) {
   return { type: 'UPDATE_BONO_FIELD', payload };
 }
 
+// every input uses the same map so defined here for convenience
+export function mapDispatchToPropsForInputs(dispatch) {
+  return { updateField: payload => dispatch(actionUpdateBonoField(payload)) };
+}
+
 export function actionAddBeneficiario(payload) {
   return { type: 'ADD_BENEFICIARIO', payload };
 }

@@ -1,11 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { actionUpdateBonoField } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs as mapDispatchToProps } from '../../actions/bonoActions';
 import { InputField } from './urbarium-styles';
-
-
-const mapDispathToProps = dispatch => ({ updateField: payload => dispatch(actionUpdateBonoField(payload)) });
-
 
 class InputTextBox extends React.Component {
   constructor(props) {
@@ -33,4 +29,4 @@ InputTextBox.defaultProps = {
   name: 'unnamed_textbox',
 };
 
-export default connect(null, mapDispathToProps)(InputTextBox);
+export default connect(null, mapDispatchToProps)(InputTextBox);

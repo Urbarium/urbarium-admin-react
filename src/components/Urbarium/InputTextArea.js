@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { actionUpdateBonoField } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs as mapDispatchToProps } from '../../actions/bonoActions';
 import { TextAreaStyle as style, InputField } from './urbarium-styles';
 
 const getHeight = (props) => {
@@ -25,7 +25,6 @@ const TextArea = styled(InputField)`
   color: ${style.color};
 `;
 
-const mapDispathToProps = dispath => ({ updateField: payload => dispath(actionUpdateBonoField(payload)) });
 
 class InputTextArea extends React.Component {
   constructor(props) {
@@ -57,4 +56,4 @@ InputTextArea.defaultProps = {
   name: "unnamed_textarea",
 };
 
-export default connect(null, mapDispathToProps)(InputTextArea);
+export default connect(null, mapDispatchToProps)(InputTextArea);
