@@ -112,12 +112,12 @@
     react-transition-group "^2.2.1"
     tiny-invariant "^0.0.3"
 
-"@atlaskit/form@^6.1.0":
-  version "6.1.0"
-  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.1.0.tgz#a5d65527c9c9040ac2b7305fb0e1998d65350a9e"
-  integrity sha512-G+AaERdRngsHRVV2Xc2Cbpu3t1ae+X+UC/iEXR0DOyle5n1cLGHROSF15vv3BwOWmernTwD6LSl6i0d4tgDTsA==
+"@atlaskit/form@^6.1.1":
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.1.1.tgz#7fed4053d9612c5d5f6fee443054f1c3dff005e8"
+  integrity sha512-d9Cl2FeoIP24wovNoDLwNSR1hWoNcFnGi1z+zieW913h3gITvIjtXFwAdANqxxoBFe2ySsQ5ZP2vinDf09H8wA==
   dependencies:
-    "@atlaskit/icon" "^18.0.4"
+    "@atlaskit/icon" "^19.0.0"
     "@atlaskit/theme" "^9.1.1"
     "@babel/runtime" "^7.0.0"
     final-form "^4.13.0"
@@ -131,6 +131,16 @@
   version "18.0.5"
   resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-18.0.5.tgz#46fc66900e6da589f31e6e50b1cf1864c2a12dba"
   integrity sha512-N94RTnHRGE1S31JXao7Ow8xvwmx4ZQMhY08OalAfh+vBU5fJwf2cn27JqdLhmsUFhNtFPXZ/fxxITZV+x8HWUQ==
+  dependencies:
+    "@atlaskit/theme" "^9.1.1"
+    "@babel/runtime" "^7.0.0"
+    tslib "^1.9.3"
+    uuid "^3.1.0"
+
+"@atlaskit/icon@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-19.0.0.tgz#c7b522e1fdbbe9e7aca4cf31062979b78bce8a61"
+  integrity sha512-PZpx/wPB3AWjQ42UgMuFLHUxeF7uKkYeyxXujXxE86lkHhhGKTzwTWDXK+0hlzCS+rvaBq3upwBoYucDNu6dUg==
   dependencies:
     "@atlaskit/theme" "^9.1.1"
     "@babel/runtime" "^7.0.0"
