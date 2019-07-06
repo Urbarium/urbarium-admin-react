@@ -19,6 +19,7 @@ const initialState = {
     },
     canton: null,
     distrito: null,
+    provincia: null,
     direccion: null,
     telefono: null,
     celular: null,
