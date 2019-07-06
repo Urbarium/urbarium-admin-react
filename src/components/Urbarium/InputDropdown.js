@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { actionUpdateBonoField } from '../../actions/bonoActions';
 import Arrow from './Arrow';
 import { colors, InputField } from './urbarium-styles';
 
@@ -28,35 +30,51 @@ const getOptions = options => (
   options.map(option => <option value={option.value} key={option.value}>{option.name}</option>)
 );
 
+const mapDispatchToProps = dispath => ({ updateField: payload => dispath(actionUpdateBonoField(payload)) });
+
 class InputDropDown extends React.Component {
   constructor(props) {
     super(props);
-    const { data } = this.props;
-    this.state = { dataDefault: !data };
+    this.handleChange = this.handleChange.bind(this);
   }
 
-  handleOnChange(event) {
+  // dropdown group can change props of individual dropdowns bypassing the onChange event
+  componentWillReceiveProps(nextProps) {
+    const { disabled, options } = this.props;
+    if (nextProps.disabled !== disabled || nextProps.options[0] !== options[0]) {
+      this.triggerUpdate(null);
+    }
+  }
+
+  handleChange(event) {
     const { options, changeHandler } = this.props;
-    this.setState({ dataDefault: false });
-    const selectedIndex = options.findIndex(element => element.value === event.target.value);
-    changeHandler(selectedIndex);
+    const { value } = event.target;
+    this.triggerUpdate(value);
+    if (changeHandler) {
+      const selectedIndex = options.findIndex(element => element.value === value);
+      changeHandler(selectedIndex);
+    }
+  }
+
+  triggerUpdate(value) {
+    const { name, updateField } = this.props;
+    updateField({ field: name, value });
   }
 
   render() {
     const {
       name, placeholder, options, data, required, disabled,
     } = this.props;
-    const { dataDefault } = this.state;
     return (
       <div className="InputDropDown">
         {/* data-default is used as a data property to alter style using css selectors */}
         <DropDown
           name={name}
-          data-default={dataDefault}
+          data-default={false}
           defaultValue={data || ""}
-          onChange={event => this.handleOnChange(event)}
           disabled={disabled}
           required={required}
+          onChange={this.handleChange}
         >
           <option hidden value="" key={placeholder}>{placeholder}</option>
           {getOptions(options)}
@@ -73,10 +91,7 @@ InputDropDown.defaultProps = {
   placeholder: ' ',
   name: 'unnamed_dropdown',
   options: [{ name: 'Option 1', value: 'option_1' }],
-  data: undefined,
-  disabled: false,
-  required: false,
-  changeHandler() {},
+  changeHandler: null,
 };
 
-export default InputDropDown;
+export default connect(null, mapDispatchToProps)(InputDropDown);
