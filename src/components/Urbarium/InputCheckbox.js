@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
 import { mapDispatchToPropsForInputs } from '../../actions/bonoActions';
+import { accessRecursively } from '../../helpers/functions';
 import { primary, secondary } from '../../colors';
 import { FlexGrid } from '../Structural/index';
 import OptionWrapper from './OptionWrapper';
@@ -72,7 +73,7 @@ const Input = styled.input`
 class CheckboxOption extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { checked: null };
+    this.state = { checked: props.data };
     this.handleClick = this.handleClick.bind(this);
   }
 
@@ -113,9 +114,14 @@ CheckboxOption.defaultProps = {
   size: 15,
   checkColor: primary.primary,
   boxColor: secondary.lightgray,
+  updateField() {},
+  data: null,
 };
 
-const ConnectedCheckboxOption = connect(null, mapDispatchToPropsForInputs)(CheckboxOption);
+const mapStateToProps = (state, ownProps) => ({
+  data: accessRecursively(state, ['bonos', 'currentBono', ...ownProps.value.split('-')]),
+});
+const ConnectedCheckboxOption = connect(mapStateToProps, mapDispatchToPropsForInputs)(CheckboxOption);
 
 
 // Checkbox options group

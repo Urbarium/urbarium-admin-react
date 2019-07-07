@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs as mapDispatchToProps } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
 import { TextAreaStyle as style, InputField } from './urbarium-styles';
 
 const getHeight = (props) => {
@@ -54,6 +54,8 @@ class InputTextArea extends React.Component {
 InputTextArea.defaultProps = {
   fill: false,
   name: "unnamed_textarea",
+  data: null,
+  updateField() {},
 };
 
-export default connect(null, mapDispatchToProps)(InputTextArea);
+export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextArea);

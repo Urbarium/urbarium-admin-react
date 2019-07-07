@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
 import { primary, secondary } from '../../colors';
 import { FlexGrid } from '../Structural/index';
 import OptionWrapper from './OptionWrapper';
@@ -82,7 +82,7 @@ RadioOption.defaultProps = {
 class InputRadio extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { value: null };
+    this.state = { value: props.data };
   }
 
   handleClick(value) {
@@ -116,6 +116,8 @@ InputRadio.defaultProps = {
   options: [{ name: 'Option 1', value: 'option_1' }],
   right: false,
   grid: 0,
+  data: null,
+  updateField() {},
 };
 
-export default connect(null, mapDispatchToPropsForInputs)(InputRadio);
+export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputRadio);

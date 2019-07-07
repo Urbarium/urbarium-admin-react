@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs as mapDispatchToProps } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
 import Arrow from './Arrow';
 import { InputField } from './urbarium-styles';
 
@@ -88,7 +88,9 @@ class InputState extends React.Component {
 InputState.defaultProps = {
   name: 'unnamed_state_input',
   options: [{ name: 'Initial State', value: 'initial_state', style: 'gray' }],
-  data: undefined,
+  data: null,
+  updateField() {},
+
 };
 
-export default connect(null, mapDispatchToProps)(InputState);
+export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputState);

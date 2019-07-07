@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs as mapDispatchToProps } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
 import Arrow from './Arrow';
 import { colors, InputField } from './urbarium-styles';
 
@@ -69,7 +69,7 @@ class InputDropDown extends React.Component {
         <DropDown
           name={name}
           data-default={false}
-          defaultValue={data || ""}
+          defaultValue={data}
           disabled={disabled}
           required={required}
           onChange={this.handleChange}
@@ -90,6 +90,8 @@ InputDropDown.defaultProps = {
   name: 'unnamed_dropdown',
   options: [{ name: 'Option 1', value: 'option_1' }],
   changeHandler: null,
+  data: null,
+  updateField() {},
 };
 
-export default connect(null, mapDispatchToProps)(InputDropDown);
+export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputDropDown);

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs as mapDispatchToProps } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
 import { InputField } from './urbarium-styles';
+
 
 class InputTextBox extends React.Component {
   constructor(props) {
@@ -27,6 +28,8 @@ class InputTextBox extends React.Component {
 InputTextBox.defaultProps = {
   type: 'text',
   name: 'unnamed_textbox',
+  data: null,
+  updateField() {},
 };
 
-export default connect(null, mapDispatchToProps)(InputTextBox);
+export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextBox);
