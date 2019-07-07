@@ -271,6 +271,16 @@
     tiny-invariant "^0.0.3"
     tslib "^1.9.3"
 
+"@atlaskit/portal@^3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@atlaskit/portal/-/portal-3.0.7.tgz#c21b2dee1275b6b37de0547dc30beb4de517347a"
+  integrity sha512-03UZRXhnL6MYW1AU6CMtlxCGrFYEHn00VseUR2CrUPQCr+V61GLm3OihCsqOHjVBa0jeoHS74dNkAfYU37udag==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    exenv "^1.2.2"
+    tiny-invariant "^0.0.3"
+    tslib "^1.9.3"
+
 "@atlaskit/section-message@^4.0.2":
   version "4.0.4"
   resolved "https://registry.yarnpkg.com/@atlaskit/section-message/-/section-message-4.0.4.tgz#1faf6b1a2a9a18b85e92d39f06541b33bb33f6ab"
