@@ -196,16 +196,16 @@
     react-addons-text-content "^0.0.4"
     uuid "^3.1.0"
 
-"@atlaskit/modal-dialog@^10.0.6":
-  version "10.0.6"
-  resolved "https://registry.yarnpkg.com/@atlaskit/modal-dialog/-/modal-dialog-10.0.6.tgz#92c708e0a45f85ed429d0237b0540394c3b8fdde"
-  integrity sha512-eQloCHzMPrwdbugGDiskzIxVGnLnfhCEN+JRmMzILmf6wXvvfWWkwX5vYL+/BuE1+4Ojgmdub/luoVXAc+oSVQ==
+"@atlaskit/modal-dialog@^10.0.7":
+  version "10.0.7"
+  resolved "https://registry.yarnpkg.com/@atlaskit/modal-dialog/-/modal-dialog-10.0.7.tgz#145a8c2816acdb5f70d18c4c124a30187e2dd416"
+  integrity sha512-3DqYgxlNHcDu9WmwBcmVtLNliCpQfj+NBnGxoupGjKtEb1faF1HzmUG7b7D63GOe3aGV/7FH/qubmg480BCw+Q==
   dependencies:
     "@atlaskit/analytics-next" "^5.0.2"
     "@atlaskit/blanket" "^10.0.0"
-    "@atlaskit/button" "^13.0.8"
-    "@atlaskit/icon" "^18.0.4"
-    "@atlaskit/portal" "^3.0.6"
+    "@atlaskit/button" "^13.0.9"
+    "@atlaskit/icon" "^19.0.0"
+    "@atlaskit/portal" "^3.0.7"
     "@atlaskit/theme" "^9.1.1"
     "@emotion/core" "^10.0.9"
     "@emotion/styled" "^10.0.7"
@@ -265,6 +265,16 @@
   version "3.0.6"
   resolved "https://registry.yarnpkg.com/@atlaskit/portal/-/portal-3.0.6.tgz#035c8d9f32703e71aa09c9b6e9eacd1329f38431"
   integrity sha512-05sDPbXzTqx9wr1mlQhNLifpMjXrg4E40U066bbuaE8gZoLZPuQicezBMJKkhw4kUcxdZL03U+KYmDDSGDW8ow==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    exenv "^1.2.2"
+    tiny-invariant "^0.0.3"
+    tslib "^1.9.3"
+
+"@atlaskit/portal@^3.0.7":
+  version "3.0.7"
+  resolved "https://registry.yarnpkg.com/@atlaskit/portal/-/portal-3.0.7.tgz#c21b2dee1275b6b37de0547dc30beb4de517347a"
+  integrity sha512-03UZRXhnL6MYW1AU6CMtlxCGrFYEHn00VseUR2CrUPQCr+V61GLm3OihCsqOHjVBa0jeoHS74dNkAfYU37udag==
   dependencies:
     "@babel/runtime" "^7.0.0"
     exenv "^1.2.2"
