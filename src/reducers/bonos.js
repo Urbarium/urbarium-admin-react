@@ -1,5 +1,5 @@
 /* eslint-disable object-curly-newline */
-import { copyRecursively } from '../helpers/copyRecursively';
+import { copyReplaceObject as copy } from '../helpers/functions';
 
 const initialState = {
   currentBono: {
@@ -17,9 +17,9 @@ const initialState = {
         segundo_apellido: null,
       },
     },
+    provincia: null,
     canton: null,
     distrito: null,
-    provincia: null,
     direccion: null,
     telefono: null,
     celular: null,
@@ -130,27 +130,24 @@ export default (state = initialState, action) => {
     return Object.assign({}, state, { newBono: action.payload });
 
   case 'UPDATE_BONO_FIELD': {
-    const namesArray = action.payload.field.split('-');
+    const namesArray = ['currentBono', ...action.payload.field.split('-')];
     const newValue = action.payload.value || null;
-    const newCurrentBono = copyRecursively(state.currentBono, namesArray, newValue);
-    return Object.assign({}, state, { currentBono: newCurrentBono });
+    return copy(state, namesArray, newValue);
   }
 
   case 'ADD_BENEFICIARIO': {
-    const newBeneficiarios = Object.assign({}, state.currentBono.beneficiarios, {
-      [action.payload.index]: Object.assign({}, initialState.currentBono.beneficiarios['1']),
-    });
-    return Object.assign({}, state, {
-      currentBono: Object.assign({}, state.currentBono, { beneficiarios: newBeneficiarios }),
-    });
+    const newBeneficiarios = copy(
+      state.currentBono.beneficiarios,
+      action.payload.index,
+      Object.assign({}, initialState.currentBono.beneficiarios['1']),
+    );
+    return copy(state, ['currentBono', 'beneficiarios'], newBeneficiarios);
   }
 
   case 'REMOVE_BENEFICIARIO': {
     const newBeneficiarios = Object.assign({}, state.currentBono.beneficiarios);
     delete newBeneficiarios[action.payload.index];
-    return Object.assign({}, state, {
-      currentBono: Object.assign({}, state.currentBono, { beneficiarios: newBeneficiarios }),
-    });
+    return copy(state, ['currentBono', 'beneficiarios'], newBeneficiarios);
   }
 
   default:
