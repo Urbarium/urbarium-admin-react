@@ -1,4 +1,5 @@
 import { navs, actionProductNavSet } from './navigationActions';
+import { accessRecursively } from '../helpers/functions';
 
 export function actionBonoStart() {
   return { type: 'BONO_START' };
@@ -45,15 +46,19 @@ export function actionUpdateBonoField(payload) {
   return { type: 'UPDATE_BONO_FIELD', payload };
 }
 
-// every input uses the same map so defined here for convenience
-export function mapDispatchToPropsForInputs(dispatch) {
-  return { updateField: payload => dispatch(actionUpdateBonoField(payload)) };
-}
-
 export function actionAddBeneficiario(payload) {
   return { type: 'ADD_BENEFICIARIO', payload };
 }
 
 export function actionRemoveBeneficiario(payload) {
   return { type: 'REMOVE_BENEFICIARIO', payload };
+}
+
+// every input uses the same map so defined here for convenience
+export function mapDispatchToPropsForInputs(dispatch) {
+  return { updateField: payload => dispatch(actionUpdateBonoField(payload)) };
+}
+
+export function mapStateToPropsForInputs(state, ownProps) {
+  return { data: accessRecursively(state, ['bonos', 'currentBono', ...ownProps.name.split('-')]) };
 }
