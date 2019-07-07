@@ -5,27 +5,15 @@ import { Row } from '../Structural/index';
 class DDG extends React.Component {
   constructor(props) {
     super(props);
-    const { options, data } = this.props;
+    const { options } = this.props;
     this.count = options.length;
     const initDisables = Array(this.count).fill(true);
+    initDisables[0] = false;
     const initSelectedIndexes = Array(this.count).fill(0);
     const initOptions = Array(this.count).fill(undefined);
-    const initData = Array(this.count).fill(undefined);
-    // initialize dropdowns if data is passed
-    if (data.some(element => !!element)) {
-      data.forEach((element, index) => {
-        initDisables[index] = false;
-        initOptions[index] = this.accessRecursively(options[index], initSelectedIndexes, index);
-        initSelectedIndexes[index] = initOptions[index].findIndex(option => option.value === element);
-        initData[index] = element;
-      });
-      initDisables[data.length] = false;
-    } else {
-      initDisables[0] = false;
-      // eslint-disable-next-line prefer-destructuring
-      initOptions[0] = options[0];
-    }
-
+    // eslint-disable-next-line prefer-destructuring
+    initOptions[0] = options[0];
+    const initData = Array(this.count).fill(undefined);        
     this.selectedIndexes = initSelectedIndexes;
     this.initialData = initData;
     this.state = {
@@ -37,7 +25,11 @@ class DDG extends React.Component {
   getDropdowns() {
     const result = Array(this.count).fill('');
     const data = this.initialData;
-    const { placeholders, names, labels } = this.props;
+    const {
+      placeholders,
+      names,
+      labels,
+    } = this.props;
     const { options, disables } = this.state;
     return result.map((_, dropdownIndex) => (
       <Input
@@ -83,9 +75,6 @@ class DDG extends React.Component {
     );
   }
 }
-
-// TODO: Change data structure of linked dropdowns
-// there's an object structure below but its not quite ready
 
 const provincias = [
   { name: 'San José', value: 'san_jose' },
@@ -152,96 +141,9 @@ const distritos = [
 
 DDG.defaultProps = {
   options: [provincias, cantones, distritos],
-  placeholders: ['Provincia', 'Cantón', 'Distrito'],
-  names: ['provincia', 'canton', 'distrito'],
+  placeholders: [' ', ' ', ' '],
+  names: ['linked_dropdown_1', 'linked_dropdown_2', 'linked_dropdown_3'],
   labels: [],
-  data: [],
 };
 
 export default DDG;
-
-// first try, have to define a better structure
-// const testData = {
-//   provincias: [
-//     {
-//       cantones: [
-//         {
-//           name: "San Jose",
-//           distritos: [
-//             {
-//               name: "Carmen"
-//             },
-//             {
-//               name: "Merced"
-//             }
-//           ]
-//         },
-//         {
-//           name: "Desampadaros",
-//           distritos: [
-//             {
-//               name: "Desamparados"
-//             },
-//             {
-//               name: "San Miguel"
-//             }
-//           ]
-//         }
-//       ]
-//     },
-//     {
-//       name: "Alajuela",
-//       cantones: [
-//         {
-//           name: "Alajuela",
-//           distritos: [
-//             {
-//               name: "Guacima"
-//             },
-//             {
-//               name: "San Isidro"
-//             }
-//           ]
-//         },
-//         {
-//           name: "San Ramon",
-//           distritos: [
-//             {
-//               name: "Piedades Norte"
-//             },
-//             {
-//               name: "Piedades Sur"
-//             }
-//           ]
-//         }
-//       ]
-//     },
-//     {
-//       name: "Cartago",
-//       cantones: [
-//         {
-//           name: "Cartago",
-//           distritos: [
-//             {
-//               name: "Oriental"
-//             },
-//             {
-//               name: "Occidental"
-//             }
-//           ]
-//         },
-//         {
-//           name: "Turrialba",
-//           distritos: [
-//             {
-//               name: "Santa Cruz"
-//             },
-//             {
-//               name: "Pavones"
-//             }
-//           ]
-//         }
-//       ]
-//     },
-//   ]
-// }

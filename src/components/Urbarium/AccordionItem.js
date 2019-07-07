@@ -79,24 +79,21 @@ class AccordionItem extends React.Component {
 
   render() {
     const {
-      data, title, index, columns, children,
+      title, index, columns, children, name,
     } = this.props;
-    const {
-      startDate, endDate, user, state,
-    } = data;
     const { opened } = this.state;
     return (
       <AccordionFrame>
-
+        {/* this first row is the accordion header */}
         <Row columns="5fr 2fr 2fr 2fr 2fr 1fr" align="center">
           <Flex>
             <Label theme={indexTheme}>{`${index}.  `}</Label>
             <Label theme={titleTheme}>{title}</Label>
           </Flex>
-          <Label theme={headerTheme}>{startDate}</Label>
-          <Label theme={headerTheme}>{endDate}</Label>
-          <Label theme={headerTheme}>{user}</Label>
-          <InputState data={state} options={AccordionStateOptions} />
+          <Label theme={headerTheme}>-</Label>
+          <Label theme={headerTheme}>-</Label>
+          <Label theme={headerTheme}>-</Label>
+          <InputState options={AccordionStateOptions} name={`${name}-status`} />
           { children
             ? (
               <Row>
@@ -120,15 +117,10 @@ class AccordionItem extends React.Component {
 }
 
 AccordionItem.defaultProps = {
+  name: 'unnamed_accordion',
   columns: '1fr',
   index: 0,
   title: 'Titulo',
-  data: {
-    startDate: '-',
-    endDate: '-',
-    user: '-',
-    state: 'por_hacer',
-  },
 };
 
 export default AccordionItem;

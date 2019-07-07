@@ -15,13 +15,13 @@ const numberTheme = {
   label_fontWeight: 'bold',
 };
 
-const headerNameTheme = {
+export const headerNameTheme = {
   label_color: '#A0AAB4',
   label_fontSize: '10.45px',
   label_fontWeight: 'normal',
 };
 
-const headerValueTheme = {
+export const headerValueTheme = {
   label_color: colors.primary,
   label_fontSize: '15px',
   label_fontWeight: 'bold',

@@ -1,96 +1,86 @@
+/* eslint-disable camelcase */
 import React from 'react';
+import { connect } from 'react-redux';
+import { actionAddBeneficiario, actionRemoveBeneficiario } from '../../actions/bonoActions';
 import Input from './LabeledInput';
 import Button from './ButtonText';
 import IconTitle from './IconTitle';
 import { Row, Column } from '../Structural/index';
 
 // Single beneficiaro definition
-const Beneficiario = ({
-  index, cedula, nombre, apellido1, apellido2,
-}) => (
+const Beneficiario = ({ index }) => (
   <Column gap={15}>
-
     <IconTitle icon="person">{`Beneficiario ${index}`}</IconTitle>
-
     <Input
       type="text"
       label="Cédula"
       placeholder="0 0000 0000"
-      data={cedula}
-      name={`cedula_${index}`}
+      name={`beneficiarios-${index}-cedula`}
       title="At least nine digits"
       pattern="^[\d]{9,}$"
-      required
     />
-
     <Row>
       <Input
         type="text"
         label="Nombre"
         placeholder="Nombre"
-        name={`nombre_${index}`}
-        data={nombre}
-        required
+        name={`beneficiarios-${index}-nombre`}
       />
       <Input
         type="text"
         label="Primer Apellido"
         placeholder="Primer apellido"
-        name={`primer_apellido_${index}`}
-        data={apellido1}
-        required
+        name={`beneficiarios-${index}-primer_apellido`}
       />
       <Input
         type="text"
         label="Segundo Apellido"
         placeholder="Segundo apellido"
-        name={`segundo_apellido_${index}`}
-        data={apellido2}
-        title="Optional"
+        name={`beneficiarios-${index}-segundo_apellido`}
       />
     </Row>
-
   </Column>
 );
 
-const getBeneficiarios = beneficiarios => beneficiarios.map((beneficiario, index) => (
-  <Beneficiario {...Object.assign({}, { index: index + 1 }, beneficiario)} />));
+const getBeneficiarios = count => [...Array(count).keys()].map(index => <Beneficiario index={index + 1} />);
 
+const mapDispathToProps = dispatch => ({
+  addBeneficiario: payload => dispatch(actionAddBeneficiario(payload)),
+  removeBeneficiario: payload => dispatch(actionRemoveBeneficiario(payload)),
+});
 
-// Beneficiaros Section definiton
 class BeneficiariosSection extends React.Component {
   constructor(props) {
     super(props);
-    const { data } = this.props;
-    this.state = { benefList: getBeneficiarios(data) };
+    this.state = { count: 1 };
   }
 
   handleClickAdd() {
-    const { benefList } = this.state;
-    const newList = benefList.slice();
-    newList.push(Beneficiario({ index: newList.length + 1 }));
-    this.setState({
-      benefList: newList,
+    const { addBeneficiario } = this.props;
+    this.setState((prev) => {
+      const newCount = prev.count + 1;
+      addBeneficiario({ index: newCount });
+      return ({ count: newCount });
     });
   }
 
   handleClickRemove() {
-    const { benefList } = this.state;
-    const newList = benefList.slice();
-    newList.pop();
-    this.setState({
-      benefList: newList,
+    const { removeBeneficiario } = this.props;
+    this.setState((prev) => {
+      const newCount = prev.count - 1;
+      removeBeneficiario({ index: prev.count });
+      return ({ count: newCount });
     });
   }
 
   render() {
-    const { benefList } = this.state;
+    const { count } = this.state;
     return (
       <Column gap={15}>
-        {benefList}
+        {getBeneficiarios(count)}
 
         <Column gap={1} justify="end">
-          {benefList.length > 1
+          {count > 1
             ? <Button onClick={() => this.handleClickRemove()}>Remover beneficiario -</Button>
             : null}
           <Button onClick={() => this.handleClickAdd()}>Agregar beneficiario +</Button>
@@ -100,8 +90,6 @@ class BeneficiariosSection extends React.Component {
   }
 }
 
-BeneficiariosSection.defaultProps = {
-  data: [{}],
-};
+BeneficiariosSection.defaultProps = {};
 
-export default BeneficiariosSection;
+export default connect(null, mapDispathToProps)(BeneficiariosSection);

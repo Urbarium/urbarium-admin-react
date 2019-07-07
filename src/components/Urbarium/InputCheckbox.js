@@ -1,9 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { mapDispatchToPropsForInputs } from '../../actions/bonoActions';
+import { accessRecursively } from '../../helpers/functions';
 import { primary, secondary } from '../../colors';
 import { FlexGrid } from '../Structural/index';
 import OptionWrapper from './OptionWrapper';
 import OptionLabel from './OptionLabel';
+
+
+// checkbox & check styling
 
 const Check = styled.div`
   opacity: 0;
@@ -62,31 +68,35 @@ const Input = styled.input`
   }
 `;
 
+// Checkbox option ( checkbox + label )
+
 class CheckboxOption extends React.Component {
   constructor(props) {
     super(props);
-    const { data } = this.props;
-    this.state = { data };
+    this.state = { checked: props.data };
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  handleOnChange() {
-    this.setState(prev => ({ data: !prev.data }));
+  handleClick() {
+    const { value, updateField } = this.props;
+    this.setState((prev) => {
+      updateField({ field: value, value: !prev.checked });
+      return { checked: !prev.checked };
+    });
   }
 
   render() {
     const {
       value, name, right, size, checkColor, boxColor,
     } = this.props;
-    const { data } = this.state;
+    const { checked } = this.state;
     return (
-      <OptionWrapper>
+      <OptionWrapper onMouseUp={this.handleClick}>
         {right ? <OptionLabel>{name}</OptionLabel> : null}
         <Input
           type="checkbox"
           name={value}
-          checked={data}
-          value={data}
-          onChange={() => this.handleOnChange()}
+          checked={checked}
         />
         <Checkbox
           size={size}
@@ -101,35 +111,41 @@ class CheckboxOption extends React.Component {
 }
 
 CheckboxOption.defaultProps = {
-  right: false,
   size: 15,
   checkColor: primary.primary,
   boxColor: secondary.lightgray,
+  updateField() {},
+  data: null,
 };
 
+const mapStateToProps = (state, ownProps) => ({
+  data: accessRecursively(state, ['bonos', 'currentBono', ...ownProps.value.split('-')]),
+});
+const ConnectedCheckboxOption = connect(mapStateToProps, mapDispatchToPropsForInputs)(CheckboxOption);
+
+
+// Checkbox options group
+
 const InputCheckbox = ({
-  data = [],
-  options = [{ name: 'Option 1', value: 'option_1' }],
-  grid = 0,
-  right,
-  size,
-  checkColor,
-  boxColor,
+  options, grid, right, name,
 }) => (
   <FlexGrid grid={grid}>
     {options.map(option => (
-      <CheckboxOption
-        data={data.indexOf(option.value) !== -1}
-        value={option.value}
+      <ConnectedCheckboxOption
+        value={name === 'unnamed_checkbox_group' ? option.value : `${name}-${option.value}`}
         name={option.name}
         right={right}
-        size={size}
-        checkColor={checkColor}
-        boxColor={boxColor}
       />
     ))
     }
   </FlexGrid>
 );
+
+InputCheckbox.defaultProps = {
+  options: [{ name: 'Option 1', value: 'option_1' }],
+  name: 'unnamed_checkbox_group',
+  grid: 0,
+  right: false,
+};
 
 export default InputCheckbox;

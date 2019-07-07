@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
 import Arrow from './Arrow';
 import { InputField } from './urbarium-styles';
 
@@ -54,8 +56,11 @@ class InputState extends React.Component {
   }
 
   handleChange(event) {
-    const style = this.getTheme(event.target.value);
+    const { updateField, name } = this.props;
+    const { value } = event.target;
+    const style = this.getTheme(value);
     this.setState(() => ({ theme: StateThemes[style] }));
+    updateField({ field: name, value });
   }
 
   render() {
@@ -81,9 +86,11 @@ class InputState extends React.Component {
 }
 
 InputState.defaultProps = {
-  name: 'unnamed_dropdown',
+  name: 'unnamed_state_input',
   options: [{ name: 'Initial State', value: 'initial_state', style: 'gray' }],
-  data: undefined,
+  data: null,
+  updateField() {},
+
 };
 
-export default InputState;
+export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputState);

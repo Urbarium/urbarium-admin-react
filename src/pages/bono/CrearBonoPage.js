@@ -47,12 +47,14 @@ class CrearBonoPage extends Component {
     ) : null
   )
 
-  handleSubmit(formNameValues) {
+  handleSubmit() {
+    // form no longer return anything but still handles type checking
+    // succesfully submiting form should mean that data on store is ready for upload to DB
     const { addBono } = this.props;
-    const newBono = formNameValues
-      .map(({ name, value }) => ({ [name]: value }))
-      .reduce((accumulator, current) => ({ ...accumulator, ...current }), {});
-    addBono(newBono);
+    // const newBono = formNameValues
+    //   .map(({ name, value }) => ({ [name]: value }))
+    //   .reduce((accumulator, current) => ({ ...accumulator, ...current }), {});
+    addBono({});
   }
 
   render() {
@@ -80,7 +82,7 @@ class CrearBonoPage extends Component {
                 </Grid>
                 <Grid>
                   <GridColumn medium={12}>
-                    <Form id={formID} onSubmit={args => this.handleSubmit(args)}>
+                    <Form id={formID} onSubmit={() => this.handleSubmit()}>
                       <JefeDeFamiliaSection />
                     </Form>
                   </GridColumn>

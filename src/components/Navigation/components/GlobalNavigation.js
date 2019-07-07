@@ -64,8 +64,13 @@ class GlobalNavigation extends Component {
     history.push('/');
   }
 
+  goNuevoBono = () => {
+    const { history } = this.props;
+    history.push('/nuevo-bono');
+  }
+
   render() {
-    const { firebase, profile, openCreateBonoModal } = this.props;
+    const { firebase, profile } = this.props;
     const { isSearchDrawerOpen, isProfileDrawerOpen } = this.state;
     return (
       <Fragment>
@@ -77,7 +82,7 @@ class GlobalNavigation extends Component {
                   onDashboardClick: this.goHome,
                   onSearchClick: this.toggleSearch,
                   onUsersManagementClick: () => this.toggle(viewController, 'users'),
-                  onAddBonoClick: () => openCreateBonoModal(),
+                  onAddBonoClick: this.goNuevoBono,
                 })}
                 secondaryItems={globalNavSecondaryItems({
                   onProfileClick: this.toggleProfile,

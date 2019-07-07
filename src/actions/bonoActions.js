@@ -1,4 +1,5 @@
 import { navs, actionProductNavSet } from './navigationActions';
+import { accessRecursively } from '../helpers/functions';
 
 export function actionBonoStart() {
   return { type: 'BONO_START' };
@@ -24,6 +25,9 @@ export function actionAddBonoFail(error) {
   return { type: 'ADD_BONO_FAIL', error };
 }
 
+
+// TODO: Mae esto no deberia estar en el reducer de actionAddBono??
+// tenia entendido que los actions se usan como funciones simples que retornan un payload
 export const actionAddBono = (payload, firestore, history) => (dispatch) => {
   dispatch(actionAddBonoBuild(payload, firestore));
   dispatch(actionAddBonoStart(payload, firestore));
@@ -37,3 +41,24 @@ export const actionAddBono = (payload, firestore, history) => (dispatch) => {
       dispatch(actionAddBonoFail(error));
     });
 };
+
+export function actionUpdateBonoField(payload) {
+  return { type: 'UPDATE_BONO_FIELD', payload };
+}
+
+export function actionAddBeneficiario(payload) {
+  return { type: 'ADD_BENEFICIARIO', payload };
+}
+
+export function actionRemoveBeneficiario(payload) {
+  return { type: 'REMOVE_BENEFICIARIO', payload };
+}
+
+// every input uses the same map so defined here for convenience
+export function mapDispatchToPropsForInputs(dispatch) {
+  return { updateField: payload => dispatch(actionUpdateBonoField(payload)) };
+}
+
+export function mapStateToPropsForInputs(state, ownProps) {
+  return { data: accessRecursively(state, ['bonos', 'currentBono', ...ownProps.name.split('-')]) };
+}

@@ -7,17 +7,9 @@ const HiddenButton = styled.button`
 
 class Form extends React.Component {
   handleSubmit(event) {
-    const { onSubmit, id } = this.props;
-    // eslint-disable-next-line no-undef
-    const inputs = [...document.querySelectorAll(
-      // inside the form -> all radio inputs checked & all non radio iputs & all selects
-      `#${id}-form input[type=radio]:checked, #${id}-form input:not([type=radio]), #${id}-form select`,
-    )];
-
-    const nameValuePairs = inputs.map(element => ({ name: element.name, value: element.value }));
-
-    onSubmit(nameValuePairs);
     event.preventDefault();
+    const { onSubmit } = this.props;
+    onSubmit();
     return false;
   }
 

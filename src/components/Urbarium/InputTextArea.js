@@ -1,5 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
+import { connect } from 'react-redux';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
 import { TextAreaStyle as style, InputField } from './urbarium-styles';
 
 const getHeight = (props) => {
@@ -23,18 +25,37 @@ const TextArea = styled(InputField)`
   color: ${style.color};
 `;
 
-const InputTextArea = ({ data, ...props }) => (
-  <TextArea as="textarea" defaultValue={data} {...props} />
-);
+
+class InputTextArea extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleBlur = this.handleBlur.bind(this);
+  }
+
+  handleBlur(event) {
+    const { updateField, name } = this.props;
+    const { value } = event.target;
+    updateField({ field: name, value });
+  }
+
+  render() {
+    const { data, updateField, ...otherProps } = this.props;
+    return (
+      <TextArea
+        as="textarea"
+        defaultValue={data}
+        onBlur={this.handleBlur}
+        {...otherProps}
+      />
+    );
+  }
+}
 
 InputTextArea.defaultProps = {
-  data: undefined,
-  placeholder: "",
   fill: false,
-  pattern: undefined,
   name: "unnamed_textarea",
-  title: "",
-  required: false,
+  data: null,
+  updateField() {},
 };
 
-export default InputTextArea;
+export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextArea);
