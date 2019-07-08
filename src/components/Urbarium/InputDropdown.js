@@ -8,7 +8,7 @@ import { colors, InputField } from './urbarium-styles';
 const StyledInput = styled(InputField)`
   appearance: none;
 
-  &[data-default=true] { 
+  &[data-default=true] {
       color: ${colors.passive};
   }
   option {

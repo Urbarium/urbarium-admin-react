@@ -1,12 +1,12 @@
 import React, { Fragment, Component } from 'react';
 import {
   GlobalNav,
-  modeGenerator,
   ThemeProvider,
   ViewControllerSubscriber,
 } from '@atlaskit/navigation-next';
 import Drawer from '@atlaskit/drawer';
 import { withFirebase } from 'react-redux-firebase';
+import { compose } from 'redux';
 import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
@@ -16,21 +16,7 @@ import {
   globalNavPrimaryItems,
   globalNavSecondaryItems,
 } from '../menus/globalNavItems';
-import CrearBonoPage from '../../../pages/bono/CrearBonoPage';
-import {
-  actionBonoStart,
-} from '../../../actions/bonoActions';
-
-const enhance = connect(
-  ({ firebase: { profile } }) => ({ profile }),
-);
-
-const customThemeMode = modeGenerator({
-  product: {
-    text: '#FFFFFF',
-    background: '#994f7e',
-  },
-});
+import customThemeMode from '../theme';
 
 class GlobalNavigation extends Component {
   constructor(props) {
@@ -66,7 +52,7 @@ class GlobalNavigation extends Component {
 
   goNuevoBono = () => {
     const { history } = this.props;
-    history.push('/nuevo-bono');
+    history.push('/bonos/nuevo');
   }
 
   render() {
@@ -100,16 +86,13 @@ class GlobalNavigation extends Component {
         <Drawer onClose={this.toggleProfile} isOpen={isProfileDrawerOpen}>
           <ProfileFragment />
         </Drawer>
-        <CrearBonoPage width="large" />
       </Fragment>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
-  openCreateBonoModal: () => dispatch(actionBonoStart()),
-});
-
-const ConnectedGlobalNavigation = connect(null, mapDispatchToProps)(GlobalNavigation);
-
-export default enhance(withFirebase(withRouter(ConnectedGlobalNavigation)));
+export default compose(
+  withFirebase,
+  withRouter,
+  connect(({ firebase: { profile } }) => ({ profile })),
+)(GlobalNavigation);

@@ -1,5 +1,12 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
+import { compose } from 'redux';
+import { connect } from 'react-redux';
+import {
+  withNavigationViewController,
+  withNavigationUIController,
+} from '@atlaskit/navigation-next';
+import { withFirestore } from 'react-redux-firebase';
 import Input from '../../components/Urbarium/LabeledInput';
 import Label from '../../components/Urbarium/Label';
 import ButtonRound from '../../components/Urbarium/ButtonRound';
@@ -7,7 +14,6 @@ import IconTitle from '../../components/Urbarium/IconTitle';
 import { headerNameTheme, headerValueTheme } from '../../components/Urbarium/BonoTitle';
 import { colors } from '../../components/Urbarium/urbarium-styles';
 import { Row, Column } from '../../components/Structural/index';
-
 import Form, { submitForm } from '../../components/Form';
 import {
   PageWrapper,
@@ -15,7 +21,7 @@ import {
   PageContent,
   PageFooter,
 } from '../../components/PageWrapper';
-
+import { actionAddBono } from '../../actions/bonoActions';
 
 const bonoNumberTheme = {
   label_fontSize: '35px',
@@ -31,15 +37,8 @@ const titleTheme = {
 
 const formID = "nuevo-bono-form";
 
-// TODO: route to beneficiarios
-const handleSubmit = () => {
-  /* eslint-disable-next-line no-alert, no-undef */
-  alert('Route me to beneficiarios page!');
-};
-
-const CrearBonoPage = ({ number, date }) => (
+const CrearBonoPage = ({ number, date, createBono }) => (
   <PageWrapper>
-
     <PageHeader>
       <Row>
         <Label theme={titleTheme}>Nuevo Bono de Vivienda</Label>
@@ -49,15 +48,13 @@ const CrearBonoPage = ({ number, date }) => (
         </Column>
       </Row>
     </PageHeader>
-
     <PageContent>
-      <Form id={formID} onSubmit={handleSubmit}>
+      <Form id={formID} onSubmit={createBono}>
         <Column gap={55}>
           <Column gap={20}>
             <IconTitle>El nuevo bono a crear es el número</IconTitle>
             <Label theme={bonoNumberTheme}>{`#${number}`}</Label>
           </Column>
-
           <Column gap={20}>
             <IconTitle>Datos del Jefe de familia</IconTitle>
             <Row>
@@ -84,7 +81,6 @@ const CrearBonoPage = ({ number, date }) => (
               />
             </Row>
           </Column>
-
           <Input
             type="text"
             label="Cedula del Jefe de Familia"
@@ -95,11 +91,23 @@ const CrearBonoPage = ({ number, date }) => (
         </Column>
       </Form>
     </PageContent>
-
     <PageFooter>
       <ButtonRound onMouseUp={submitForm(formID)}>Crear bono</ButtonRound>
     </PageFooter>
   </PageWrapper>
+);
+
+const mapDispatchToProps = (dispatch, { firestore, history }) => ({
+  createBono: () => {
+    dispatch(actionAddBono(firestore, history));
+  },
+});
+
+const enhance = compose(
+  withNavigationViewController,
+  withNavigationUIController,
+  withFirestore,
+  connect(null, mapDispatchToProps),
 );
 
 CrearBonoPage.defaultProps = {
@@ -107,4 +115,4 @@ CrearBonoPage.defaultProps = {
   date: '12-02-2014',
 };
 
-export default CrearBonoPage;
+export default enhance(CrearBonoPage);

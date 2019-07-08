@@ -17,9 +17,14 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import MainRouter from './modules/MainRouter';
+import { NavigationProvider } from '@atlaskit/navigation-next';
+import { Switch, Route } from 'react-router';
 import ErrorBoundary from './components/ErrorBoundary';
 import createRootReducer from './reducers';
+import LoginPage from './pages/LoginPage';
+import Navigation from './components/Navigation';
+import Loading from './components/Loading';
+import { UserIsAuthenticated, UserIsNotAuthenticated } from './components/AuthorizedPages';
 
 Sentry.init({
   dsn: 'https://09c10ad8e29341d59fe1bb79ab58d757@sentry.io/1480103',
@@ -88,7 +93,13 @@ const AppRoot = () => (
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <ReactReduxFirebaseProvider {...reactReduxProps}>
-          <MainRouter />
+          <NavigationProvider>
+            <Switch>
+              <Route path="/login" component={UserIsNotAuthenticated(LoginPage)} />
+              <Route path="/loading" component={Loading} />
+              <Route path="/" component={UserIsAuthenticated(Navigation)} />
+            </Switch>
+          </NavigationProvider>
         </ReactReduxFirebaseProvider>
       </ConnectedRouter>
     </Provider>
