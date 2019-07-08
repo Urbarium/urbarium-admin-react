@@ -21,7 +21,7 @@ import {
   PageContent,
   PageFooter,
 } from '../../components/PageWrapper';
-import { actionAddBono } from '../../actions/bonoActions';
+import { actionSaveBono } from '../../actions/bonoActions';
 
 const bonoNumberTheme = {
   label_fontSize: '35px',
@@ -99,7 +99,7 @@ const CrearBonoPage = ({ number, date, createBono }) => (
 
 const mapDispatchToProps = (dispatch, { firestore, history }) => ({
   createBono: () => {
-    dispatch(actionAddBono(firestore, history));
+    dispatch(actionSaveBono(firestore, history));
   },
 });
 

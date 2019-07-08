@@ -1,25 +1,30 @@
 import { accessRecursively } from '../helpers/functions';
 
-export function actionAddBonoComplete(payload) {
+export function actionSaveBonoComplete(payload) {
   return { type: 'ADD_BONO_COMPLETE', payload };
 }
 
-export function actionAddBonoFail(error) {
+export function actionSaveBonoFail(error) {
   return { type: 'ADD_BONO_FAIL', error };
 }
 
 // TODO: Mae esto no deberia estar en el reducer de actionAddBono??
 // tenia entendido que los actions se usan como funciones simples que retornan un payload
-export const actionAddBono = (firestore, history) => (dispatch, getState) => {
-  const { bonos: { currentBono } } = getState();
-  firestore.collection('bonos').add(currentBono)
-    .then((result) => {
-      const bono = { ...currentBono, id: result.id };
-      dispatch(actionAddBonoComplete(bono));
-      history.push(`/bonos/${bono.id}/beneficiarios`);
-    }).catch((error) => {
-      dispatch(actionAddBonoFail(error));
-    });
+export const actionSaveBono = (firestore, history) => (dispatch, getState) => {
+  const { bonos: { currentBono, currentBono: { id } } } = getState();
+  let record;
+  if (id == null) {
+    record = firestore.collection('bonos').add(currentBono);
+  } else {
+    record = firestore.collection('bonos').doc(id).set(currentBono);
+  }
+  record.then((result) => {
+    const bono = { ...currentBono, id: result.id };
+    dispatch(actionSaveBonoComplete(bono));
+    history.push(`/bonos/${bono.id}/beneficiarios`);
+  }).catch((error) => {
+    dispatch(actionSaveBonoFail(error));
+  });
 };
 
 export function actionUpdateBonoField(payload) {
