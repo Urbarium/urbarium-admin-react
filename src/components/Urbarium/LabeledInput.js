@@ -50,6 +50,6 @@ const LabeledInput = ({
   </Column>
 );
 
-const ConnectedLabeledInput = props => <LabeledInput {...props} />;
+const ConnectedLabeledInput = props => <LabeledInput {...props} connected />;
 
 export { LabeledInput as default, ConnectedLabeledInput };

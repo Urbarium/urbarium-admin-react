@@ -25,9 +25,6 @@ export function actionAddBonoFail(error) {
   return { type: 'ADD_BONO_FAIL', error };
 }
 
-
-// TODO: Mae esto no deberia estar en el reducer de actionAddBono??
-// tenia entendido que los actions se usan como funciones simples que retornan un payload
 export const actionAddBono = (payload, firestore, history) => (dispatch) => {
   dispatch(actionAddBonoBuild(payload, firestore));
   dispatch(actionAddBonoStart(payload, firestore));
