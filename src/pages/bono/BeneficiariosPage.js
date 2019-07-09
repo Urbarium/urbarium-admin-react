@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
 import Beneficiarios from '../../components/Urbarium/BeneficiariosSection';
-import Input from '../../components/Urbarium/LabeledInput';
+import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
 import DropdownGroup from '../../components/Urbarium/DropdownGroup';
 import IconTitle from '../../components/Urbarium/IconTitle';
 import { Row, Column } from '../../components/Structural/index';

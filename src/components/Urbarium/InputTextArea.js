@@ -58,4 +58,5 @@ InputTextArea.defaultProps = {
   updateField() {},
 };
 
-export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextArea);
+const ConnectedInputTextArea = connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextArea);
+export { InputTextArea as default, ConnectedInputTextArea };

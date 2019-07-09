@@ -120,4 +120,6 @@ InputRadio.defaultProps = {
   updateField() {},
 };
 
-export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputRadio);
+
+const ConnectedInputRadio = connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputRadio);
+export { InputRadio as default, ConnectedInputRadio };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import Accordion from '../../components/Urbarium/AccordionItem';
-import Input from '../../components/Urbarium/LabeledInput';
+import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
 import Label from '../../components/Urbarium/Label';
 import { FrameStyle } from '../../components/Urbarium/urbarium-styles';
 import { Column, Row } from '../../components/Structural/index';

@@ -30,7 +30,7 @@ const getOptions = options => (
   options.map(option => <option value={option.value} key={option.value}>{option.name}</option>)
 );
 
-class InputDropDown extends React.Component {
+class InputDropdown extends React.Component {
   constructor(props) {
     super(props);
     this.handleChange = this.handleChange.bind(this);
@@ -85,7 +85,7 @@ class InputDropDown extends React.Component {
   }
 }
 
-InputDropDown.defaultProps = {
+InputDropdown.defaultProps = {
   placeholder: ' ',
   name: 'unnamed_dropdown',
   options: [{ name: 'Option 1', value: 'option_1' }],
@@ -94,4 +94,5 @@ InputDropDown.defaultProps = {
   updateField() {},
 };
 
-export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputDropDown);
+const ConnectedInputDropdown = connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputDropdown);
+export { InputDropdown as default, ConnectedInputDropdown };

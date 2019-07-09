@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from '../../components/Urbarium/LabeledInput';
+import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
 import { Column } from '../../components/Structural/index';
 import Form from '../../components/Form';
 import {

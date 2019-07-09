@@ -2,7 +2,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actionAddBeneficiario, actionRemoveBeneficiario } from '../../actions/bonoActions';
-import Input from './LabeledInput';
+import { ConnectedLabeledInput as Input } from './LabeledInput';
 import Button from './ButtonText';
 import IconTitle from './IconTitle';
 import { Row, Column } from '../Structural/index';

@@ -32,4 +32,5 @@ InputTextBox.defaultProps = {
   updateField() {},
 };
 
-export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextBox);
+const ConnectedInputTextBox = connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextBox);
+export { InputTextBox as default, ConnectedInputTextBox };

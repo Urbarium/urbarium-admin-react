@@ -93,4 +93,5 @@ InputState.defaultProps = {
 
 };
 
-export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputState);
+const ConnectedInputState = connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputState);
+export { InputState as default, ConnectedInputState };

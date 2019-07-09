@@ -1,5 +1,5 @@
 import React from 'react';
-import Input from './LabeledInput';
+import { ConnectedLabeledInput as Input } from './LabeledInput';
 import { Row } from '../Structural/index';
 
 class DDG extends React.Component {
@@ -13,7 +13,7 @@ class DDG extends React.Component {
     const initOptions = Array(this.count).fill(undefined);
     // eslint-disable-next-line prefer-destructuring
     initOptions[0] = options[0];
-    const initData = Array(this.count).fill(undefined);        
+    const initData = Array(this.count).fill(undefined);
     this.selectedIndexes = initSelectedIndexes;
     this.initialData = initData;
     this.state = {

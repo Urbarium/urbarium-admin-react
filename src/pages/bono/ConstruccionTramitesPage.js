@@ -1,6 +1,6 @@
 import React from 'react';
 import Accordion from '../../components/Urbarium/AccordionItem';
-import Input from '../../components/Urbarium/LabeledInput';
+import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
 import { Column, Row } from '../../components/Structural/index';
 import Form from '../../components/Form';
 import { SolicitudPlanoPresupuestoOptions } from './options';

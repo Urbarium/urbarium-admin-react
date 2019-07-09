@@ -2,7 +2,7 @@ import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
 import Label from './Label';
 import Arrow from './ButtonArrow';
-import InputState from './InputState';
+import { ConnectedInputState as State } from './InputState';
 import { Row } from '../Structural/index';
 import { FrameStyle as style, colors } from './urbarium-styles';
 
@@ -93,7 +93,7 @@ class AccordionItem extends React.Component {
           <Label theme={headerTheme}>-</Label>
           <Label theme={headerTheme}>-</Label>
           <Label theme={headerTheme}>-</Label>
-          <InputState options={AccordionStateOptions} name={`${name}-status`} />
+          <State options={AccordionStateOptions} name={`${name}-status`} />
           { children
             ? (
               <Row>

@@ -121,20 +121,24 @@ CheckboxOption.defaultProps = {
 const mapStateToProps = (state, ownProps) => ({
   data: accessRecursively(state, ['bonos', 'currentBono', ...ownProps.value.split('-')]),
 });
+
 const ConnectedCheckboxOption = connect(mapStateToProps, mapDispatchToPropsForInputs)(CheckboxOption);
 
+const Option = ({ connected, ...otherProps }) => (
+  connected ? <ConnectedCheckboxOption {...otherProps} /> : <CheckboxOption {...otherProps} />
+);
 
 // Checkbox options group
-
 const InputCheckbox = ({
-  options, grid, right, name,
+  options, grid, right, name, connected,
 }) => (
   <FlexGrid grid={grid}>
     {options.map(option => (
-      <ConnectedCheckboxOption
+      <Option
         value={name === 'unnamed_checkbox_group' ? option.value : `${name}-${option.value}`}
         name={option.name}
         right={right}
+        connected={connected}
       />
     ))
     }
@@ -148,4 +152,5 @@ InputCheckbox.defaultProps = {
   right: false,
 };
 
-export default InputCheckbox;
+const ConnectedInputCheckbox = props => <InputCheckbox {...props} connected />;
+export { InputCheckbox as default, ConnectedInputCheckbox };
