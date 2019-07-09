@@ -1,12 +1,13 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
-import Input from '../../components/Urbarium/LabeledInput';
+import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
 import Label from '../../components/Urbarium/Label';
 import ButtonRound from '../../components/Urbarium/ButtonRound';
 import IconTitle from '../../components/Urbarium/IconTitle';
 import { headerNameTheme, headerValueTheme } from '../../components/Urbarium/BonoTitle';
 import { colors } from '../../components/Urbarium/urbarium-styles';
 import { Row, Column } from '../../components/Structural/index';
+import { todayAsString as today } from '../../helpers/time';
 
 import Form, { submitForm } from '../../components/Form';
 import {
@@ -37,7 +38,8 @@ const handleSubmit = () => {
   alert('Route me to beneficiarios page!');
 };
 
-const CrearBonoPage = ({ number, date }) => (
+
+const CrearBonoPage = ({ number }) => (
   <PageWrapper>
 
     <PageHeader>
@@ -45,7 +47,7 @@ const CrearBonoPage = ({ number, date }) => (
         <Label theme={titleTheme}>Nuevo Bono de Vivienda</Label>
         <Column justify="end">
           <Label theme={headerNameTheme}>FECHA DE CREACION</Label>
-          <Label theme={headerValueTheme}>{date}</Label>
+          <Label theme={headerValueTheme}>{today()}</Label>
         </Column>
       </Row>
     </PageHeader>
@@ -104,7 +106,6 @@ const CrearBonoPage = ({ number, date }) => (
 
 CrearBonoPage.defaultProps = {
   number: 124345,
-  date: '12-02-2014',
 };
 
 export default CrearBonoPage;
