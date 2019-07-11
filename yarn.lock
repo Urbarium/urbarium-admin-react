@@ -11635,6 +11635,14 @@ redux@^4.0.1:
     loose-envify "^1.4.0"
     symbol-observable "^1.2.0"
 
+redux@^4.0.4:
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/redux/-/redux-4.0.4.tgz#4ee1aeb164b63d6a1bcc57ae4aa0b6e6fa7a3796"
+  integrity sha512-vKv4WdiJxOWKxK0yRoaK3Y4pxxB0ilzVx6dszU2W8wLxlb2yikRph4iV/ymtdJ6ZxpBLFbyrxklnT5yBbQSl3Q==
+  dependencies:
+    loose-envify "^1.4.0"
+    symbol-observable "^1.2.0"
+
 refractor@^2.4.1:
   version "2.9.0"
   resolved "https://registry.yarnpkg.com/refractor/-/refractor-2.9.0.tgz#0a381aadb51513e4e6ec1ed410b5104dd65e2489"
