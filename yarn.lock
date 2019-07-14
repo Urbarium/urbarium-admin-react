@@ -62,6 +62,20 @@
     memoize-one "^3.0.1"
     tslib "^1.9.3"
 
+"@atlaskit/button@^13.0.10":
+  version "13.0.10"
+  resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-13.0.10.tgz#2586a9465b84fbb8087836d014f517f0be57c0d0"
+  integrity sha512-g3ZSmNIBr+qQC+NS9V8Xzh08osrcmJK/bHpif+hW2GwvLPGHDK1Nxfl5DOvCZSVhxzAn1ujIRt6Vi4dJ11Lk2g==
+  dependencies:
+    "@atlaskit/analytics-next" "^5.0.0"
+    "@atlaskit/spinner" "^12.0.1"
+    "@atlaskit/theme" "^9.1.0"
+    "@atlaskit/type-helpers" "^4.1.1"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/core" "^10.0.9"
+    memoize-one "^3.0.1"
+    tslib "^1.9.3"
+
 "@atlaskit/button@^13.0.9":
   version "13.0.9"
   resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-13.0.9.tgz#bcc97d4a67e8b97a38820ffd9c1fe3e247279993"
@@ -206,14 +220,14 @@
     react-addons-text-content "^0.0.4"
     uuid "^3.1.0"
 
-"@atlaskit/modal-dialog@^10.0.6":
-  version "10.0.7"
-  resolved "https://registry.yarnpkg.com/@atlaskit/modal-dialog/-/modal-dialog-10.0.7.tgz#145a8c2816acdb5f70d18c4c124a30187e2dd416"
-  integrity sha512-3DqYgxlNHcDu9WmwBcmVtLNliCpQfj+NBnGxoupGjKtEb1faF1HzmUG7b7D63GOe3aGV/7FH/qubmg480BCw+Q==
+"@atlaskit/modal-dialog@^10.0.8":
+  version "10.0.8"
+  resolved "https://registry.yarnpkg.com/@atlaskit/modal-dialog/-/modal-dialog-10.0.8.tgz#32638b13d51403244bf21250dc790a1028a5e32e"
+  integrity sha512-fpFjUyfcc/PBm2D6zRVBhHXV2z2My4UilMW846VaGJcyo5l2koXkGJKa4bWFhmHAwa+Ve2ZugtEiCjGEAzwM4g==
   dependencies:
     "@atlaskit/analytics-next" "^5.0.2"
     "@atlaskit/blanket" "^10.0.0"
-    "@atlaskit/button" "^13.0.9"
+    "@atlaskit/button" "^13.0.10"
     "@atlaskit/icon" "^19.0.0"
     "@atlaskit/portal" "^3.0.7"
     "@atlaskit/theme" "^9.1.1"
