@@ -150,10 +150,10 @@
     react-transition-group "^2.2.1"
     tiny-invariant "^0.0.3"
 
-"@atlaskit/form@^6.1.3":
-  version "6.1.3"
-  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.1.3.tgz#7401900d054d21ab226d0341f002b86c8df40b14"
-  integrity sha512-NSN+wbSoDEYpmC7QSXWjNlYJ9Oc4WVkaVQJFyFURlN5wvas/IuzA6PwM3stHwZ8Fuq1Hz0FVjMZwyEb06MMBJg==
+"@atlaskit/form@^6.1.4":
+  version "6.1.4"
+  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.1.4.tgz#85f0ba9d25500015308de177f42480723067a8fe"
+  integrity sha512-uE6LHbgNrn5ZitbIEeSZOKnxacB0ftWOpBdUU7iJkE3suaJfyFZkWG8xWr9xcQ1y9/pzdLQ3Bd/+qsuDNlaWwQ==
   dependencies:
     "@atlaskit/icon" "^19.0.0"
     "@atlaskit/theme" "^9.1.1"
