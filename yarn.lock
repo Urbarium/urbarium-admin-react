@@ -18,6 +18,14 @@
     "@babel/runtime" "^7.0.0"
     prop-types "^15.5.10"
 
+"@atlaskit/analytics-next@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/analytics-next/-/analytics-next-5.1.0.tgz#58aaafb163e4226400de306b733763040ff13696"
+  integrity sha512-CZDx2khBs8s5gzkHvVyQcEWq1gAjdkMQ1IahRT6aMOd2JpPI1IluaSK1uxlC3CmpF50eDWTYbyuczLG+LnQkDA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    prop-types "^15.5.10"
+
 "@atlaskit/avatar@16.0.5":
   version "16.0.5"
   resolved "https://registry.yarnpkg.com/@atlaskit/avatar/-/avatar-16.0.5.tgz#02751b3920f063b47685a99b7040bb1261ac5d3d"
@@ -71,6 +79,20 @@
     "@atlaskit/spinner" "^12.0.1"
     "@atlaskit/theme" "^9.1.0"
     "@atlaskit/type-helpers" "^4.1.1"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/core" "^10.0.9"
+    memoize-one "^3.0.1"
+    tslib "^1.9.3"
+
+"@atlaskit/button@^13.0.12":
+  version "13.0.13"
+  resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-13.0.13.tgz#503bdaab6db15bf853dae417d74c524f0236d550"
+  integrity sha512-M5gYSJpA46K350hb5xOWheAbZkqbVRh7eMZQXAYwhcJ78iP/VjEegBLnZJQISI+6hJSndGOIvWxKV+vVUPXbGg==
+  dependencies:
+    "@atlaskit/analytics-next" "^5.1.0"
+    "@atlaskit/spinner" "^12.0.1"
+    "@atlaskit/theme" "^9.1.0"
+    "@atlaskit/type-helpers" "^4.1.3"
     "@babel/runtime" "^7.0.0"
     "@emotion/core" "^10.0.9"
     memoize-one "^3.0.1"
@@ -306,6 +328,17 @@
     "@babel/runtime" "^7.0.0"
     tslib "^1.9.3"
 
+"@atlaskit/section-message@^4.0.6":
+  version "4.0.6"
+  resolved "https://registry.yarnpkg.com/@atlaskit/section-message/-/section-message-4.0.6.tgz#e0bdd77368e6d62354a282228760ad30e111271f"
+  integrity sha512-NT1bZuitP/7xFi+I8heX+K+hiETQYU4GhdJZroUHi9OMis+PHQM/9EWVlcdazuuuE7+BA55/bJqfOJYNREsq2w==
+  dependencies:
+    "@atlaskit/button" "^13.0.12"
+    "@atlaskit/icon" "^19.0.0"
+    "@atlaskit/theme" "^9.1.1"
+    "@babel/runtime" "^7.0.0"
+    tslib "^1.9.3"
+
 "@atlaskit/select@^9.1.8":
   version "9.1.9"
   resolved "https://registry.yarnpkg.com/@atlaskit/select/-/select-9.1.9.tgz#d7171d6225a2d03834ea22fe26d48db158cfc2ce"
@@ -374,6 +407,11 @@
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@atlaskit/type-helpers/-/type-helpers-4.1.2.tgz#7af56818b1800958388d5ae877b402116d55dbb1"
   integrity sha512-OT9LtlYWvuAfGDm1MCkyswt85TZ7Vvp/1Iub1T3uAt2HnMgkqL2q/lLgL01JWj/TEFH0X578E1jS5r9q6fuJdA==
+
+"@atlaskit/type-helpers@^4.1.3":
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/@atlaskit/type-helpers/-/type-helpers-4.1.3.tgz#3aeeb8795aa45716033afc40dc77676cf004da2e"
+  integrity sha512-xHBp1gC7dSL2IkE3VoCUtilRw1wws+U5bw/8KFwNnZKw5JytkmDdAD1eYfMb2DlS6pWIuoz/e6PMeZ4JvcS3Pg==
 
 "@babel/code-frame@7.0.0", "@babel/code-frame@^7.0.0":
   version "7.0.0"
