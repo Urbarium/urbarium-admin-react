@@ -241,16 +241,16 @@
     tiny-invariant "^0.0.3"
     tslib "^1.9.3"
 
-"@atlaskit/navigation-next@^6.3.3":
-  version "6.3.3"
-  resolved "https://registry.yarnpkg.com/@atlaskit/navigation-next/-/navigation-next-6.3.3.tgz#f5de035bc6c8f837dd2a4752f18f867bbb4a7a59"
-  integrity sha512-Jkcxw3NuZBK1FfhnTubyiOa1Ukzhr1/g55nE1/zAk1oFLIVaI0r2FvF2u4god7cCuYVqCe/UW9cq63S1i3kUcA==
+"@atlaskit/navigation-next@^6.3.4":
+  version "6.3.4"
+  resolved "https://registry.yarnpkg.com/@atlaskit/navigation-next/-/navigation-next-6.3.4.tgz#6fe74776a5fc91e5e19a467de9e6236215fe6801"
+  integrity sha512-+TlGABcvMJ6sAEaGTSEaCg/CVHn9nRPTuuz5MEP3UHJpEghQT/izWmFEN62eBTa8IR1u+aPvIBu2HQvVxgRYoA==
   dependencies:
     "@atlaskit/analytics-namespaced-context" "^4.0.0"
     "@atlaskit/analytics-next" "^5.0.2"
     "@atlaskit/avatar" "^16.0.6"
     "@atlaskit/icon" "^19.0.0"
-    "@atlaskit/select" "^9.1.8"
+    "@atlaskit/select" "^10.0.0"
     "@atlaskit/spinner" "^12.0.1"
     "@atlaskit/theme" "^9.1.1"
     "@atlaskit/tooltip" "^15.0.2"
@@ -306,10 +306,10 @@
     "@babel/runtime" "^7.0.0"
     tslib "^1.9.3"
 
-"@atlaskit/select@^9.1.8":
-  version "9.1.9"
-  resolved "https://registry.yarnpkg.com/@atlaskit/select/-/select-9.1.9.tgz#d7171d6225a2d03834ea22fe26d48db158cfc2ce"
-  integrity sha512-vSpCKHXxPzuNEmgyxlCSjyaFQWLM442L2+DjlqD14gmEeLVrKxpi/JPTxHmQwAr+Nyra6PARo2RJFM4MOdusxQ==
+"@atlaskit/select@^10.0.0":
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/select/-/select-10.0.0.tgz#a3becbb2e69e0a60505f51b0b2c90149de8460a1"
+  integrity sha512-2X86U8nZygTh623ju0hpMVHmQ5ibN0vb2wbsrfNnI1O/ohpz7waEmjgUlwrYXkQ+KBTmoELQZn5MgrMGkkFfzQ==
   dependencies:
     "@atlaskit/analytics-next" "^5.0.2"
     "@atlaskit/icon" "^19.0.0"
@@ -322,7 +322,7 @@
     react-fast-compare "^2.0.1"
     react-node-resolver "^1.0.1"
     react-popper "1.0.2"
-    react-select "^2.4.2"
+    react-select "^3.0.4"
     react-transition-group "^2.2.1"
     shallow-equal "^1.0.0"
 
@@ -1366,7 +1366,7 @@
     find-root "^1.1.0"
     source-map "^0.7.2"
 
-"@emotion/cache@^10.0.14":
+"@emotion/cache@^10.0.14", "@emotion/cache@^10.0.9":
   version "10.0.14"
   resolved "https://registry.yarnpkg.com/@emotion/cache/-/cache-10.0.14.tgz#56093cff025c04b0330bdd92afe8335ed326dd18"
   integrity sha512-HNGEwWnPlNyy/WPXBXzbjzkzeZFV657Z99/xq2xs5yinJHbMfi3ioCvBJ6Y8Zc8DQzO9F5jDmVXJB41Ytx3QMw==
@@ -1388,7 +1388,7 @@
     "@emotion/sheet" "0.9.3"
     "@emotion/utils" "0.11.2"
 
-"@emotion/css@^10.0.14":
+"@emotion/css@^10.0.14", "@emotion/css@^10.0.9":
   version "10.0.14"
   resolved "https://registry.yarnpkg.com/@emotion/css/-/css-10.0.14.tgz#95dacabdd0e22845d1a1b0b5968d9afa34011139"
   integrity sha512-MozgPkBEWvorcdpqHZE5x1D/PLEHUitALQCQYt2wayf4UNhpgQs2tN0UwHYS4FMy5ROBH+0ALyCFVYJ/ywmwlg==
@@ -5445,7 +5445,7 @@ emotion-theming@^10.0.10, emotion-theming@^10.0.7, emotion-theming@^10.0.9:
     "@emotion/weak-memoize" "0.2.3"
     hoist-non-react-statics "^3.3.0"
 
-emotion@^9.1.1, emotion@^9.1.2:
+emotion@^9.1.1:
   version "9.2.12"
   resolved "https://registry.yarnpkg.com/emotion/-/emotion-9.2.12.tgz#53925aaa005614e65c6e43db8243c843574d1ea9"
   integrity sha512-hcx7jppaI8VoXxIWEhxpDW7I+B4kq9RNzQLmsrF6LY8BGKqe2N+gFAQr0EfuFucFlPs2A9HM4+xNj4NeqEWIOQ==
@@ -11403,13 +11403,16 @@ react-scrolllock@^3.0.2:
   dependencies:
     exenv "^1.2.2"
 
-react-select@^2.4.2:
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/react-select/-/react-select-2.4.4.tgz#ba72468ef1060c7d46fbb862b0748f96491f1f73"
-  integrity sha512-C4QPLgy9h42J/KkdrpVxNmkY6p4lb49fsrbDk/hRcZpX7JvZPNb6mGj+c5SzyEtBv1DmQ9oPH4NmhAFvCrg8Jw==
+react-select@^3.0.4:
+  version "3.0.4"
+  resolved "https://registry.yarnpkg.com/react-select/-/react-select-3.0.4.tgz#16bde37c24fd4f6444914d4681e78f15ffbc86d3"
+  integrity sha512-fbVISKa/lSUlLsltuatfUiKcWCNvdLXxFFyrzVQCBUsjxJZH/m7UMPdw/ywmRixAmwXAP++MdbNNZypOsiDEfA==
   dependencies:
+    "@babel/runtime" "^7.4.4"
+    "@emotion/cache" "^10.0.9"
+    "@emotion/core" "^10.0.9"
+    "@emotion/css" "^10.0.9"
     classnames "^2.2.5"
-    emotion "^9.1.2"
     memoize-one "^5.0.0"
     prop-types "^15.6.0"
     raf "^3.4.0"
