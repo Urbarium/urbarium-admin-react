@@ -30,7 +30,7 @@
     "@atlaskit/navigation-next": "^6.3.3",
     "@atlaskit/page": "^11.0.2",
     "@atlaskit/portal": "^3.0.6",
-    "@atlaskit/section-message": "^4.0.5",
+    "@atlaskit/section-message": "^4.0.8",
     "@atlaskit/textfield": "^2.0.2",
     "@atlaskit/theme": "^9.1.1",
     "@sentry/browser": "5.4.0",
