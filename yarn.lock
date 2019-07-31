@@ -18,6 +18,14 @@
     "@babel/runtime" "^7.0.0"
     prop-types "^15.5.10"
 
+"@atlaskit/analytics-next@^5.1.2", "@atlaskit/analytics-next@^5.2.0":
+  version "5.2.0"
+  resolved "https://registry.yarnpkg.com/@atlaskit/analytics-next/-/analytics-next-5.2.0.tgz#a19de50defc013d3d4f7a866bde52d9873fd9886"
+  integrity sha512-wZJAKPExs4/QkHO8W/TRHBF8JwpKyT20cDk8o3fffsHd1tiivYz+9Q1pp7J3PKY+zl48Ost8DIQLI4/d7N+uuA==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    prop-types "^15.5.10"
+
 "@atlaskit/avatar@16.0.5":
   version "16.0.5"
   resolved "https://registry.yarnpkg.com/@atlaskit/avatar/-/avatar-16.0.5.tgz#02751b3920f063b47685a99b7040bb1261ac5d3d"
@@ -48,24 +56,20 @@
     "@babel/runtime" "^7.0.0"
     tslib "^1.9.3"
 
+"@atlaskit/blanket@^10.0.7":
+  version "10.0.7"
+  resolved "https://registry.yarnpkg.com/@atlaskit/blanket/-/blanket-10.0.7.tgz#3b298f70ceff0bc2a634b2968ba827a2a3adab24"
+  integrity sha512-9mrazBBHPSXWeAkHPWMNmFpXlRCndK5ekZ2X09R4lYp1CrLKgmKgMJseQjA9xl8cuE1+/sAvr4/t0NERj9hvKA==
+  dependencies:
+    "@atlaskit/analytics-next" "^5.1.2"
+    "@atlaskit/theme" "^9.0.0"
+    "@babel/runtime" "^7.0.0"
+    tslib "^1.9.3"
+
 "@atlaskit/button@13.0.8":
   version "13.0.8"
   resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-13.0.8.tgz#92885a42a6e48e5e90ff1ab0d0fbfcec57a9072e"
   integrity sha512-cLrdKzdRAPRak8yHtM9FeA/qM0i968PoIP9AzijeGLR/VG3hJOk/UXoIf5uPf8vKlisqfg1RQawSoOO2igGqwg==
-  dependencies:
-    "@atlaskit/analytics-next" "^5.0.0"
-    "@atlaskit/spinner" "^12.0.1"
-    "@atlaskit/theme" "^9.1.0"
-    "@atlaskit/type-helpers" "^4.1.1"
-    "@babel/runtime" "^7.0.0"
-    "@emotion/core" "^10.0.9"
-    memoize-one "^3.0.1"
-    tslib "^1.9.3"
-
-"@atlaskit/button@^13.0.10":
-  version "13.0.10"
-  resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-13.0.10.tgz#2586a9465b84fbb8087836d014f517f0be57c0d0"
-  integrity sha512-g3ZSmNIBr+qQC+NS9V8Xzh08osrcmJK/bHpif+hW2GwvLPGHDK1Nxfl5DOvCZSVhxzAn1ujIRt6Vi4dJ11Lk2g==
   dependencies:
     "@atlaskit/analytics-next" "^5.0.0"
     "@atlaskit/spinner" "^12.0.1"
@@ -85,6 +89,20 @@
     "@atlaskit/spinner" "^12.0.1"
     "@atlaskit/theme" "^9.1.0"
     "@atlaskit/type-helpers" "^4.1.1"
+    "@babel/runtime" "^7.0.0"
+    "@emotion/core" "^10.0.9"
+    memoize-one "^3.0.1"
+    tslib "^1.9.3"
+
+"@atlaskit/button@^13.1.1":
+  version "13.1.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/button/-/button-13.1.1.tgz#13cd9551f306f979892047a71d905d339f756729"
+  integrity sha512-L5NELehB9c/+75O/ltmTH5hiUEJuKg0691PsYBMoK7YJbJmaNrsqInXCzsJI0GvxB7NJdvIFPtOjcV9jgPyjww==
+  dependencies:
+    "@atlaskit/analytics-next" "^5.2.0"
+    "@atlaskit/spinner" "^12.0.5"
+    "@atlaskit/theme" "^9.1.0"
+    "@atlaskit/type-helpers" "^4.1.5"
     "@babel/runtime" "^7.0.0"
     "@emotion/core" "^10.0.9"
     memoize-one "^3.0.1"
@@ -220,16 +238,16 @@
     react-addons-text-content "^0.0.4"
     uuid "^3.1.0"
 
-"@atlaskit/modal-dialog@^10.0.8":
-  version "10.0.8"
-  resolved "https://registry.yarnpkg.com/@atlaskit/modal-dialog/-/modal-dialog-10.0.8.tgz#32638b13d51403244bf21250dc790a1028a5e32e"
-  integrity sha512-fpFjUyfcc/PBm2D6zRVBhHXV2z2My4UilMW846VaGJcyo5l2koXkGJKa4bWFhmHAwa+Ve2ZugtEiCjGEAzwM4g==
+"@atlaskit/modal-dialog@^10.1.1":
+  version "10.1.1"
+  resolved "https://registry.yarnpkg.com/@atlaskit/modal-dialog/-/modal-dialog-10.1.1.tgz#63f62c836b92d4b85bfcef69afd6b5998aaf20a1"
+  integrity sha512-dky3wOjGDcA/XH8qoPZcPTkvbcvYDgHN2ukkDRYDp7E3CfQvLrm+ESTX9AovxJq5hQlcvoJX4QMVyxb+4HClfg==
   dependencies:
-    "@atlaskit/analytics-next" "^5.0.2"
-    "@atlaskit/blanket" "^10.0.0"
-    "@atlaskit/button" "^13.0.10"
+    "@atlaskit/analytics-next" "^5.1.2"
+    "@atlaskit/blanket" "^10.0.7"
+    "@atlaskit/button" "^13.1.1"
     "@atlaskit/icon" "^19.0.0"
-    "@atlaskit/portal" "^3.0.7"
+    "@atlaskit/portal" "^3.0.9"
     "@atlaskit/theme" "^9.1.1"
     "@emotion/core" "^10.0.9"
     "@emotion/styled" "^10.0.7"
@@ -295,6 +313,16 @@
     tiny-invariant "^0.0.3"
     tslib "^1.9.3"
 
+"@atlaskit/portal@^3.0.9":
+  version "3.0.9"
+  resolved "https://registry.yarnpkg.com/@atlaskit/portal/-/portal-3.0.9.tgz#70acc3502051fd30e6c6a0bfadb52dbadba88f01"
+  integrity sha512-v0QSrRY5CJMrOWZY6BVWzz/i/q9JGKcF8Gwvnbej2X2+5RZFoj27RwMRl7s1OR/m0pdjrO5mJH44VmEdQI/Y8w==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    exenv "^1.2.2"
+    tiny-invariant "^0.0.3"
+    tslib "^1.9.3"
+
 "@atlaskit/section-message@^4.0.5":
   version "4.0.5"
   resolved "https://registry.yarnpkg.com/@atlaskit/section-message/-/section-message-4.0.5.tgz#ff378825fd0dde29f526f3f708242b7f956bbf7e"
@@ -330,6 +358,16 @@
   version "12.0.3"
   resolved "https://registry.yarnpkg.com/@atlaskit/spinner/-/spinner-12.0.3.tgz#4708f31595ce531c1cff317fb8c7fccb03a58475"
   integrity sha512-1OJbNdMdy8Qx7ptXeGrdOXsFMLgwyeBkQlfEjapFgai5tJ74ljYIlVMCuZQcwaNFVNhFaBRp2J1JixsxUfzb9Q==
+  dependencies:
+    "@atlaskit/theme" "^9.0.0"
+    "@babel/runtime" "^7.0.0"
+    react-transition-group "^2.2.1"
+    tslib "^1.9.3"
+
+"@atlaskit/spinner@^12.0.5":
+  version "12.0.5"
+  resolved "https://registry.yarnpkg.com/@atlaskit/spinner/-/spinner-12.0.5.tgz#83d5f8717997e3e818210401a783d51220117513"
+  integrity sha512-ZT71uKNwId+C0rAZPGTWHITtzsYpnHKpT/G62I9fN9OJRneY6l0nYrsFxm/8j80HhT6QBCqZaVPEOarLPEkBQw==
   dependencies:
     "@atlaskit/theme" "^9.0.0"
     "@babel/runtime" "^7.0.0"
@@ -374,6 +412,11 @@
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/@atlaskit/type-helpers/-/type-helpers-4.1.2.tgz#7af56818b1800958388d5ae877b402116d55dbb1"
   integrity sha512-OT9LtlYWvuAfGDm1MCkyswt85TZ7Vvp/1Iub1T3uAt2HnMgkqL2q/lLgL01JWj/TEFH0X578E1jS5r9q6fuJdA==
+
+"@atlaskit/type-helpers@^4.1.5":
+  version "4.1.5"
+  resolved "https://registry.yarnpkg.com/@atlaskit/type-helpers/-/type-helpers-4.1.5.tgz#3abbe83d427761384ce1c3f3d829316f8eda431f"
+  integrity sha512-a/FF25C76ThwPmHlYt3hTxlEU6avqcbkCNBOaMRMvrF/yZTUnMEBxsvHXy7at/VFvju6dFUqEgd/OyvKmPkbAg==
 
 "@babel/code-frame@7.0.0", "@babel/code-frame@^7.0.0":
   version "7.0.0"
