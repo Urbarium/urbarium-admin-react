@@ -33,11 +33,6 @@ yarn run storybook
 
 This repository is helpful for people using a build with Atlaskit + React + Redux for the first time, including technologies like Firebase, Zeit Now, Sentry & Log Rocket. If you find a bug or require an improvement, please report it:
 
-## Tech Stack
-<a frameborder="0" data-theme="light" data-layers="1,2,3,4" data-stack-embed="true" href="https://embed.stackshare.io/stacks/embed/444a000a6e0857112ff82f669dbbda"/></a><script async src="https://cdn1.stackshare.io/javascripts/client-code.js" charset="utf-8"></script>
-
-https://zeit.co/now
-
 ## Demo
 
 ![Screenshot](https://s3.gifyu.com/images/ezgif.com-crop-18e6ede318837df77.gif)
