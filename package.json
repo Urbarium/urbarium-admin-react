@@ -38,7 +38,7 @@
     "firebase": "^6.3.0",
     "history": "^4.7.2",
     "lodash": "^4.17.14",
-    "logrocket": "^1.0.1",
+    "logrocket": "^1.0.3",
     "logrocket-react": "^3.0.0",
     "math": "^0.0.3",
     "moment": "^2.24.0",
