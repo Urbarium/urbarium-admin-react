@@ -17,3 +17,4 @@ npm-debug.log
 .firebase/
 firebase-debug.log
 .vscode
+.env
