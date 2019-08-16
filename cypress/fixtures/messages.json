@@ -1,0 +1,11 @@
+{
+  "login": {
+    "title": "Urbarium Login",
+    "submitLabel": "Submit",
+    "badPassword": "The password is invalid or the user does not have a password.",
+    "badEmail": "There is no user record corresponding to this identifier. The user may have been deleted."
+  },
+  "analytics": {
+    "title": "Analytics"
+  }
+}
