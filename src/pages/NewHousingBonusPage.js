@@ -1,21 +1,21 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
-import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
-import Label from '../../components/Urbarium/Label';
-import ButtonRound from '../../components/Urbarium/ButtonRound';
-import IconTitle from '../../components/Urbarium/IconTitle';
-import { headerNameTheme, headerValueTheme } from '../../components/Urbarium/BonoTitle';
-import { colors } from '../../components/Urbarium/urbarium-styles';
-import { Row, Column } from '../../components/Structural/index';
-import { todayAsString as today } from '../../helpers/time';
+import { ConnectedLabeledInput as Input } from 'components/Urbarium/LabeledInput';
+import Label from 'components/Urbarium/Label';
+import ButtonRound from 'components/Urbarium/ButtonRound';
+import IconTitle from 'components/Urbarium/IconTitle';
+import { headerNameTheme, headerValueTheme } from 'components/Urbarium/BonoTitle';
+import { colors } from 'components/Urbarium/urbarium-styles';
+import { Row, Column } from 'components/Structural';
+import { todayAsString as today } from 'helpers/time';
 
-import Form, { submitForm } from '../../components/Form';
+import Form, { submitForm } from 'components/Form';
 import {
   PageWrapper,
   PageHeader,
   PageContent,
   PageFooter,
-} from '../../components/PageWrapper';
+} from 'components/PageWrapper';
 
 
 const bonoNumberTheme = {

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Portal from '@atlaskit/portal';
-import { primary } from '../colors';
+import { primary } from 'config/colors';
 
 const FullBackgroundDiv = styled.div`
   background-color: ${primary.primary};

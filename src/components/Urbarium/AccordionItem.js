@@ -3,7 +3,7 @@ import styled, { ThemeProvider } from 'styled-components';
 import Label from './Label';
 import Arrow from './ButtonArrow';
 import { ConnectedInputState as State } from './InputState';
-import { Row } from '../Structural/index';
+import { Row } from 'components/Structural/index';
 import { FrameStyle as style, colors } from './urbarium-styles';
 
 const contentTheme = {

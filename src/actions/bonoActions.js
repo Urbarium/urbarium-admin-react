@@ -1,5 +1,5 @@
 import { navs, actionProductNavSet } from './navigationActions';
-import { accessRecursively } from '../helpers/functions';
+import { accessRecursively } from 'helpers/functions';
 
 export function actionBonoStart() {
   return { type: 'BONO_START' };

@@ -1,17 +1,17 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
-import Beneficiarios from '../../components/Urbarium/BeneficiariosSection';
-import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
-import DropdownGroup from '../../components/Urbarium/DropdownGroup';
-import IconTitle from '../../components/Urbarium/IconTitle';
-import { Row, Column } from '../../components/Structural/index';
-import Form from '../../components/Form';
+import BeneficiariesSection from 'components/Urbarium/BeneficiariosSection';
+import { ConnectedLabeledInput as Input } from 'components/Urbarium/LabeledInput';
+import DropdownGroup from 'components/Urbarium/DropdownGroup';
+import IconTitle from 'components/Urbarium/IconTitle';
+import { Row, Column } from 'components/Structural';
+import Form from 'components/Form';
 import {
   PageWrapper,
   BonoHeader,
   PageContent,
   BonoFooter,
-} from '../../components/PageWrapper';
+} from 'components/PageWrapper';
 
 const formID = "beneficiarios-page-form";
 
@@ -24,7 +24,7 @@ const BeneficiariosPage = ({ bono }) => (
       <Form id={formID}>
         <Column gap={30}>
 
-          <Beneficiarios />
+          <BeneficiariesSection />
 
           <Column gap={20}>
             <IconTitle icon="map">Dirección</IconTitle>

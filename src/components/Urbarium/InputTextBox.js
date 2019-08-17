@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from 'actions/bonoActions';
 import { InputField } from './urbarium-styles';
 
 

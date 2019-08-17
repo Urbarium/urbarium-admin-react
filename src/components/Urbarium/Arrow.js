@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { primary } from '../../colors';
+import { primary } from 'config/colors';
 
 const Arrow = styled.div`
     background-color: ${props => props.color};
