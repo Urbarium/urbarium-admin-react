@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs } from '../../actions/bonoActions';
-import { accessRecursively } from '../../helpers/functions';
-import { primary, secondary } from '../../colors';
-import { FlexGrid } from '../Structural/index';
+import { mapDispatchToPropsForInputs } from 'actions/bonoActions';
+import { accessRecursively } from 'helpers/functions';
+import { primary, secondary } from 'config/colors';
+import { FlexGrid } from 'components/Structural/index';
 import OptionWrapper from './OptionWrapper';
 import OptionLabel from './OptionLabel';
 

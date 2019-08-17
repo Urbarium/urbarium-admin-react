@@ -9,12 +9,12 @@ import SectionMessage from '@atlaskit/section-message';
 import { withRouter } from "react-router";
 import {
   actionAddBono, actionBonoCanceled,
-} from '../../actions/bonoActions';
-import ContentWrapper from '../../components/ContentWrapper';
-import PageTitle from '../../components/PageTitle';
-import JefeDeFamiliaSection from '../../components/Urbarium/JefeDeFamiliaSection';
-import Form, { submitForm } from '../../components/Form';
-import { today } from '../../helpers/time';
+} from 'actions/bonoActions';
+import ContentWrapper from 'components/ContentWrapper';
+import PageTitle from 'components/PageTitle';
+import JefeDeFamiliaSection from 'components/Urbarium/JefeDeFamiliaSection';
+import Form, { submitForm } from 'components/Form';
+import { today } from 'helpers/time';
 
 const StyledDate = styled.label`
   font-size: 15px;

@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { primary } from '../../colors';
+import { primary } from 'config/colors';
 import Arrow from './Arrow';
 
 const Button = styled.button`

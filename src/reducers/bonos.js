@@ -1,5 +1,5 @@
 /* eslint-disable object-curly-newline */
-import { copyReplaceObject as copy } from '../helpers/functions';
+import { copyReplaceObject as copy } from 'helpers/functions';
 
 const initialState = {
   currentBono: {

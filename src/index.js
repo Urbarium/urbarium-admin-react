@@ -17,9 +17,9 @@ import { applyMiddleware, createStore } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 import logger from 'redux-logger';
-import MainRouter from './modules/MainRouter';
-import ErrorBoundary from './components/ErrorBoundary';
-import createRootReducer from './reducers';
+import MainRouter from 'modules/MainRouter';
+import ErrorBoundary from 'components/ErrorBoundary';
+import createRootReducer from 'reducers';
 
 Sentry.init({
   dsn: 'https://09c10ad8e29341d59fe1bb79ab58d757@sentry.io/1480103',

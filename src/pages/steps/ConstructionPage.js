@@ -1,15 +1,15 @@
 import React from 'react';
-import Accordion from '../../components/Urbarium/AccordionItem';
-import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
-import { Column, Row } from '../../components/Structural/index';
-import Form from '../../components/Form';
+import Accordion from 'components/Urbarium/AccordionItem';
+import { ConnectedLabeledInput as Input } from 'components/Urbarium/LabeledInput';
+import { Column, Row } from 'components/Structural';
+import Form from 'components/Form';
 import { SolicitudPlanoPresupuestoOptions } from './options';
 import {
   PageWrapper,
   BonoHeader,
   PageContent,
   BonoFooter,
-} from '../../components/PageWrapper';
+} from 'components/PageWrapper';
 
 
 const formID = 'contruccion-tramites-page-form';

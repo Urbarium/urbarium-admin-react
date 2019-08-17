@@ -1,9 +1,9 @@
 import React from 'react';
 import { Switch, Route } from 'react-router';
-import LoginPage from '../pages/LoginPage';
-import Navigation from '../components/Navigation';
-import Loading from '../components/Loading';
-import { UserIsAuthenticated, UserIsNotAuthenticated } from '../components/AuthorizedPages';
+import LoginPage from 'pages/LoginPage';
+import Navigation from 'components/Navigation';
+import Loading from 'components/Loading';
+import { UserIsAuthenticated, UserIsNotAuthenticated } from 'components/AuthorizedPages';
 
 const MainRouter = () => (
   <Switch>

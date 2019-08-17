@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-// import { N0 } from '@atlaskit/theme/dist/cjs/colors';
 
 const Card = styled.div`
   background-color: #FFFFFF;

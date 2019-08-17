@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from 'actions/bonoActions';
 import Arrow from './Arrow';
 import { colors, InputField } from './urbarium-styles';
 
