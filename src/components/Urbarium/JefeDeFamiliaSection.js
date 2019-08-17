@@ -1,9 +1,9 @@
 import React from 'react';
 import Input from './LabeledInput';
 import Label from './Label';
-import { primary } from '../../colors';
-import fonts from '../../fonts';
-import { Column, Row } from '../Structural/index';
+import { primary } from 'config/colors';
+import fonts from 'config/fonts';
+import { Column, Row } from 'components/Structural/index';
 
 const subLabelFont = `${fonts.subLabel} color: ${primary.passive};`;
 

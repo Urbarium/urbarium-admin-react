@@ -3,8 +3,8 @@ import {
   VictoryChart, VictoryLine, VictoryPie, VictoryArea,
 } from "victory";
 import Page, { Grid, GridColumn } from '@atlaskit/page';
-import ContentWrapper from '../components/ContentWrapper';
-import PageTitle from '../components/PageTitle';
+import ContentWrapper from 'components/ContentWrapper';
+import PageTitle from 'components/PageTitle';
 
 const HomePage = () => (
   <ContentWrapper>

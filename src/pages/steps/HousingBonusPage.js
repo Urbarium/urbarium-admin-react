@@ -1,13 +1,13 @@
 import React from 'react';
-import { ConnectedLabeledInput as Input } from '../../components/Urbarium/LabeledInput';
-import { Column } from '../../components/Structural/index';
-import Form from '../../components/Form';
+import { ConnectedLabeledInput as Input } from 'components/Urbarium/LabeledInput';
+import { Column } from 'components/Structural';
+import Form from 'components/Form';
 import {
   PageWrapper,
   BonoHeader,
   PageContent,
   BonoFooter,
-} from '../../components/PageWrapper';
+} from 'components/PageWrapper';
 import {
   Anos,
   Modalidad,

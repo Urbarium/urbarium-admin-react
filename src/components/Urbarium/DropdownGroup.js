@@ -1,6 +1,6 @@
 import React from 'react';
 import { ConnectedLabeledInput as Input } from './LabeledInput';
-import { Row } from '../Structural/index';
+import { Row } from 'components/Structural/index';
 
 class DDG extends React.Component {
   constructor(props) {

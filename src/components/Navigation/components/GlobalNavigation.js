@@ -11,15 +11,15 @@ import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
 import LogRocket from 'logrocket';
-import ProfileFragment from '../../Profile/ProfileFragment';
+import ProfileFragment from 'components/Profile/ProfileFragment';
 import {
   globalNavPrimaryItems,
   globalNavSecondaryItems,
-} from '../menus/globalNavItems';
-import CrearBonoPage from '../../../pages/bono/CrearBonoPage';
+} from 'components/Navigation/menus/globalNavItems';
+import CrearBonoPage from 'pages/steps/CrearBonoPage';
 import {
   actionBonoStart,
-} from '../../../actions/bonoActions';
+} from 'actions/bonoActions';
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile }),

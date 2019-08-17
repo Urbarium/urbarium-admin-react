@@ -6,7 +6,7 @@ import InputDropdown, { ConnectedInputDropdown } from './InputDropdown';
 import InputTextArea, { ConnectedInputTextArea } from './InputTextArea';
 import InputCheckbox, { ConnectedInputCheckbox } from './InputCheckbox';
 import InputRadio, { ConnectedInputRadio } from './InputRadio';
-import { Column } from '../Structural/index';
+import { Column } from 'components/Structural/index';
 
 const getInput = (connected, type, props) => {
   if (connected) {

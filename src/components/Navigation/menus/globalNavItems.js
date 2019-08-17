@@ -6,7 +6,7 @@ import AddIcon from '@atlaskit/icon/glyph/add';
 import PeopleGroupIcon from '@atlaskit/icon/glyph/people-group';
 import Avatar from '@atlaskit/avatar';
 import SignOutIcon from '@atlaskit/icon/glyph/sign-out';
-import GlobalLink from '../components/GlobalLink';
+import GlobalLink from 'components/Navigation/components/GlobalLink';
 
 export const globalNavPrimaryItems = ({
   onDashboardClick, onSearchClick, onUsersManagementClick, onAddBonoClick,

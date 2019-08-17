@@ -5,7 +5,7 @@ import Page, { Grid, GridColumn } from '@atlaskit/page';
 
 import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
-import ButtonWithLoading from '../ButtonWithLoading';
+import ButtonWithLoading from 'components/ButtonWithLoading';
 
 const enhance = connect(
   ({ firebase: { profile } }) => ({ profile }),
