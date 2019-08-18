@@ -62,7 +62,7 @@
     "redux-firestore": "^0.8.0",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
-    "snyk": "^1.216.5",
+    "snyk": "^1.217.0",
     "styled-components": "4.3.2",
     "victory": "^32.3.1"
   },
