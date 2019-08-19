@@ -1,6 +1,6 @@
 import React from 'react';
 import Label from './Label';
-import { Row, Column } from '../Structural/index';
+import { Row, Column } from 'components/Structural/index';
 import { colors } from './urbarium-styles';
 
 const titleTheme = {

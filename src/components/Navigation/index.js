@@ -11,18 +11,22 @@ import customThemeMode from './theme';
 import GlobalNavigation from './components/GlobalNavigation';
 import LinkItem from './components/LinkItem';
 import ProjectInfoHeader from './components/ProjectInfoHeader';
-import HomePage from '../../pages/HomePage';
-import UsersPage from '../../pages/UsersPage';
-import UpdateProfilePage from '../../pages/UpdateProfilePage';
-import NuevoBonoPage from '../../pages/bono/NuevoBonoPage';
-import BeneficiariosPage from '../../pages/bono/BeneficiariosPage';
-import CasoDeBonoPage from '../../pages/bono/CasoDeBonoPage';
-import TramitesPage from '../../pages/bono/TramitesPage';
-import ConstruccionTramitesPage from '../../pages/bono/ConstruccionTramitesPage';
-import DesembolsoPage from '../../pages/bono/DesembolsoPage';
-import navigationOptions from './menus/navigationOptions';
+
+// Pages
+import HomePage from 'pages/HomePage';
+import UsersPage from 'pages/UsersPage';
+import UpdateProfilePage from 'pages/UpdateProfilePage';
+import NuevoBonoPage from 'pages/NewHousingBonusPage';
+import BeneficiariosPage from 'pages/steps/BeneficiariesPage';
+import CasoDeBonoPage from 'pages/steps/HousingBonusPage';
+import TramitesPage from 'pages/steps/TramitesPage';
+import ConstruccionTramitesPage from 'pages/steps/ConstructionPage';
+import DesembolsoPage from 'pages/steps/DisbursementPage';
+
+// Menus
 import bonoFormNavItems from './menus/bonoFormNavItems';
 import usersManagementNavItems from './menus/usersManagementNavItems';
+import navigationOptions from './menus/navigationOptions';
 
 class Navigation extends Component {
   constructor(props) {

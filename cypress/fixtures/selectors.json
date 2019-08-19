@@ -1,0 +1,11 @@
+{
+  "login": {
+    "emailInput": "input[name=email]",
+    "passwordInput": "input[name=password]",
+    "submitBtn": "button[type=submit]",
+    "signInForm": "form"
+  },
+  "globalNav": {
+    "logoutBtn": "button#logoutGlobalItem"
+  }
+}

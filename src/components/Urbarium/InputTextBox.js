@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from 'actions/bonoActions';
 import { InputField } from './urbarium-styles';
 
 
@@ -32,4 +32,5 @@ InputTextBox.defaultProps = {
   updateField() {},
 };
 
-export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextBox);
+const ConnectedInputTextBox = connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextBox);
+export { InputTextBox as default, ConnectedInputTextBox };

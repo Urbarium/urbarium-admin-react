@@ -7,21 +7,22 @@ import {
   withNavigationUIController,
 } from '@atlaskit/navigation-next';
 import { withFirestore } from 'react-redux-firebase';
-import Input from '../../components/Urbarium/LabeledInput';
-import Label from '../../components/Urbarium/Label';
-import ButtonRound from '../../components/Urbarium/ButtonRound';
-import IconTitle from '../../components/Urbarium/IconTitle';
-import { headerNameTheme, headerValueTheme } from '../../components/Urbarium/BonoTitle';
-import { colors } from '../../components/Urbarium/urbarium-styles';
-import { Row, Column } from '../../components/Structural/index';
-import Form, { submitForm } from '../../components/Form';
+import Input from 'components/Urbarium/LabeledInput';
+import Label from 'components/Urbarium/Label';
+import ButtonRound from 'components/Urbarium/ButtonRound';
+import IconTitle from 'components/Urbarium/IconTitle';
+import { headerNameTheme, headerValueTheme } from 'components/Urbarium/BonoTitle';
+import { colors } from 'components/Urbarium/urbarium-styles';
+import { Row, Column } from 'components/Structural/index';
+import Form, { submitForm } from 'components/Form';
 import {
   PageWrapper,
   PageHeader,
   PageContent,
   PageFooter,
-} from '../../components/PageWrapper';
-import { actionSaveBono } from '../../actions/bonoActions';
+} from 'components/PageWrapper';
+import { actionSaveBono } from 'actions/bonoActions';
+import { today } from 'helpers/time';
 
 const bonoNumberTheme = {
   label_fontSize: '35px',
@@ -44,7 +45,7 @@ const CrearBonoPage = ({ number, date, createBono }) => (
         <Label theme={titleTheme}>Nuevo Bono de Vivienda</Label>
         <Column justify="end">
           <Label theme={headerNameTheme}>FECHA DE CREACION</Label>
-          <Label theme={headerValueTheme}>{date}</Label>
+          <Label theme={headerValueTheme}>{today()}</Label>
         </Column>
       </Row>
     </PageHeader>
@@ -112,7 +113,6 @@ const enhance = compose(
 
 CrearBonoPage.defaultProps = {
   number: 124345,
-  date: '12-02-2014',
 };
 
 export default enhance(CrearBonoPage);

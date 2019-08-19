@@ -1,14 +1,26 @@
 import React from 'react';
 import Label from './Label';
 import IconTitle from './IconTitle';
-import InputTextBox from './InputTextBox';
-import InputDropdown from './InputDropdown';
-import InputTextArea from './InputTextArea';
-import InputCheckbox from './InputCheckbox';
-import InputRadio from './InputRadio';
-import { Column } from '../Structural/index';
+import InputTextBox, { ConnectedInputTextBox } from './InputTextBox';
+import InputDropdown, { ConnectedInputDropdown } from './InputDropdown';
+import InputTextArea, { ConnectedInputTextArea } from './InputTextArea';
+import InputCheckbox, { ConnectedInputCheckbox } from './InputCheckbox';
+import InputRadio, { ConnectedInputRadio } from './InputRadio';
+import { Column } from 'components/Structural/index';
 
-const getInput = (type, props) => {
+const getInput = (connected, type, props) => {
+  if (connected) {
+    switch (type) {
+    case 'textarea': return <ConnectedInputTextArea {...props} />;
+    case 'dropdown': return <ConnectedInputDropdown {...props} />;
+    case 'checkbox': return <ConnectedInputCheckbox {...props} />;
+    case 'radio': return <ConnectedInputRadio {...props} />;
+    case 'tel':
+    case 'number':
+    case 'text': return <ConnectedInputTextBox {...props} />;
+    default: return null;
+    }
+  }
   switch (type) {
   case 'textarea': return <InputTextArea {...props} />;
   case 'dropdown': return <InputDropdown {...props} />;
@@ -29,21 +41,15 @@ const getLabel = (label, icon) => {
   return result;
 };
 
-const LabeledInput = (props) => {
-  const {
-    label, type, icon,
-  } = props;
-  const inputProps = Object.assign({}, props);
-  // there's probably a better pattern for this
-  delete inputProps.label;
-  delete inputProps.icon;
-  delete inputProps.type;
-  return (
-    <Column gap={7}>
-      {getLabel(label, icon)}
-      {getInput(type, inputProps)}
-    </Column>
-  );
-};
+const LabeledInput = ({
+  connected = false, type, label, icon, ...inputProps
+}) => (
+  <Column gap={7}>
+    {getLabel(label, icon)}
+    {getInput(connected, type, inputProps)}
+  </Column>
+);
 
-export default LabeledInput;
+const ConnectedLabeledInput = props => <LabeledInput {...props} connected />;
+
+export { LabeledInput as default, ConnectedLabeledInput };

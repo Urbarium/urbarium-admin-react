@@ -5,8 +5,8 @@ import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { pickBy, identity } from 'lodash';
-import MoveToTheRight from '../MoveToTheRight';
-import ButtonWithLoading from '../ButtonWithLoading';
+import MoveToTheRight from 'components/MoveToTheRight';
+import ButtonWithLoading from 'components/ButtonWithLoading';
 
 class UpdateProfileForm extends Component {
   state = {

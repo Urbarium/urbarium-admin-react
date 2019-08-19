@@ -6,7 +6,7 @@ import Page, { Grid, GridColumn } from '@atlaskit/page';
 import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
-import ButtonWithLoading from '../ButtonWithLoading';
+import ButtonWithLoading from 'components/ButtonWithLoading';
 
 const Title = styled.div`
   font-size: 28px;

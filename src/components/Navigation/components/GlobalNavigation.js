@@ -11,12 +11,12 @@ import { connect } from 'react-redux';
 
 import { withRouter } from 'react-router-dom';
 import LogRocket from 'logrocket';
-import ProfileFragment from '../../Profile/ProfileFragment';
+import ProfileFragment from 'components/Profile/ProfileFragment';
 import {
   globalNavPrimaryItems,
   globalNavSecondaryItems,
-} from '../menus/globalNavItems';
-import customThemeMode from '../theme';
+} from 'components/Navigation/menus/globalNavItems';
+import customThemeMode from 'components/Navigation/theme';
 
 class GlobalNavigation extends Component {
   constructor(props) {

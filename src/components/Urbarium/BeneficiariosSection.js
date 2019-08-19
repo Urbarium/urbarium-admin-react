@@ -1,11 +1,11 @@
 /* eslint-disable camelcase */
 import React from 'react';
 import { connect } from 'react-redux';
-import { actionAddBeneficiario, actionRemoveBeneficiario } from '../../actions/bonoActions';
-import Input from './LabeledInput';
+import { actionAddBeneficiario, actionRemoveBeneficiario } from 'actions/bonoActions';
+import { ConnectedLabeledInput as Input } from './LabeledInput';
 import Button from './ButtonText';
 import IconTitle from './IconTitle';
-import { Row, Column } from '../Structural/index';
+import { Row, Column } from 'components/Structural/index';
 
 // Single beneficiaro definition
 const Beneficiario = ({ index }) => (

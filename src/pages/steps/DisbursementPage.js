@@ -1,12 +1,12 @@
 import React from 'react';
-import Label from '../../components/Urbarium/Label';
-import { Column, Row } from '../../components/Structural/index';
+import Label from 'components/Urbarium/Label';
+import { Column, Row } from 'components/Structural';
 import {
   PageWrapper,
   BonoHeader,
   PageContent,
   BonoFooter,
-} from '../../components/PageWrapper';
+} from 'components/PageWrapper';
 
 const headerTheme = {
   label_fontSize: '21px',

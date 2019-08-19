@@ -1,0 +1,16 @@
+# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
+version: v1.13.5
+ignore: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-450202:
+    - '@atlaskit/navigation-next > @atlaskit/select > react-select > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2019-08-15T21:41:09.897Z'
+    - '@atlaskit/navigation-next > @atlaskit/select > react-select > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2019-08-15T21:41:09.897Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2019-08-16T07:45:17.072Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2019-08-16T07:45:17.072Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2019-08-16T07:45:17.072Z'

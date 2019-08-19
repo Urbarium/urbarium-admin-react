@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { connect } from 'react-redux';
-import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from '../../actions/bonoActions';
+import { mapDispatchToPropsForInputs, mapStateToPropsForInputs } from 'actions/bonoActions';
 import { TextAreaStyle as style, InputField } from './urbarium-styles';
 
 const getHeight = (props) => {
@@ -57,4 +57,5 @@ InputTextArea.defaultProps = {
   updateField() {},
 };
 
-export default connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextArea);
+const ConnectedInputTextArea = connect(mapStateToPropsForInputs, mapDispatchToPropsForInputs)(InputTextArea);
+export { InputTextArea as default, ConnectedInputTextArea };

@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Radio from '../components/Urbarium/InputRadio';
-import { ConformacionExpedienteOptions } from '../pages/bono/options';
+import { ConformacionExpedienteOptions } from '../pages/steps/options';
 
 const options = [
   { name: 'Chocolate', value: 'chocolate' },

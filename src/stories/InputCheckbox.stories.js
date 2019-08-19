@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import Checkbox from '../components/Urbarium/InputCheckbox';
-import { ConformacionExpedienteOptions } from '../pages/bono/options';
+import { ConformacionExpedienteOptions } from '../pages/steps/options';
 
 const options1 = [
   { name: 'Pizza', value: 'pizza' },

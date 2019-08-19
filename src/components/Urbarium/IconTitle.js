@@ -5,7 +5,7 @@ import PhoneIcon from '@atlaskit/icon/glyph/hipchat/dial-out';
 import MapIcon from '@atlaskit/icon/glyph/location';
 import CalendarIcon from '@atlaskit/icon/glyph/calendar';
 import Label from './Label';
-import { Row } from '../Structural/index';
+import { Row } from 'components/Structural/index';
 import { IconTitleStyle as style } from './urbarium-styles';
 
 

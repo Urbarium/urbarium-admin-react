@@ -5,7 +5,7 @@ const OptionWrapper = styled.label`
   cursor: pointer;
   width: fit-content;
   display: flex
-  flex-direction: row;  
+  flex-direction: row;
   &:hover div {
     transform: scale(1.1);
   }
