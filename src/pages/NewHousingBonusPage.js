@@ -45,7 +45,7 @@ const CrearBonoPage = ({ number, date, createBono }) => (
         <Label theme={titleTheme}>Nuevo Bono de Vivienda</Label>
         <Column justify="end">
           <Label theme={headerNameTheme}>FECHA DE CREACION</Label>
-          <Label theme={headerValueTheme}>{today()}</Label>
+          <Label theme={headerValueTheme}>{`${today()}`}</Label>
         </Column>
       </Row>
     </PageHeader>
