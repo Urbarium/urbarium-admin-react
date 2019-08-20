@@ -271,10 +271,10 @@
     shallow-equal "^1.0.0"
     unstated "^1.2.0"
 
-"@atlaskit/page@^11.0.2":
-  version "11.0.5"
-  resolved "https://registry.yarnpkg.com/@atlaskit/page/-/page-11.0.5.tgz#5c960f5e53fa93c0dad0fad285379a42c2cb0b3b"
-  integrity sha512-Qbrp/ASca/N9p37Kn30KXODtQx/OEMAW1VWrIgbCARU0A9oITKaxFlqbChD+ygvWbNeEsnHnba1iXPceMXD1Wg==
+"@atlaskit/page@^11.0.6":
+  version "11.0.6"
+  resolved "https://registry.yarnpkg.com/@atlaskit/page/-/page-11.0.6.tgz#42997fcb2e2b47dd4a33c7f6f094c98f958260e8"
+  integrity sha512-WZ/S2GyN9ZFb0jV+Hl+2YSFOum30GdfOPQtmNRZ2vC8hyLm5ts5DrnaOeyau18Rga47/pveh8+HEG8on5d3Nvg==
   dependencies:
     "@babel/runtime" "^7.0.0"
     tslib "^1.9.3"
