@@ -28,7 +28,7 @@
     "@atlaskit/drawer": "^4.1.6",
     "@atlaskit/form": "^6.1.5",
     "@atlaskit/icon": "^18.0.4",
-    "@atlaskit/inline-message": "^10.0.6",
+    "@atlaskit/inline-message": "^10.0.12",
     "@atlaskit/modal-dialog": "^10.0.8",
     "@atlaskit/navigation-next": "^6.5.0",
     "@atlaskit/page": "^11.0.2",
