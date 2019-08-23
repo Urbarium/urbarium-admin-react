@@ -105,12 +105,12 @@
     react-syntax-highlighter "^10.0.1"
     tslib "^1.9.3"
 
-"@atlaskit/css-reset@^5.0.2":
-  version "5.0.5"
-  resolved "https://registry.yarnpkg.com/@atlaskit/css-reset/-/css-reset-5.0.5.tgz#8fa998eaaaf10271e26e34b158d46cd5c3079d53"
-  integrity sha512-+F7Q7BUPZ6xfHne4uF25Kd4U7we4HcR2X9PdIOKLZUk1TQBS8vhtTlckl6yfAkKefAXZSvNIs+svti9m7QaABg==
+"@atlaskit/css-reset@^5.0.7":
+  version "5.0.7"
+  resolved "https://registry.yarnpkg.com/@atlaskit/css-reset/-/css-reset-5.0.7.tgz#5561c464f4f35d7735255a0d3e78c7f0e88f9769"
+  integrity sha512-DRierQVjT6wvjTcRrpiK2dIFCDkI+Uudx0mIjpxT40wkGpVQ7ofOwq1kxJCpTKjxbdJ3Z0m3yMd4+XGpO5gSew==
   dependencies:
-    "@atlaskit/theme" "^9.0.0"
+    "@atlaskit/theme" "^9.1.5"
     fbjs "^1.0.0"
     mkdirp "^0.5.1"
 
@@ -360,6 +360,15 @@
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-9.1.2.tgz#30806ec5d8d369a9fe7e828c3783546240484b91"
   integrity sha512-pwelg9dmKomiSD/rVs8HwLvxRaFos4e45uiBVkiJdi9UsW+17pIcXegyMnSyCo/sVkZ2tr4gEJMrP/IUvR+Pwg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    exenv "^1.2.2"
+    prop-types "^15.5.10"
+
+"@atlaskit/theme@^9.1.5":
+  version "9.1.5"
+  resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-9.1.5.tgz#d1c95604e44af612c4d8920ca8713d7b56e2b947"
+  integrity sha512-6Z/TUZzvOQEAFNUhTQa30cIvk2UUBef49xIZThlxJjK8btpJRknNewD7TNxqYm0wHaSl8cFZ+1pcRkM3AcmxJA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     exenv "^1.2.2"
