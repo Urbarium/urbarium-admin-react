@@ -297,7 +297,17 @@
     memoize-one "^3.0.1"
     react-popper "1.0.2"
 
-"@atlaskit/portal@^3.0.6", "@atlaskit/portal@^3.0.7", "@atlaskit/portal@^3.0.9":
+"@atlaskit/portal@^3.0.11":
+  version "3.0.11"
+  resolved "https://registry.yarnpkg.com/@atlaskit/portal/-/portal-3.0.11.tgz#68ceedead62e5ac8962d3813a3e88de64d59e2a4"
+  integrity sha512-aJECI9ekKOkbmi57JBfU+WLXeNZ9FyJRuSMoR4IVvZtHkFAcpLprrgK/+v8ugihbnN1172toKla3FOtGccgoyg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    exenv "^1.2.2"
+    tiny-invariant "^0.0.3"
+    tslib "^1.9.3"
+
+"@atlaskit/portal@^3.0.7", "@atlaskit/portal@^3.0.9":
   version "3.0.9"
   resolved "https://registry.yarnpkg.com/@atlaskit/portal/-/portal-3.0.9.tgz#70acc3502051fd30e6c6a0bfadb52dbadba88f01"
   integrity sha512-v0QSrRY5CJMrOWZY6BVWzz/i/q9JGKcF8Gwvnbej2X2+5RZFoj27RwMRl7s1OR/m0pdjrO5mJH44VmEdQI/Y8w==

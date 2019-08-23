@@ -32,7 +32,7 @@
     "@atlaskit/modal-dialog": "^10.0.8",
     "@atlaskit/navigation-next": "^6.5.0",
     "@atlaskit/page": "^11.0.2",
-    "@atlaskit/portal": "^3.0.6",
+    "@atlaskit/portal": "^3.0.11",
     "@atlaskit/section-message": "^4.0.5",
     "@atlaskit/textfield": "^2.0.2",
     "@atlaskit/theme": "^9.1.1",
