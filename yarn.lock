@@ -154,17 +154,17 @@
     react-transition-group "^2.2.1"
     tiny-invariant "^0.0.3"
 
-"@atlaskit/form@^6.1.5":
-  version "6.1.7"
-  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.1.7.tgz#6b4c67009f8e7e46bff600d24b5400a3d6abf87c"
-  integrity sha512-LgZurpwCgIc9av7D0pHboRsWUgyZdMcB3kVETQhg9pdLyAfzP8tdP/jQir9ms+bAn1ThY2ZMIb8/awy282HzzA==
+"@atlaskit/form@^6.1.12":
+  version "6.1.12"
+  resolved "https://registry.yarnpkg.com/@atlaskit/form/-/form-6.1.12.tgz#eb15ae9f0d530b5ad38216e9b5d992c810b3f31e"
+  integrity sha512-4mM/GENEC+FGNtr3pXHPyVtim/IcUQbeac29IIw5deYnOncx95sm06bxILCgKrUSsquzdkVXVHXH67iYmUEApQ==
   dependencies:
-    "@atlaskit/icon" "^19.0.2"
-    "@atlaskit/theme" "^9.1.1"
+    "@atlaskit/icon" "^19.0.6"
+    "@atlaskit/theme" "^9.1.6"
     "@babel/runtime" "^7.0.0"
     final-form "^4.13.0"
     final-form-focus "^1.1.0"
-    memoize-one "^3.0.1"
+    memoize-one "^5.1.0"
     react-uid "^2.2.0"
     shallow-equal "^1.0.0"
     tiny-invariant "^0.0.3"
@@ -185,6 +185,15 @@
   integrity sha512-Nw+Ua6PlR5+3kRU0+1NjCE83JtG3RNp8hwTWvQwmgV/0WYy3GH+foBYCXXDF/LOsSedtu/mfRG8c8oLzdzF8mQ==
   dependencies:
     "@atlaskit/theme" "^9.1.1"
+    tslib "^1.9.3"
+    uuid "^3.1.0"
+
+"@atlaskit/icon@^19.0.6":
+  version "19.0.6"
+  resolved "https://registry.yarnpkg.com/@atlaskit/icon/-/icon-19.0.6.tgz#64ac5b836fa789cd85edb95af52f2b3e4b0ca48a"
+  integrity sha512-FUeMOW8/o3NeAwyBBmkkXNs7PN7fnB3Cm7L39tkiSvEvp2gop6A9Dj9z+A6U+SYQNUc+h4+SntjLEKrfDsyAEg==
+  dependencies:
+    "@atlaskit/theme" "^9.1.6"
     tslib "^1.9.3"
     uuid "^3.1.0"
 
@@ -360,6 +369,15 @@
   version "9.1.2"
   resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-9.1.2.tgz#30806ec5d8d369a9fe7e828c3783546240484b91"
   integrity sha512-pwelg9dmKomiSD/rVs8HwLvxRaFos4e45uiBVkiJdi9UsW+17pIcXegyMnSyCo/sVkZ2tr4gEJMrP/IUvR+Pwg==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    exenv "^1.2.2"
+    prop-types "^15.5.10"
+
+"@atlaskit/theme@^9.1.6":
+  version "9.1.6"
+  resolved "https://registry.yarnpkg.com/@atlaskit/theme/-/theme-9.1.6.tgz#ff543ef540342788ed62f642c23ed0e872928d5e"
+  integrity sha512-Gep2VEHReY+fGkoPScWZ9qR/A5lCcNl+3jpg+ngajxphILGAnLNixmDZ/xDJ+Sz6PTrbbY3iqBOYigFDCGiVDA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     exenv "^1.2.2"
@@ -9903,6 +9921,11 @@ memoize-one@^5.0.0, memoize-one@^5.0.1:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.0.4.tgz#005928aced5c43d890a4dfab18ca908b0ec92cbc"
   integrity sha512-P0z5IeAH6qHHGkJIXWw0xC2HNEgkx/9uWWBQw64FJj3/ol14VYdfVGWWr0fXfjhhv3TKVIqUq65os6O4GUNksA==
+
+memoize-one@^5.1.0:
+  version "5.1.1"
+  resolved "https://registry.yarnpkg.com/memoize-one/-/memoize-one-5.1.1.tgz#047b6e3199b508eaec03504de71229b8eb1d75c0"
+  integrity sha512-HKeeBpWvqiVJD57ZUAsJNm71eHTykffzcLZVYWiVfQeI1rJtuEaS7hQiEpWfVVk18donPwJEcFKIkCmPJNOhHA==
 
 memoizerific@^1.11.3:
   version "1.11.3"
