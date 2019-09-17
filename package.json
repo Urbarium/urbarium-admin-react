@@ -29,7 +29,7 @@
     "@atlaskit/form": "^6.1.5",
     "@atlaskit/icon": "^18.0.4",
     "@atlaskit/inline-message": "^10.0.6",
-    "@atlaskit/modal-dialog": "^10.0.8",
+    "@atlaskit/modal-dialog": "^10.3.0",
     "@atlaskit/navigation-next": "^6.5.0",
     "@atlaskit/page": "^11.0.2",
     "@atlaskit/portal": "^3.0.6",
