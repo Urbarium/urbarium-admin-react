@@ -26,7 +26,7 @@
     "@atlaskit/button": "13.0.8",
     "@atlaskit/css-reset": "^5.0.2",
     "@atlaskit/drawer": "^4.1.6",
-    "@atlaskit/form": "^6.1.5",
+    "@atlaskit/form": "^6.3.2",
     "@atlaskit/icon": "^18.0.4",
     "@atlaskit/inline-message": "^10.0.6",
     "@atlaskit/modal-dialog": "^10.0.8",
