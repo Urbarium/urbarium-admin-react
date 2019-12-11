@@ -1,7 +1,7 @@
 # Urbarium Admin React
 
 ![GitHub](https://img.shields.io/github/license/Urbarium/urbarium-admin-react.svg)
-[![Depfu](https://badges.depfu.com/badges/162bf61e2b9550630153a8111d486b27/count.svg)](https://depfu.com/github/Urbarium/urbarium-admin-react?project_id=8338)
+[![Depfu](https://badges.depfu.com/badges/1129a4cdaa304ac5f178de6212eaa040/overview.svg)](https://depfu.com/github/Urbarium/urbarium-admin-react?project_id=10290)
 <a href="https://codeclimate.com/github/Urbarium/urbarium-admin-react/maintainability"><img src="https://api.codeclimate.com/v1/badges/a2dac334a6039df7d287/maintainability" /></a>
 [![Known Vulnerabilities](https://snyk.io/test/github/Urbarium/urbarium-admin-react/badge.svg)](https://snyk.io/test/github/Urbarium/urbarium-admin-react)
 [![CircleCI](https://circleci.com/gh/Urbarium/urbarium-admin-react.svg?style=shield)](https://circleci.com/gh/Urbarium/urbarium-admin-react)
