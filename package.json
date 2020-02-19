@@ -22,7 +22,7 @@
   "author": "Urbarium",
   "license": "ISC",
   "dependencies": {
-    "@atlaskit/avatar": "^17.1.4",
+    "@atlaskit/avatar": "^17.1.6",
     "@atlaskit/button": "^13.3.4",
     "@atlaskit/css-reset": "^5.0.2",
     "@atlaskit/drawer": "^5.1.0",
