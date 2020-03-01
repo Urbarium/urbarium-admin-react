@@ -40,7 +40,7 @@
     "connected-react-router": "^6.6.1",
     "dotenv": "^8.0.0",
     "eslint": "^6.7.2",
-    "firebase": "^7.5.2",
+    "firebase": "^7.9.3",
     "history": "^4.7.2",
     "lodash": "^4.17.14",
     "logrocket": "^1.0.3",
