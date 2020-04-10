@@ -53,9 +53,5 @@ class UpdateProfileForm extends Component {
 
 export default compose(
   withFirebase,
-  connect(
-    ({ firebase: { profile } }) => ({
-      profile,
-    }),
-  ),
+  connect(({ firebase: { profile } }) => ({ profile })),
 )(UpdateProfileForm);

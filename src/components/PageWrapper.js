@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
 
 export const PageHeader = styled.div`
   grid-area: header;
-  padding-right: 100px; 
+  padding-right: 100px;
   width: 100%;
   box-sizing: border-box;
   position: relative;
@@ -44,7 +44,7 @@ export const PageContent = styled.div`
   grid-area: content;
   padding: 40px 0px;
   padding-right: 100px;
-  box-sizing: border-box;    
+  box-sizing: border-box;
   overflow-y: auto;
   height: 100%;
 `;
@@ -52,8 +52,8 @@ export const PageContent = styled.div`
 export const PageFooter = styled.div`
   grid-area: footer;
   padding-right: 100px;
-  box-sizing: border-box;    
-  position: relative
+  box-sizing: border-box;
+  position: relative;
 `;
 
 export const BonoHeader = ({ bono }) => (

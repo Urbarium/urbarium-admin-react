@@ -4,12 +4,9 @@ import Button from '@atlaskit/button';
 import TextField from '@atlaskit/textfield';
 import FlexView from 'react-flexview';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import { withFirebase } from 'react-redux-firebase';
 import InlineMessage from '@atlaskit/inline-message';
-
-const enhance = connect(
-  ({ firebase: { auth } }) => ({ auth }),
-);
 
 class LoginForm extends Component {
   state = { message: { type: 'none' } };
@@ -60,4 +57,7 @@ class LoginForm extends Component {
   }
 }
 
-export default enhance(withFirebase(LoginForm));
+export default compose(
+  withFirebase,
+  connect(({ firebase: { profile } }) => ({ profile })),
+)(LoginForm);

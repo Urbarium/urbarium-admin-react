@@ -25,7 +25,6 @@ const TextArea = styled(InputField)`
   color: ${style.color};
 `;
 
-
 class InputTextArea extends React.Component {
   constructor(props) {
     super(props);

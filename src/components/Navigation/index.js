@@ -1,20 +1,13 @@
-import React, { PureComponent } from 'react';
-
-// Routes
+import React, { Component } from 'react';
 import { Route, Switch } from 'react-router';
-
-// Navigation-Next Component
 import {
   LayoutManagerWithViewController,
-  NavigationProvider,
   withNavigationViewController,
   withNavigationUIController,
-  modeGenerator,
   ThemeProvider,
 } from '@atlaskit/navigation-next';
-import { connect } from 'react-redux';
-
-// Subcomponents
+import compose from 'recompose/compose';
+import customThemeMode from './theme';
 import GlobalNavigation from './components/GlobalNavigation';
 import LinkItem from './components/LinkItem';
 import ProjectInfoHeader from './components/ProjectInfoHeader';
@@ -33,81 +26,53 @@ import DesembolsoPage from 'pages/steps/DisbursementPage';
 // Menus
 import bonoFormNavItems from './menus/bonoFormNavItems';
 import usersManagementNavItems from './menus/usersManagementNavItems';
+import navigationOptions from './menus/navigationOptions';
 
-const initializeProductNavs = (navigationViewController, navigationUIController) => {
-  // eslint-disable-next-line no-undef
-  if (window.location.pathname.match(/^\/bono/)) {
-    navigationViewController.setView('bonos');
-  // eslint-disable-next-line no-undef
-  } else if (window.location.pathname.match(/^\/users/)) {
-    navigationViewController.setView('users');
-  } else {
-    // eslint-disable-next-line no-param-reassign
-    navigationUIController.state.isCollapsed = true;
-    // eslint-disable-next-line no-param-reassign
-    navigationUIController.state.isResizeDisabled = true;
-  }
-};
-
-class Navigation extends PureComponent {
+class Navigation extends Component {
   constructor(props) {
     super(props);
-    const { navigationViewController, navigationUIController } = props;
-    initializeProductNavs(navigationViewController, navigationUIController);
-  }
-
-  componentDidMount() {
-    const { navigationViewController, navigation: { key, id } } = this.props;
+    const {
+      id, key, isCollapsed, isResizeDisabled,
+    } = navigationOptions();
+    const { navigationViewController, navigationUIController } = this.props;
     if (key === 'bonos') {
       const bonoFormNav = bonoFormNavItems(id, 'In Progress');
       navigationViewController.addView(bonoFormNav);
+    } else if (key === 'users') {
+      navigationViewController.addView(usersManagementNavItems);
     }
-    navigationViewController.addView(usersManagementNavItems);
     navigationViewController.setView(key);
+    navigationUIController.isCollapsed = isCollapsed;
+    navigationUIController.isResizeDisabled = isResizeDisabled;
   }
 
   render() {
     return (
-      <LayoutManagerWithViewController
-        globalNavigation={GlobalNavigation}
-        customComponents={{ LinkItem, ProjectInfoHeader }}
-      >
-        <Switch>
-          <Route path="/" exact component={HomePage} />
-          <Route path="/settings" component={UpdateProfilePage} />
-          <Route path="/users" component={UsersPage} />
-          <Route path="/nuevo-bono" component={NuevoBonoPage} />
-          <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
-          <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
-          <Route path="/bonos/:id/tramites" component={TramitesPage} />
-          <Route path="/bonos/:id/construccion" component={ConstruccionTramitesPage} />
-          <Route path="/bonos/:id/desembolso" component={DesembolsoPage} />
-        </Switch>
-      </LayoutManagerWithViewController>
+      <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
+        <LayoutManagerWithViewController
+          globalNavigation={GlobalNavigation}
+          customComponents={{ LinkItem, ProjectInfoHeader }}
+        >
+          <Switch>
+            <Route path="/" exact component={HomePage} />
+            <Route path="/settings" component={UpdateProfilePage} />
+            <Route path="/users" component={UsersPage} />
+            <Route path="/bonos/nuevo" component={NuevoBonoPage} />
+            <Route path="/bonos/:id/beneficiarios" component={BeneficiariosPage} />
+            <Route path="/bonos/:id/casos-de-bono" component={CasoDeBonoPage} />
+            <Route path="/bonos/:id/tramites" component={TramitesPage} />
+            <Route path="/bonos/:id/construccion" component={ConstruccionTramitesPage} />
+            <Route path="/bonos/:id/desembolso" component={DesembolsoPage} />
+          </Switch>
+        </LayoutManagerWithViewController>
+      </ThemeProvider>
     );
   }
 }
 
-function mapStateToProps(state) {
-  return { navigation: state.navigation };
-}
-
-const ConnectedNavigation = connect(mapStateToProps, {})(Navigation);
-const AppWithNavigationControllers = withNavigationViewController(withNavigationUIController(ConnectedNavigation));
-
-const customThemeMode = modeGenerator({
-  product: {
-    text: '#994f7e',
-    background: '#ebedf8',
-  },
-});
-
-const ThemedNavigationProvider = () => (
-  <NavigationProvider>
-    <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
-      <AppWithNavigationControllers />
-    </ThemeProvider>
-  </NavigationProvider>
+const enhance = compose(
+  withNavigationUIController,
+  withNavigationViewController,
 );
 
-export default ThemedNavigationProvider;
+export default enhance(Navigation);

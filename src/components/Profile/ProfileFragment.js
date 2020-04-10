@@ -5,11 +5,8 @@ import Page, { Grid, GridColumn } from '@atlaskit/page';
 
 import { withFirebase } from 'react-redux-firebase';
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import ButtonWithLoading from 'components/ButtonWithLoading';
-
-const enhance = connect(
-  ({ firebase: { profile } }) => ({ profile }),
-);
 
 const Title = styled.div`
   font-size: 28px;
@@ -75,4 +72,7 @@ const ProfileFragment = ({ profile: { name, email, avatar }, firebase }) => (
   </FullWidthFragment>
 );
 
-export default enhance(withFirebase(ProfileFragment));
+export default compose(
+  withFirebase,
+  connect(({ firebase: { profile } }) => ({ profile })),
+)(ProfileFragment);

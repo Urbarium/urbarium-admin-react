@@ -9,7 +9,6 @@ export const copyReplaceObject = (obj, names, value) => {
   return Object.assign({}, obj, { [names]: value });
 };
 
-
 export const accessRecursively = (obj, namesArray) => {
   if (namesArray.length > 1) {
     const name = namesArray.shift();

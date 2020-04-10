@@ -8,9 +8,7 @@ import { FlexGrid } from 'components/Structural/index';
 import OptionWrapper from './OptionWrapper';
 import OptionLabel from './OptionLabel';
 
-
 // checkbox & check styling
-
 const Check = styled.div`
   opacity: 0;
   transition: opacity 0.2s ease-in-out
@@ -69,7 +67,6 @@ const Input = styled.input`
 `;
 
 // Checkbox option ( checkbox + label )
-
 class CheckboxOption extends React.Component {
   constructor(props) {
     super(props);
