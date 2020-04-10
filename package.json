@@ -12,7 +12,7 @@
     "cypress": "./node_modules/.bin/cypress run --record --key a274c8ff-815d-42a4-9264-89c94b7e193a",
     "eject": "react-scripts eject",
     "surge": "bash surge_login.sh && surge --project ./build/ --domain atlaskit-starter.surge.sh",
-    "now-build": "yarn build",
+    "now-build": "npm build",
     "storybook": "start-storybook --port 9009",
     "chromatic": "CHROMATIC_APP_CODE=xtkdh08jtfd chromatic test",
     "snyk-protect": "snyk protect",
