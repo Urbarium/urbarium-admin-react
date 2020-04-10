@@ -6,7 +6,7 @@ import { connectRouter } from 'connected-react-router';
 import bonosReducer from './bonos';
 import navigationReducer from './navigation';
 
-export default history => combineReducers({
+export default (history) => combineReducers({
   firebase: firebaseReducer,
   firestore: firestoreReducer,
   router: connectRouter(history),

@@ -11,7 +11,8 @@
     "react/prop-types": 0,
     "import/no-extraneous-dependencies": 0,
     "quotes": 0,
-    "linebreak-style": 0
+    "linebreak-style": 0,
+    "react/jsx-props-no-spreading": 0
   },
   "env": {
     "jest/globals": true

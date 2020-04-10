@@ -12,7 +12,7 @@ const GlobalStyles = createGlobalStyle`
   }
 `;
 
-export const PageWrapper = props => (
+export const PageWrapper = (props) => (
   <div>
     <GlobalStyles />
     <Wrapper {...props} />

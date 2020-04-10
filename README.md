@@ -2,10 +2,11 @@
 
 ![GitHub](https://img.shields.io/github/license/Urbarium/urbarium-admin-react.svg)
 [![Depfu](https://badges.depfu.com/badges/1129a4cdaa304ac5f178de6212eaa040/overview.svg)](https://depfu.com/github/Urbarium/urbarium-admin-react?project_id=10290)
-<a href="https://codeclimate.com/github/Urbarium/urbarium-admin-react/maintainability"><img src="https://api.codeclimate.com/v1/badges/a2dac334a6039df7d287/maintainability" /></a>
-[![Known Vulnerabilities](https://snyk.io/test/github/Urbarium/urbarium-admin-react/badge.svg)](https://snyk.io/test/github/Urbarium/urbarium-admin-react)
+[![Total alerts](https://img.shields.io/lgtm/alerts/g/Urbarium/urbarium-admin-react.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Urbarium/urbarium-admin-react/alerts/)
+[![Language grade: JavaScript](https://img.shields.io/lgtm/grade/javascript/g/Urbarium/urbarium-admin-react.svg?logo=lgtm&logoWidth=18)](https://lgtm.com/projects/g/Urbarium/urbarium-admin-react/context:javascript)
 [![CircleCI](https://circleci.com/gh/Urbarium/urbarium-admin-react.svg?style=shield)](https://circleci.com/gh/Urbarium/urbarium-admin-react)
 [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/emmamm05/urbarium)
+[![Snyk Vulnerabilities](https://img.shields.io/snyk/vulnerabilities/github/Urbarium/urbarium-admin-react)](https://snyk.io/test/github/Urbarium/urbarium-admin-react)
 
 This is an internal app for Urbarium.org, useful for managing bonos and a very simple user management. It is a React app which includes some Atlaskit components, built on top of [create-react-app](https://github.com/facebookincubator/create-react-app).
 

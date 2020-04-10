@@ -13,7 +13,7 @@ export const UserIsAuthenticated = connectedRouterRedirect({
   authenticatingSelector: ({ firebase: { auth, profile, isInitializing } }) => (
     !auth.isLoaded || isInitializing === true),
   authenticatedSelector: ({ firebase: { auth } }) => auth.isLoaded && !auth.isEmpty,
-  redirectAction: newLoc => (dispatch) => {
+  redirectAction: (newLoc) => (dispatch) => {
     // eslint-disable-next-line
     browserHistory.replace(newLoc)
     dispatch({ type: 'UNAUTHED_REDIRECT' });
@@ -30,7 +30,7 @@ export const UserIsNotAuthenticated = connectedRouterRedirect({
   redirectPath: (state, ownProps) => '/',
   authenticatingSelector: ({ firebase: { auth, isInitializing } }) => !auth.isLoaded || isInitializing === true,
   authenticatedSelector: ({ firebase: { auth } }) => auth.isLoaded && auth.isEmpty,
-  redirectAction: newLoc => (dispatch) => {
+  redirectAction: (newLoc) => (dispatch) => {
     // eslint-disable-next-line
     browserHistory.replace(newLoc)
     dispatch({ type: 'UNAUTHED_REDIRECT' });
@@ -44,7 +44,7 @@ export const UserHasPermission = connectedRouterRedirect({
   redirectPath: (state, ownProps) => '/',
   authenticatingSelector: ({ firebase: { auth, isInitializing } }) => !auth.isLoaded || isInitializing === true,
   authenticatedSelector: ({ firebase: { auth } }) => auth.isLoaded && auth.isEmpty,
-  redirectAction: newLoc => (dispatch) => {
+  redirectAction: (newLoc) => (dispatch) => {
     // eslint-disable-next-line
     browserHistory.replace(newLoc)
     dispatch({ type: 'UNAUTHED_REDIRECT' });

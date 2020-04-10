@@ -2,11 +2,11 @@ export const copyReplaceObject = (obj, names, value) => {
   if (Array.isArray(names)) {
     if (names.length > 1) {
       const name = names.shift();
-      return Object.assign({}, obj, { [name]: copyReplaceObject(obj[name], names, value) });
+      return { ...obj, [name]: copyReplaceObject(obj[name], names, value) };
     }
-    return Object.assign({}, obj, { [names[0]]: value });
+    return { ...obj, [names[0]]: value };
   }
-  return Object.assign({}, obj, { [names]: value });
+  return { ...obj, [names]: value };
 };
 
 

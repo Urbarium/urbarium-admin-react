@@ -16,7 +16,7 @@ class Form extends React.Component {
   render() {
     const { children, id } = this.props;
     return (
-      <form id={`${id}-form`} onSubmit={event => this.handleSubmit(event)}>
+      <form id={`${id}-form`} onSubmit={(event) => this.handleSubmit(event)}>
         {children}
         <HiddenButton type="submit" id={id} />
       </form>
@@ -31,4 +31,4 @@ Form.defaultProps = {
 
 export default Form;
 // eslint-disable-next-line no-undef
-export const submitForm = id => () => (id ? document.querySelector(`#${id}`).click() : null);
+export const submitForm = (id) => () => (id ? document.querySelector(`#${id}`).click() : null);

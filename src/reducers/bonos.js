@@ -111,23 +111,49 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
   case 'BONO_START':
-    return Object.assign({}, initialState, { isCreating: true });
+    return {
+      ...initialState,
+      isCreating: true,
+    };
   case 'BONO_CANCELED':
-    return Object.assign({}, state, { isCreating: false });
+    return {
+      ...state,
+      isCreating: false,
+    };
   case 'ADD_BONO':
-    return Object.assign({}, state, { isFetching: true });
+    return {
+      ...state,
+      isFetching: true,
+    };
   case 'ADD_BONO_START':
-    return Object.assign({}, state, { isFetching: true });
+    return {
+      ...state,
+      isFetching: true,
+    };
   case 'ADD_BONO_COMPLETE':
-    return Object.assign({}, state, {
-      isFetching: false, isCompleted: true, isCreating: false, currentBono: action.payload, newBono: null,
-    });
+    return {
+      ...state,
+      isFetching: false,
+      isCompleted: true,
+      isCreating: false,
+      currentBono: action.payload,
+      newBono: null,
+    };
   case 'ADD_BONO_FAIL':
-    return Object.assign({}, state, {
-      isFetching: false, isFailure: true, log: { severity: 'error', msg: action.error },
-    });
+    return {
+      ...state,
+      isFetching: false,
+      isFailure: true,
+      log: {
+        severity: 'error',
+        msg: action.error,
+      },
+    };
   case 'ADD_BONO_UPDATE_PAYLOAD':
-    return Object.assign({}, state, { newBono: action.payload });
+    return {
+      ...state,
+      newBono: action.payload,
+    };
 
   case 'UPDATE_BONO_FIELD': {
     const namesArray = ['currentBono', ...action.payload.field.split('-')];
@@ -139,13 +165,13 @@ export default (state = initialState, action) => {
     const newBeneficiarios = copy(
       state.currentBono.beneficiarios,
       action.payload.index,
-      Object.assign({}, initialState.currentBono.beneficiarios['1']),
+      { ...initialState.currentBono.beneficiarios['1'] },
     );
     return copy(state, ['currentBono', 'beneficiarios'], newBeneficiarios);
   }
 
   case 'REMOVE_BENEFICIARIO': {
-    const newBeneficiarios = Object.assign({}, state.currentBono.beneficiarios);
+    const newBeneficiarios = { ...state.currentBono.beneficiarios };
     delete newBeneficiarios[action.payload.index];
     return copy(state, ['currentBono', 'beneficiarios'], newBeneficiarios);
   }

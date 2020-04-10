@@ -1,5 +1,5 @@
-import { navs, actionProductNavSet } from './navigationActions';
 import { accessRecursively } from 'helpers/functions';
+import { navs, actionProductNavSet } from './navigationActions';
 
 export function actionBonoStart() {
   return { type: 'BONO_START' };
@@ -26,8 +26,8 @@ export function actionAddBonoFail(error) {
 }
 
 export const actionAddBono = (payload, firestore, history) => (dispatch) => {
-  dispatch(actionAddBonoBuild(payload, firestore));
-  dispatch(actionAddBonoStart(payload, firestore));
+  dispatch(actionAddBonoBuild(payload));
+  dispatch(actionAddBonoStart(payload));
   firestore.add({ collection: 'bonos' }, payload)
     .then((result) => {
       const bono = { ...payload, id: result.id };
@@ -53,7 +53,7 @@ export function actionRemoveBeneficiario(payload) {
 
 // every input uses the same map so defined here for convenience
 export function mapDispatchToPropsForInputs(dispatch) {
-  return { updateField: payload => dispatch(actionUpdateBonoField(payload)) };
+  return { updateField: (payload) => dispatch(actionUpdateBonoField(payload)) };
 }
 
 export function mapStateToPropsForInputs(state, ownProps) {

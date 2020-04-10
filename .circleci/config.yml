@@ -1,62 +1,87 @@
 defaults: &defaults
-  #working_directory: ./circleci
+  working_directory: ~/urbarium-admin-react
+  environment:
+    SKIP_PREFLIGHT_CHECK: "true"
+    CI: "true"
+    TERM: xterm
   docker:
-    - image: circleci/node:8
-version: 2
+    - image: cypress/base:12.16.1
 jobs:
   prepare:
     <<: *defaults
     steps:
       - checkout
-      - attach_workspace:
-          at: .
       - restore_cache:
-          name: Restore Yarn Package Cache
           keys:
-            - yarn-packages-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          - deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
       - run:
-          name: Install Dependencies
-          command: yarn install --frozen-lockfile
+          command: npm ci
       - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          key: deps-{{ .Branch }}-{{ checksum "package-lock.json" }}
           paths:
-            - node_modules/
+            - ~/.npm
+            - ~/.cache
       - persist_to_workspace:
-          root: .
-          paths: .
-  build:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: yarn build
-      - persist_to_workspace:
-          root: .
+          root: ~/
           paths:
-            - build
-  test:
-    <<: *defaults
-    steps:
-      - checkout
-      - attach_workspace:
-          at: .
-      - run: yarn test
+            - .cache
+            - urbarium-admin-react
   lint:
     <<: *defaults
     steps:
-      - checkout
       - attach_workspace:
-          at: .
-      - run: yarn lint
-  chromatic:
+          at: ~/
+      - run: npm run lint
+  test:
     <<: *defaults
     steps:
-      - checkout
       - attach_workspace:
-          at: .
-      - run: yarn chromatic
+          at: ~/
+      - run: npm test
+  build:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npm run build
+      - persist_to_workspace:
+          root: ~/
+          paths:
+            - .cache
+            - urbarium-admin-react/
+  cypress:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: |
+          retry() { while ! $@ ; do ((--TIMES))||exit;sleep 10;done; }
+          cypress() { (npm run cypress -- --record --key $CYPRESS_KEY); }
+          npm run serve &
+          sleep 5
+          TIMES=3 retry cypress
+  deploy-preview:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npm run deploy -- --debug -c -t $ZEIT_TOKEN
+  deploy-prod:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: npm run deploy -- --prod --debug -c -t $ZEIT_TOKEN
+  cypress-prod:
+    <<: *defaults
+    steps:
+      - attach_workspace:
+          at: ~/
+      - run: |
+          retry() { while ! $@ ; do ((--TIMES))||exit;sleep 10;done; }
+          cypress() { (CYPRESS_BASE_URL="${PROD_HOST}" npm run cypress --  --record --key $CYPRESS_KEY); }
+          sleep 30
+          TIMES=2 retry cypress
 workflows:
   version: 2
   tests:
@@ -65,12 +90,31 @@ workflows:
       - lint:
           requires:
             - prepare
+      - test:
+          requires:
+            - prepare
       - build:
           requires:
             - lint
-      - test:
+            - test
+      - cypress:
           requires:
             - build
-      # - chromatic:
-      #     requires:
-      #       - build
+      - deploy-preview:
+          requires:
+            - cypress
+      - deploy-prod:
+          requires:
+            - cypress
+          filters:
+            branches:
+              only: master
+      - cypress-prod:
+          requires:
+            - deploy-prod
+          filters:
+            branches:
+              only: master
+orbs:
+  snyk: snyk/snyk@0.0.10
+version: 2.1

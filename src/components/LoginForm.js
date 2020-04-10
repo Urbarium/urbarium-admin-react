@@ -12,7 +12,10 @@ const enhance = connect(
 );
 
 class LoginForm extends Component {
-  state = { message: { type: 'none' } };
+  constructor(props) {
+    super(props);
+    this.state = { message: { type: 'none' } };
+  }
 
   login(credentials) {
     const { firebase } = this.props;
@@ -35,7 +38,7 @@ class LoginForm extends Component {
     }
 
     return (
-      <Form onSubmit={credentials => this.login(credentials)}>
+      <Form onSubmit={(credentials) => this.login(credentials)}>
         {({ formProps }) => (
           <form {...formProps} style={{ minWidth: 300 }}>
             {action}
