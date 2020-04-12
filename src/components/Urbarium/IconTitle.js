@@ -4,8 +4,8 @@ import PersonIcon from '@atlaskit/icon/glyph/invite-team';
 import PhoneIcon from '@atlaskit/icon/glyph/hipchat/dial-out';
 import MapIcon from '@atlaskit/icon/glyph/location';
 import CalendarIcon from '@atlaskit/icon/glyph/calendar';
-import Label from './Label';
 import { Row } from 'components/Structural/index';
+import Label from './Label';
 import { IconTitleStyle as style } from './urbarium-styles';
 
 
@@ -31,8 +31,7 @@ export default ({ icon, children }) => {
     <Row gap={10} justify="start" align="center">
       {Icon
         ? <Icon primaryColor={style.icon.color} size={style.icon.size} />
-        : null
-      }
+        : null}
       <TitleLabel>{children}</TitleLabel>
     </Row>
   );

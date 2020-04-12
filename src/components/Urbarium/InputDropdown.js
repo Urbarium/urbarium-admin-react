@@ -16,7 +16,7 @@ const StyledInput = styled(InputField)`
   }
 `;
 
-const DropDown = props => <StyledInput as="select" {...props} />;
+const DropDown = (props) => <StyledInput as="select" {...props} />;
 
 const ArrowContainer = styled.div`
     width: 0px;
@@ -26,8 +26,8 @@ const ArrowContainer = styled.div`
     left: 215px;
  `;
 
-const getOptions = options => (
-  options.map(option => <option value={option.value} key={option.value}>{option.name}</option>)
+const getOptions = (options) => (
+  options.map((option) => <option value={option.value} key={option.value}>{option.name}</option>)
 );
 
 class InputDropdown extends React.Component {
@@ -49,7 +49,7 @@ class InputDropdown extends React.Component {
     const { value } = event.target;
     this.triggerUpdate(value);
     if (changeHandler) {
-      const selectedIndex = options.findIndex(element => element.value === value);
+      const selectedIndex = options.findIndex((element) => element.value === value);
       changeHandler(selectedIndex);
     }
   }

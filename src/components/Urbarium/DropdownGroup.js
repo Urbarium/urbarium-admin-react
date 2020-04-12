@@ -1,6 +1,6 @@
 import React from 'react';
-import { ConnectedLabeledInput as Input } from './LabeledInput';
 import { Row } from 'components/Structural/index';
+import { ConnectedLabeledInput as Input } from './LabeledInput';
 
 class DDG extends React.Component {
   constructor(props) {
@@ -39,7 +39,7 @@ class DDG extends React.Component {
         name={names[dropdownIndex]}
         options={options[dropdownIndex]}
         disabled={disables[dropdownIndex]}
-        changeHandler={optionIndex => this.handleChange(dropdownIndex, optionIndex)}
+        changeHandler={(optionIndex) => this.handleChange(dropdownIndex, optionIndex)}
         data={data[dropdownIndex]}
       />
     ));

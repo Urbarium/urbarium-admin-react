@@ -61,7 +61,7 @@ const ProjectInfoHeader = ({ casoId, status }) => (
       </Col>
       <Col>
         <TextBono>
-            BONO
+          BONO
         </TextBono>
       </Col>
     </Row>

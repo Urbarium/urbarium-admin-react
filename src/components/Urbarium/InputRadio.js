@@ -13,25 +13,25 @@ const Radio = styled.div`
     display: inline-block;
     margin: 0px 5px;
     transition: transform 0.1s ease-in-out, border-color 0.1s ease-in-out;
-    min-width: ${props => props.size}px;
-    max-width: ${props => props.size}px;
-    min-height: ${props => props.size}px;
-    max-height: ${props => props.size}px;
+    min-width: ${(props) => props.size}px;
+    max-width: ${(props) => props.size}px;
+    min-height: ${(props) => props.size}px;
+    max-height: ${(props) => props.size}px;
     border-radius: 50%;
     position: relative;
-    border: ${props => `${props.size * 0.05}px ${props.boxColor}`} solid;
+    border: ${(props) => `${props.size * 0.05}px ${props.boxColor}`} solid;
 
     ::before {
         content: "";
         position: absolute;
         opacity: 0;
-        width: ${props => props.size * 0.75}px;
-        height: ${props => props.size * 0.75}px;
+        width: ${(props) => props.size * 0.75}px;
+        height: ${(props) => props.size * 0.75}px;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        background-color: ${props => props.checkColor};
+        background-color: ${(props) => props.checkColor};
     }
 `;
 
@@ -96,7 +96,7 @@ class InputRadio extends React.Component {
     const { value } = this.state;
     return (
       <FlexGrid grid={grid}>
-        {options.map(option => (
+        {options.map((option) => (
           <RadioOption
             groupRight={right}
             optionValue={option.value}
@@ -104,8 +104,7 @@ class InputRadio extends React.Component {
             checked={value === option.value}
             onMouseUp={() => this.handleClick(option.value)}
           />
-        ))
-        }
+        ))}
       </FlexGrid>
     );
   }

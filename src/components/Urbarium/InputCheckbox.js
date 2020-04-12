@@ -19,37 +19,37 @@ const Check = styled.div`
   right: 50%;
   width: 0px;
   height: 0px;
-  background-color: ${props => props.color};
+  background-color: ${(props) => props.color};
   ::before {
       content: "";
       position: absolute;
-      width: ${props => props.size * 0.9333}px;
-      height: ${props => props.size * 0.1333}px;
-      border-radius: ${props => props.size * 0.0667}px;
+      width: ${(props) => props.size * 0.9333}px;
+      height: ${(props) => props.size * 0.1333}px;
+      border-radius: ${(props) => props.size * 0.0667}px;
       background-color: inherit;
       transform: translate(-40%, -35%) rotate(-50deg);
   }
   ::after {
       content: "";
       position: absolute;
-      width: ${props => props.size * 0.4}px;
-      height: ${props => props.size * 0.1333}px;
-      border-radius: ${props => props.size * 0.0667}px;
+      width: ${(props) => props.size * 0.4}px;
+      height: ${(props) => props.size * 0.1333}px;
+      border-radius: ${(props) => props.size * 0.0667}px;
       background-color: inherit;
       transform: translate(-115%, 130%) rotate(40deg);
   }
 `;
 
 const Box = styled.div`
-  margin-${props => (props.right ? 'left' : 'right')}: 5px;
+  margin-${(props) => (props.right ? 'left' : 'right')}: 5px;
   display: inline-block;
   transition: transform 0.1s ease-in-out, border-color 0.1s ease-in-out;
-  min-width: ${props => props.size * 1}px;
-  max-width: ${props => props.size * 1}px;
-  min-height: ${props => props.size * 1}px;
-  max-height: ${props => props.size * 1}px;
-  border: ${props => props.size * 0.0667}px ${props => props.color} solid;
-  border-radius: ${props => props.size * 0.133}px;
+  min-width: ${(props) => props.size * 1}px;
+  max-width: ${(props) => props.size * 1}px;
+  min-height: ${(props) => props.size * 1}px;
+  max-height: ${(props) => props.size * 1}px;
+  border: ${(props) => props.size * 0.0667}px ${(props) => props.color} solid;
+  border-radius: ${(props) => props.size * 0.133}px;
   position: relative;
 `;
 
@@ -133,15 +133,14 @@ const InputCheckbox = ({
   options, grid, right, name, connected,
 }) => (
   <FlexGrid grid={grid}>
-    {options.map(option => (
+    {options.map((option) => (
       <Option
         value={name === 'unnamed_checkbox_group' ? option.value : `${name}-${option.value}`}
         name={option.name}
         right={right}
         connected={connected}
       />
-    ))
-    }
+    ))}
   </FlexGrid>
 );
 
@@ -152,5 +151,5 @@ InputCheckbox.defaultProps = {
   right: false,
 };
 
-const ConnectedInputCheckbox = props => <InputCheckbox {...props} connected />;
+const ConnectedInputCheckbox = (props) => <InputCheckbox {...props} connected />;
 export { InputCheckbox as default, ConnectedInputCheckbox };

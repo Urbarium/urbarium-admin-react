@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import {
   GlobalNav,
   modeGenerator,
@@ -46,11 +46,11 @@ class GlobalNavigation extends Component {
   }
 
   toggleSearch = () => {
-    this.setState(state => ({ isSearchDrawerOpen: !state.isSearchDrawerOpen }));
+    this.setState((state) => ({ isSearchDrawerOpen: !state.isSearchDrawerOpen }));
   };
 
   toggleProfile = () => {
-    this.setState(state => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
+    this.setState((state) => ({ isProfileDrawerOpen: !state.isProfileDrawerOpen }));
   };
 
   toggle = (viewController, id) => {
@@ -73,10 +73,10 @@ class GlobalNavigation extends Component {
     const { firebase, profile } = this.props;
     const { isSearchDrawerOpen, isProfileDrawerOpen } = this.state;
     return (
-      <Fragment>
-        <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
+      <>
+        <ThemeProvider theme={(theme) => ({ ...theme, mode: customThemeMode })}>
           <ViewControllerSubscriber>
-            {viewController => (
+            {(viewController) => (
               <GlobalNav
                 primaryItems={globalNavPrimaryItems({
                   onDashboardClick: this.goHome,
@@ -90,8 +90,7 @@ class GlobalNavigation extends Component {
                   profile,
                 })}
               />
-            )
-            }
+            )}
           </ViewControllerSubscriber>
         </ThemeProvider>
         <Drawer onClose={this.toggleSearch} isOpen={isSearchDrawerOpen}>
@@ -101,12 +100,12 @@ class GlobalNavigation extends Component {
           <ProfileFragment />
         </Drawer>
         <CrearBonoPage width="large" />
-      </Fragment>
+      </>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch) => ({
   openCreateBonoModal: () => dispatch(actionBonoStart()),
 });
 

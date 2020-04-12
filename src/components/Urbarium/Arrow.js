@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { primary } from 'config/colors';
 
 const Arrow = styled.div`
-    background-color: ${props => props.color};
+    background-color: ${(props) => props.color};
     width: 0px;
     height: 0px;
     position: relative;
@@ -13,9 +13,9 @@ const Arrow = styled.div`
     ::after{
         position: absolute;
         content: "";
-        width: ${props => props.width}px;
-        height: ${props => props.height}px;
-        border-radius: ${props => props.height / 2}px;
+        width: ${(props) => props.width}px;
+        height: ${(props) => props.height}px;
+        border-radius: ${(props) => props.height / 2}px;
         top: 50%;
         left: 50%;
         background-color: inherit;
@@ -25,9 +25,9 @@ const Arrow = styled.div`
     ::before{
         position: absolute;
         content: "";
-        width: ${props => props.width}px;
-        height: ${props => props.height}px;
-        border-radius: ${props => props.height / 2}px;
+        width: ${(props) => props.width}px;
+        height: ${(props) => props.height}px;
+        border-radius: ${(props) => props.height / 2}px;
         top: 50%;
         right: 50%;
         background-color: inherit;

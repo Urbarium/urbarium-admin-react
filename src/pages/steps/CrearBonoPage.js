@@ -32,7 +32,7 @@ const formID = "crear-bono-form";
 
 // eslint-disable-next-line react/prefer-stateless-function
 class CrearBonoPage extends Component {
-  modalCreateBonoActions = close => [
+  modalCreateBonoActions = (close) => [
     {
       text: 'Crear', onClick: submitForm(formID),
     },
@@ -101,7 +101,7 @@ function mapStateToProps(state) {
 }
 
 const mapDispatchToProps = (dispatch, { firestore, history }) => ({
-  addBono: payload => dispatch(actionAddBono(payload, firestore, history)),
+  addBono: (payload) => dispatch(actionAddBono(payload, firestore, history)),
   close: () => dispatch(actionBonoCanceled()),
 });
 

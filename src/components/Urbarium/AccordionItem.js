@@ -1,9 +1,9 @@
 import React from 'react';
 import styled, { ThemeProvider } from 'styled-components';
+import { Row } from 'components/Structural/index';
 import Label from './Label';
 import Arrow from './ButtonArrow';
 import { ConnectedInputState as State } from './InputState';
-import { Row } from 'components/Structural/index';
 import { FrameStyle as style, colors } from './urbarium-styles';
 
 const contentTheme = {
@@ -27,9 +27,9 @@ const indexTheme = {
   label_color: colors.primary,
 };
 
-const titleTheme = Object.assign({}, indexTheme, { label_color: '#354052' });
+const titleTheme = { ...indexTheme, label_color: '#354052' };
 
-const masmenosTheme = Object.assign({}, headerTheme, { label_color: '#0077FF' });
+const masmenosTheme = { ...headerTheme, label_color: '#0077FF' };
 
 
 const AccordionFrame = styled.div`
@@ -47,7 +47,7 @@ const Flex = styled.div`
 
 const AccordionContent = styled.div`    
     display: grid;
-    grid-template-columns: ${props => props.columns};
+    grid-template-columns: ${(props) => props.columns};
     overflow: hidden;
     max-height: 0px;
     //transition: max-height 0.5s ease;
@@ -74,7 +74,7 @@ class AccordionItem extends React.Component {
   }
 
   handleClick() {
-    this.setState(prev => ({ opened: !prev.opened }));
+    this.setState((prev) => ({ opened: !prev.opened }));
   }
 
   render() {
@@ -101,8 +101,7 @@ class AccordionItem extends React.Component {
                 <Arrow onClick={() => this.handleClick()} />
               </Row>
             )
-            : null
-          }
+            : null}
         </Row>
 
         <ThemeProvider theme={contentTheme}>

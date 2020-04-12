@@ -37,7 +37,7 @@ class ButtonArrow extends React.Component {
   // Button needs a data-attribute so css can read it and execute the animation
   render() {
     const { animate, color } = this.state;
-    const state = Object.assign({}, this.state);
+    const state = { ...this.state };
     return (
       <Button
         data-animate={animate}

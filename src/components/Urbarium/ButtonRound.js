@@ -19,6 +19,6 @@ const Button = styled.button`
   }
 `;
 
-const RoundButton = props => <Button {...props} />;
+const RoundButton = (props) => <Button {...props} />;
 
 export default RoundButton;

@@ -15,9 +15,6 @@ import {
 import { connect } from 'react-redux';
 
 // Subcomponents
-import GlobalNavigation from './components/GlobalNavigation';
-import LinkItem from './components/LinkItem';
-import ProjectInfoHeader from './components/ProjectInfoHeader';
 
 // Pages
 import HomePage from 'pages/HomePage';
@@ -29,6 +26,9 @@ import CasoDeBonoPage from 'pages/steps/HousingBonusPage';
 import TramitesPage from 'pages/steps/TramitesPage';
 import ConstruccionTramitesPage from 'pages/steps/ConstructionPage';
 import DesembolsoPage from 'pages/steps/DisbursementPage';
+import ProjectInfoHeader from './components/ProjectInfoHeader';
+import LinkItem from './components/LinkItem';
+import GlobalNavigation from './components/GlobalNavigation';
 
 // Menus
 import bonoFormNavItems from './menus/bonoFormNavItems';
@@ -104,7 +104,7 @@ const customThemeMode = modeGenerator({
 
 const ThemedNavigationProvider = () => (
   <NavigationProvider>
-    <ThemeProvider theme={theme => ({ ...theme, mode: customThemeMode })}>
+    <ThemeProvider theme={(theme) => ({ ...theme, mode: customThemeMode })}>
       <AppWithNavigationControllers />
     </ThemeProvider>
   </NavigationProvider>

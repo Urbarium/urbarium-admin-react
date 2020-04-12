@@ -3,13 +3,13 @@ import Accordion from 'components/Urbarium/AccordionItem';
 import { ConnectedLabeledInput as Input } from 'components/Urbarium/LabeledInput';
 import { Column, Row } from 'components/Structural';
 import Form from 'components/Form';
-import { SolicitudPlanoPresupuestoOptions } from './options';
 import {
   PageWrapper,
   BonoHeader,
   PageContent,
   BonoFooter,
 } from 'components/PageWrapper';
+import { SolicitudPlanoPresupuestoOptions } from './options';
 
 
 const formID = 'contruccion-tramites-page-form';

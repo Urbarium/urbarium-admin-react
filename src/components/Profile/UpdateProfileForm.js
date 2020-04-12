@@ -30,7 +30,7 @@ class UpdateProfileForm extends Component {
     const { updating } = this.state;
 
     return (
-      <Form onSubmit={data => this.onSubmit(data)}>
+      <Form onSubmit={(data) => this.onSubmit(data)}>
         {({ formProps }) => (
           <form {...formProps}>
             <Field name="email" defaultValue={profile.email || ''} label="Email">

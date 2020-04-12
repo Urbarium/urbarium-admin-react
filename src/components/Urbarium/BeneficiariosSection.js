@@ -2,10 +2,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { actionAddBeneficiario, actionRemoveBeneficiario } from 'actions/bonoActions';
+import { Row, Column } from 'components/Structural/index';
 import { ConnectedLabeledInput as Input } from './LabeledInput';
 import Button from './ButtonText';
 import IconTitle from './IconTitle';
-import { Row, Column } from 'components/Structural/index';
 
 // Single beneficiaro definition
 const Beneficiario = ({ index }) => (
@@ -42,11 +42,11 @@ const Beneficiario = ({ index }) => (
   </Column>
 );
 
-const getBeneficiarios = count => [...Array(count).keys()].map(index => <Beneficiario index={index + 1} />);
+const getBeneficiarios = (count) => [...Array(count).keys()].map((index) => <Beneficiario index={index + 1} />);
 
-const mapDispathToProps = dispatch => ({
-  addBeneficiario: payload => dispatch(actionAddBeneficiario(payload)),
-  removeBeneficiario: payload => dispatch(actionRemoveBeneficiario(payload)),
+const mapDispathToProps = (dispatch) => ({
+  addBeneficiario: (payload) => dispatch(actionAddBeneficiario(payload)),
+  removeBeneficiario: (payload) => dispatch(actionRemoveBeneficiario(payload)),
 });
 
 class BeneficiariosSection extends React.Component {

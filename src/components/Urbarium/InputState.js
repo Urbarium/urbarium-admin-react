@@ -24,7 +24,7 @@ const StateInputWrapper = styled.div`
   position: relative;
 `;
 
-const DropDown = props => <StyledInput as="select" {...props} />;
+const DropDown = (props) => <StyledInput as="select" {...props} />;
 
 const StateThemes = {
   gray: { input_color: '#0077FF', input_backgroundColor: '#EBEDF8' },
@@ -45,14 +45,14 @@ class InputState extends React.Component {
   constructor(props) {
     super(props);
     const { options, data } = props;
-    this.TaggedOptions = options.map(option => <option value={option.value} key={option.value}>{option.name}</option>);
+    this.TaggedOptions = options.map((option) => <option value={option.value} key={option.value}>{option.name}</option>);
     const initialTheme = data ? this.getTheme(data) : this.getTheme(options[0].value);
     this.state = { theme: StateThemes[initialTheme] };
   }
 
   getTheme(value) {
     const { options } = this.props;
-    return options.find(option => option.value === value).style;
+    return options.find((option) => option.value === value).style;
   }
 
   handleChange(event) {
@@ -73,7 +73,7 @@ class InputState extends React.Component {
           name={name}
           defaultValue={data}
           theme={theme}
-          onChange={event => this.handleChange(event)}
+          onChange={(event) => this.handleChange(event)}
         >
           {this.TaggedOptions}
         </DropDown>

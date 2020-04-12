@@ -1,6 +1,6 @@
 import React from 'react';
-import Label from './Label';
 import { Row, Column } from 'components/Structural/index';
+import Label from './Label';
 import { colors } from './urbarium-styles';
 
 const titleTheme = {
@@ -44,7 +44,7 @@ export default ({
         <Label theme={titleTheme}>{`${nombre}-${cedula}`}</Label>
         <Label theme={numberTheme}>{`#${numero}`}</Label>
       </Column>
-      
+
       <Row justify="end" gap={50}>
         {HeaderNames.map((name, index) => (
           <Column justify="end">

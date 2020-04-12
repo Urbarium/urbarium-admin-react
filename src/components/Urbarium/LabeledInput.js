@@ -1,4 +1,5 @@
 import React from 'react';
+import { Column } from 'components/Structural/index';
 import Label from './Label';
 import IconTitle from './IconTitle';
 import InputTextBox, { ConnectedInputTextBox } from './InputTextBox';
@@ -6,7 +7,6 @@ import InputDropdown, { ConnectedInputDropdown } from './InputDropdown';
 import InputTextArea, { ConnectedInputTextArea } from './InputTextArea';
 import InputCheckbox, { ConnectedInputCheckbox } from './InputCheckbox';
 import InputRadio, { ConnectedInputRadio } from './InputRadio';
-import { Column } from 'components/Structural/index';
 
 const getInput = (connected, type, props) => {
   if (connected) {
@@ -50,6 +50,6 @@ const LabeledInput = ({
   </Column>
 );
 
-const ConnectedLabeledInput = props => <LabeledInput {...props} connected />;
+const ConnectedLabeledInput = (props) => <LabeledInput {...props} connected />;
 
 export { LabeledInput as default, ConnectedLabeledInput };

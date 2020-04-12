@@ -13,8 +13,8 @@ const getHeight = (props) => {
 };
 
 const TextArea = styled(InputField)`
-  width: ${props => (props.fill ? ' 100%' : style.width)};
-  height: ${props => getHeight(props)};
+  width: ${(props) => (props.fill ? ' 100%' : style.width)};
+  height: ${(props) => getHeight(props)};
   padding-top: 10px;
   margin: 0px;
   resize: none;
