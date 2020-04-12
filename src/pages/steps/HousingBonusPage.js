@@ -13,7 +13,7 @@ import {
   Modalidad,
   Caracteristica,
   EntidadesBancarias,
-} from './options';
+} from 'pages/steps/options';
 
 const formID = 'caso-de-bono-page-form';
 

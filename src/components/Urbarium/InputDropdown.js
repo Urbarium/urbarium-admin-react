@@ -8,7 +8,7 @@ import { colors, InputField } from './urbarium-styles';
 const StyledInput = styled(InputField)`
   appearance: none;
 
-  &[data-default=true] { 
+  &[data-default=true] {
       color: ${colors.passive};
   }
   option {
@@ -37,6 +37,7 @@ class InputDropdown extends React.Component {
   }
 
   // dropdown group can change props of individual dropdowns bypassing the onChange event
+  // eslint-disable-next-line react/no-deprecated
   componentWillReceiveProps(nextProps) {
     const { disabled, options } = this.props;
     if (nextProps.disabled !== disabled || nextProps.options[0] !== options[0]) {

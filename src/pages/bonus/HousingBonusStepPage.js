@@ -1,5 +1,5 @@
 import React from 'react';
-import { ConnectedLabeledInput as Input } from 'components/LabeledInput';
+import { ConnectedLabeledInput as Input } from 'components/Urbarium/LabeledInput';
 import { Column } from 'components/Structural';
 import Form from 'components/Form';
 import {
@@ -13,7 +13,7 @@ import {
   Modalidad,
   Caracteristica,
   EntidadesBancarias,
-} from './options';
+} from 'pages/steps/options';
 
 const formID = 'caso-de-bono-page-form';
 

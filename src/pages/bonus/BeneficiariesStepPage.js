@@ -1,9 +1,9 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
-import BeneficiariesSection from 'components/BeneficiariosSection';
-import { ConnectedLabeledInput as Input } from 'components/LabeledInput';
-import DropdownGroup from 'components/DropdownGroup';
-import IconTitle from 'components/IconTitle';
+import BeneficiariesSection from 'components/Urbarium/BeneficiariosSection';
+import { ConnectedLabeledInput as Input } from 'components/Urbarium/LabeledInput';
+import DropdownGroup from 'components/Urbarium/DropdownGroup';
+import IconTitle from 'components/Urbarium/IconTitle';
 import { Row, Column } from 'components/Structural';
 import Form from 'components/Form';
 import {
