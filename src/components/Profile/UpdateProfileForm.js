@@ -9,8 +9,11 @@ import MoveToTheRight from 'components/MoveToTheRight';
 import ButtonWithLoading from 'components/ButtonWithLoading';
 
 class UpdateProfileForm extends Component {
-  state = {
-    updating: false,
+  constructor(props) {
+    super(props);
+    this.state = {
+      updating: false,
+    };
   }
 
   onSubmit = (data) => {

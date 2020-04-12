@@ -45,7 +45,9 @@ class InputState extends React.Component {
   constructor(props) {
     super(props);
     const { options, data } = props;
-    this.TaggedOptions = options.map((option) => <option value={option.value} key={option.value}>{option.name}</option>);
+    this.TaggedOptions = options.map(
+      (option) => <option value={option.value} key={option.value}>{option.name}</option>,
+    );
     const initialTheme = data ? this.getTheme(data) : this.getTheme(options[0].value);
     this.state = { theme: StateThemes[initialTheme] };
   }
