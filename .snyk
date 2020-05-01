@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
+version: v1.14.1
 ignore: {}
 # patches apply the minimum changes required to fix a vulnerability
 patch:
@@ -14,3 +14,216 @@ patch:
         patched: '2019-08-16T07:45:17.072Z'
     - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
         patched: '2019-08-16T07:45:17.072Z'
+  SNYK-JS-LODASH-567746:
+    - lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - node-sass > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - react-redux-firebase > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - redux-firestore > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - node-sass > sass-graph > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > @snyk/dep-graph > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > snyk-config > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > snyk-mvn-plugin > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > snyk-nodejs-lockfile-parser > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > snyk-nuget-plugin > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - styled-components > @babel/traverse > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - styled-components > babel-plugin-styled-components > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-area > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-axis > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-bar > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-box-plot > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-brush-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-brush-line > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-candlestick > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-polar-axis > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-shared-events > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-chart > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-cursor-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-selection-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-tooltip > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-voronoi-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-zoom-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-errorbar > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-group > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-legend > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-line > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-pie > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-scatter > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-stack > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-voronoi > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - styled-components > @babel/traverse > @babel/generator > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - node-sass > gaze > globule > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > snyk-nodejs-lockfile-parser > graphlib > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > snyk-nuget-plugin > dotnet-deps-parser > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > snyk-php-plugin > @snyk/composer-lockfile-parser > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-area > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-axis > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-bar > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-box-plot > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-brush-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-brush-line > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-candlestick > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-polar-axis > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-shared-events > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-chart > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-cursor-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-selection-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-tooltip > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-voronoi-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-zoom-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-errorbar > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-group > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-legend > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-line > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-pie > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-scatter > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-stack > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-voronoi > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-chart > victory-axis > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-brush-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-chart > victory-polar-axis > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-chart > victory-shared-events > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-group > victory-shared-events > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-stack > victory-shared-events > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-cursor-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-selection-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-voronoi-container > victory-tooltip > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-voronoi-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-zoom-container > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - styled-components > babel-plugin-styled-components > @babel/helper-annotate-as-pure > @babel/types > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - styled-components > @babel/traverse > @babel/helper-split-export-declaration > @babel/types > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/ruby-semver > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-chart > victory-axis > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-brush-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-chart > victory-polar-axis > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-chart > victory-shared-events > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-group > victory-shared-events > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-stack > victory-shared-events > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-cursor-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-selection-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-voronoi-container > victory-tooltip > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-voronoi-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-zoom-container > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-voronoi-container > victory-tooltip > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - '@atlaskit/modal-dialog > @emotion/styled > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T00:26:25.670Z'
+    - styled-components > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - snyk > @snyk/snyk-cocoapods-plugin > @snyk/cocoapods-lockfile-parser > @snyk/dep-graph > graphlib > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - victory > victory-create-container > victory-voronoi-container > victory-tooltip > victory-core > lodash:
+        patched: '2020-05-01T00:26:25.670Z'
+    - '@atlaskit/textfield > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T00:26:25.670Z'
+    - '@atlaskit/navigation-next > @atlaskit/select > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T00:26:25.670Z'
+    - '@atlaskit/navigation-next > @atlaskit/select > react-select > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T00:26:25.670Z'
+    - '@atlaskit/navigation-next > @atlaskit/select > react-select > @emotion/core > @emotion/css > babel-plugin-emotion > @babel/helper-module-imports > @babel/types > lodash':
+        patched: '2020-05-01T00:26:25.670Z'
