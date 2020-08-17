@@ -42,7 +42,7 @@
     "dotenv": "^8.2.0",
     "firebase": "^7.14.0",
     "history": "^4.10.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.20",
     "logrocket": "^1.0.7",
     "logrocket-react": "^4.0.1",
     "math": "^0.0.3",
