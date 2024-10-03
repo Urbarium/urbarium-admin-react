@@ -37,7 +37,7 @@
     "@atlaskit/section-message": "^4.1.7",
     "@atlaskit/textfield": "^3.1.9",
     "@atlaskit/theme": "^9.5.2",
-    "@sentry/browser": "^5.15.4",
+    "@sentry/browser": "^8.33.1",
     "connected-react-router": "^6.8.0",
     "dotenv": "^8.2.0",
     "firebase": "^7.14.0",
